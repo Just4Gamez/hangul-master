@@ -39,7 +39,7 @@ body{
   .skrin{padding:12px 32px 28px}
 }
 
-/* Automatik Skrin Penuh 100% untuk SEMUA Telefon Pintar (termasuk jika Desktop Mode aktif) */
+/* Automatik Skrin Penuh 100% untuk SEMUA Telefon Pintar */
 @media(max-width:768px),(pointer:coarse) and (max-width:1024px){
   body{padding:0!important;background:var(--jg)}
   .telefon{
@@ -139,12 +139,8 @@ body{
   min-width:0;max-width:100%;overflow:hidden;
   transition:transform .12s,box-shadow .12s,background .15s;
 }
-.bab-btn > div{
-  min-width:0;flex:1;
-}
-.bab-btn > span:last-child{
-  flex-shrink:0;
-}
+.bab-btn > div{min-width:0;flex:1}
+.bab-btn > span:last-child{flex-shrink:0}
 .bab-btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--ck)}
 .bab-btn.aktif{background:var(--kn)}
 .bab-btn.penuh{grid-column:1 / -1}
@@ -198,7 +194,7 @@ body{
 }
 .stop-in{
   width:88px;height:88px;border-radius:50%;background:#fff;border:4px solid var(--ck);
-  display:flex;align-items:center;justify-content:center;font-family:'Lilita One',cursive;font-size:30px;color:var(--ck);
+  display:flex;align-items:center;justify-content:center;font-family:'Lilita One',cursive;font-size:26px;color:var(--ck);
 }
 .mik{
   width:92px;height:92px;border-radius:50%;background:var(--jg);border:4px solid var(--ck);
@@ -354,16 +350,19 @@ body{
   <!-- 4. LAMAN UTAMA (HOME) -->
   <section id="s-home" class="skrin bg-hijau">
     <div class="row">
-      <div class="pill"><span class="ms" style="color:var(--t1);font-size:19px">star</span><span id="hud-xp">1940</span></div>
+      <div class="pill"><span class="ms" style="color:var(--t1);font-size:19px">star</span><span id="hud-xp">0</span></div>
       <h2 class="jd1" style="font-size:23px" data-t="hari_ini">Hari Ini</h2>
-      <div class="pill"><span class="ms" style="color:var(--mr);font-size:19px">local_fire_department</span><span id="hud-streak">12</span></div>
+      <div class="pill"><span class="ms" style="color:var(--mr);font-size:19px">local_fire_department</span><span id="hud-streak">0</span></div>
     </div>
 
     <div class="kt kn" style="display:flex;align-items:center;justify-content:space-between;gap:10px">
       <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-start">
-        <div class="jd2" id="home-sapa">Hai Juara!</div>
+        <div class="jd2" id="home-sapa">Annyeong!</div>
         <p class="isi1" id="home-sub">Sambung kurikulum Hangul anda.</p>
-        <button class="tb sm hj" data-do="sambung-aktif"><span data-t="pilih">Sambung</span></button>
+        <div class="row-c" style="gap:8px;flex-wrap:wrap">
+          <button class="tb sm hj" data-do="sambung-aktif"><span data-t="pilih">Sambung</span></button>
+          <button class="tb sm pt" data-do="kuiz-bebas"><span>Kuiz 10 Soalan</span></button>
+        </div>
       </div>
       <div id="home-msk" class="apung"></div>
     </div>
@@ -390,7 +389,7 @@ body{
     <div class="bab-box">
       <div class="row">
         <span class="mn" style="color:var(--ck)">PILIH LEVEL / BAHAGIAN (TEKAN UNTUK TUKAR)</span>
-        <span class="pill kn" id="bab-kira" style="padding:2px 9px;font-size:11px;flex-shrink:0">1/8</span>
+        <span class="pill kn" id="bab-kira" style="padding:2px 9px;font-size:11px;flex-shrink:0">1/6</span>
       </div>
       <div class="bab-grid" id="bab-chips"></div>
     </div>
@@ -407,21 +406,24 @@ body{
       <div id="bab-senarai" style="display:flex;flex-direction:column;gap:8px;max-height:280px;overflow-y:auto;padding-right:2px"></div>
     </div>
 
-    <button class="tb lebar" data-do="mula-bab"><span data-t="mula_pelajaran">Mula Semua Dalam Bab Ini</span></button>
+    <div class="grid2">
+      <button class="tb hj" style="width:100%;font-size:16px" data-do="mula-bab"><span data-t="mula_pelajaran">Mula Kad Bab</span></button>
+      <button class="tb pt" style="width:100%;font-size:16px" data-do="mula-kuiz-bab"><span>Latihan Kuiz (10)</span></button>
+    </div>
   </section>
 
   <!-- 6. KAD KOSA KATA / NOTA -->
   <section id="s-kad" class="skrin bg-biru">
     <div class="row">
       <button class="rb pt" data-go="laluan" aria-label="Tutup"><span class="ms">close</span></button>
-      <div class="jam1" style="font-size:32px" id="kad-kira">1/30</div>
+      <div class="jam1" style="font-size:32px" id="kad-kira">1/20</div>
       <button class="rb" data-do="bunyi-kad" aria-label="Dengar Audio"><span class="ms">volume_up</span></button>
     </div>
 
     <div class="kt" style="display:flex;flex-direction:column;gap:12px;flex:1;justify-content:space-between">
       <div class="row">
-        <span class="pill hj" id="kad-jenis">Kosa Kata</span>
-        <button class="tb sm pt" data-do="terus-kuiz" style="font-size:13px;min-height:34px;padding:4px 12px">Terus Kuiz</button>
+        <span class="pill hj" id="kad-jenis">Kategori Tematik</span>
+        <button class="tb sm pt" data-do="terus-kuiz" style="font-size:13px;min-height:34px;padding:4px 12px">Kuiz 10 Soalan</button>
       </div>
       <div style="text-align:center;margin:4px 0">
         <div class="kr-txt big1" id="kad-kr" style="font-size:44px">ㅏ</div>
@@ -430,11 +432,11 @@ body{
       <hr style="border:none;border-top:3px dashed #e3c79c">
       <div>
         <div class="mn" style="color:var(--ck2);text-transform:uppercase" data-t="maksud_bm">Maksud & Terjemahan</div>
-        <div class="jd2" style="font-size:24px;margin-top:2px" id="kad-arti">Bunyi 'a' seperti Ayam</div>
+        <div class="jd2" style="font-size:24px;margin-top:2px" id="kad-arti">Bunyi 'a'</div>
       </div>
       <div class="kt kr" style="padding:12px">
         <div class="mn" style="color:var(--ck2);margin-bottom:4px" data-t="nota_gurisan">Nota / Kategori / Formula</div>
-        <div class="isi1" style="white-space:pre-line" id="kad-nota">1. Garis tegak ke bawah</div>
+        <div class="isi1" style="white-space:pre-line" id="kad-nota">Nota</div>
       </div>
     </div>
 
@@ -445,15 +447,15 @@ body{
     </div>
   </section>
 
-  <!-- 7. KUIZ INTERAKTIF -->
+  <!-- 7. KUIZ INTERAKTIF (10 SOALAN BERUBAH-UBAH) -->
   <section id="s-kuiz" class="skrin bg-biru">
     <div class="row">
       <button class="rb pt" data-go="laluan" aria-label="Tutup"><span class="ms">close</span></button>
-      <h2 class="jd1" style="font-size:22px" id="kuiz-tajuk">Soalan 1/5</h2>
-      <div class="pill mr"><span class="ms" style="font-size:18px">favorite</span><span id="kuiz-nyawa">3</span></div>
+      <h2 class="jd1" style="font-size:22px" id="kuiz-tajuk">Soalan 1/10</h2>
+      <div class="pill mr"><span class="ms" style="font-size:18px">favorite</span><span id="kuiz-nyawa">5</span></div>
     </div>
 
-    <div class="stop"><div class="stop-in" id="kuiz-stop">1/5</div></div>
+    <div class="stop"><div class="stop-in" id="kuiz-stop">1/10</div></div>
 
     <div class="kt" style="display:flex;flex-direction:column;gap:10px">
       <div class="row">
@@ -467,12 +469,37 @@ body{
     <button class="tb hj lebar" id="btn-semak" disabled data-do="semak-kuiz"><span data-t="semak">Semak Jawapan</span></button>
   </section>
 
+  <!-- 7B. SKRIN TAMAT KUIZ (BOLEH ULANG SEMULA SOALAN BERUBAH) -->
+  <section id="s-tamat-kuiz" class="skrin bg-kuning" style="align-items:center;text-align:center;justify-content:space-between">
+    <div style="margin-top:14px;display:flex;flex-direction:column;align-items:center;gap:8px">
+      <div id="tamat-msk"></div>
+      <div class="logo1" style="font-size:44px">Selesai Kuiz!</div>
+      <p class="isi1">Latihan 10 soalan selesai. Tekan Ulang Kuiz untuk set soalan rawak baharu!</p>
+    </div>
+
+    <div class="grid2" style="width:100%">
+      <div class="kt" style="padding:14px">
+        <div class="mn" style="color:var(--ck2)">Markah Sesi</div>
+        <div class="jd2" style="color:var(--hj);font-size:26px" id="tamat-skor">0 / 10</div>
+      </div>
+      <div class="kt" style="background:var(--ck);color:#fff;padding:14px">
+        <div class="mn" style="opacity:.8">XP Sesi Ini</div>
+        <div class="jd2" style="color:var(--kn);font-size:26px" id="tamat-xp">+0 XP</div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px;width:100%">
+      <button class="tb hj lebar" data-do="ulang-kuiz"><span class="ms">refresh</span><span>Ulang Kuiz (Soalan Baharu)</span></button>
+      <button class="tb pt lebar" data-go="laluan"><span>Kembali ke Laluan</span></button>
+    </div>
+  </section>
+
   <!-- 8. SKRIN BETUL -->
   <section id="s-betul" class="skrin bg-kuning" style="align-items:center;text-align:center;justify-content:space-between">
     <div style="margin-top:10px;display:flex;flex-direction:column;align-items:center;gap:8px">
       <div id="betul-msk"></div>
       <div class="logo1" style="font-size:50px" data-t="betul">Betul!</div>
-      <div class="isi1">잘했어요! — Syabas, jawapan tepat.</div>
+      <div class="isi1">잘했어요! — Jawapan tepat.</div>
     </div>
 
     <div class="kt kr" style="width:100%;text-align:left;display:flex;flex-direction:column;gap:8px">
@@ -489,8 +516,8 @@ body{
         <div class="jd2" style="color:var(--hj);font-size:24px">+15 XP</div>
       </div>
       <div class="kt" style="background:var(--ck);color:#fff;padding:12px">
-        <div class="mn" style="opacity:.8">Ketepatan</div>
-        <div class="jd2" style="color:var(--kn);font-size:24px" id="betul-tepat">100%</div>
+        <div class="mn" style="opacity:.8">Ketepatan Sebenar</div>
+        <div class="jd2" style="color:var(--kn);font-size:24px" id="betul-tepat">0%</div>
       </div>
     </div>
 
@@ -505,7 +532,7 @@ body{
     <div class="row">
       <button class="rb pt" data-go="laluan" aria-label="Tutup"><span class="ms">close</span></button>
       <h2 class="jd1">Ups!</h2>
-      <div class="pill mr"><span class="ms" style="font-size:18px">favorite</span><span id="salah-nyawa">2</span></div>
+      <div class="pill mr"><span class="ms" style="font-size:18px">favorite</span><span id="salah-nyawa">4</span></div>
     </div>
 
     <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px">
@@ -645,7 +672,7 @@ body{
       <span class="ms" style="font-size:40px;color:var(--t1)">emoji_events</span>
       <div>
         <div class="jd2" style="font-size:19px" id="rank-sub">Kelas Hangul · Mingguan</div>
-        <div class="isi1" style="font-size:13px">3 hari lagi sebelum minggu tamat</div>
+        <div class="isi1" style="font-size:13px">XP dikira berdasarkan pencapaian sebenar anda</div>
       </div>
     </div>
 
@@ -670,25 +697,25 @@ body{
     <div class="kt">
       <div class="row">
         <div>
-          <div class="mn" style="color:var(--ck2)">Minit belajar</div>
-          <div class="big1" id="maju-minit">184 mnt</div>
+          <div class="mn" style="color:var(--ck2)">Masa belajar sebenar</div>
+          <div class="big1" id="maju-minit">0 mnt</div>
         </div>
-        <span class="pill hj">+22%</span>
+        <span class="pill hj" id="maju-xp-badge">0 XP</span>
       </div>
       <div class="gf" id="maju-carta"></div>
     </div>
 
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center">
-      <div class="kt" style="padding:10px 6px"><div class="jd2" id="maju-kata">412</div><div class="mn">Kata</div></div>
-      <div class="kt" style="padding:10px 6px"><div class="jd2" id="maju-tepat">92%</div><div class="mn">Ketepatan</div></div>
-      <div class="kt" style="padding:10px 6px"><div class="jd2" id="maju-hari">12</div><div class="mn">Hari</div></div>
+      <div class="kt" style="padding:10px 6px"><div class="jd2" id="maju-kata">0</div><div class="mn">Kata Hafal</div></div>
+      <div class="kt" style="padding:10px 6px"><div class="jd2" id="maju-tepat">0%</div><div class="mn">Ketepatan</div></div>
+      <div class="kt" style="padding:10px 6px"><div class="jd2" id="maju-hari">0</div><div class="mn">Hari Aktif</div></div>
     </div>
 
     <div class="kt" style="display:flex;flex-direction:column;gap:10px">
-      <div class="jd2" style="font-size:18px">Penguasaan Kemahiran</div>
-      <div><div class="row mn"><span>Kosa Kata (21 Level)</span><span id="p-kosa">65%</span></div><div class="bar1"><div id="b-kosa" style="width:65%"></div></div></div>
-      <div><div class="row mn"><span>Perbualan (44 Situasi)</span><span id="p-ucap">48%</span></div><div class="bar1"><div id="b-ucap" style="width:48%"></div></div></div>
-      <div><div class="row mn"><span>Tatabahasa (20 Bab)</span><span id="p-tata">54%</span></div><div class="bar1"><div id="b-tata" style="width:54%"></div></div></div>
+      <div class="jd2" style="font-size:18px">Penguasaan Kemahiran Sebenar</div>
+      <div><div class="row mn"><span>Kosa Kata & Tematik</span><span id="p-kosa">0%</span></div><div class="bar1"><div id="b-kosa" style="width:0%"></div></div></div>
+      <div><div class="row mn"><span>Perbualan (44 Situasi)</span><span id="p-ucap">0%</span></div><div class="bar1"><div id="b-ucap" style="width:0%"></div></div></div>
+      <div><div class="row mn"><span>Tatabahasa (20 Bab)</span><span id="p-tata">0%</span></div><div class="bar1"><div id="b-tata" style="width:0%"></div></div></div>
     </div>
   </section>
 
@@ -702,11 +729,11 @@ body{
 
     <div class="kt kr" style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px">
       <div id="prof-msk"></div>
-      <div class="jd2" style="font-size:25px" id="prof-nama">Aisyah Nabila</div>
+      <div class="jd2" style="font-size:25px" id="prof-nama">Pelajar Hangul</div>
       <div class="isi1" style="color:var(--ck2)">Hangul Master · Ultimate Edition</div>
       <div class="row-c" style="margin-top:4px">
         <span class="pill hj" id="prof-lvl">Tahap A1</span>
-        <span class="pill kn" id="prof-xp">1940 XP</span>
+        <span class="pill kn" id="prof-xp">0 XP</span>
       </div>
     </div>
 
@@ -909,33 +936,117 @@ const KURIKULUM = [
   {
     id:"special", nama:"6 Kategori Tematik", warna:"#7BD389",
     bab:[
-      {id:"sc-house",t:"1. Barang Dalam Rumah (집)",d:"Perabot, alatan dapur, bilik tidur & barangan harian.",items:[
-        {c:"냉장고",r:"naengjanggo",m:"Peti sejuk",n:"Dapur"},{c:"세탁기",r:"setakgi",m:"Mesin basuh",n:"Bilik air / Dobi"},
-        {c:"텔레비전",r:"tellebijeon",m:"Televisyen (TV)",n:"Ruang tamu"},{c:"에어컨",r:"eeokeon",m:"Penyaman udara (Aircond)",n:"Rumah"},
-        {c:"침대",r:"chimdae",m:"Katil tidur",n:"Bilik tidur"},{c:"책상 / 의자",r:"chaeksang / uija",m:"Meja tulis / Kerusi",n:"Perabot"},
-        {c:"밥솥",r:"bapsot",m:"Periuk nasi elektrik",n:"Dapur"},{c:"숟가락 / 젓가락",r:"sutgarak / jeotgarak",m:"Sudu / Penyepit (Chopsticks)",n:"Alat makan"},
-        {c:"수건 / 비누",r:"sugeon / binu",m:"Tuala mandi / Sabun",n:"Bilik air"},{c:"열쇠 / 우산",r:"yeolsoe / usan",m:"Kunci rumah / Payung",n:"Keperluan harian"}
+      {id:"sc-house",t:"1. Barang Dalam Rumah (집)",d:"18 item perabot, dapur, ruang tamu, bilik tidur & harian.",items:[
+        {c:"냉장고",r:"naengjanggo",m:"Peti sejuk",n:"Contoh: 냉장고에 물이 있어요 (Ada air dalam peti sejuk)."},
+        {c:"세탁기",r:"setakgi",m:"Mesin basuh",n:"Contoh: 세탁기를 돌려요 (Memutarkan mesin basuh)."},
+        {c:"텔레비전",r:"tellebijeon",m:"Televisyen (TV)",n:"Contoh: 거실에 텔레비전이 있어요 (Ada TV di ruang tamu)."},
+        {c:"에어컨",r:"eeokeon",m:"Penyaman udara (Aircond)",n:"Contoh: 에어컨을 켜 주세요 (Tolong hidupkan aircond)."},
+        {c:"침대",r:"chimdae",m:"Katil tidur",n:"Contoh: 방에 침대가 커요 (Katil di bilik itu besar)."},
+        {c:"책상",r:"chaeksang",m:"Meja tulis / meja belajar",n:"Contoh: 책상 위에 책이 있어요 (Ada buku di atas meja)."},
+        {c:"의자",r:"uija",m:"Kerusi",n:"Contoh: 의자에 앉으세요 (Sila duduk di kerusi)."},
+        {c:"밥솥",r:"bapsot",m:"Periuk nasi elektrik",n:"Contoh: 밥솥으로 밥을 해요 (Menanak nasi guna periuk nasi)."},
+        {c:"숟가락",r:"sutgarak",m:"Sudu makan",n:"Contoh: 숟가락과 젓가락 (Sudu dan penyepit)."},
+        {c:"젓가락",r:"jeotgarak",m:"Penyepit makanan (Chopsticks)",n:"Contoh: 젓가락질이 능숙해요 (Pandai guna penyepit)."},
+        {c:"수건",r:"sugeon",m:"Tuala mandi / tuala lap",n:"Contoh: 깨끗한 수건 주세요 (Tolong beri tuala bersih)."},
+        {c:"비누",r:"binu",m:"Sabun",n:"Contoh: 비누로 손을 씻어요 (Membasuh tangan dengan sabun)."},
+        {c:"열쇠",r:"yeolsoe",m:"Kunci",n:"Contoh: 집 열쇠를 찾아요 (Mencari kunci rumah)."},
+        {c:"우산",r:"usan",m:"Payung",n:"Contoh: 비가 와서 우산을 써요 (Guna payung kerana hujan)."},
+        {c:"거울",r:"geoul",m:"Cermin",n:"Contoh: 거울을 봐요 (Melihat cermin)."},
+        {c:"소파",r:"sopa",m:"Sofa",n:"Contoh: 소파에 앉아요 (Duduk di atas sofa)."},
+        {c:"창문",r:"changmun",m:"Tingkap",n:"Contoh: 창문을 열어 주세요 (Tolong buka tingkap)."},
+        {c:"시계",r:"sigye",m:"Jam dinding / jam tangan",n:"Contoh: 시계가 몇 시예요? (Jam menunjukkan pukul berapa?)"}
       ]},
-      {id:"sc-family",t:"2. Ahli Keluarga (가족)",d:"Panggilan ahli keluarga terdekat & gelaran hormat.",items:[
-        {c:"부모님",r:"bumonim",m:"Ibu bapa",n:"Keluarga"},{c:"아버지 / 어머니",r:"abeoji / eomeoni",m:"Ayah / Ibu",n:"Keluarga"},
-        {c:"할아버지 / 할머니",r:"harabeoji / halmeoni",m:"Datuk / Nenek",n:"Keluarga"},{c:"형 / 오빠",r:"hyeong / oppa",m:"Abang (panggilan lelaki / wanita)",n:"Gelaran hormat"},
-        {c:"누나 / 언니",r:"nuna / eonni",m:"Kakak (panggilan lelaki / wanita)",n:"Gelaran hormat"},{c:"동생",r:"dongsaeng",m:"Adik (lelaki / perempuan)",n:"Keluarga"},
-        {c:"남편 / 아내",r:"nampyeon / anae",m:"Suami / Isteri",n:"Perkahwinan"},{c:"아들 / 딸",r:"adeul / ttal",m:"Anak lelaki / Anak perempuan",n:"Keluarga"},
-        {c:"삼촌 / 이모",r:"samchon / imo",m:"Pakcik / Makcik",n:"Saudara-mara"},{c:"생일",r:"saengil",m:"Hari lahir",n:"Peribadi"}
+      {id:"sc-family",t:"2. Ahli Keluarga (가족)",d:"16 panggilan ahli keluarga terdekat, gelaran & situasi keluarga.",items:[
+        {c:"가족",r:"gajok",m:"Keluarga",n:"Contoh: 우리 가족은 네 명이에요 (Keluarga kami ada empat orang)."},
+        {c:"부모님",r:"bumonim",m:"Ibu bapa",n:"Bentuk hormat untuk ibu dan ayah."},
+        {c:"아버지 / 아빠",r:"abeoji / appa",m:"Ayah (formal / mesra)",n:"아빠 lebih mesra digunakan di rumah."},
+        {c:"어머니 / 엄마",r:"eomeoni / eomma",m:"Ibu (formal / mesra)",n:"엄마 panggilan mesra kepada ibu."},
+        {c:"할아버지",r:"harabeoji",m:"Datuk",n:"Gabungan 할 (tua/hormat) + 아버지."},
+        {c:"할머니",r:"halmeoni",m:"Nenek",n:"Gabungan 할 (tua/hormat) + 어머니."},
+        {c:"형 / 오빠",r:"hyeong / oppa",m:"Abang (lelaki panggil / wanita panggil)",n:"형: lelaki panggil abang | 오빠: wanita panggil abang."},
+        {c:"누나 / 언니",r:"nuna / eonni",m:"Kakak (lelaki panggil / wanita panggil)",n:"누나: lelaki panggil kakak | 언니: wanita panggil kakak."},
+        {c:"남동생 / 여동생",r:"namdongsaeng / yeodongsaeng",m:"Adik lelaki / Adik perempuan",n:"동생 bermaksud adik."},
+        {c:"남편 / 아내",r:"nampyeon / anae",m:"Suami / Isteri",n:"Panggilan rasmi pasangan suami isteri."},
+        {c:"아들 / 딸",r:"adeul / ttal",m:"Anak lelaki / Anak perempuan",n:"Contoh: 아들이 한 명 있어요 (Ada seorang anak lelaki)."},
+        {c:"삼촌",r:"samchon",m:"Pakcik (adik-beradik lelaki ibu bapa)",n:"Digunakan dalam perbualan keluarga."},
+        {c:"이모 / 고모",r:"imo / gomo",m:"Makcik (sebelah ibu / sebelah ayah)",n:"이모: sebelah ibu | 고모: sebelah ayah."},
+        {c:"조카",r:"joka",m:"Anak saudara (keponakan)",n:"Termasuk anak lelaki/perempuan adik-beradik."},
+        {c:"친척",r:"chincheok",m:"Sanak-saudara",n:"Contoh: 명절에 친척을 만나요 (Bertemu saudara masa perayaan)."},
+        {c:"생일",r:"saengil",m:"Hari lahir",n:"Contoh: 생일 축하합니다! (Selamat hari lahir!)"}
       ]},
-      {id:"sc-school",t:"3. Sekolah & Pejabat (학교/회사)",d:"Alatan belajar, peperiksaan & urusan kerja.",items:[
-        {c:"학교 / 교실",r:"hakgyo / gyosil",m:"Sekolah / Bilik darjah",n:"Pendidikan"},{c:"학생 / 선생님",r:"haksaeng / seonsaengnim",m:"Pelajar / Cikgu",n:"Pendidikan"},
-        {c:"공책 / 연필",r:"gongchaek / yeonpil",m:"Buku nota / Pensel",n:"Alat tulis"},{c:"시험 / 숙제",r:"siheom / sukje",m:"Peperiksaan / Kerja rumah",n:"Akademik"},
-        {c:"회사 / 회사원",r:"hoesa / hoesawon",m:"Syarikat / Pekerja pejabat",n:"Kerjaya"},{c:"사장님 / 팀장님",r:"sajangnim / timjangnim",m:"Pengarah / Ketua Pasukan",n:"Jawatan"},
-        {c:"회의 / 보고서",r:"hoeui / bogoseo",m:"Mesyuarat / Laporan kerja",n:"Pejabat"},{c:"출근 / 퇴근",r:"chulgeun / toegeun",m:"Masuk kerja / Pulang kerja",n:"Waktu kerja"},
-        {c:"월급 / 휴가",r:"wolgeup / hyuga",m:"Gaji bulanan / Cuti rehat",n:"Kerjaya"},{c:"면접 / 이력서",r:"myeonjeop / iryeokseo",m:"Temuduga / Resume",n:"Kerjaya"}
+      {id:"sc-school",t:"3. Sekolah & Pejabat (학교/회사)",d:"16 istilah bilik darjah, peperiksaan, pejabat & kerjaya.",items:[
+        {c:"학교 / 교실",r:"hakgyo / gyosil",m:"Sekolah / Bilik darjah",n:"Contoh: 교실에 학생들이 있어요 (Ada pelajar di kelas)."},
+        {c:"학생 / 선생님",r:"haksaeng / seonsaengnim",m:"Pelajar / Cikgu",n:"선생님 digunakan untuk guru/pengajar."},
+        {c:"교수님 / 강의실",r:"gyosunim / gamgisil",m:"Profesor / Dewan kuliah",n:"Istilah universiti / kampus."},
+        {c:"공책 / 연필 / 지우개",r:"gongchaek / yeonpil / jiugae",m:"Buku nota / Pensel / Pemadam",n:"Alat tulis asas di kelas."},
+        {c:"시험 / 숙제 / 과제",r:"siheom / sukje / gwaje",m:"Peperiksaan / Kerja rumah / Tugasan",n:"Contoh: 내일 한국어 시험이 있어요 (Esok ada ujian Korea)."},
+        {c:"도서관",r:"doseogwan",m:"Perpustakaan",n:"Contoh: 도서관에서 공부해요 (Belajar di perpustakaan)."},
+        {c:"회사 / 회사원",r:"hoesa / hoesawon",m:"Syarikat / Pekerja pejabat",n:"Contoh: 저는 회사원이에요 (Saya pekerja pejabat)."},
+        {c:"사장님 / 과장님 / 팀장님",r:"sajangnim / gwajangnim / timjangnim",m:"Pengarah / Pengurus / Ketua Pasukan",n:"Gelaran jawatan rasmi di tempat kerja."},
+        {c:"동료 / 거래처",r:"dongryo / georaecheo",m:"Rakan sekerja / Klien (pelanggan syarikat)",n:"Istilah komunikasi profesional."},
+        {c:"회의 / 발표 / 보고서",r:"hoeui / balpyo / bogoseo",m:"Mesyuarat / Pembentangan / Laporan",n:"Contoh: 오후에 회의가 있어요 (Ada mesyuarat petang ini)."},
+        {c:"출근하다 / 퇴근하다",r:"chulgeunhada / toegeunhada",m:"Masuk kerja / Pulang kerja",n:"Contoh: 아침 8시에 출근해요 (Masuk kerja jam 8 pagi)."},
+        {c:"야근하다",r:"yageunhada",m:"Kerja lebih masa (OT malam)",n:"Istilah umum di pejabat Korea."},
+        {c:"월급 / 보너스",r:"wolgeup / boneoseu",m:"Gaji bulanan / Bonus",n:"Contoh: 월급날이 언제예요? (Bila hari gaji?)"},
+        {c:"휴가 / 연차",r:"hyuga / yeoncha",m:"Cuti / Cuti tahunan",n:"Contoh: 다음 주에 휴가를 써요 (Ambil cuti minggu depan)."},
+        {c:"면접 / 이력서 / 자기소개서",r:"myeonjeop / iryeokseo / jagisogaeseo",m:"Temuduga / Resume / Surat perkenalan diri",n:"Persiapan mencari pekerjaan."},
+        {c:"명함",r:"myeongham",m:"Kad nama perniagaan",n:"Diberi dengan sopan menggunakan dua tangan."}
       ]},
-      {id:"sc-color-time",t:"4. Warna, Nombor & Masa",d:"Warna asas, nombor Sino/Asli & hari dalam seminggu.",items:[
-        {c:"빨간색 / 파란색",r:"ppalgansaek / paransaek",m:"Merah / Biru",n:"Warna"},{c:"노란색 / 초록색",r:"noransaek / choroksaek",m:"Kuning / Hijau",n:"Warna"},
-        {c:"검은색 / 하얀색",r:"geomeunsaek / hayansaek",m:"Hitam / Putih",n:"Warna"},{c:"일, 이, 삼, 사, 오",r:"il, i, sam, sa, o",m:"1, 2, 3, 4, 5 (Nombor Sino)",n:"Tarikh, duit & minit"},
-        {c:"하나, 둘, 셋, 넷, 다섯",r:"hana, dul, set, net, daseot",m:"1, 2, 3, 4, 5 (Nombor Asli)",n:"Umur, jam & bilangan"},{c:"월요일 / 화요일 / 수요일",r:"woryoil / hwayoil / suyoil",m:"Isnin / Selasa / Rabu",n:"Hari minggu"},
-        {c:"목요일 / 금요일",r:"mogyoil / geumyoil",m:"Khamis / Jumaat",n:"Hari minggu"},{c:"토요일 / 일요일",r:"toyoil / iryoil",m:"Sabtu / Ahad (Hujung minggu)",n:"Hari minggu"},
-        {c:"오늘 / 어제 / 내일",r:"oneul / eoje / naeil",m:"Hari ini / Semalam / Esok",n:"Masa"},{c:"오전 / 오후",r:"ojeon / ohu",m:"Pagi (AM) / Petang (PM)",n:"Waktu"}
+      {id:"sc-colors",t:"4. Warna Lengkap (색깔)",d:"16 warna asas, warna cerah, gelap & frasa warna.",items:[
+        {c:"빨간색 (빨강)",r:"ppalgansaek (ppalgang)",m:"Merah",n:"Contoh: 빨간 사과 (Epal merah)."},
+        {c:"파란색 (파랑)",r:"paransaek (parang)",m:"Biru",n:"Contoh: 파란 하늘 (Langit biru)."},
+        {c:"노란색 (노랑)",r:"noransaek (norang)",m:"Kuning",n:"Contoh: 노란 바나나 (Pisang kuning)."},
+        {c:"초록색 (초록)",r:"choroksaek (chorok)",m:"Hijau",n:"Contoh: 초록 나무 (Pokok hijau)."},
+        {c:"검은색 (검정)",r:"geomeunsaek (geomjeong)",m:"Hitam",n:"Contoh: 검은 고양이 (Kucing hitam)."},
+        {c:"하얀색 (하양)",r:"hayansaek (hayang)",m:"Putih",n:"Contoh: 하얀 눈 (Salji putih)."},
+        {c:"주황색 (주황)",r:"juhwangsaek (juhwang)",m:"Jingga / Oren",n:"Warna tema matahari Hangul Master."},
+        {c:"보라색 (보라)",r:"borasaek (bora)",m:"Ungu",n:"Contoh: 보라색 꽃 (Bunga ungu)."},
+        {c:"분홍색 (핑크)",r:"bunhongsaek (pingkeu)",m:"Merah jambu (Pink)",n:"분홍색 juga popular disebut 핑크색."},
+        {c:"회색",r:"hoesaek",m:"Kelabu",n:"Contoh: 회색 구름 (Awan kelabu)."},
+        {c:"갈색",r:"galsaek",m:"Coklat",n:"Contoh: 갈색 강아지 (Anak anjing coklat)."},
+        {c:"금색 / 은색",r:"geumsaek / eunsaek",m:"Emas / Perak",n:"금 (emas) · 은 (perak)."},
+        {c:"남색",r:"namsaek",m:"Biru tua / Navy blue",n:"Warna biru gelap klasik."},
+        {c:"연두색",r:"yeondusaek",m:"Hijau muda / Hijau pucuk pisang",n:"Warna hijau lembut."},
+        {c:"밝은 색 / 어두운 색",r:"balgeun saek / eoduun saek",m:"Warna terang / Warna gelap",n:"밝다 (terang) · 어둡다 (gelap)."},
+        {c:"무슨 색을 좋아해요?",r:"museun saegeul joahaeyo?",m:"Anda suka warna apa?",n:"Ayat tanya warna sopan."}
+      ]},
+      {id:"sc-numbers",t:"5. Nombor Sino & Nombor Asli (숫자)",d:"20 set nombor lengkap: Sino (1–10, puluh, ratus, ribu, juta) & Asli (1–10, 20, 30).",items:[
+        {c:"일 (1) · 이 (2) · 삼 (3) · 사 (4) · 오 (5)",r:"il · i · sam · sa · o",m:"Nombor Sino 1 hingga 5",n:"Digunakan untuk tarikh, bulan, minit, harga/duit & nombor telefon."},
+        {c:"육 (6) · 칠 (7) · 팔 (8) · 구 (9) · 십 (10)",r:"yuk · chil · pal · gu · sip",m:"Nombor Sino 6 hingga 10",n:"십 (10) + 일 (1) = 십일 (11)."},
+        {c:"십일 (11) · 십오 (15) · 이십 (20)",r:"sibil · sibo · isip",m:"Nombor Sino 11, 15 & 20",n:"이 (2) + 십 (10) = 이십 (20)."},
+        {c:"백 (100) · 천 (1,000) · 만 (10,000)",r:"baek · cheon · man",m:"Ratus (100), Ribu (1,000) & Laksa/10 Ribu (10,000)",n:"Dalam bahasa Korea, unit besar dikira setiap 10,000 (만)."},
+        {c:"십만 (100,000) · 백만 (1,000,000) · 억 (100,000,000)",r:"simman · baengman · eok",m:"Seratus ribu, Sejuta & Seratus juta",n:"Sangat berguna membaca harga dan angka besar."},
+        {c:"하나 (1) · 둘 (2) · 셋 (3) · 넷 (4) · 다섯 (5)",r:"hana · dul · set · net · daseot",m:"Nombor Asli Korea 1 hingga 5",n:"Digunakan untuk umur, jam ( pukul ), dan membilang objek/orang."},
+        {c:"여섯 (6) · 일곱 (7) · 여덟 (8) · 아홉 (9) · 열 (10)",r:"yeoseot · ilgop · yeodeol · ahop · yeol",m:"Nombor Asli Korea 6 hingga 10",n:"Contoh: 사과 세 개 (Tiga biji epal)."},
+        {c:"스물 (20) · 서른 (30) · 마흔 (40) · 쉰 (50)",r:"seumul · seoreun · maheun · swin",m:"Nombor Asli Puluhan: 20, 30, 40 & 50",n:"스물 berubah menjadi 스무 apabila bergabung dengan kata penjodoh bilangan (예: 스무 살)."},
+        {c:"예순 (60) · 일흔 (70) · 여든 (80) · 아흔 (90)",r:"yesun · ilheun · yeodeun · aheun",m:"Nombor Asli Puluhan: 60, 70, 80 & 90",n:"Lengkapkan hafalan puluhan nombor asli Korea."},
+        {c:"첫째 · 둘째 · 셋째",r:"cheotjjae · duljjae · setjjae",m:"Pertama · Kedua · Ketiga (Urutan)",n:"Menunjukkan kedudukan atau urutan."},
+        {c:"한 개 · 두 개 · 세 개 · 네 개",r:"han gae · du gae · se gae · ne gae",m:"1 biji · 2 biji · 3 biji · 4 biji (개)",n:"하나→한, 둘→두, 셋→세, 넷→네 di hadapan 개."},
+        {c:"한 명 · 두 명 · 세 명",r:"han myeong · du myeong · se myeong",m:"1 orang · 2 orang · 3 orang (명)",n:"Kata penjodoh bilangan untuk orang."},
+        {c:"한 잔 · 두 잔 · 세 잔",r:"han jan · du jan · se jan",m:"1 cawan/gelas · 2 cawan · 3 cawan (잔)",n:"Digunakan untuk kopi, teh, air atau minuman."},
+        {c:"한 마리 · 두 마리",r:"han mari · du mari",m:"1 ekor · 2 ekor (마리)",n:"Digunakan untuk haiwan dan ikan."},
+        {c:"한 권 · 두 권",r:"han gwon · du gwon",m:"1 buah/jilid · 2 buah (권)",n:"Digunakan untuk buku, majalah atau nota."},
+        {c:"한 장 · 두 장",r:"han jang · du jang",m:"1 helai/keping · 2 helai (장)",n:"Digunakan untuk kertas, tiket atau gambar."},
+        {c:"한 시 · 두 시 · 세 시",r:"han si · du si · se si",m:"Pukul 1 · Pukul 2 · Pukul 3 (시)",n:"Jam menggunakan Nombor Asli + 시."},
+        {c:"일 분 · 이 분 · 삼십 분",r:"il bun · i bun · samsip bun",m:"1 minit · 2 minit · 30 minit (분)",n:"Minit menggunakan Nombor Sino + 분."},
+        {c:"일월 · 이월 · 십이월",r:"irwol · iwol · sibiwol",m:"Januari · Februari · Disember (월)",n:"Bulan menggunakan Nombor Sino + 월 (6월=유월, 10월=시월)."},
+        {c:"이천이십육년 (2026년)",r:"icheonisibyungnyeon",m:"Tahun 2026 (년)",n:"Tahun menggunakan Nombor Sino + 년."}
+      ]},
+      {id:"sc-time",t:"6. Masa, Hari & Jadual (시간/요일)",d:"14 istilah hari dalam seminggu, bahagian waktu & keterangan masa.",items:[
+        {c:"월요일",r:"woryoil",m:"Isnin",n:"Hari pertama dalam minggu kerja."},
+        {c:"화요일",r:"hwayoil",m:"Selasa",n:"화 bermaksud api / Marikh."},
+        {c:"수요일",r:"suyoil",m:"Rabu",n:"수 bermaksud air / Utarid."},
+        {c:"목요일",r:"mogyoil",m:"Khamis",n:"목 bermaksud kayu / Musytari."},
+        {c:"금요일",r:"geumyoil",m:"Jumaat",n:"금 bermaksud emas / Zuhrah."},
+        {c:"토요일",r:"toyoil",m:"Sabtu",n:"토 bermaksud tanah / Zuhal."},
+        {c:"일요일",r:"iryoil",m:"Ahad",n:"일 bermaksud matahari."},
+        {c:"주말 / 평일",r:"jumal / pyeongil",m:"Hujung minggu / Hari biasa (hari bekerja)",n:"주말 = Sabtu & Ahad."},
+        {c:"오늘 / 어제 / 내일",r:"oneul / eoje / naeil",m:"Hari ini / Semalam / Esok",n:"Contoh: 내일 만나요 (Jumpa esok)."},
+        {c:"그저께 / 모레",r:"geujeokke / more",m:"Kelmarin (2 hari lalu) / Lusa (2 hari lagi)",n:"Keterangan hari yang sangat berguna."},
+        {c:"아침 / 점심 / 저녁",r:"achim / jeomsim / jeonyeok",m:"Pagi & Sarapan / Tengah hari & Makan tengah hari / Petang & Makan malam",n:"Juga merujuk kepada waktu makan."},
+        {c:"오전 / 오후",r:"ojeon / ohu",m:"AM (Sebelum tengah hari) / PM (Selepas tengah hari)",n:"Contoh: 오후 3시 (Pukul 3 petang)."},
+        {c:"지금 / 나중에 / 벌써",r:"jigeum / najunge / beolsseo",m:"Sekarang / Nanti / Sudah pun",n:"Contoh: 지금 몇 시예요? (Sekarang pukul berapa?)"},
+        {c:"매일 / 매주 / 매달 / 매년",r:"maeil / maeju / maedal / maenyeon",m:"Setiap hari / Setiap minggu / Setiap bulan / Setiap tahun",n:"Awalan 매 bermaksud 'setiap'."}
       ]}
     ]
   },
@@ -1010,40 +1121,64 @@ const KURIKULUM = [
 ];
 
 const ALL_WORDS = [];
-KURIKULUM.forEach(k => k.bab.forEach(b => b.items.forEach(it => ALL_WORDS.push({...it, kat:k.nama, bab:b.t}))));
+KURIKULUM.forEach(k => k.bab.forEach(b => b.items.forEach(it => ALL_WORDS.push({...it, katId:k.id, kat:k.nama, bab:b.t}))));
 
 const PESERTA = [
-  {nama:"Nurul Izzati",xp:2410},
-  {nama:"Kumaran Raja",xp:2180},
-  {nama:"Tan Wei Ling",xp:1725},
-  {nama:"Muhammad Firdaus",xp:1510},
-  {nama:"Siti Khadijah",xp:1320}
+  {nama:"Nurul Izzati",xp:120},
+  {nama:"Kumaran Raja",xp:90},
+  {nama:"Tan Wei Ling",xp:60},
+  {nama:"Muhammad Firdaus",xp:45},
+  {nama:"Siti Khadijah",xp:30}
 ];
 
 const T = {
-  MS:{sub_app:"Belajar Bahasa Korea Lengkap & Menyeronokkan",ob1_t:"Sedia Kuasai Bahasa Korea?",ob1_p:"Huruf Ganada-sun, 21 Level Kosa Kata, 44 Situasi Perbualan, Grammar & Kanvas Menulis!",mula:"Mula Sekarang",lewati:"Langkau",ob2_t:"10 Minit Sehari, Terus Pandai!",ob2_p:"Belajar melalui kad visual, kuiz interaktif, latihan sebutan suara & papan tulis gurisan Hangul.",lanjut:"Teruskan",pilih_tahap:"Pilih Tahap Kamu",pilih_sub:"Kurikulum & sasaran harian disesuaikan mengikut tahap.",bahasa_ui:"Bahasa Antaramuka",hari_ini:"Hari Ini",pilih:"Sambung",makmal_utama:"Modul & Makmal Pembelajaran",menulis:"Menulis",ucapan:"Sebutan",laluan:"Laluan Belajar",mula_pelajaran:"Mula Semua Dalam Bab Ini",maksud_bm:"Maksud & Terjemahan",nota_gurisan:"Nota / Kategori / Formula",belum_hafal:"Belum Hafal",sudah_hafal:"Sudah Hafal",semak:"Semak Jawapan",betul:"Betul!",catatan:"Catatan Pembelajaran",belum_tepat:"Belum Tepat",cuba_lagi:"Cuba Lagi",simpan:"Simpan",latihan_ucap:"Latihan Ucapan"},
-  EN:{sub_app:"Complete & Fun Korean Language Learning",ob1_t:"Ready to Master Korean?",ob1_p:"Ganada-sun Alphabet, 21 Vocab Levels, 44 Dialogues, Grammar Lab & Writing Canvas!",mula:"Start Now",lewati:"Skip",ob2_t:"10 Minutes a Day, Fluently!",ob2_p:"Learn through visual flashcards, interactive quizzes, voice pronunciation & Hangul stroke canvas.",lanjut:"Continue",pilih_tahap:"Choose Your Level",pilih_sub:"Curriculum and daily goals adapt to your chosen level.",bahasa_ui:"Interface Language",hari_ini:"Today",pilih:"Resume",makmal_utama:"Learning Modules & Labs",menulis:"Writing",ucapan:"Speak",laluan:"Learning Path",mula_pelajaran:"Start All In This Lesson",maksud_bm:"Meaning & Translation",nota_gurisan:"Notes / Category / Formula",belum_hafal:"Need Practice",sudah_hafal:"Mastered",semak:"Check Answer",betul:"Correct!",catatan:"Learning Note",belum_tepat:"Not Quite",cuba_lagi:"Try Again",simpan:"Save",latihan_ucap:"Speech Practice"}
+  MS:{sub_app:"Belajar Bahasa Korea Lengkap & Menyeronokkan",ob1_t:"Sedia Kuasai Bahasa Korea?",ob1_p:"Huruf Ganada-sun, 21 Level Kosa Kata, 44 Situasi Perbualan, Grammar & Kanvas Menulis!",mula:"Mula Sekarang",lewati:"Langkau",ob2_t:"10 Minit Sehari, Terus Pandai!",ob2_p:"Belajar melalui kad visual, kuiz interaktif, latihan sebutan suara & papan tulis gurisan Hangul.",lanjut:"Teruskan",pilih_tahap:"Pilih Tahap Kamu",pilih_sub:"Kurikulum & sasaran harian disesuaikan mengikut tahap.",bahasa_ui:"Bahasa Antaramuka",hari_ini:"Hari Ini",pilih:"Sambung",makmal_utama:"Modul & Makmal Pembelajaran",menulis:"Menulis",ucapan:"Sebutan",laluan:"Laluan Belajar",mula_pelajaran:"Mula Kad Bab",maksud_bm:"Maksud & Terjemahan",nota_gurisan:"Nota / Kategori / Formula",belum_hafal:"Belum Hafal",sudah_hafal:"Sudah Hafal",semak:"Semak Jawapan",betul:"Betul!",catatan:"Catatan Pembelajaran",belum_tepat:"Belum Tepat",cuba_lagi:"Cuba Lagi",simpan:"Simpan",latihan_ucap:"Latihan Ucapan"},
+  EN:{sub_app:"Complete & Fun Korean Language Learning",ob1_t:"Ready to Master Korean?",ob1_p:"Ganada-sun Alphabet, 21 Vocab Levels, 44 Dialogues, Grammar Lab & Writing Canvas!",mula:"Start Now",lewati:"Skip",ob2_t:"10 Minutes a Day, Fluently!",ob2_p:"Learn through visual flashcards, interactive quizzes, voice pronunciation & Hangul stroke canvas.",lanjut:"Continue",pilih_tahap:"Choose Your Level",pilih_sub:"Curriculum and daily goals adapt to your chosen level.",bahasa_ui:"Interface Language",hari_ini:"Today",pilih:"Resume",makmal_utama:"Learning Modules & Labs",menulis:"Writing",ucapan:"Speak",laluan:"Learning Path",mula_pelajaran:"Start Lesson Cards",maksud_bm:"Meaning & Translation",nota_gurisan:"Notes / Category / Formula",belum_hafal:"Need Practice",sudah_hafal:"Mastered",semak:"Check Answer",betul:"Correct!",catatan:"Learning Note",belum_tepat:"Not Quite",cuba_lagi:"Try Again",simpan:"Save",latihan_ucap:"Speech Practice"}
 };
 
-/* ================= STATE & LOCALSTORAGE ================= */
+/* ================= STATE SEBENAR (BERMULA DARI 0) ================= */
 const DEFAULT_S = {
-  nama:"Aisyah Nabila",level:"A1",bahasa:"MS",xp:1940,beruntun:12,menit:184,xpMinggu:1240,
-  kata:412,benar:18,jawab:20,selesai:{},hafal:{},simpan:[],
-  suis:{ingat:true,luring:false},hariMenit:[40,62,30,78,52,84,22],
-  skrin:"ob1",katIdx:0,babIdx:0
+  nama:"Pelajar Hangul",level:"A1",bahasa:"MS",xp:0,beruntun:0,menit:0,xpMinggu:0,
+  benar:0,jawab:0,selesai:{},hafal:{},simpan:[],hariAktif:[],
+  suis:{ingat:true,luring:false},hariMenit:[0,0,0,0,0,0,0],
+  skrin:"ob1",katIdx:1,babIdx:3
 };
 
 let S = loadS();
 function loadS(){
   try{
-    const raw = localStorage.getItem("hangul-master-oren-v1");
+    const raw = localStorage.getItem("hangul-master-oren-v2");
     if(!raw) return JSON.parse(JSON.stringify(DEFAULT_S));
     return {...JSON.parse(JSON.stringify(DEFAULT_S)), ...JSON.parse(raw)};
   }catch(e){return JSON.parse(JSON.stringify(DEFAULT_S));}
 }
 function saveS(){
-  try{localStorage.setItem("hangul-master-oren-v1",JSON.stringify(S));}catch(e){}
+  try{localStorage.setItem("hangul-master-oren-v2",JSON.stringify(S));}catch(e){}
 }
+
+/* ================= JEJAK MASA BELAJAR SEBENAR ================= */
+let saatMulaSkrin = Date.now();
+function rekodMasaAktif(){
+  const kini = Date.now();
+  const deltaMinit = (kini - saatMulaSkrin) / 60000;
+  saatMulaSkrin = kini;
+  if(deltaMinit > 0.01 && deltaMinit < 30){
+    const hariIni = new Date().toISOString().slice(0,10);
+    if(!S.hariAktif.includes(hariIni)){
+      S.hariAktif.push(hariIni);
+    }
+    S.beruntun = S.hariAktif.length;
+    const idxHari = (new Date().getDay() + 6) % 7;
+    S.hariMenit[idxHari] = Number(((S.hariMenit[idxHari] || 0) + deltaMinit).toFixed(1));
+    S.menit = Number(S.hariMenit.reduce((a,b) => a + Number(b || 0), 0).toFixed(1));
+    saveS();
+  }
+}
+setInterval(() => { rekodMasaAktif(); if(S.skrin === "kemajuan") V.kemajuan(); }, 15000);
+document.addEventListener("visibilitychange", () => {
+  if(document.hidden) rekodMasaAktif();
+  else saatMulaSkrin = Date.now();
+});
 
 /* ================= PEMBINA MASKOT GEOMETRI ================= */
 function maskot(w, i=0, opts={}){
@@ -1069,13 +1204,17 @@ function maskot(w, i=0, opts={}){
   </div>`;
 }
 
-/* ================= PEMBOLEHUBAH SESI PELAJARAN ================= */
-let sesi = {items:[],idx:0,qList:[],qIdx:0,nyawa:3,pilihOpsi:null,solo:false,xpDapat:0};
+/* ================= PEMBOLEHUBAH SESI PELAJARAN & KUIZ 10 SOALAN ================= */
+let sesi = {
+  items:[], idx:0, qList:[], qIdx:0, nyawa:5, pilihOpsi:null,
+  solo:false, xpDapat:0, betulSesi:0, sumberKuiz:null
+};
 let tempohRank = 1, tempohMaju = 1, tabRuj = "nota", tulisIdx = 0;
 
 /* ================= NAVIGASI & RENDER SKRIN ================= */
 const DOCK_SKRIN = ["home","laluan","kemajuan","profil","kedudukan"];
 function go(id){
+  rekodMasaAktif();
   document.querySelectorAll(".skrin").forEach(el => el.classList.remove("active"));
   const target = document.getElementById("s-"+id);
   if(target) target.classList.add("active");
@@ -1228,7 +1367,7 @@ const V = {
     const bab = kat.bab[S.babIdx];
     document.getElementById("bab-tag").textContent = kat.nama.toUpperCase();
     document.getElementById("bab-tajuk").textContent = bab.t;
-    document.getElementById("bab-desc").textContent = `${bab.d} (Tekan mana-mana huruf untuk terus buka kadnya)`;
+    document.getElementById("bab-desc").textContent = `${bab.d} (Tekan mana-mana item untuk buka kadnya)`;
     document.getElementById("bab-msk").innerHTML = maskot(54, S.babIdx, {bg:kat.warna});
 
     document.getElementById("bab-senarai").innerHTML = bab.items.map((it, i) => {
@@ -1255,21 +1394,22 @@ const V = {
     const em = EMOJI[it.c] ? EMOJI[it.c] + " " : "";
     const krEl = document.getElementById("kad-kr");
     krEl.textContent = em + it.c;
-    krEl.style.fontSize = it.c.length > 10 ? "24px" : "44px";
+    krEl.style.fontSize = it.c.length > 12 ? "22px" : it.c.length > 7 ? "30px" : "42px";
     document.getElementById("kad-rumi").textContent = it.r;
     document.getElementById("kad-arti").textContent = it.m;
     document.getElementById("kad-nota").textContent = it.n;
   },
   kuiz(){
     const q = sesi.qList[sesi.qIdx];
-    document.getElementById("kuiz-tajuk").textContent = `Soalan ${sesi.qIdx+1}/${sesi.qList.length}`;
+    const total = sesi.qList.length;
+    document.getElementById("kuiz-tajuk").textContent = `Soalan ${sesi.qIdx+1}/${total}`;
     document.getElementById("kuiz-nyawa").textContent = sesi.nyawa;
-    document.getElementById("kuiz-stop").textContent = `${sesi.qIdx+1}/${sesi.qList.length}`;
+    document.getElementById("kuiz-stop").textContent = `${sesi.qIdx+1}/${total}`;
     const sEl = document.getElementById("kuiz-soalan");
     const em = EMOJI[q.item.c] ? EMOJI[q.item.c] + " " : "";
     sEl.textContent = em + q.item.c;
-    sEl.style.fontSize = q.item.c.length > 14 ? "20px" : "28px";
-    document.getElementById("kuiz-arahan").textContent = `Pilih sebutan Rumi / maksud bagi aksara ini (${q.item.m.split("/")[0].trim()})`;
+    sEl.style.fontSize = q.item.c.length > 14 ? "20px" : "26px";
+    document.getElementById("kuiz-arahan").textContent = `${q.mod || "Pilih jawapan yang tepat"} (${q.item.m.split("/")[0].trim()})`;
 
     const huruf = ["A","B","C","D"];
     document.getElementById("kuiz-opsi").innerHTML = q.opsi.map((op, i) => `
@@ -1285,7 +1425,7 @@ const V = {
     document.getElementById("betul-msk").innerHTML = maskot(104, 2, {bg:"#fff",mata:"garis",mulut:"lebar",lencana:true});
     document.getElementById("betul-tag").textContent = q.item.c;
     document.getElementById("betul-nota").textContent = `${q.item.c} (${q.item.r}) = ${q.item.m}. ${q.item.n.replace(/\n/g," · ")}`;
-    const pct = S.jawab ? Math.round((S.benar/S.jawab)*100) : 100;
+    const pct = S.jawab > 0 ? Math.round((S.benar/S.jawab)*100) : 0;
     document.getElementById("betul-tepat").textContent = pct + "%";
   },
   salah(){
@@ -1296,8 +1436,13 @@ const V = {
     document.getElementById("salah-benar").textContent = `${q.opsi[q.kunci]} (${q.item.m})`;
     document.getElementById("salah-nota").textContent = q.item.n.replace(/\n/g," · ");
   },
+  "tamat-kuiz"](){
+    document.getElementById("tamat-msk").innerHTML = maskot(104, 1, {bg:"#FFD23F",mulut:"lebar",lencana:true});
+    document.getElementById("tamat-skor").textContent = `${sesi.betulSesi} / ${sesi.qList.length}`;
+    document.getElementById("tamat-xp").textContent = `+${sesi.xpDapat} XP`;
+  },
   ucap(){
-    const it = sesi.solo ? ALL_WORDS[Math.floor(Math.random()*30)] : (sesi.items[sesi.idx] || sesi.items[0]);
+    const it = sesi.solo ? ALL_WORDS[Math.floor(Math.random()*ALL_WORDS.length)] : (sesi.items[sesi.idx] || sesi.items[0]);
     sesi.ucapItem = it;
     document.getElementById("ucap-kr").textContent = it.c;
     document.getElementById("ucap-arti").textContent = it.m;
@@ -1344,7 +1489,6 @@ const V = {
           <div class="jd2" style="font-size:18px;margin-bottom:6px">3. Double Consonants (쌍자음)</div>
           <p class="isi1" style="margin-bottom:8px">5 konsonan kembar berbunyi tegang & kuat:</p>
           <div class="row-c" style="flex-wrap:wrap">${DOUBLE_KONSONAN.map(d=>`<span class="pill kn kr-txt">${d[0]} · ${d[1]}</span>`).join("")}</div>
-          <p class="isi1" style="margin-top:10px;font-size:12px">💡 <b>Tip Pemula:</b> Vokal yang bermula di awal perkataan wajib didahului konsonan senyap <b>ㅇ</b> (Contoh: <b>아이</b>, bukan ㅏ이).</p>
         </div>
       `;
     }else if(tabRuj === "kamus"){
@@ -1381,7 +1525,7 @@ const V = {
     const pingat = ["🥇","🥈","🥉"];
     document.getElementById("rank-senarai").innerHTML = list.map((p, i) => {
       const atas = i > 0 ? list[i-1].xp - p.xp : 0;
-      const sub = p.anda ? (i===0 ? "Tempat Pertama!" : `${atas} XP lagi untuk naik`) : "Pelajar Aktif";
+      const sub = p.anda ? (i===0 ? "Tempat Pertama!" : `${atas} XP lagi untuk naik`) : "Sasaran Kelas";
       return `
         <div class="rank1 ${p.anda?"anda":""}">
           <div style="width:28px;text-align:center;font-family:'Lilita One';font-size:18px">${pingat[i] || (i+1)}</div>
@@ -1396,13 +1540,17 @@ const V = {
     }).join("");
   },
   kemajuan(){
+    rekodMasaAktif();
     [1,4,48].forEach(m => {
       const id = m===1?"t-minggu":m===4?"t-bulan":"t-tahun";
       document.getElementById(id).classList.toggle("aktif", tempohMaju===m);
     });
-    document.getElementById("maju-minit").textContent = `${S.menit * tempohMaju} mnt`;
-    document.getElementById("maju-kata").textContent = S.kata;
-    const pct = S.jawab ? Math.round((S.benar/S.jawab)*100) : 92;
+    const jumlahMinit = Math.floor(S.menit * tempohMaju);
+    document.getElementById("maju-minit").textContent = `${jumlahMinit} mnt`;
+    document.getElementById("maju-xp-badge").textContent = `${S.xp} XP`;
+    const jumlahHafal = Object.keys(S.hafal).length;
+    document.getElementById("maju-kata").textContent = jumlahHafal;
+    const pct = S.jawab > 0 ? Math.round((S.benar/S.jawab)*100) : 0;
     document.getElementById("maju-tepat").textContent = pct + "%";
     document.getElementById("maju-hari").textContent = S.beruntun;
 
@@ -1410,10 +1558,29 @@ const V = {
     const maks = Math.max(...S.hariMenit, 1);
     document.getElementById("maju-carta").innerHTML = S.hariMenit.map((v, i) => `
       <div class="gf-col">
-        <div class="gf-bar ${i===6?"hari":""}" style="height:${Math.max(14, (v/maks)*86)}px"></div>
+        <div class="gf-bar ${i===6?"hari":""}" style="height:${v > 0 ? Math.max(14, (v/maks)*86) : 12}px"></div>
         <span class="mn" style="font-size:11px">${hari[i]}</span>
       </div>
     `).join("");
+
+    const kiraModul = (katId) => {
+      const kat = KURIKULUM.find(k => k.id === katId);
+      if(!kat) return 0;
+      const semua = kat.bab.flatMap(b => b.items);
+      if(!semua.length) return 0;
+      const hafalKat = semua.filter(it => S.hafal[it.c]).length;
+      return Math.min(100, Math.round((hafalKat / semua.length) * 100));
+    };
+    const kosaPct = Math.max(kiraModul("levels"), kiraModul("special"));
+    const ucapPct = kiraModul("conversation");
+    const tataPct = kiraModul("grammar");
+
+    document.getElementById("p-kosa").textContent = kosaPct + "%";
+    document.getElementById("b-kosa").style.width = kosaPct + "%";
+    document.getElementById("p-ucap").textContent = ucapPct + "%";
+    document.getElementById("b-ucap").style.width = ucapPct + "%";
+    document.getElementById("p-tata").textContent = tataPct + "%";
+    document.getElementById("b-tata").style.width = tataPct + "%";
   },
   profil(){
     document.getElementById("prof-msk").innerHTML = maskot(94, 0, {bg:"#FFD23F"});
@@ -1429,7 +1596,7 @@ const V = {
 
 function renderKamus(q){
   const s = q.toLowerCase().trim();
-  const hasil = ALL_WORDS.filter(w => !s || w.c.includes(s) || w.r.toLowerCase().includes(s) || w.m.toLowerCase().includes(s)).slice(0, 60);
+  const hasil = ALL_WORDS.filter(w => !s || w.c.includes(s) || w.r.toLowerCase().includes(s) || w.m.toLowerCase().includes(s)).slice(0, 80);
   document.getElementById("senarai-kamus").innerHTML = hasil.map(w => `
     <div class="cd1" style="padding:10px 12px">
       <div>
@@ -1441,37 +1608,72 @@ function renderKamus(q){
   `).join("");
 }
 
-/* ================= LOGIK PELAJARAN & KUIZ ================= */
+/* ================= LOGIK PELAJARAN & KUIZ 10 SOALAN RAWAK ================= */
 function mulaPelajaran(mulaDari = 0){
   const bab = KURIKULUM[S.katIdx].bab[S.babIdx];
-  sesi = {items:bab.items, idx:mulaDari, qList:[], qIdx:0, nyawa:3, pilihOpsi:null, solo:false, xpDapat:0};
+  sesi = {
+    items:bab.items, idx:mulaDari, qList:[], qIdx:0, nyawa:5,
+    pilihOpsi:null, solo:false, xpDapat:0, betulSesi:0, sumberKuiz:bab.items
+  };
   go("kad");
 }
 
-function binaKuiz(){
-  const mula = Math.max(0, Math.min(sesi.idx - 4, sesi.items.length - 5));
-  const sumber = sesi.items.slice(mula, mula + 5);
-  sesi.qList = sumber.map(it => {
-    const salahPool = ALL_WORDS.filter(w => w.r !== it.r).sort(() => Math.random()-0.5).slice(0, 3).map(w => w.r);
-    const opsi = [it.r, ...salahPool].sort(() => Math.random()-0.5);
-    return {item:it, opsi, kunci:opsi.indexOf(it.r)};
+function binaKuiz10(sumberPool){
+  const pool = (sumberPool && sumberPool.length >= 4) ? sumberPool : ALL_WORDS;
+  const globalPool = ALL_WORDS;
+  const dipilih = [];
+  const salinan = [...pool].sort(() => Math.random() - 0.5);
+
+  while(dipilih.length < 10){
+    const batch = [...salinan].sort(() => Math.random() - 0.5);
+    for(const it of batch){
+      if(dipilih.length < 10) dipilih.push(it);
+    }
+  }
+
+  sesi.qList = dipilih.map((it, idx) => {
+    const tanyaMaksud = (idx % 2 === 1);
+    const jawapanBetul = tanyaMaksud ? it.m : it.r;
+    const calonSalah = [...pool, ...globalPool]
+      .filter(w => (tanyaMaksud ? w.m !== jawapanBetul : w.r !== jawapanBetul))
+      .sort(() => Math.random() - 0.5);
+
+    const distractors = [];
+    for(const c of calonSalah){
+      const val = tanyaMaksud ? c.m : c.r;
+      if(val && val !== jawapanBetul && !distractors.includes(val)){
+        distractors.push(val);
+      }
+      if(distractors.length === 3) break;
+    }
+
+    const opsi = [jawapanBetul, ...distractors].sort(() => Math.random() - 0.5);
+    return {
+      item: it,
+      mod: tanyaMaksud ? "Pilih maksud yang tepat" : "Pilih sebutan Rumi yang tepat",
+      opsi,
+      kunci: opsi.indexOf(jawapanBetul)
+    };
   });
-  sesi.qIdx = 0; sesi.nyawa = 3; sesi.pilihOpsi = null;
+
+  sesi.qIdx = 0;
+  sesi.nyawa = 5;
+  sesi.pilihOpsi = null;
+  sesi.xpDapat = 0;
+  sesi.betulSesi = 0;
   go("kuiz");
 }
 
 function tamatPelajaran(){
   const bab = KURIKULUM[S.katIdx].bab[S.babIdx];
   S.selesai[bab.id] = true;
-  const jumlahXP = 20 + sesi.xpDapat;
+  const jumlahXP = 10 + sesi.xpDapat;
   S.xp += jumlahXP;
   S.xpMinggu += jumlahXP;
-  S.menit += 8;
-  S.hariMenit[6] = (S.hariMenit[6] || 0) + 8;
   saveS();
   konfeti();
   toast(`Pelajaran selesai! +${jumlahXP} XP`);
-  setTimeout(() => go("laluan"), 900);
+  setTimeout(() => go("laluan"), 850);
 }
 
 /* ================= KANVAS MENULIS ================= */
@@ -1540,6 +1742,16 @@ document.addEventListener("click", e => {
     if(aksi === "lang"){S.bahasa = val; saveS(); applyLang(); if(V[S.skrin]) V[S.skrin]();}
     else if(aksi === "set-level"){S.level = val; saveS(); V.kelas();}
     else if(aksi === "sambung-aktif"){go("laluan");}
+    else if(aksi === "kuiz-bebas"){
+      const bab = KURIKULUM[S.katIdx].bab[S.babIdx];
+      sesi.sumberKuiz = bab.items;
+      binaKuiz10(bab.items);
+    }
+    else if(aksi === "mula-kuiz-bab"){
+      const bab = KURIKULUM[S.katIdx].bab[S.babIdx];
+      sesi.sumberKuiz = bab.items;
+      binaKuiz10(bab.items);
+    }
     else if(aksi === "solo-ucap"){sesi.solo = true; go("ucap");}
     else if(aksi === "buka-ruj"){tabRuj = val; go("rujukan");}
     else if(aksi === "tab-ruj"){tabRuj = val; V.rujukan();}
@@ -1553,16 +1765,19 @@ document.addEventListener("click", e => {
     else if(aksi === "mula-bab"){mulaPelajaran(0);}
     else if(aksi === "bunyi-kad"){cakap(sesi.items[sesi.idx].c);}
     else if(aksi === "kad-prev"){if(sesi.idx > 0){sesi.idx--; V.kad();}}
-    else if(aksi === "terus-kuiz"){binaKuiz();}
+    else if(aksi === "terus-kuiz"){
+      sesi.sumberKuiz = sesi.items;
+      binaKuiz10(sesi.items);
+    }
     else if(aksi === "kad-belum" || aksi === "kad-hafal"){
       const it = sesi.items[sesi.idx];
       if(aksi === "kad-hafal"){
         S.hafal[it.c] = true;
-        S.kata = 412 + Object.keys(S.hafal).length;
+        S.xp += 5;
         saveS();
       }
       if(sesi.idx < sesi.items.length - 1){sesi.idx++; V.kad();}
-      else binaKuiz();
+      else {sesi.sumberKuiz = sesi.items; binaKuiz10(sesi.items);}
     }
     else if(aksi === "pilih-opsi"){sesi.pilihOpsi = Number(val); V.kuiz();}
     else if(aksi === "bunyi-kuiz"){cakap(sesi.qList[sesi.qIdx].item.c);}
@@ -1570,7 +1785,12 @@ document.addEventListener("click", e => {
       const q = sesi.qList[sesi.qIdx];
       S.jawab++;
       if(sesi.pilihOpsi === q.kunci){
-        S.benar++; S.xp += 15; S.xpMinggu += 15; saveS();
+        S.benar++;
+        sesi.betulSesi++;
+        sesi.xpDapat += 15;
+        S.xp += 15;
+        S.xpMinggu += 15;
+        saveS();
         konfeti(); go("betul");
       }else{
         sesi.nyawa = Math.max(0, sesi.nyawa - 1);
@@ -1579,10 +1799,13 @@ document.addEventListener("click", e => {
     }
     else if(aksi === "kuiz-seterusnya"){
       if(sesi.qIdx < sesi.qList.length - 1){sesi.qIdx++; sesi.pilihOpsi = null; go("kuiz");}
-      else{sesi.solo = false; go("ucap");}
+      else{konfeti(); go("tamat-kuiz");}
+    }
+    else if(aksi === "ulang-kuiz"){
+      binaKuiz10(sesi.sumberKuiz);
     }
     else if(aksi === "cuba-lagi"){
-      if(sesi.nyawa <= 0){sesi.nyawa = 3; sesi.qIdx = 0;}
+      if(sesi.nyawa <= 0){binaKuiz10(sesi.sumberKuiz); return;}
       sesi.pilihOpsi = null; go("kuiz");
     }
     else if(aksi === "simpan-soalan" || aksi === "simpan-cuba"){
@@ -1613,9 +1836,9 @@ document.addEventListener("click", e => {
     }
     else if(aksi === "suis"){S.suis[val] = !S.suis[val]; saveS(); V.profil();}
     else if(aksi === "reset-all"){
-      if(confirm("Set semula semua kemajuan belajar?")){
+      if(confirm("Set semula semua kemajuan belajar ke 0?")){
         S = JSON.parse(JSON.stringify(DEFAULT_S));
-        saveS(); go("ob1"); toast("Kemajuan diset semula");
+        saveS(); go("ob1"); toast("Kemajuan diset semula ke 0");
       }
     }
     return;
