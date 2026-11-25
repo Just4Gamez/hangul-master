@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#FFA024">
-<meta name="description" content="Hangul Master — Belajar Bahasa Korea Lengkap: Huruf, Kosa Kata, Perbualan, Tatabahasa & Menulis.">
+<meta name="description" content="Hangul Master — Belajar Bahasa Korea Lengkap: Huruf, Kosa Kata, Perbualan, Grammar & Menulis.">
 <title>Hangul Master · Matahari Oren</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23131313'/%3E%3Ccircle cx='50' cy='52' r='28' fill='%23FFA024'/%3E%3Ccircle cx='40' cy='47' r='4' fill='%23131313'/%3E%3Ccircle cx='60' cy='47' r='4' fill='%23131313'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -109,7 +109,7 @@ body{
 .rb.ghost{visibility:hidden;pointer-events:none}
 
 /* Kad & Komponen */
-.kt{background:#fff;border:3px solid var(--ck);border-radius:28px;padding:16px;box-shadow:0 6px 0 var(--ck);position:relative}
+.kt{background:#fff;border:3px solid var(--ck);border-radius:28px;padding:16px;box-shadow:0 6px 0 var(--ck);position:relative;flex-shrink:0}
 .kt.kn{background:var(--kn)}
 .kt.kr{background:var(--kr)}
 .pil{
@@ -122,6 +122,25 @@ body{
   border:3px solid var(--ck);color:#fff;display:none;align-items:center;justify-content:center;font-size:16px;
 }
 .pil.aktif .cb{display:flex}
+
+/* Butang Level / Bab Jelas & Besar */
+.bab-box{
+  background:var(--kr);border:3px solid var(--ck);border-radius:24px;padding:12px;
+  box-shadow:0 5px 0 var(--ck);flex-shrink:0;display:flex;flex-direction:column;gap:8px;
+}
+.bab-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:8px;
+}
+.bab-btn{
+  background:#fff;border:3px solid var(--ck);border-radius:16px;padding:9px 11px;min-height:46px;
+  font-family:'Nunito',sans-serif;font-weight:800;font-size:12.5px;color:var(--ck);
+  box-shadow:0 4px 0 var(--ck);cursor:pointer;text-align:left;
+  display:flex;align-items:center;justify-content:space-between;gap:6px;line-height:1.2;
+  transition:transform .12s,box-shadow .12s,background .15s;
+}
+.bab-btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--ck)}
+.bab-btn.aktif{background:var(--kn)}
+.bab-btn.penuh{grid-column:1 / -1}
 
 .opt1{
   background:#fff;border:3px solid var(--ck);border-radius:22px;padding:10px 14px;min-height:52px;
@@ -360,7 +379,14 @@ body{
     </div>
 
     <div class="grid2" id="kat-pills"></div>
-    <div class="row-c" style="overflow-x:auto;padding-bottom:4px;scrollbar-width:none" id="bab-chips"></div>
+
+    <div class="bab-box">
+      <div class="row">
+        <span class="mn" style="color:var(--ck)">PILIH LEVEL / BAHAGIAN (TEKAN UNTUK TUKAR)</span>
+        <span class="pill kn" id="bab-kira" style="padding:2px 9px;font-size:11px">1/8</span>
+      </div>
+      <div class="bab-grid" id="bab-chips"></div>
+    </div>
 
     <div class="kt" style="display:flex;flex-direction:column;gap:10px">
       <div class="row">
@@ -851,7 +877,7 @@ const KURIKULUM = [
         {c:"얼마예요?",r:"eolmayeyo?",m:"Berapa harganya?",n:"Bertanya harga barang"},{c:"맛있어요",r:"masisseoyo",m:"Sedap!",n:"Memuji makanan"},
         {c:"화이팅!",r:"hwaiting!",m:"Semangat! / Semoga berjaya!",n:"Kata semangat Korea"}
       ]},
-      {id:"l7",t:"Level 7–14: Perbualan, Sifat & Budaya",d:"Restoran, pelancongan, kesihatan, peribahasa & K-Drama.",items:[
+      {id:"l7",t:"Level 7–14: Perbualan & Budaya",d:"Restoran, pelancongan, kesihatan, peribahasa & K-Drama.",items:[
         {c:"메뉴판 주세요",r:"menyupan juseyo",m:"Tolong beri menu",n:"Situasi Restoran"},{c:"계산해 주세요",r:"gyesanhae juseyo",m:"Tolong kira bil",n:"Kaunter bayaran"},
         {c:"카드 돼요?",r:"kadeu dwaeyo?",m:"Boleh guna kad?",n:"Membeli-belah"},{c:"화장실이 어디예요?",r:"hwajangsiri eodiyeyo?",m:"Tandas di mana?",n:"Bertanya lokasi"},
         {c:"크다 / 작다",r:"keuda / jakda",m:"Besar / Kecil",n:"Kata sifat saiz"},{c:"예쁘다 / 멋있다",r:"yeppeuda / meositda",m:"Cantik / Kacak",n:"Kata sifat rupa"},
@@ -861,7 +887,7 @@ const KURIKULUM = [
         {c:"떡볶이",r:"tteokbokki",m:"Kek beras pedas manis",n:"Makanan jalanan"},{c:"비빔밥",r:"bibimbap",m:"Nasi campur tradisional Korea",n:"Makanan tradisi"},
         {c:"김밥",r:"gimbap",m:"Nasi gulung rumpai laut",n:"Bekal popular"}
       ]},
-      {id:"l15",t:"Level 15–21: Hobi, Alam, Emosi & TOPIK",d:"Sukan, haiwan, emosi, pengangkutan & ujian kemuncak.",items:[
+      {id:"l15",t:"Level 15–21: Hobi, Alam & TOPIK",d:"Sukan, haiwan, emosi, pengangkutan & ujian kemuncak.",items:[
         {c:"취미 / 운동",r:"chwimi / undong",m:"Hobi / Senaman",n:"Aktiviti masa lapang"},{c:"축구 / 수영",r:"chukgu / suyeong",m:"Bola sepak / Berenang",n:"Sukan"},
         {c:"호랑이 / 코끼리",r:"horangi / kokkiri",m:"Harimau / Gajah",n:"Haiwan liar"},{c:"기쁘다 / 슬프다",r:"gippeuda / seulpeuda",m:"Gembira / Sedih",n:"Luahan emosi"},
         {c:"행복하다",r:"haengbokhada",m:"Bahagia",n:"Perasaan positif"},{c:"공항 / 지하철",r:"gonghang / jihacheol",m:"Lapangan terbang / Tren bawah tanah",n:"Pengangkutan"},
@@ -1173,10 +1199,23 @@ const V = {
 
     const kat = KURIKULUM[S.katIdx];
     if(S.babIdx >= kat.bab.length) S.babIdx = 0;
+    document.getElementById("bab-kira").textContent = `${S.babIdx+1}/${kat.bab.length}`;
+
+    const ganjilAkhir = kat.bab.length % 2 === 1;
     document.getElementById("bab-chips").innerHTML = kat.bab.map((b, i) => {
       const done = S.selesai[b.id];
-      const tanda = done ? "✓" : (i === S.babIdx ? "▶" : "");
-      return `<button class="ch1 ${i===S.babIdx?"aktif":""}" data-do="set-bab:${i}">${tanda} ${i+1}</button>`;
+      const labelPendek = b.t.split(":")[0];
+      const subPendek = b.t.includes(":") ? b.t.split(":")[1].trim() : b.t;
+      const kelasPenuh = (ganjilAkhir && i === kat.bab.length - 1) ? "penuh" : "";
+      return `
+        <button class="bab-btn ${kelasPenuh} ${i===S.babIdx?"aktif":""}" data-do="set-bab:${i}">
+          <div style="min-width:0">
+            <div style="font-size:12px;font-weight:900;color:var(--ck)">${i===S.babIdx?"▶ ":""}${labelPendek}</div>
+            <div style="font-size:11px;font-weight:700;color:var(--ck2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${subPendek}</div>
+          </div>
+          <span style="font-size:13px;font-weight:900;color:${done?"var(--hj)":"var(--ck2)"}">${done?"✓":b.items.length}</span>
+        </button>
+      `;
     }).join("");
 
     const bab = kat.bab[S.babIdx];
