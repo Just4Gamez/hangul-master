@@ -3,278 +3,286 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#FFA024">
+<meta name="theme-color" content="#1B2A4A">
 <meta name="description" content="Hangul Master — Belajar Bahasa Korea Lengkap: Huruf, Kosa Kata, Perbualan, Grammar & Menulis.">
-<title>Hangul Master · Matahari Oren</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23131313'/%3E%3Ccircle cx='50' cy='52' r='28' fill='%23FFA024'/%3E%3Ccircle cx='40' cy='47' r='4' fill='%23131313'/%3E%3Ccircle cx='60' cy='47' r='4' fill='%23131313'/%3E%3C/svg%3E">
+<title>Hangul Master · Navy & Dusty Pink</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%231B2A4A'/%3E%3Ccircle cx='50' cy='52' r='28' fill='%23E6A4B4'/%3E%3Ccircle cx='40' cy='47' r='4' fill='%231B2A4A'/%3E%3Ccircle cx='60' cy='47' r='4' fill='%231B2A4A'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Noto+Sans+KR:wght@700;900&family=Nunito:wght@600;700;800&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,700,1,0&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Noto+Sans+KR:wght@700;900&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,1,0&display=swap" rel="stylesheet">
 <style>
 :root{
-  --jg:#FFA024;--jg2:#FFB547;--ck:#6A2E0B;--mr:#D4474A;--hj:#2E9A55;
-  --bi:#1E85B0;--kn:#FFD23F;--kr:#FFF4DA;--pt:#fff;
-  --ck2:#a1481a;--t1:#FF8A3D;--t2:#7BD389;--t3:#7CC6FE;--t4:#FF9EB5;--t5:#C9A7FF;
+  /* Palet Rasmi: Navy + Dusty Pink + Putih */
+  --nv:#1B2A4A;       /* Navy Utama */
+  --nv2:#101B33;      /* Navy Gelap */
+  --nv-soft:#344873;  /* Navy Teks Sekunder */
+  --dp:#E6A4B4;       /* Dusty Pink Utama */
+  --dp2:#D17B93;      /* Dusty Pink Gelap */
+  --dp-bg:#F8E5EA;    /* Dusty Pink Lembut */
+  --pt:#FFFFFF;       /* Putih Tulen */
+  --pt2:#FDF8F9;      /* Putih Blush Lembut */
+  --line:#E6CBD3;     /* Garis Halus */
+  --ok:#2E8B67;       /* Hijau lembut status betul */
+  --err:#C94A6A;      /* Merah jambu gelap status salah */
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;margin:0;padding:0}
+html,body{overflow-x:hidden;max-width:100%}
 body{
-  font-family:'Nunito',sans-serif;color:var(--ck);
-  background:repeating-conic-gradient(from 0deg at 50% 40%,#FFA83A 0 9deg,#FFB955 9deg 18deg);
+  font-family:'Plus Jakarta Sans',sans-serif;color:var(--nv);
+  background:radial-gradient(circle at 15% 15%,#F8E5EA 0%,#EED4DC 45%,#1B2A4A 100%);
   min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:16px;
 }
-.kr-txt{font-family:'Noto Sans KR','Nunito',sans-serif;word-break:keep-all}
-.ms{font-family:'Material Symbols Rounded';font-weight:normal;font-style:normal;font-size:24px;line-height:1;display:inline-flex;align-items:center;justify-content:center;user-select:none}
+.kr-txt{font-family:'Noto Sans KR','Plus Jakarta Sans',sans-serif;word-break:keep-all}
+.ms{font-family:'Material Symbols Rounded';font-weight:normal;font-style:normal;font-size:22px;line-height:1;display:inline-flex;align-items:center;justify-content:center;user-select:none}
 
-/* Paparan Desktop / Komputer */
+/* Bingkai Utama Desktop / Komputer */
 .telefon{
-  width:100%;max-width:760px;height:min(860px, 94dvh);background:var(--jg);
-  border:8px solid #FFF8E8;border-radius:36px;
-  box-shadow:0 0 0 4px var(--ck),0 22px 50px rgba(60,25,5,.32);
+  width:100%;max-width:760px;height:min(860px, 94dvh);background:var(--pt2);
+  border:3px solid var(--nv);border-radius:32px;
+  box-shadow:0 24px 60px rgba(16,27,51,.35);
   position:relative;overflow:hidden;display:flex;flex-direction:column;
 }
 
-/* Susunan 2 Lajur untuk pilihan kuiz di skrin lebar (Desktop/Tablet) */
+/* Susunan 2 Lajur pada Desktop/Tablet */
 @media(min-width:640px){
   #kuiz-opsi{display:grid!important;grid-template-columns:1fr 1fr;gap:12px}
-  .skrin{padding:12px 32px 28px}
+  .skrin{padding:14px 30px 26px}
 }
 
-/* Automatik Skrin Penuh 100% untuk SEMUA Telefon Pintar */
+/* Skrin Penuh 100% untuk Telefon Pintar */
 @media(max-width:768px),(pointer:coarse) and (max-width:1024px){
-  body{padding:0!important;background:var(--jg)}
+  body{padding:0!important;background:var(--pt2)}
   .telefon{
     width:100vw!important;max-width:100vw!important;height:100dvh!important;
     border:none!important;border-radius:0!important;box-shadow:none!important;
   }
 }
 
+/* Bar Atas */
 .sbar{
-  padding:max(14px,env(safe-area-inset-top)) 24px 4px;
+  padding:max(14px,env(safe-area-inset-top)) 22px 8px;
   display:flex;justify-content:space-between;align-items:center;
-  font-weight:800;font-size:14px;color:var(--ck);z-index:20;flex-shrink:0;
+  font-weight:800;font-size:13px;color:var(--nv);background:var(--pt);
+  border-bottom:1.5px solid var(--line);z-index:20;flex-shrink:0;
 }
 .skrin{
   display:none;flex-direction:column;flex:1;overflow-y:auto;overflow-x:hidden;
-  padding:8px 20px 24px;gap:14px;scrollbar-width:none;position:relative;
+  padding:14px 18px 24px;gap:14px;scrollbar-width:none;position:relative;min-width:0;
 }
 .skrin::-webkit-scrollbar{display:none}
-.skrin.active{display:flex;animation:masuk .28s cubic-bezier(.22,.9,.3,1)}
-@keyframes masuk{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-@keyframes apung{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-.apung{animation:apung 4.5s ease-in-out infinite}
+.skrin.active{display:flex;animation:masuk .25s cubic-bezier(.22,.9,.3,1)}
+@keyframes masuk{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes apung{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.apung{animation:apung 4s ease-in-out infinite}
 
-/* Latar Skrin */
-.bg-sun{background:repeating-conic-gradient(from 0deg at 50% 26%,#FFA42B 0 9deg,#FFB44E 9deg 18deg)}
-.bg-biru{background-color:var(--bi);background-image:radial-gradient(rgba(255,255,255,.14) 3px,transparent 3px);background-size:30px 30px}
-.bg-hijau{background-color:#2F9E56;background-image:radial-gradient(rgba(255,255,255,.14) 3px,transparent 3px);background-size:30px 30px}
-.bg-merah{background-color:var(--mr);background-image:radial-gradient(rgba(255,255,255,.12) 3px,transparent 3px);background-size:30px 30px}
-.bg-kuning{background:repeating-conic-gradient(from 0deg at 50% 28%,#FFCB3F 0 10deg,#FFD866 10deg 20deg)}
+/* Variasi Latar Skrin (Navy + Dusty Pink + Putih) */
+.bg-pt{background:var(--pt2)}
+.bg-pink{background:linear-gradient(180deg,var(--dp-bg) 0%,var(--pt) 55%)}
+.bg-navy{background:linear-gradient(180deg,var(--nv) 0%,#243861 100%);color:var(--pt)}
 
-/* Tipografi */
-.jd1{font-family:'Lilita One',cursive;font-size:26px;color:#fff;-webkit-text-stroke:6px var(--ck);paint-order:stroke fill;letter-spacing:.3px;line-height:1.15}
-.logo1{font-family:'Lilita One',cursive;font-size:56px;color:var(--jg);-webkit-text-stroke:11px var(--ck);paint-order:stroke fill;text-shadow:0 6px 0 var(--ck);line-height:1}
-.jd2{font-family:'Lilita One',cursive;font-size:23px;color:var(--ck);line-height:1.2}
-.big1{font-family:'Lilita One',cursive;font-size:36px;color:var(--ck);line-height:1.1}
-.jam1{font-family:'Lilita One',cursive;font-size:44px;color:var(--kn);-webkit-text-stroke:7px var(--ck);paint-order:stroke fill;line-height:1}
-.isi1{font-weight:700;font-size:14px;line-height:1.45}
-.sub1{font-weight:800;font-size:15px;line-height:1.35;max-width:300px}
-.mn{font-weight:800;font-size:12px;letter-spacing:.3px}
+/* Tipografi Moden Remaja */
+.jd1{font-weight:800;font-size:23px;color:var(--nv);letter-spacing:-.4px;line-height:1.2}
+.bg-navy .jd1{color:var(--pt)}
+.logo1{font-weight:800;font-size:44px;color:var(--nv);letter-spacing:-1px;line-height:1.05}
+.jd2{font-weight:800;font-size:19px;color:var(--nv);letter-spacing:-.3px;line-height:1.25}
+.big1{font-weight:800;font-size:34px;color:var(--nv);line-height:1.1}
+.jam1{font-weight:800;font-size:28px;color:var(--nv);line-height:1}
+.isi1{font-weight:600;font-size:14px;line-height:1.45;color:var(--nv-soft)}
+.sub1{font-weight:700;font-size:15px;line-height:1.4;max-width:320px;color:var(--nv-soft)}
+.mn{font-weight:800;font-size:11.5px;letter-spacing:.4px}
 
-/* Butang */
+/* Butang Estetik Moden */
 .tb{
-  font-family:'Lilita One',cursive;font-size:20px;color:#fff;-webkit-text-stroke:4.5px var(--ck);paint-order:stroke fill;
-  background:var(--jg);border:3px solid var(--ck);border-radius:999px;padding:10px 22px;min-height:50px;
-  box-shadow:0 5px 0 var(--ck);margin-bottom:5px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  transition:transform .12s,box-shadow .12s;text-decoration:none;
+  font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:15px;color:var(--pt);
+  background:var(--nv);border:2px solid var(--nv);border-radius:16px;padding:12px 20px;min-height:48px;
+  box-shadow:0 4px 0 var(--nv2);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  transition:transform .12s,box-shadow .12s,background .15s;text-decoration:none;max-width:100%;
 }
-.tb:active:not(:disabled){transform:translateY(4px);box-shadow:0 1px 0 var(--ck)}
-.tb.hj{background:var(--hj)}
-.tb.mr{background:var(--mr)}
-.tb.bi{background:var(--bi)}
-.tb.pt{background:#fff;color:var(--ck);-webkit-text-stroke:0}
-.tb.ck{background:var(--ck);color:var(--kn);-webkit-text-stroke:0}
-.tb.sm{font-size:16px;padding:7px 16px;min-height:40px;-webkit-text-stroke:3.5px var(--ck);box-shadow:0 4px 0 var(--ck)}
-.tb.sm.pt,.tb.sm.ck{-webkit-text-stroke:0}
+.tb:active:not(:disabled){transform:translateY(3px);box-shadow:0 1px 0 var(--nv2)}
+.tb.dp{background:var(--dp);color:var(--nv);border-color:var(--nv);box-shadow:0 4px 0 var(--nv)}
+.tb.pt{background:var(--pt);color:var(--nv);border-color:var(--nv);box-shadow:0 4px 0 var(--nv)}
+.tb.err{background:var(--err);color:var(--pt);border-color:var(--nv2);box-shadow:0 4px 0 var(--nv2)}
+.tb.sm{font-size:13.5px;padding:8px 14px;min-height:38px;border-radius:13px;box-shadow:0 3px 0 var(--nv2)}
 .tb.lebar{width:100%}
-.tb:disabled{background:#d8c3a5;box-shadow:0 5px 0 #8a6b4a;cursor:not-allowed;opacity:.85}
+.tb:disabled{background:#D8CFD2;border-color:#B5A6AB;color:#7A6B70;box-shadow:none;cursor:not-allowed}
 
 .rb{
-  width:44px;height:44px;border-radius:50%;background:var(--jg);border:3px solid var(--ck);color:#fff;
-  box-shadow:0 4px 0 var(--ck);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;
+  width:42px;height:42px;border-radius:14px;background:var(--dp-bg);border:2px solid var(--nv);color:var(--nv);
+  box-shadow:0 3px 0 var(--nv);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;
   transition:transform .12s,box-shadow .12s;
 }
-.rb:active{transform:translateY(3px);box-shadow:0 1px 0 var(--ck)}
-.rb.pt{background:#fff;color:var(--ck)}
-.rb.hj{background:var(--hj)}
+.rb:active{transform:translateY(2px);box-shadow:0 1px 0 var(--nv)}
+.rb.nv{background:var(--nv);color:var(--pt)}
+.rb.pt{background:var(--pt);color:var(--nv)}
 .rb.ghost{visibility:hidden;pointer-events:none}
 
 /* Kad & Komponen */
-.kt{background:#fff;border:3px solid var(--ck);border-radius:28px;padding:16px;box-shadow:0 6px 0 var(--ck);position:relative;flex-shrink:0}
-.kt.kn{background:var(--kn)}
-.kt.kr{background:var(--kr)}
+.kt{background:var(--pt);border:2px solid var(--nv);border-radius:24px;padding:16px;box-shadow:0 5px 0 rgba(27,42,74,.14);position:relative;flex-shrink:0;max-width:100%}
+.kt.dp{background:var(--dp-bg);border-color:var(--nv)}
+.kt.nv{background:var(--nv);color:var(--pt);border-color:var(--nv2)}
+.kt.nv .isi1,.kt.nv .mn{color:var(--dp-bg)}
+.kt.nv .jd2{color:var(--pt)}
+
 .pil{
-  background:#fff;border:3px solid var(--ck);border-radius:24px;padding:12px 14px;box-shadow:0 5px 0 var(--ck);
-  position:relative;cursor:pointer;display:flex;align-items:center;gap:12px;transition:transform .12s,background .15s;
+  background:var(--pt);border:2px solid var(--nv);border-radius:20px;padding:12px 14px;box-shadow:0 4px 0 rgba(27,42,74,.12);
+  position:relative;cursor:pointer;display:flex;align-items:center;gap:12px;transition:transform .12s,background .15s;min-width:0;max-width:100%;
 }
-.pil.aktif{background:var(--kn)}
+.pil.aktif{background:var(--dp-bg);border-color:var(--nv);box-shadow:0 4px 0 var(--nv)}
 .cb{
-  position:absolute;top:-10px;right:-6px;width:28px;height:28px;border-radius:50%;background:var(--hj);
-  border:3px solid var(--ck);color:#fff;display:none;align-items:center;justify-content:center;font-size:16px;
+  position:absolute;top:-8px;right:-6px;width:26px;height:26px;border-radius:50%;background:var(--nv);
+  border:2px solid var(--pt);color:var(--dp);display:none;align-items:center;justify-content:center;font-size:13px;font-weight:800;
 }
 .pil.aktif .cb{display:flex}
 
-/* Butang Level / Bab Jelas, Besar & Muat Bingkai */
+/* Butang Level / Bab (Semua Fail) */
 .bab-box{
-  background:var(--kr);border:3px solid var(--ck);border-radius:24px;padding:12px;
-  box-shadow:0 5px 0 var(--ck);flex-shrink:0;display:flex;flex-direction:column;gap:8px;width:100%;
+  background:var(--pt);border:2px solid var(--nv);border-radius:22px;padding:13px;
+  box-shadow:0 5px 0 rgba(27,42,74,.12);flex-shrink:0;display:flex;flex-direction:column;gap:10px;width:100%;
 }
 .bab-grid{
-  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px;width:100%;
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:9px;width:100%;
+}
+@media(max-width:480px){
+  .bab-grid{grid-template-columns:minmax(0,1fr)}
 }
 .bab-btn{
-  background:#fff;border:3px solid var(--ck);border-radius:16px;padding:9px 10px;min-height:46px;
-  font-family:'Nunito',sans-serif;font-weight:800;font-size:12.5px;color:var(--ck);
-  box-shadow:0 4px 0 var(--ck);cursor:pointer;text-align:left;
-  display:flex;align-items:center;justify-content:space-between;gap:6px;line-height:1.2;
+  background:var(--pt2);border:2px solid var(--nv);border-radius:16px;padding:11px 12px;min-height:54px;
+  font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:13.5px;color:var(--nv);
+  box-shadow:0 3px 0 rgba(27,42,74,.15);cursor:pointer;text-align:left;
+  display:flex;align-items:center;justify-content:space-between;gap:8px;line-height:1.25;
   min-width:0;max-width:100%;overflow:hidden;
-  transition:transform .12s,box-shadow .12s,background .15s;
+  transition:transform .12s,background .15s;
 }
 .bab-btn > div{min-width:0;flex:1}
-.bab-btn > span:last-child{flex-shrink:0}
-.bab-btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--ck)}
-.bab-btn.aktif{background:var(--kn)}
+.bab-badge{
+  flex-shrink:0;min-width:30px;height:30px;padding:0 8px;border-radius:999px;
+  background:var(--dp-bg);border:1.5px solid var(--nv);
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:800;color:var(--nv);
+}
+.bab-btn.aktif{background:var(--nv);color:var(--pt);box-shadow:0 4px 0 var(--nv2)}
+.bab-btn.aktif .sub-bab{color:var(--dp)!important}
+.bab-btn.aktif .bab-badge{background:var(--dp);color:var(--nv);border-color:var(--pt)}
+.bab-btn:active{transform:translateY(2px)}
 .bab-btn.penuh{grid-column:1 / -1}
 
 .opt1{
-  background:#fff;border:3px solid var(--ck);border-radius:22px;padding:10px 14px;min-height:52px;
-  font-weight:800;font-size:15px;box-shadow:0 5px 0 var(--ck);display:flex;align-items:center;gap:12px;cursor:pointer;text-align:left;
+  background:var(--pt);border:2px solid var(--nv);border-radius:18px;padding:11px 14px;min-height:52px;
+  font-weight:700;font-size:14.5px;color:var(--nv);box-shadow:0 4px 0 rgba(27,42,74,.12);
+  display:flex;align-items:center;gap:12px;cursor:pointer;text-align:left;min-width:0;max-width:100%;
 }
-.opt1.aktif{background:var(--kn)}
+.opt1.aktif{background:var(--dp-bg);border-color:var(--nv);box-shadow:0 4px 0 var(--nv)}
 .hr{
-  width:32px;height:32px;border-radius:50%;background:var(--kr);border:3px solid var(--ck);
-  font-family:'Lilita One',cursive;font-size:16px;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  width:32px;height:32px;border-radius:10px;background:var(--dp-bg);border:2px solid var(--nv);
+  font-weight:800;font-size:14px;color:var(--nv);display:flex;align-items:center;justify-content:center;flex-shrink:0;
 }
-.opt1.aktif .hr{background:var(--ck);color:var(--kn)}
+.opt1.aktif .hr{background:var(--nv);color:var(--dp)}
 
 .cd1{
-  background:#fff;border:3px solid var(--ck);border-radius:24px;padding:12px 14px;box-shadow:0 5px 0 var(--ck);
-  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  background:var(--pt);border:2px solid var(--nv);border-radius:20px;padding:12px 14px;box-shadow:0 4px 0 rgba(27,42,74,.1);
+  display:flex;align-items:center;justify-content:space-between;gap:10px;min-width:0;max-width:100%;
 }
 .ch1{
-  background:#fff;border:3px solid var(--ck);border-radius:14px;font-weight:800;font-size:13px;
-  padding:6px 12px;min-width:52px;text-align:center;cursor:pointer;box-shadow:0 3px 0 var(--ck);
+  background:var(--pt);border:2px solid var(--nv);border-radius:12px;font-weight:800;font-size:12.5px;color:var(--nv);
+  padding:6px 12px;min-width:52px;text-align:center;cursor:pointer;box-shadow:0 2px 0 rgba(27,42,74,.15);
 }
-.ch1.aktif{background:var(--kn)}
-.dot1{width:28px;height:9px;border-radius:9px;background:#e3c79c;transition:all .2s}
-.dot1.aktif{background:var(--jg);height:11px;border:2px solid var(--ck)}
-.bar1{height:15px;background:#fff;border:3px solid var(--ck);border-radius:99px;overflow:hidden}
-.bar1 > div{height:100%;background:var(--hj);border-right:3px solid var(--ck);transition:width .5s cubic-bezier(.3,1.2,.5,1)}
+.ch1.aktif{background:var(--nv);color:var(--dp)}
+.bar1{height:12px;background:var(--dp-bg);border:2px solid var(--nv);border-radius:99px;overflow:hidden;margin-top:4px}
+.bar1 > div{height:100%;background:var(--nv);transition:width .5s cubic-bezier(.3,1.2,.5,1)}
 
-/* Dok Bawah */
+/* Dok Bawah 4 Halaman Utama */
 .dock{
-  background:var(--kr);padding:8px 14px max(10px,env(safe-area-inset-bottom));border-top:3px solid var(--ck);
+  background:var(--pt);padding:8px 12px max(10px,env(safe-area-inset-bottom));border-top:2px solid var(--nv);
   display:none;justify-content:space-around;align-items:center;flex-shrink:0;z-index:20;
 }
 .dock.show{display:flex}
 .dk-btn{
-  width:72px;height:48px;border-radius:16px;border:3px solid transparent;background:transparent;
-  color:var(--ck);opacity:.6;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  cursor:pointer;font-size:11px;font-weight:800;gap:1px;
+  flex:1;max-width:86px;height:50px;border-radius:15px;border:2px solid transparent;background:transparent;
+  color:var(--nv-soft);display:flex;flex-direction:column;align-items:center;justify-content:center;
+  cursor:pointer;font-size:11px;font-weight:800;gap:2px;transition:all .15s;
 }
-.dk-btn.aktif{background:var(--jg);border-color:var(--ck);color:#fff;box-shadow:0 3px 0 var(--ck);opacity:1}
+.dk-btn.aktif{background:var(--nv);border-color:var(--nv);color:var(--dp);box-shadow:0 3px 0 var(--nv2)}
 
 /* Pemasa Kuiz, Mikrofon & Gelombang */
 .stop{
-  width:120px;height:120px;border-radius:50%;background:var(--jg);border:4px solid var(--ck);
-  box-shadow:0 6px 0 var(--ck);margin:4px auto;position:relative;display:flex;align-items:center;justify-content:center;
-}
-.stop::before{
-  content:'';position:absolute;top:-18px;width:32px;height:16px;background:var(--jg);
-  border:4px solid var(--ck);border-bottom:none;border-radius:8px 8px 0 0;
+  width:92px;height:92px;border-radius:50%;background:var(--dp);border:3px solid var(--nv);
+  box-shadow:0 4px 0 var(--nv);margin:2px auto;position:relative;display:flex;align-items:center;justify-content:center;flex-shrink:0;
 }
 .stop-in{
-  width:88px;height:88px;border-radius:50%;background:#fff;border:4px solid var(--ck);
-  display:flex;align-items:center;justify-content:center;font-family:'Lilita One',cursive;font-size:26px;color:var(--ck);
+  width:70px;height:70px;border-radius:50%;background:var(--pt);border:2.5px solid var(--nv);
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:19px;color:var(--nv);
 }
 .mik{
-  width:92px;height:92px;border-radius:50%;background:var(--jg);border:4px solid var(--ck);
-  box-shadow:0 6px 0 var(--ck);color:#fff;display:flex;align-items:center;justify-content:center;
+  width:88px;height:88px;border-radius:50%;background:var(--nv);border:3px solid var(--dp);
+  box-shadow:0 6px 0 var(--nv2);color:var(--dp);display:flex;align-items:center;justify-content:center;
   cursor:pointer;margin:0 auto;user-select:none;transition:transform .1s,background .15s;
 }
-.mik.rakam{background:var(--mr);transform:scale(1.06)}
-.gel{height:66px;display:flex;align-items:center;justify-content:center;gap:5px;opacity:.5}
+.mik.rakam{background:var(--err);color:var(--pt);transform:scale(1.06)}
+.gel{height:58px;display:flex;align-items:center;justify-content:center;gap:5px;opacity:.45}
 .gel.rakam{opacity:1}
-.gel span{width:7px;background:var(--ck);border-radius:99px;transition:height .12s ease}
+.gel span{width:6px;background:var(--nv);border-radius:99px;transition:height .12s ease}
 
 /* Carta & Kedudukan */
-.gf{height:120px;display:flex;align-items:flex-end;justify-content:space-between;gap:8px;padding-top:14px}
+.gf{height:110px;display:flex;align-items:flex-end;justify-content:space-between;gap:8px;padding-top:12px}
 .gf-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%;justify-content:flex-end}
-.gf-bar{width:100%;background:var(--bi);border:3px solid var(--ck);border-radius:10px 10px 4px 4px;min-height:12px}
-.gf-bar.hari{background:var(--jg)}
+.gf-bar{width:100%;background:var(--dp);border:2px solid var(--nv);border-radius:8px 8px 3px 3px;min-height:10px}
+.gf-bar.hari{background:var(--nv)}
 .rank1{
-  background:#fff;border:3px solid var(--ck);border-radius:20px;padding:8px 14px 8px 10px;
-  box-shadow:0 4px 0 var(--ck);display:flex;align-items:center;gap:10px;
+  background:var(--pt);border:2px solid var(--nv);border-radius:16px;padding:8px 14px 8px 10px;
+  box-shadow:0 3px 0 rgba(27,42,74,.1);display:flex;align-items:center;gap:10px;
 }
-.rank1.anda{background:var(--kn)}
+.rank1.anda{background:var(--dp-bg);border-color:var(--nv)}
 
 /* Toast & Konfeti */
 .toast{
   position:absolute;top:56px;left:50%;transform:translateX(-50%) translateY(-16px);
-  background:var(--ck);color:#fff;font-weight:800;font-size:13px;padding:9px 18px;border-radius:999px;
-  box-shadow:0 5px 15px rgba(0,0,0,.25);z-index:100;opacity:0;pointer-events:none;white-space:nowrap;
+  background:var(--nv);color:var(--dp);font-weight:800;font-size:13px;padding:9px 18px;border-radius:999px;
+  border:2px solid var(--dp);box-shadow:0 6px 18px rgba(16,27,51,.28);z-index:100;opacity:0;pointer-events:none;white-space:nowrap;
   transition:opacity .2s,transform .2s;
 }
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-.konfeti{position:absolute;width:9px;height:14px;border-radius:2px;pointer-events:none;z-index:90;animation:jatuh 1.5s ease-in forwards}
+.konfeti{position:absolute;width:8px;height:13px;border-radius:2px;pointer-events:none;z-index:90;animation:jatuh 1.5s ease-in forwards}
 @keyframes jatuh{to{transform:translateY(880px) rotate(720deg);opacity:0}}
 
 /* Grid Kanvas Writing Lab & Jadual Nota */
 .stroke-grid{
-  background-color:#fff;
-  background-image:linear-gradient(to right,#e3c79c 1px,transparent 1px),linear-gradient(to bottom,#e3c79c 1px,transparent 1px);
-  background-size:24px 24px;border:3px solid var(--ck);border-radius:22px;box-shadow:0 5px 0 var(--ck);
+  background-color:var(--pt);
+  background-image:linear-gradient(to right,var(--line) 1px,transparent 1px),linear-gradient(to bottom,var(--line) 1px,transparent 1px);
+  background-size:24px 24px;border:2px solid var(--nv);border-radius:18px;
 }
 .tbl-nota{width:100%;border-collapse:collapse;font-size:12px}
-.tbl-nota th{background:var(--kn);padding:7px 8px;text-align:left;border-bottom:3px solid var(--ck);font-weight:800}
-.tbl-nota td{padding:7px 8px;border-bottom:1.5px solid #e3c79c;font-weight:700}
+.tbl-nota th{background:var(--dp-bg);color:var(--nv);padding:8px;text-align:left;border-bottom:2px solid var(--nv);font-weight:800}
+.tbl-nota td{padding:7px 8px;border-bottom:1px solid var(--line);font-weight:700;color:var(--nv)}
 
-/* Maskot Geometri */
-.msk{position:relative;display:inline-flex;align-items:center;justify-content:center;border:3px solid var(--ck);flex-shrink:0;box-shadow:0 4px 0 var(--ck)}
+/* Maskot Geometri Tema Navy & Dusty Pink */
+.msk{position:relative;display:inline-flex;align-items:center;justify-content:center;border:2.5px solid var(--nv);flex-shrink:0;box-shadow:0 3px 0 var(--nv)}
 .msk-mata{display:flex;gap:18%;margin-top:-12%}
-.msk-biji{background:#fff;border:2px solid var(--ck);border-radius:50%;position:relative;overflow:hidden}
-.msk-biji::after{content:'';position:absolute;bottom:1px;left:50%;transform:translateX(-50%);width:55%;height:55%;background:var(--ck);border-radius:50%}
-.msk-mulut{position:absolute;bottom:22%;border:3px solid var(--ck);border-top:none}
-.msk-pipi{position:absolute;top:52%;background:#FF8FA3;border-radius:50%}
+.msk-biji{background:var(--pt);border:2px solid var(--nv);border-radius:50%;position:relative;overflow:hidden}
+.msk-biji::after{content:'';position:absolute;bottom:1px;left:50%;transform:translateX(-50%);width:55%;height:55%;background:var(--nv);border-radius:50%}
+.msk-mulut{position:absolute;bottom:22%;border:2.5px solid var(--nv);border-top:none}
+.msk-pipi{position:absolute;top:52%;background:#D17B93;border-radius:50%}
 .msk-lencana{
-  position:absolute;top:-8px;right:-8px;width:30%;height:30%;background:#FFDD57;border:3px solid var(--ck);
-  border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12px;
+  position:absolute;top:-7px;right:-7px;width:30%;height:30%;background:var(--nv);border:2px solid var(--pt);color:var(--dp);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:11px;
 }
-
-/* Skrin Onboarding Bawah */
-.logo-box{width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.55);display:flex;align-items:center;justify-content:center;margin:8px auto}
-.skalop{
-  height:20px;margin:0 -20px;
-  background:radial-gradient(circle at 15px 20px,var(--kr) 15px,transparent 16px) 0 0/30px 20px repeat-x;
-}
-.panel-bawah{background:var(--kr);margin:-14px -20px -24px;padding:18px 22px 28px;border-top:3px solid var(--ck);display:flex;flex-direction:column;gap:14px;align-items:center;text-align:center}
 
 /* Suis Toggle */
-.suis{width:52px;height:30px;border-radius:99px;background:#d8c3a5;border:3px solid var(--ck);position:relative;cursor:pointer;transition:background .2s}
-.suis.on{background:var(--hj)}
-.suis::after{content:'';position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:#fff;border:2px solid var(--ck);transition:transform .2s}
-.suis.on::after{transform:translateX(22px)}
+.suis{width:50px;height:28px;border-radius:99px;background:var(--line);border:2px solid var(--nv);position:relative;cursor:pointer;transition:background .2s;flex-shrink:0}
+.suis.on{background:var(--nv)}
+.suis::after{content:'';position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:var(--pt);border:2px solid var(--nv);transition:transform .2s}
+.suis.on::after{transform:translateX(22px);background:var(--dp)}
 
 /* Utiliti Susun Atur */
-.row{display:flex;align-items:center;justify-content:space-between;gap:10px}
-.row-c{display:flex;align-items:center;gap:10px}
-.pill{background:#fff;border:3px solid var(--ck);border-radius:999px;padding:5px 12px;font-weight:800;font-size:13px;display:inline-flex;align-items:center;gap:5px;box-shadow:0 3px 0 var(--ck)}
-.pill.hj{background:var(--hj);color:#fff}
-.pill.mr{background:var(--mr);color:#fff}
-.pill.kn{background:var(--kn)}
-.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px}
-.grid5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
-.inp{width:100%;padding:10px 14px;border:3px solid var(--ck);border-radius:18px;font-family:'Nunito',sans-serif;font-weight:800;font-size:14px;background:#fff;color:var(--ck);outline:none}
-*:focus-visible{outline:3px solid currentColor;outline-offset:2px}
+.row{display:flex;align-items:center;justify-content:space-between;gap:10px;min-width:0}
+.row-c{display:flex;align-items:center;gap:10px;min-width:0}
+.pill{background:var(--pt);border:2px solid var(--nv);border-radius:999px;padding:5px 12px;font-weight:800;font-size:12.5px;color:var(--nv);display:inline-flex;align-items:center;gap:5px;flex-shrink:0}
+.pill.nv{background:var(--nv);color:var(--dp)}
+.pill.dp{background:var(--dp-bg);color:var(--nv)}
+.pill.err{background:var(--err);color:var(--pt)}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;width:100%}
+.grid5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;width:100%}
+.inp{width:100%;padding:11px 14px;border:2px solid var(--nv);border-radius:14px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;background:var(--pt);color:var(--nv);outline:none}
+*:focus-visible{outline:2.5px solid var(--dp2);outline-offset:2px}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.konfeti{display:none}}
 </style>
 </head>
@@ -282,333 +290,400 @@ body{
 <div class="telefon" id="app">
   <div class="sbar">
     <span id="jam">9:41</span>
-    <span class="mn" style="opacity:.75">HANGUL MASTER</span>
-    <div class="row-c" style="gap:4px">
-      <span class="ms" style="font-size:16px" aria-hidden="true">signal_cellular_alt</span>
-      <span class="ms" style="font-size:16px" aria-hidden="true">battery_full</span>
+    <span class="mn" style="color:var(--nv)">HANGUL MASTER · STUDIO</span>
+    <div class="row-c" style="gap:6px">
+      <span class="pill dp" style="padding:2px 9px;font-size:11px" id="top-xp">0 XP</span>
     </div>
   </div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <!-- 1. ONBOARDING 1 -->
-  <section id="s-ob1" class="skrin bg-sun" style="justify-content:space-between;text-align:center">
-    <div style="margin-top:16px">
-      <div class="logo-box" id="ob1-logo"></div>
-      <h1 class="logo1">Hangul</h1>
-      <p class="sub1" style="margin:8px auto 0;color:var(--ck)" data-t="sub_app">Belajar Bahasa Korea Lengkap & Menyeronokkan</p>
-    </div>
-    <div>
-      <div class="skalop"></div>
-      <div class="panel-bawah">
-        <div class="jd2" data-t="ob1_t">Sedia Kuasai Bahasa Korea?</div>
-        <p class="isi1" data-t="ob1_p">Huruf Ganada-sun, 21 Level Kosa Kata, 44 Situasi Perbualan, Grammar & Kanvas Menulis!</p>
-        <button class="tb lebar" data-go="ob2"><span data-t="mula">Mula Sekarang</span></button>
-      </div>
-    </div>
-  </section>
-
-  <!-- 2. ONBOARDING 2 -->
-  <section id="s-ob2" class="skrin bg-sun" style="justify-content:space-between">
-    <div class="row">
-      <span class="jam1" style="font-size:30px;-webkit-text-stroke:5px var(--ck)">Hangul</span>
-      <button class="tb sm pt" data-go="kelas"><span data-t="lewati">Langkau</span></button>
-    </div>
-    <div class="kt kr" style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px;padding:24px 18px">
-      <div id="ob2-msk" class="apung"></div>
-      <div class="jd2" data-t="ob2_t">10 Minit Sehari, Terus Pandai!</div>
-      <p class="isi1" data-t="ob2_p">Belajar melalui kad visual, kuiz interaktif, latihan sebutan suara & papan tulis gurisan Hangul.</p>
-      <div class="row-c" style="justify-content:center;margin:6px 0">
-        <span class="dot1"></span><span class="dot1 aktif"></span><span class="dot1"></span>
-      </div>
-      <div class="row" style="width:100%">
-        <button class="rb pt" data-go="ob1" aria-label="Kembali"><span class="ms">arrow_back</span></button>
-        <button class="tb hj" style="flex:1" data-go="kelas"><span data-t="lanjut">Teruskan</span></button>
-      </div>
-    </div>
-    <div></div>
-  </section>
-
-  <!-- 3. PILIH TAHAP / KELAS -->
-  <section id="s-kelas" class="skrin bg-biru">
-    <div>
-      <h2 class="jd1" data-t="pilih_tahap">Pilih Tahap Kamu</h2>
-      <p class="isi1" style="color:#fff;margin-top:4px" data-t="pilih_sub">Kurikulum & sasaran harian disesuaikan mengikut tahap.</p>
-    </div>
-    <div id="kelas-list" style="display:flex;flex-direction:column;gap:12px"></div>
-    <div class="kt kr" style="margin-top:auto;display:flex;flex-direction:column;gap:12px">
-      <div class="row">
-        <span class="isi1" data-t="bahasa_ui">Bahasa Antaramuka</span>
-        <div class="row-c" style="gap:6px">
-          <button class="ch1" id="lang-ms" data-do="lang:MS">BM</button>
-          <button class="ch1" id="lang-en" data-do="lang:EN">EN</button>
-        </div>
-      </div>
-      <button class="tb hj lebar" data-go="home"><span data-t="lanjut">Masuk Belajar</span></button>
-    </div>
-  </section>
-
-  <!-- 4. LAMAN UTAMA (HOME) -->
-  <section id="s-home" class="skrin bg-hijau">
-    <div class="row">
-      <div class="pill"><span class="ms" style="color:var(--t1);font-size:19px">star</span><span id="hud-xp">0</span></div>
-      <h2 class="jd1" style="font-size:23px" data-t="hari_ini">Hari Ini</h2>
-      <div class="pill"><span class="ms" style="color:var(--mr);font-size:19px">local_fire_department</span><span id="hud-streak">0</span></div>
-    </div>
-
-    <div class="kt kn" style="display:flex;align-items:center;justify-content:space-between;gap:10px">
-      <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-start">
-        <div class="jd2" id="home-sapa">Annyeong!</div>
-        <p class="isi1" id="home-sub">Sambung kurikulum Hangul anda.</p>
-        <div class="row-c" style="gap:8px;flex-wrap:wrap">
-          <button class="tb sm hj" data-do="sambung-aktif"><span data-t="pilih">Sambung</span></button>
-          <button class="tb sm pt" data-do="kuiz-bebas"><span>Kuiz 10 Soalan</span></button>
+  <!-- PAGE 1: HOME WELCOME & PENGENALAN HANGUL -->
+  <section id="s-home" class="skrin bg-pink">
+    <!-- Hero Welcome -->
+    <div class="kt nv" style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+      <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-start;min-width:0">
+        <span class="pill dp" style="font-size:11px;padding:3px 10px">WELCOME TO HANGUL STUDIO</span>
+        <div class="jd1" style="font-size:22px;color:var(--pt)" id="home-sapa">Annyeong, Pelajar!</div>
+        <p class="isi1" style="font-size:13px">Kuasai abjad Hangul, kosa kata harian, dialog K-Drama & tatabahasa dengan gaya santai.</p>
+        <div class="row-c" style="gap:8px;flex-wrap:wrap;margin-top:2px">
+          <button class="tb sm dp" data-go="laluan"><span class="ms" style="font-size:18px">folder_open</span><span>Buka Semua Fail</span></button>
+          <button class="tb sm pt" data-go="kuiz-hub"><span class="ms" style="font-size:18px">quiz</span><span>Mula Kuiz</span></button>
         </div>
       </div>
       <div id="home-msk" class="apung"></div>
     </div>
 
-    <div class="mn" style="color:#fff;text-transform:uppercase" data-t="makmal_utama">Modul & Makmal Pembelajaran</div>
-    <div id="home-moduls" style="display:flex;flex-direction:column;gap:10px"></div>
+    <!-- Bahagian Pengenalan Hangul Terus di Halaman Utama -->
+    <div class="row">
+      <div class="jd2" style="font-size:17px">Pengenalan Hangul (한글)</div>
+      <div class="row-c" style="gap:6px">
+        <button class="ch1 aktif" id="home-tab-vokal" data-do="home-tab:vokal">10 Vokal</button>
+        <button class="ch1" id="home-tab-konsonan" data-do="home-tab:konsonan">14 Konsonan</button>
+        <button class="ch1" id="home-tab-double" data-do="home-tab:double">Ssangjajeum</button>
+      </div>
+    </div>
 
+    <div class="kt" id="home-hangul-box" style="padding:14px"></div>
+
+    <!-- Akses Pantas Makmal -->
+    <div class="jd2" style="font-size:17px">Makmal Interaktif</div>
     <div class="grid2">
-      <button class="tb pt sm" style="width:100%" data-go="writing"><span class="ms">draw</span><span data-t="menulis">Menulis</span></button>
-      <button class="tb pt sm" style="width:100%" data-do="solo-ucap"><span class="ms">mic</span><span data-t="ucapan">Sebutan</span></button>
+      <div class="cd1" style="cursor:pointer" data-go="writing">
+        <div style="min-width:0">
+          <div class="jd2" style="font-size:15px">Writing Lab</div>
+          <div class="isi1" style="font-size:12px">Latihan gurisan huruf</div>
+        </div>
+        <span class="rb nv" style="width:36px;height:36px"><span class="ms" style="font-size:18px">draw</span></span>
+      </div>
+      <div class="cd1" style="cursor:pointer" data-do="solo-ucap">
+        <div style="min-width:0">
+          <div class="jd2" style="font-size:15px">Sebutan Suara</div>
+          <div class="isi1" style="font-size:12px">Uji loghat Korea</div>
+        </div>
+        <span class="rb" style="width:36px;height:36px"><span class="ms" style="font-size:18px">mic</span></span>
+      </div>
+      <div class="cd1" style="cursor:pointer" data-do="buka-ruj:kamus">
+        <div style="min-width:0">
+          <div class="jd2" style="font-size:15px">Kamus Indeks</div>
+          <div class="isi1" style="font-size:12px" id="home-word-count">Semua kosa kata</div>
+        </div>
+        <span class="rb" style="width:36px;height:36px"><span class="ms" style="font-size:18px">search</span></span>
+      </div>
+      <div class="cd1" style="cursor:pointer" data-do="buka-ruj:dengar">
+        <div style="min-width:0">
+          <div class="jd2" style="font-size:15px">Listen Mode</div>
+          <div class="isi1" style="font-size:12px">Audio penutur asli</div>
+        </div>
+        <span class="rb nv" style="width:36px;height:36px"><span class="ms" style="font-size:18px">headphones</span></span>
+      </div>
     </div>
   </section>
 
-  <!-- 5. LALUAN BELAJAR (SEMUA MODUL & BAB) -->
-  <section id="s-laluan" class="skrin bg-merah">
+  <!-- PAGE 2: SEMUA FAIL (KURIKULUM LENGKAP) -->
+  <section id="s-laluan" class="skrin bg-pt">
     <div class="row">
-      <button class="rb pt" data-go="home" aria-label="Kembali"><span class="ms">arrow_back</span></button>
-      <h2 class="jd1" data-t="laluan">Laluan Belajar</h2>
-      <button class="rb" data-do="tukar-kat" aria-label="Tukar Kategori"><span class="ms">tune</span></button>
+      <div>
+        <h2 class="jd1">Semua Fail Belajar</h2>
+        <p class="isi1" style="font-size:12.5px">Pilih folder modul & buka mana-mana fail pelajaran.</p>
+      </div>
+      <span class="pill nv" id="fail-jumlah">4 Folder</span>
     </div>
 
+    <!-- 4 Folder Modul Utama -->
     <div class="grid2" id="kat-pills"></div>
 
+    <!-- Senarai Fail / Bab dalam Folder -->
     <div class="bab-box">
       <div class="row">
-        <span class="mn" style="color:var(--ck)">PILIH LEVEL / BAHAGIAN (TEKAN UNTUK TUKAR)</span>
-        <span class="pill kn" id="bab-kira" style="padding:2px 9px;font-size:11px;flex-shrink:0">1/6</span>
+        <span class="mn" style="color:var(--nv)">PILIH FAIL / LEVEL</span>
+        <span class="pill dp" id="bab-kira" style="padding:3px 10px;font-size:11.5px">1/8</span>
       </div>
       <div class="bab-grid" id="bab-chips"></div>
     </div>
 
+    <!-- Kandungan Fail Dipilih -->
     <div class="kt" style="display:flex;flex-direction:column;gap:10px">
       <div class="row">
         <div style="min-width:0;flex:1">
-          <span class="mn" style="color:var(--ck2)" id="bab-tag">MODUL</span>
-          <div class="jd2" style="font-size:20px" id="bab-tajuk">Tajuk Bab</div>
+          <span class="mn" style="color:var(--dp2)" id="bab-tag">FOLDER</span>
+          <div class="jd2" style="font-size:18px" id="bab-tajuk">Tajuk Fail</div>
         </div>
         <div id="bab-msk"></div>
       </div>
-      <p class="isi1" style="font-size:13px;color:var(--ck2)" id="bab-desc">Penerangan bab — Tekan mana-mana huruf untuk terus buka kadnya!</p>
-      <div id="bab-senarai" style="display:flex;flex-direction:column;gap:8px;max-height:280px;overflow-y:auto;padding-right:2px"></div>
+      <p class="isi1" style="font-size:12.5px" id="bab-desc">Tekan mana-mana baris di bawah untuk buka kad pembelajaran.</p>
+      <div id="bab-senarai" style="display:flex;flex-direction:column;gap:8px;max-height:290px;overflow-y:auto;padding-right:2px"></div>
     </div>
 
     <div class="grid2">
-      <button class="tb hj" style="width:100%;font-size:16px" data-do="mula-bab"><span data-t="mula_pelajaran">Mula Kad Bab</span></button>
-      <button class="tb pt" style="width:100%;font-size:16px" data-do="mula-kuiz-bab"><span>Latihan Kuiz (10)</span></button>
+      <button class="tb" style="width:100%;font-size:14px" data-do="mula-bab"><span class="ms" style="font-size:18px">style</span><span>Buka Kad Fail</span></button>
+      <button class="tb dp" style="width:100%;font-size:14px" data-do="mula-kuiz-bab"><span class="ms" style="font-size:18px">quiz</span><span>Kuiz Fail Ini (10)</span></button>
     </div>
   </section>
 
-  <!-- 6. KAD KOSA KATA / NOTA -->
-  <section id="s-kad" class="skrin bg-biru">
+  <!-- PAGE 3: HUB KUIZ SOALAN -->
+  <section id="s-kuiz-hub" class="skrin bg-pink">
+    <div class="row">
+      <div>
+        <h2 class="jd1">Pusat Kuiz Soalan</h2>
+        <p class="isi1" style="font-size:13px">10 soalan rawak setiap sesi & berubah setiap kali ulang.</p>
+      </div>
+      <span class="pill nv" id="hub-tepat">Ketepatan 0%</span>
+    </div>
+
+    <div class="kt nv" style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+      <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-start">
+        <span class="pill dp" style="font-size:11px">CABARAN HARIAN</span>
+        <div class="jd2" style="font-size:20px">Kuiz Campuran Semua Topik</div>
+        <p class="isi1" style="font-size:13px">Uji ingatan merentas abjad, warna, nombor, perbualan & grammar.</p>
+        <button class="tb sm dp" data-do="kuiz-semua"><span class="ms" style="font-size:18px">play_arrow</span><span>Mula 10 Soalan</span></button>
+      </div>
+      <div id="kuiz-hub-msk" class="apung"></div>
+    </div>
+
+    <div class="jd2" style="font-size:17px">Pilih Kuiz Mengikut Kategori</div>
+    <div style="display:flex;flex-direction:column;gap:10px" id="kuiz-kat-list"></div>
+  </section>
+
+  <!-- PAGE 4: PROFIL & KEMAJUAN SEBENAR -->
+  <section id="s-profil" class="skrin bg-pt">
+    <div class="row">
+      <h2 class="jd1">Profil Pelajar</h2>
+      <button class="rb" data-do="tukar-nama" aria-label="Sunting Nama"><span class="ms">edit</span></button>
+    </div>
+
+    <div class="kt dp" style="display:flex;align-items:center;gap:14px">
+      <div id="prof-msk"></div>
+      <div style="min-width:0;flex:1">
+        <div class="jd2" style="font-size:21px" id="prof-nama">Pelajar Hangul</div>
+        <div class="isi1" style="font-size:12.5px">Hangul Master · Studio Edition</div>
+        <div class="row-c" style="margin-top:8px;flex-wrap:wrap;gap:6px">
+          <span class="pill nv" id="prof-lvl">Tahap A1</span>
+          <span class="pill" id="prof-xp">0 XP</span>
+          <span class="pill" id="prof-streak">0 Hari</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Statistik Kemajuan Sebenar -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;text-align:center">
+      <div class="kt" style="padding:10px 4px"><div class="jd2" id="maju-minit">0m</div><div class="mn" style="font-size:10px">Masa</div></div>
+      <div class="kt" style="padding:10px 4px"><div class="jd2" id="maju-kata">0</div><div class="mn" style="font-size:10px">Hafal</div></div>
+      <div class="kt" style="padding:10px 4px"><div class="jd2" id="maju-tepat">0%</div><div class="mn" style="font-size:10px">Tepat</div></div>
+      <div class="kt" style="padding:10px 4px"><div class="jd2" id="maju-hari">0</div><div class="mn" style="font-size:10px">Aktif</div></div>
+    </div>
+
+    <!-- Graf Mingguan & Bar Penguasaan -->
+    <div class="kt" style="display:flex;flex-direction:column;gap:10px">
+      <div class="row">
+        <div class="jd2" style="font-size:16px">Aktiviti & Penguasaan</div>
+        <span class="pill dp" style="font-size:11px">Data Sebenar</span>
+      </div>
+      <div class="gf" id="maju-carta"></div>
+      <div><div class="row mn"><span>Kosa Kata & Tematik</span><span id="p-kosa">0%</span></div><div class="bar1"><div id="b-kosa" style="width:0%"></div></div></div>
+      <div><div class="row mn"><span>Perbualan (44 Situasi)</span><span id="p-ucap">0%</span></div><div class="bar1"><div id="b-ucap" style="width:0%"></div></div></div>
+      <div><div class="row mn"><span>Tatabahasa (20 Bab)</span><span id="p-tata">0%</span></div><div class="bar1"><div id="b-tata" style="width:0%"></div></div></div>
+    </div>
+
+    <!-- Tetapan & Tahap -->
+    <div class="kt" style="display:flex;flex-direction:column;gap:12px">
+      <div class="row">
+        <span class="isi1" style="font-weight:700;color:var(--nv)">Tahap Sasaran</span>
+        <div class="row-c" style="gap:6px">
+          <button class="ch1" id="lvl-A1" data-do="set-level:A1">A1</button>
+          <button class="ch1" id="lvl-A2" data-do="set-level:A2">A2</button>
+          <button class="ch1" id="lvl-B1" data-do="set-level:B1">B1</button>
+        </div>
+      </div>
+      <div class="row">
+        <div><div class="isi1" style="font-weight:700;color:var(--nv)">Peringatan Belajar</div><div class="mn" style="color:var(--nv-soft)">Setiap hari, 20:00</div></div>
+        <div class="suis on" id="suis-ingat" data-do="suis:ingat" role="button" tabindex="0" aria-label="Peringatan"></div>
+      </div>
+      <div class="row">
+        <span class="isi1" style="font-weight:700;color:var(--nv)">Papan Kedudukan Kelas</span>
+        <button class="tb sm dp" data-go="kedudukan"><span>Lihat</span></button>
+      </div>
+    </div>
+
+    <button class="tb err lebar" data-do="reset-all"><span class="ms">restart_alt</span><span>Set Semula Kemajuan ke 0</span></button>
+  </section>
+
+  <!-- SKRIN KAD KOSA KATA / NOTA -->
+  <section id="s-kad" class="skrin bg-pink">
     <div class="row">
       <button class="rb pt" data-go="laluan" aria-label="Tutup"><span class="ms">close</span></button>
-      <div class="jam1" style="font-size:32px" id="kad-kira">1/20</div>
-      <button class="rb" data-do="bunyi-kad" aria-label="Dengar Audio"><span class="ms">volume_up</span></button>
+      <div class="jam1" style="font-size:22px" id="kad-kira">1/20</div>
+      <button class="rb nv" data-do="bunyi-kad" aria-label="Dengar Audio"><span class="ms">volume_up</span></button>
     </div>
 
     <div class="kt" style="display:flex;flex-direction:column;gap:12px;flex:1;justify-content:space-between">
       <div class="row">
-        <span class="pill hj" id="kad-jenis">Kategori Tematik</span>
-        <button class="tb sm pt" data-do="terus-kuiz" style="font-size:13px;min-height:34px;padding:4px 12px">Kuiz 10 Soalan</button>
+        <span class="pill dp" id="kad-jenis">Kategori</span>
+        <button class="tb sm" data-do="terus-kuiz">Kuiz 10 Soalan</button>
       </div>
-      <div style="text-align:center;margin:4px 0">
-        <div class="kr-txt big1" id="kad-kr" style="font-size:44px">ㅏ</div>
-        <div style="font-weight:800;font-size:18px;color:var(--ck2);margin-top:4px" id="kad-rumi">a</div>
+      <div style="text-align:center;margin:6px 0">
+        <div class="kr-txt big1" id="kad-kr" style="font-size:42px">ㅏ</div>
+        <div style="font-weight:800;font-size:17px;color:var(--dp2);margin-top:6px" id="kad-rumi">a</div>
       </div>
-      <hr style="border:none;border-top:3px dashed #e3c79c">
+      <hr style="border:none;border-top:2px dashed var(--line)">
       <div>
-        <div class="mn" style="color:var(--ck2);text-transform:uppercase" data-t="maksud_bm">Maksud & Terjemahan</div>
-        <div class="jd2" style="font-size:24px;margin-top:2px" id="kad-arti">Bunyi 'a'</div>
+        <div class="mn" style="color:var(--nv-soft);text-transform:uppercase">Maksud & Terjemahan</div>
+        <div class="jd2" style="font-size:22px;margin-top:3px" id="kad-arti">Bunyi 'a'</div>
       </div>
-      <div class="kt kr" style="padding:12px">
-        <div class="mn" style="color:var(--ck2);margin-bottom:4px" data-t="nota_gurisan">Nota / Kategori / Formula</div>
-        <div class="isi1" style="white-space:pre-line" id="kad-nota">Nota</div>
+      <div class="kt dp" style="padding:12px">
+        <div class="mn" style="color:var(--nv);margin-bottom:4px">Nota / Kategori / Contoh</div>
+        <div class="isi1" style="white-space:pre-line;color:var(--nv)" id="kad-nota">Nota</div>
       </div>
     </div>
 
     <div class="row" style="gap:8px">
       <button class="rb pt" data-do="kad-prev" aria-label="Sebelum"><span class="ms">arrow_back</span></button>
-      <button class="tb pt" style="flex:1;font-size:16px" data-do="kad-belum"><span data-t="belum_hafal">Belum Hafal</span></button>
-      <button class="tb hj" style="flex:1;font-size:16px" data-do="kad-hafal"><span data-t="sudah_hafal">Sudah Hafal</span></button>
+      <button class="tb pt" style="flex:1;font-size:14px" data-do="kad-belum"><span>Belum Hafal</span></button>
+      <button class="tb" style="flex:1;font-size:14px" data-do="kad-hafal"><span>Sudah Hafal</span></button>
     </div>
   </section>
 
-  <!-- 7. KUIZ INTERAKTIF (10 SOALAN BERUBAH-UBAH) -->
-  <section id="s-kuiz" class="skrin bg-biru">
+  <!-- SKRIN KUIZ AKTIF (10 SOALAN RAWAK) -->
+  <section id="s-kuiz" class="skrin bg-navy">
     <div class="row">
-      <button class="rb pt" data-go="laluan" aria-label="Tutup"><span class="ms">close</span></button>
-      <h2 class="jd1" style="font-size:22px" id="kuiz-tajuk">Soalan 1/10</h2>
-      <div class="pill mr"><span class="ms" style="font-size:18px">favorite</span><span id="kuiz-nyawa">5</span></div>
+      <button class="rb pt" data-go="kuiz-hub" aria-label="Tutup"><span class="ms">close</span></button>
+      <h2 class="jd1" style="font-size:20px" id="kuiz-tajuk">Soalan 1/10</h2>
+      <div class="pill dp"><span class="ms" style="font-size:17px;color:var(--err)">favorite</span><span id="kuiz-nyawa">5</span></div>
     </div>
 
     <div class="stop"><div class="stop-in" id="kuiz-stop">1/10</div></div>
 
     <div class="kt" style="display:flex;flex-direction:column;gap:10px">
       <div class="row">
-        <span class="mn" style="color:var(--ck2)" id="kuiz-arahan">Pilih jawapan yang tepat</span>
-        <button class="rb sm" style="width:38px;height:38px" data-do="bunyi-kuiz" aria-label="Dengar"><span class="ms" style="font-size:20px">volume_up</span></button>
+        <span class="mn" style="color:var(--dp2)" id="kuiz-arahan">Pilih jawapan yang tepat</span>
+        <button class="rb nv" style="width:36px;height:36px" data-do="bunyi-kuiz" aria-label="Dengar"><span class="ms" style="font-size:19px">volume_up</span></button>
       </div>
-      <div class="kr-txt jd2" id="kuiz-soalan" style="font-size:26px">안녕하세요</div>
+      <div class="kr-txt jd2" id="kuiz-soalan" style="font-size:25px">안녕하세요</div>
     </div>
 
     <div id="kuiz-opsi" style="display:flex;flex-direction:column;gap:9px"></div>
-    <button class="tb hj lebar" id="btn-semak" disabled data-do="semak-kuiz"><span data-t="semak">Semak Jawapan</span></button>
+    <button class="tb dp lebar" id="btn-semak" disabled data-do="semak-kuiz"><span>Semak Jawapan</span></button>
   </section>
 
-  <!-- 7B. SKRIN TAMAT KUIZ (BOLEH ULANG SEMULA SOALAN BERUBAH) -->
-  <section id="s-tamat-kuiz" class="skrin bg-kuning" style="align-items:center;text-align:center;justify-content:space-between">
-    <div style="margin-top:14px;display:flex;flex-direction:column;align-items:center;gap:8px">
-      <div id="tamat-msk"></div>
-      <div class="logo1" style="font-size:44px">Selesai Kuiz!</div>
-      <p class="isi1">Latihan 10 soalan selesai. Tekan Ulang Kuiz untuk set soalan rawak baharu!</p>
-    </div>
-
-    <div class="grid2" style="width:100%">
-      <div class="kt" style="padding:14px">
-        <div class="mn" style="color:var(--ck2)">Markah Sesi</div>
-        <div class="jd2" style="color:var(--hj);font-size:26px" id="tamat-skor">0 / 10</div>
-      </div>
-      <div class="kt" style="background:var(--ck);color:#fff;padding:14px">
-        <div class="mn" style="opacity:.8">XP Sesi Ini</div>
-        <div class="jd2" style="color:var(--kn);font-size:26px" id="tamat-xp">+0 XP</div>
-      </div>
-    </div>
-
-    <div style="display:flex;flex-direction:column;gap:10px;width:100%">
-      <button class="tb hj lebar" data-do="ulang-kuiz"><span class="ms">refresh</span><span>Ulang Kuiz (Soalan Baharu)</span></button>
-      <button class="tb pt lebar" data-go="laluan"><span>Kembali ke Laluan</span></button>
-    </div>
-  </section>
-
-  <!-- 8. SKRIN BETUL -->
-  <section id="s-betul" class="skrin bg-kuning" style="align-items:center;text-align:center;justify-content:space-between">
+  <!-- SKRIN BETUL -->
+  <section id="s-betul" class="skrin bg-pink" style="align-items:center;text-align:center;justify-content:space-between">
     <div style="margin-top:10px;display:flex;flex-direction:column;align-items:center;gap:8px">
       <div id="betul-msk"></div>
-      <div class="logo1" style="font-size:50px" data-t="betul">Betul!</div>
-      <div class="isi1">잘했어요! — Jawapan tepat.</div>
+      <div class="logo1" style="font-size:38px">Tepat Sekali!</div>
+      <div class="isi1">잘했어요! — Jawapan anda betul.</div>
     </div>
 
-    <div class="kt kr" style="width:100%;text-align:left;display:flex;flex-direction:column;gap:8px">
+    <div class="kt" style="width:100%;text-align:left;display:flex;flex-direction:column;gap:8px">
       <div class="row">
-        <span class="jd2" style="font-size:18px" data-t="catatan">Catatan Pembelajaran</span>
-        <span class="pill kn" id="betul-tag">Hangul</span>
+        <span class="jd2" style="font-size:17px">Catatan Pembelajaran</span>
+        <span class="pill dp" id="betul-tag">Hangul</span>
       </div>
       <p class="isi1" id="betul-nota">Penerangan jawapan.</p>
     </div>
 
     <div class="grid2" style="width:100%">
       <div class="kt" style="padding:12px">
-        <div class="mn" style="color:var(--ck2)">Ganjaran</div>
-        <div class="jd2" style="color:var(--hj);font-size:24px">+15 XP</div>
+        <div class="mn" style="color:var(--nv-soft)">Ganjaran</div>
+        <div class="jd2" style="color:var(--ok);font-size:22px">+15 XP</div>
       </div>
-      <div class="kt" style="background:var(--ck);color:#fff;padding:12px">
-        <div class="mn" style="opacity:.8">Ketepatan Sebenar</div>
-        <div class="jd2" style="color:var(--kn);font-size:24px" id="betul-tepat">0%</div>
+      <div class="kt nv" style="padding:12px">
+        <div class="mn">Ketepatan Sebenar</div>
+        <div class="jd2" style="color:var(--dp);font-size:22px" id="betul-tepat">0%</div>
       </div>
     </div>
 
     <div class="row" style="width:100%">
-      <button class="tb hj" style="flex:1" data-do="kuiz-seterusnya"><span data-t="lanjut">Teruskan</span></button>
+      <button class="tb" style="flex:1" data-do="kuiz-seterusnya"><span>Soalan Seterusnya</span></button>
       <button class="rb pt" data-do="simpan-soalan" aria-label="Simpan"><span class="ms">bookmark</span></button>
     </div>
   </section>
 
-  <!-- 9. SKRIN SALAH -->
-  <section id="s-salah" class="skrin bg-merah" style="justify-content:space-between">
+  <!-- SKRIN SALAH -->
+  <section id="s-salah" class="skrin bg-pt" style="justify-content:space-between">
     <div class="row">
-      <button class="rb pt" data-go="laluan" aria-label="Tutup"><span class="ms">close</span></button>
-      <h2 class="jd1">Ups!</h2>
-      <div class="pill mr"><span class="ms" style="font-size:18px">favorite</span><span id="salah-nyawa">4</span></div>
+      <button class="rb pt" data-go="kuiz-hub" aria-label="Tutup"><span class="ms">close</span></button>
+      <h2 class="jd1">Semak Semula</h2>
+      <div class="pill err"><span class="ms" style="font-size:17px">favorite</span><span id="salah-nyawa">4</span></div>
     </div>
 
     <div style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px">
       <div id="salah-msk"></div>
-      <div class="logo1" style="font-size:40px;color:#fff" data-t="belum_tepat">Belum Tepat</div>
+      <div class="jd1" style="font-size:28px;color:var(--err)">Belum Tepat</div>
     </div>
 
     <div class="kt" style="display:flex;flex-direction:column;gap:10px">
       <div>
-        <div class="mn" style="color:var(--mr)">Jawapan Kamu</div>
-        <div class="isi1" style="text-decoration:line-through;opacity:.7" id="salah-jwp">Pilihan salah</div>
+        <div class="mn" style="color:var(--err)">Jawapan Kamu</div>
+        <div class="isi1" style="text-decoration:line-through;opacity:.75" id="salah-jwp">Pilihan salah</div>
       </div>
-      <div style="background:#B8F0B8;border:2.5px solid var(--ck);border-radius:16px;padding:10px">
-        <div class="mn" style="color:var(--hj)">Jawapan Sebenar</div>
-        <div class="jd2" style="font-size:18px" id="salah-benar">Jawapan betul</div>
+      <div style="background:var(--dp-bg);border:2px solid var(--nv);border-radius:14px;padding:10px">
+        <div class="mn" style="color:var(--nv)">Jawapan Sebenar</div>
+        <div class="jd2" style="font-size:17px" id="salah-benar">Jawapan betul</div>
       </div>
     </div>
 
-    <div class="kt kr">
-      <div class="mn" style="color:var(--ck2);margin-bottom:4px">Kenapa?</div>
-      <p class="isi1" id="salah-nota">Nota pembetulan.</p>
+    <div class="kt dp">
+      <div class="mn" style="color:var(--nv);margin-bottom:4px">Nota Pembetulan</div>
+      <p class="isi1" style="color:var(--nv)" id="salah-nota">Nota pembetulan.</p>
     </div>
 
     <div class="grid2">
-      <button class="tb ck" style="width:100%;font-size:16px" data-do="cuba-lagi"><span data-t="cuba_lagi">Cuba Lagi</span></button>
-      <button class="tb pt" style="width:100%;font-size:16px" data-do="simpan-cuba"><span data-t="simpan">Simpan</span></button>
+      <button class="tb" style="width:100%;font-size:14px" data-do="cuba-lagi"><span>Cuba Lagi</span></button>
+      <button class="tb pt" style="width:100%;font-size:14px" data-do="simpan-cuba"><span>Simpan</span></button>
     </div>
   </section>
 
-  <!-- 10. LATIHAN UCAPAN (SEBUTAN) -->
-  <section id="s-ucap" class="skrin bg-biru" style="justify-content:space-between">
+  <!-- SKRIN TAMAT KUIZ -->
+  <section id="s-tamat-kuiz" class="skrin bg-pink" style="align-items:center;text-align:center;justify-content:space-between">
+    <div style="margin-top:14px;display:flex;flex-direction:column;align-items:center;gap:8px">
+      <div id="tamat-msk"></div>
+      <div class="logo1" style="font-size:36px">Selesai Kuiz!</div>
+      <p class="isi1">Latihan 10 soalan tamat. Tekan Ulang Kuiz untuk set soalan rawak baharu.</p>
+    </div>
+
+    <div class="grid2" style="width:100%">
+      <div class="kt" style="padding:14px">
+        <div class="mn" style="color:var(--nv-soft)">Markah Sesi</div>
+        <div class="jd2" style="color:var(--nv);font-size:24px" id="tamat-skor">0 / 10</div>
+      </div>
+      <div class="kt nv" style="padding:14px">
+        <div class="mn">XP Diperoleh</div>
+        <div class="jd2" style="color:var(--dp);font-size:24px" id="tamat-xp">+0 XP</div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px;width:100%">
+      <button class="tb dp lebar" data-do="ulang-kuiz"><span class="ms">refresh</span><span>Ulang Kuiz (Soalan Baharu)</span></button>
+      <button class="tb pt lebar" data-go="kuiz-hub"><span>Kembali ke Pusat Kuiz</span></button>
+    </div>
+  </section>
+
+  <!-- SKRIN LATIHAN UCAPAN -->
+  <section id="s-ucap" class="skrin bg-navy" style="justify-content:space-between">
     <div class="row">
       <button class="rb pt" data-do="keluar-ucap" aria-label="Kembali"><span class="ms">arrow_back</span></button>
-      <h2 class="jd1" style="font-size:22px" data-t="latihan_ucap">Latihan Ucapan</h2>
+      <h2 class="jd1" style="font-size:20px">Latihan Sebutan</h2>
       <button class="rb" data-do="bantu-ucap" aria-label="Bantuan"><span class="ms">help</span></button>
     </div>
 
     <div class="kt" style="text-align:center;display:flex;flex-direction:column;gap:10px">
       <div class="row">
-        <span class="mn" style="color:var(--ck2)">Ucapkan frasa ini</span>
-        <button class="rb" style="width:38px;height:38px" data-do="bunyi-ucap" aria-label="Dengar"><span class="ms" style="font-size:20px">volume_up</span></button>
+        <span class="mn" style="color:var(--dp2)">Ucapkan frasa ini</span>
+        <button class="rb nv" style="width:36px;height:36px" data-do="bunyi-ucap" aria-label="Dengar"><span class="ms" style="font-size:19px">volume_up</span></button>
       </div>
-      <div class="kr-txt jd2" style="font-size:28px" id="ucap-kr">안녕하세요</div>
-      <div class="isi1" style="color:var(--ck2)" id="ucap-arti">Selamat Sejahtera</div>
+      <div class="kr-txt jd2" style="font-size:26px" id="ucap-kr">안녕하세요</div>
+      <div class="isi1" id="ucap-arti">Selamat Sejahtera</div>
       <div class="gel" id="ucap-gel"></div>
     </div>
 
     <div>
-      <div class="mn" style="color:#fff;margin-bottom:6px">Fokus Sebutan & Rumi:</div>
+      <div class="mn" style="color:var(--dp-bg);margin-bottom:6px">Fokus Sebutan & Rumi:</div>
       <div class="row-c" style="flex-wrap:wrap" id="ucap-cip"></div>
     </div>
 
     <div style="text-align:center;display:flex;flex-direction:column;gap:10px">
       <button class="mik" id="btn-mik" aria-label="Tekan dan tahan mikrofon untuk merakam">
-        <span class="ms" style="font-size:44px">mic</span>
+        <span class="ms" style="font-size:40px">mic</span>
       </button>
-      <div class="mn" style="color:#fff">Tekan dan tahan untuk merakam</div>
+      <div class="mn" style="color:var(--dp-bg)">Tekan dan tahan untuk merakam</div>
       <div class="grid2">
         <button class="tb sm pt" style="width:100%" data-do="ucap-pelan"><span class="ms">snail</span><span>Perlahan</span></button>
-        <button class="tb sm" style="width:100%" data-do="ucap-lewati"><span>Langkau</span></button>
+        <button class="tb sm dp" style="width:100%" data-do="ucap-lewati"><span>Frasa Lain</span></button>
       </div>
     </div>
   </section>
 
-  <!-- 11. WRITING LAB (KANVAS MENULIS HANGUL) -->
-  <section id="s-writing" class="skrin bg-biru">
+  <!-- SKRIN WRITING LAB -->
+  <section id="s-writing" class="skrin bg-pt">
     <div class="row">
       <button class="rb pt" data-go="home" aria-label="Kembali"><span class="ms">arrow_back</span></button>
-      <h2 class="jd1" style="font-size:22px">Writing Lab</h2>
-      <button class="rb" data-do="bunyi-tulis" aria-label="Audio"><span class="ms">volume_up</span></button>
+      <h2 class="jd1" style="font-size:20px">Writing Lab</h2>
+      <button class="rb nv" data-do="bunyi-tulis" aria-label="Audio"><span class="ms">volume_up</span></button>
     </div>
 
     <div class="kt" style="display:flex;flex-direction:column;gap:12px">
       <div class="row">
         <div>
-          <span class="pill kn" id="tulis-rumi">Rumi: a</span>
+          <span class="pill dp" id="tulis-rumi">Rumi: a</span>
           <div class="jd2" style="margin-top:6px" id="tulis-tajuk">Vokal Asas: 아</div>
         </div>
         <div class="mn" id="tulis-kira">1 / 14</div>
@@ -616,158 +691,75 @@ body{
 
       <div class="grid2">
         <div class="stroke-grid" style="height:146px;display:flex;align-items:center;justify-content:center;position:relative">
-          <span class="kr-txt" id="tulis-panduan" style="font-size:74px;font-weight:900;color:var(--jg);opacity:.85">아</span>
-          <span class="mn" style="position:absolute;bottom:4px;font-size:10px;opacity:.6">PANDUAN</span>
+          <span class="kr-txt" id="tulis-panduan" style="font-size:74px;font-weight:900;color:var(--dp2)">아</span>
+          <span class="mn" style="position:absolute;bottom:4px;font-size:10px;opacity:.65">PANDUAN</span>
         </div>
         <div class="stroke-grid" style="height:146px;position:relative;overflow:hidden;touch-action:none">
           <canvas id="kanvas-tulis" width="160" height="146" style="width:100%;height:100%;cursor:crosshair"></canvas>
-          <span class="mn" style="position:absolute;bottom:4px;left:50%;transform:translateX(-50%);font-size:10px;opacity:.6;pointer-events:none">LUKIS SINI</span>
+          <span class="mn" style="position:absolute;bottom:4px;left:50%;transform:translateX(-50%);font-size:10px;opacity:.65;pointer-events:none">LUKIS SINI</span>
         </div>
       </div>
 
-      <div class="kt kr" style="padding:10px 12px">
-        <div class="mn" style="color:var(--ck2)">Langkah Gurisan (Stroke Order):</div>
-        <div class="isi1" style="white-space:pre-line;margin-top:2px" id="tulis-langkah">1. Tegak ke bawah</div>
+      <div class="kt dp" style="padding:10px 12px">
+        <div class="mn" style="color:var(--nv)">Langkah Gurisan (Stroke Order):</div>
+        <div class="isi1" style="white-space:pre-line;margin-top:2px;color:var(--nv)" id="tulis-langkah">1. Tegak ke bawah</div>
       </div>
 
       <div class="row">
         <button class="tb sm pt" data-do="tulis-prev"><span class="ms">arrow_back</span></button>
-        <button class="tb sm mr" data-do="padam-kanvas"><span class="ms">ink_eraser</span><span>Padam</span></button>
-        <button class="tb sm hj" data-do="tulis-next"><span class="ms">arrow_forward</span></button>
+        <button class="tb sm err" data-do="padam-kanvas"><span class="ms">ink_eraser</span><span>Padam</span></button>
+        <button class="tb sm" data-do="tulis-next"><span class="ms">arrow_forward</span></button>
       </div>
     </div>
 
-    <div class="kt kr" style="padding:12px">
-      <div class="mn" style="color:var(--ck2);margin-bottom:8px">Pilih Huruf Asas:</div>
+    <div class="kt" style="padding:12px">
+      <div class="mn" style="color:var(--nv-soft);margin-bottom:8px">Pilih Huruf Asas:</div>
       <div class="grid5" id="tulis-grid"></div>
     </div>
   </section>
 
-  <!-- 12. PENGENALAN HANGUL, KAMUS & LISTEN MODE -->
-  <section id="s-rujukan" class="skrin bg-sun">
+  <!-- SKRIN RUJUKAN, KAMUS & LISTEN MODE -->
+  <section id="s-rujukan" class="skrin bg-pt">
     <div class="row">
       <button class="rb pt" data-go="home" aria-label="Kembali"><span class="ms">arrow_back</span></button>
-      <h2 class="jd1" style="font-size:22px" id="ruj-tajuk">Nota Hangul</h2>
+      <h2 class="jd1" style="font-size:20px" id="ruj-tajuk">Kamus & Audio</h2>
       <div class="rb ghost"></div>
     </div>
 
-    <div class="row-c" style="justify-content:center">
-      <button class="ch1 aktif" id="tab-nota" data-do="tab-ruj:nota">Ganada-sun</button>
-      <button class="ch1" id="tab-kamus" data-do="tab-ruj:kamus">Kamus</button>
+    <div class="row-c" style="justify-content:center;flex-wrap:wrap">
+      <button class="ch1" id="tab-nota" data-do="tab-ruj:nota">Ganada-sun</button>
+      <button class="ch1 aktif" id="tab-kamus" data-do="tab-ruj:kamus">Kamus</button>
       <button class="ch1" id="tab-dengar" data-do="tab-ruj:dengar">Listen Mode</button>
     </div>
 
     <div id="ruj-kandungan" style="display:flex;flex-direction:column;gap:12px"></div>
   </section>
 
-  <!-- 13. KEDUDUKAN (LEADERBOARD) -->
-  <section id="s-kedudukan" class="skrin bg-kuning">
+  <!-- SKRIN KEDUDUKAN -->
+  <section id="s-kedudukan" class="skrin bg-pink">
     <div class="row">
       <button class="rb pt" data-go="profil" aria-label="Kembali"><span class="ms">arrow_back</span></button>
       <h2 class="jd1">Kedudukan</h2>
       <button class="rb" data-do="tempoh-rank" aria-label="Tukar Tempoh"><span class="ms">calendar_month</span></button>
     </div>
 
-    <div class="kt kn" style="display:flex;align-items:center;gap:12px">
-      <span class="ms" style="font-size:40px;color:var(--t1)">emoji_events</span>
+    <div class="kt nv" style="display:flex;align-items:center;gap:12px">
+      <span class="ms" style="font-size:38px;color:var(--dp)">emoji_events</span>
       <div>
-        <div class="jd2" style="font-size:19px" id="rank-sub">Kelas Hangul · Mingguan</div>
-        <div class="isi1" style="font-size:13px">XP dikira berdasarkan pencapaian sebenar anda</div>
+        <div class="jd2" style="font-size:18px" id="rank-sub">Kelas Hangul · Mingguan</div>
+        <div class="isi1" style="font-size:12.5px">XP dikira berdasarkan latihan sebenar anda</div>
       </div>
     </div>
 
     <div id="rank-senarai" style="display:flex;flex-direction:column;gap:8px"></div>
-    <button class="tb hj lebar" data-do="ajak-teman"><span class="ms">share</span><span>Ajak Kawan (Kod HGL-26)</span></button>
+    <button class="tb dp lebar" data-do="ajak-teman"><span class="ms">share</span><span>Salin Kod Kelas (HGL-26)</span></button>
   </section>
 
-  <!-- 14. KEMAJUANKU -->
-  <section id="s-kemajuan" class="skrin bg-hijau">
-    <div class="row">
-      <div class="rb ghost"></div>
-      <h2 class="jd1">Kemajuanku</h2>
-      <button class="rb" data-go="kedudukan" aria-label="Kedudukan"><span class="ms">emoji_events</span></button>
-    </div>
-
-    <div class="row-c" style="justify-content:center">
-      <button class="ch1 aktif" id="t-minggu" data-do="tempoh-maju:1">Minggu</button>
-      <button class="ch1" id="t-bulan" data-do="tempoh-maju:4">Bulan</button>
-      <button class="ch1" id="t-tahun" data-do="tempoh-maju:48">Tahun</button>
-    </div>
-
-    <div class="kt">
-      <div class="row">
-        <div>
-          <div class="mn" style="color:var(--ck2)">Masa belajar sebenar</div>
-          <div class="big1" id="maju-minit">0 mnt</div>
-        </div>
-        <span class="pill hj" id="maju-xp-badge">0 XP</span>
-      </div>
-      <div class="gf" id="maju-carta"></div>
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center">
-      <div class="kt" style="padding:10px 6px"><div class="jd2" id="maju-kata">0</div><div class="mn">Kata Hafal</div></div>
-      <div class="kt" style="padding:10px 6px"><div class="jd2" id="maju-tepat">0%</div><div class="mn">Ketepatan</div></div>
-      <div class="kt" style="padding:10px 6px"><div class="jd2" id="maju-hari">0</div><div class="mn">Hari Aktif</div></div>
-    </div>
-
-    <div class="kt" style="display:flex;flex-direction:column;gap:10px">
-      <div class="jd2" style="font-size:18px">Penguasaan Kemahiran Sebenar</div>
-      <div><div class="row mn"><span>Kosa Kata & Tematik</span><span id="p-kosa">0%</span></div><div class="bar1"><div id="b-kosa" style="width:0%"></div></div></div>
-      <div><div class="row mn"><span>Perbualan (44 Situasi)</span><span id="p-ucap">0%</span></div><div class="bar1"><div id="b-ucap" style="width:0%"></div></div></div>
-      <div><div class="row mn"><span>Tatabahasa (20 Bab)</span><span id="p-tata">0%</span></div><div class="bar1"><div id="b-tata" style="width:0%"></div></div></div>
-    </div>
-  </section>
-
-  <!-- 15. PROFILKU -->
-  <section id="s-profil" class="skrin bg-sun">
-    <div class="row">
-      <div class="rb ghost"></div>
-      <h2 class="jd1">Profilku</h2>
-      <button class="rb" data-do="tukar-nama" aria-label="Sunting Nama"><span class="ms">edit</span></button>
-    </div>
-
-    <div class="kt kr" style="text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px">
-      <div id="prof-msk"></div>
-      <div class="jd2" style="font-size:25px" id="prof-nama">Pelajar Hangul</div>
-      <div class="isi1" style="color:var(--ck2)">Hangul Master · Ultimate Edition</div>
-      <div class="row-c" style="margin-top:4px">
-        <span class="pill hj" id="prof-lvl">Tahap A1</span>
-        <span class="pill kn" id="prof-xp">0 XP</span>
-      </div>
-    </div>
-
-    <div class="kt" style="display:flex;flex-direction:column;gap:12px">
-      <div class="row">
-        <span class="isi1">Bahasa Antaramuka</span>
-        <div class="row-c" style="gap:6px">
-          <button class="ch1" id="plang-ms" data-do="lang:MS">BM</button>
-          <button class="ch1" id="plang-en" data-do="lang:EN">EN</button>
-        </div>
-      </div>
-      <div class="row">
-        <div><div class="isi1">Peringatan Harian</div><div class="mn" style="color:var(--ck2)">Setiap hari, pukul 20:00</div></div>
-        <div class="suis on" id="suis-ingat" data-do="suis:ingat" role="button" tabindex="0" aria-label="Peringatan Harian"></div>
-      </div>
-      <div class="row">
-        <div><div class="isi1">Mod Luar Talian</div><div class="mn" style="color:var(--ck2)">Simpan nota dalam peranti</div></div>
-        <div class="suis" id="suis-luring" data-do="suis:luring" role="button" tabindex="0" aria-label="Mod Luar Talian"></div>
-      </div>
-      <div class="row">
-        <span class="isi1">Kod Kelas</span>
-        <span class="pill kn">HGL-26</span>
-      </div>
-    </div>
-
-    <button class="tb hj lebar" data-go="kedudukan"><span class="ms">emoji_events</span><span>Papan Kedudukan</span></button>
-    <button class="tb mr lebar" data-do="reset-all"><span class="ms">restart_alt</span><span>Set Semula Kemajuan</span></button>
-  </section>
-
-  <!-- DOK BAWAH -->
-  <nav class="dock" id="dock" aria-label="Navigasi Utama">
-    <button class="dk-btn" data-go="home"><span class="ms">home</span><span>Utama</span></button>
-    <button class="dk-btn" data-go="laluan"><span class="ms">format_list_numbered</span><span>Kurikulum</span></button>
-    <button class="dk-btn" data-go="kemajuan"><span class="ms">bar_chart</span><span>Kemajuan</span></button>
+  <!-- DOK BAWAH 4 HALAMAN UTAMA -->
+  <nav class="dock show" id="dock" aria-label="Navigasi Utama">
+    <button class="dk-btn aktif" data-go="home"><span class="ms">home</span><span>Home</span></button>
+    <button class="dk-btn" data-go="laluan"><span class="ms">folder_open</span><span>Semua Fail</span></button>
+    <button class="dk-btn" data-go="kuiz-hub"><span class="ms">quiz</span><span>Kuiz</span></button>
     <button class="dk-btn" data-go="profil"><span class="ms">person</span><span>Profil</span></button>
   </nav>
 </div>
@@ -819,7 +811,7 @@ const WRITING_DATA = [
 
 const KURIKULUM = [
   {
-    id:"levels", nama:"21 Level Asas", warna:"#FF8A3D",
+    id:"levels", nama:"21 Level Asas", ikon:"school",
     bab:[
       {id:"l1",t:"Level 1: Vokal Asas & Lanjutan",d:"30 huruf vokal asas dan majmuk.",items:[
         {c:"ㅏ",r:"a",m:"Bunyi 'a' seperti Ayam",n:"1. Garis tegak ke bawah\n2. Melintang ke kanan"},{c:"ㅑ",r:"ya",m:"Bunyi 'ya'",n:"1. Tegak ke bawah\n2. Dua melintang ke kanan"},
@@ -905,7 +897,7 @@ const KURIKULUM = [
         {c:"안녕하세요",r:"annyeonghaseyo",m:"Selamat Sejahtera",n:"Sapaan rasmi sopan"},{c:"감사합니다",r:"gamsahamnida",m:"Terima Kasih",n:"Ungkapan kesyukuran rasmi"},
         {c:"반갑습니다",r:"bangapseumnida",m:"Gembira Bertemu",n:"Ketika berkenalan"},{c:"죄송합니다",r:"joesonghamnida",m:"Minta Maaf",n:"Permohonan maaf rasmi"},
         {c:"안녕히 가세요",r:"annyeonghi gaseyo",m:"Selamat jalan",n:"Kepada orang yang beredar"},{c:"안녕히 계세요",r:"annyeonghi gyeseyo",m:"Selamat tinggal",n:"Kepada orang yang kekal"},
-        {c:"잘 먹겠습니다",r:"jal meokgessumnida",m:"Selamat menjamu selera (sebelum makan)",n:"Adab sebelum makan"},{c:"잘 먹었습니다",r:"jal meogeotseumnida",m:"Terima kasih atas hidangan (selepas makan)",n:"Adab selepas makan"},
+        {c:"잘 먹겠습니다",r:"jal meokgessumnida",m:"Selamat menjamu selera",n:"Adab sebelum makan"},{c:"잘 먹었습니다",r:"jal meogeotseumnida",m:"Terima kasih atas hidangan",n:"Adab selepas makan"},
         {c:"사랑해요",r:"saranghaeyo",m:"Saya sayang awak",n:"Ungkapan kasih sayang"},{c:"괜찮아요",r:"gwaenchanayo",m:"Tidak mengapa / Okay",n:"Menenangkan keadaan"},
         {c:"도와주세요",r:"dowajuseyo",m:"Tolong saya",n:"Meminta pertolongan"},{c:"잠시만요",r:"jamsimanyo",m:"Sebentar ya / Tumpang lalu",n:"Frasa harian penting"},
         {c:"얼마예요?",r:"eolmayeyo?",m:"Berapa harganya?",n:"Bertanya harga barang"},{c:"맛있어요",r:"masisseoyo",m:"Sedap!",n:"Memuji makanan"},
@@ -934,7 +926,7 @@ const KURIKULUM = [
     ]
   },
   {
-    id:"special", nama:"6 Kategori Tematik", warna:"#7BD389",
+    id:"special", nama:"6 Kategori Tematik", ikon:"category",
     bab:[
       {id:"sc-house",t:"1. Barang Dalam Rumah (집)",d:"18 item perabot, dapur, ruang tamu, bilik tidur & harian.",items:[
         {c:"냉장고",r:"naengjanggo",m:"Peti sejuk",n:"Contoh: 냉장고에 물이 있어요 (Ada air dalam peti sejuk)."},
@@ -999,18 +991,18 @@ const KURIKULUM = [
         {c:"초록색 (초록)",r:"choroksaek (chorok)",m:"Hijau",n:"Contoh: 초록 나무 (Pokok hijau)."},
         {c:"검은색 (검정)",r:"geomeunsaek (geomjeong)",m:"Hitam",n:"Contoh: 검은 고양이 (Kucing hitam)."},
         {c:"하얀색 (하양)",r:"hayansaek (hayang)",m:"Putih",n:"Contoh: 하얀 눈 (Salji putih)."},
-        {c:"주황색 (주황)",r:"juhwangsaek (juhwang)",m:"Jingga / Oren",n:"Warna tema matahari Hangul Master."},
+        {c:"주황색 (주황)",r:"juhwangsaek (juhwang)",m:"Jingga / Oren",n:"Gabungan merah dan kuning."},
         {c:"보라색 (보라)",r:"borasaek (bora)",m:"Ungu",n:"Contoh: 보라색 꽃 (Bunga ungu)."},
-        {c:"분홍색 (핑크)",r:"bunhongsaek (pingkeu)",m:"Merah jambu (Pink)",n:"분홍색 juga popular disebut 핑크색."},
+        {c:"분홍색 (핑크)",r:"bunhongsaek (pingkeu)",m:"Merah jambu (Pink / Dusty Pink)",n:"분홍색 juga popular disebut 핑크색."},
         {c:"회색",r:"hoesaek",m:"Kelabu",n:"Contoh: 회색 구름 (Awan kelabu)."},
         {c:"갈색",r:"galsaek",m:"Coklat",n:"Contoh: 갈색 강아지 (Anak anjing coklat)."},
         {c:"금색 / 은색",r:"geumsaek / eunsaek",m:"Emas / Perak",n:"금 (emas) · 은 (perak)."},
-        {c:"남색",r:"namsaek",m:"Biru tua / Navy blue",n:"Warna biru gelap klasik."},
+        {c:"남색",r:"namsaek",m:"Biru tua / Navy blue",n:"Warna tema utama Navy Hangul Studio!"},
         {c:"연두색",r:"yeondusaek",m:"Hijau muda / Hijau pucuk pisang",n:"Warna hijau lembut."},
         {c:"밝은 색 / 어두운 색",r:"balgeun saek / eoduun saek",m:"Warna terang / Warna gelap",n:"밝다 (terang) · 어둡다 (gelap)."},
         {c:"무슨 색을 좋아해요?",r:"museun saegeul joahaeyo?",m:"Anda suka warna apa?",n:"Ayat tanya warna sopan."}
       ]},
-      {id:"sc-numbers",t:"5. Nombor Sino & Nombor Asli (숫자)",d:"20 set nombor lengkap: Sino (1–10, puluh, ratus, ribu, juta) & Asli (1–10, 20, 30).",items:[
+      {id:"sc-numbers",t:"5. Nombor Sino & Nombor Asli (숫자)",d:"20 set nombor lengkap: Sino (1–10, puluh, ratus, ribu, juta) & Asli (1–10, 20–90).",items:[
         {c:"일 (1) · 이 (2) · 삼 (3) · 사 (4) · 오 (5)",r:"il · i · sam · sa · o",m:"Nombor Sino 1 hingga 5",n:"Digunakan untuk tarikh, bulan, minit, harga/duit & nombor telefon."},
         {c:"육 (6) · 칠 (7) · 팔 (8) · 구 (9) · 십 (10)",r:"yuk · chil · pal · gu · sip",m:"Nombor Sino 6 hingga 10",n:"십 (10) + 일 (1) = 십일 (11)."},
         {c:"십일 (11) · 십오 (15) · 이십 (20)",r:"sibil · sibo · isip",m:"Nombor Sino 11, 15 & 20",n:"이 (2) + 십 (10) = 이십 (20)."},
@@ -1043,7 +1035,7 @@ const KURIKULUM = [
         {c:"주말 / 평일",r:"jumal / pyeongil",m:"Hujung minggu / Hari biasa (hari bekerja)",n:"주말 = Sabtu & Ahad."},
         {c:"오늘 / 어제 / 내일",r:"oneul / eoje / naeil",m:"Hari ini / Semalam / Esok",n:"Contoh: 내일 만나요 (Jumpa esok)."},
         {c:"그저께 / 모레",r:"geujeokke / more",m:"Kelmarin (2 hari lalu) / Lusa (2 hari lagi)",n:"Keterangan hari yang sangat berguna."},
-        {c:"아침 / 점심 / 저녁",r:"achim / jeomsim / jeonyeok",m:"Pagi & Sarapan / Tengah hari & Makan tengah hari / Petang & Makan malam",n:"Juga merujuk kepada waktu makan."},
+        {c:"아침 / 점심 / 저녁",r:"achim / jeomsim / jeonyeok",m:"Pagi & Sarapan / Tengah hari / Petang & Makan malam",n:"Juga merujuk kepada waktu makan."},
         {c:"오전 / 오후",r:"ojeon / ohu",m:"AM (Sebelum tengah hari) / PM (Selepas tengah hari)",n:"Contoh: 오후 3시 (Pukul 3 petang)."},
         {c:"지금 / 나중에 / 벌써",r:"jigeum / najunge / beolsseo",m:"Sekarang / Nanti / Sudah pun",n:"Contoh: 지금 몇 시예요? (Sekarang pukul berapa?)"},
         {c:"매일 / 매주 / 매달 / 매년",r:"maeil / maeju / maedal / maenyeon",m:"Setiap hari / Setiap minggu / Setiap bulan / Setiap tahun",n:"Awalan 매 bermaksud 'setiap'."}
@@ -1051,7 +1043,7 @@ const KURIKULUM = [
     ]
   },
   {
-    id:"conversation", nama:"44 Situasi Perbualan", warna:"#FF9EB5",
+    id:"conversation", nama:"44 Situasi Perbualan", ikon:"forum",
     bab:[
       {id:"cv1",t:"Situasi 1–10: Restoran, Kafe & Hotel",d:"Dialog makan, minum kopi, tempahan bilik & hospital.",items:[
         {c:"어서 오세요, 몇 분이세요?",r:"eoseo oseyo, myeot buniseyo?",m:"Selamat datang, berapa orang?",n:"Situasi Restoran"},
@@ -1090,7 +1082,7 @@ const KURIKULUM = [
     ]
   },
   {
-    id:"grammar", nama:"20 Bab Grammar Lab", warna:"#7CC6FE",
+    id:"grammar", nama:"20 Bab Grammar Lab", ikon:"auto_stories",
     bab:[
       {id:"g1",t:"Bab 1–5: Partikel, Tenses & Kata Hubung",d:"Penanda subjek 은/는, objek 을/를, masa lepas/kini/depan.",items:[
         {c:"은 / 는 vs 이 / 가",r:"eun/neun vs i/ga",m:"Penanda Topik Umum vs Subjek Utama",n:"Konsonan + 은/이 | Vokal + 는/가\nContoh: 저는 학생입니다 (Saya pelajar)."},
@@ -1131,29 +1123,30 @@ const PESERTA = [
   {nama:"Siti Khadijah",xp:30}
 ];
 
-const T = {
-  MS:{sub_app:"Belajar Bahasa Korea Lengkap & Menyeronokkan",ob1_t:"Sedia Kuasai Bahasa Korea?",ob1_p:"Huruf Ganada-sun, 21 Level Kosa Kata, 44 Situasi Perbualan, Grammar & Kanvas Menulis!",mula:"Mula Sekarang",lewati:"Langkau",ob2_t:"10 Minit Sehari, Terus Pandai!",ob2_p:"Belajar melalui kad visual, kuiz interaktif, latihan sebutan suara & papan tulis gurisan Hangul.",lanjut:"Teruskan",pilih_tahap:"Pilih Tahap Kamu",pilih_sub:"Kurikulum & sasaran harian disesuaikan mengikut tahap.",bahasa_ui:"Bahasa Antaramuka",hari_ini:"Hari Ini",pilih:"Sambung",makmal_utama:"Modul & Makmal Pembelajaran",menulis:"Menulis",ucapan:"Sebutan",laluan:"Laluan Belajar",mula_pelajaran:"Mula Kad Bab",maksud_bm:"Maksud & Terjemahan",nota_gurisan:"Nota / Kategori / Formula",belum_hafal:"Belum Hafal",sudah_hafal:"Sudah Hafal",semak:"Semak Jawapan",betul:"Betul!",catatan:"Catatan Pembelajaran",belum_tepat:"Belum Tepat",cuba_lagi:"Cuba Lagi",simpan:"Simpan",latihan_ucap:"Latihan Ucapan"},
-  EN:{sub_app:"Complete & Fun Korean Language Learning",ob1_t:"Ready to Master Korean?",ob1_p:"Ganada-sun Alphabet, 21 Vocab Levels, 44 Dialogues, Grammar Lab & Writing Canvas!",mula:"Start Now",lewati:"Skip",ob2_t:"10 Minutes a Day, Fluently!",ob2_p:"Learn through visual flashcards, interactive quizzes, voice pronunciation & Hangul stroke canvas.",lanjut:"Continue",pilih_tahap:"Choose Your Level",pilih_sub:"Curriculum and daily goals adapt to your chosen level.",bahasa_ui:"Interface Language",hari_ini:"Today",pilih:"Resume",makmal_utama:"Learning Modules & Labs",menulis:"Writing",ucapan:"Speak",laluan:"Learning Path",mula_pelajaran:"Start Lesson Cards",maksud_bm:"Meaning & Translation",nota_gurisan:"Notes / Category / Formula",belum_hafal:"Need Practice",sudah_hafal:"Mastered",semak:"Check Answer",betul:"Correct!",catatan:"Learning Note",belum_tepat:"Not Quite",cuba_lagi:"Try Again",simpan:"Save",latihan_ucap:"Speech Practice"}
-};
-
 /* ================= STATE SEBENAR (BERMULA DARI 0) ================= */
 const DEFAULT_S = {
-  nama:"Pelajar Hangul",level:"A1",bahasa:"MS",xp:0,beruntun:0,menit:0,xpMinggu:0,
+  nama:"Pelajar Hangul",level:"A1",xp:0,beruntun:0,menit:0,xpMinggu:0,
   benar:0,jawab:0,selesai:{},hafal:{},simpan:[],hariAktif:[],
-  suis:{ingat:true,luring:false},hariMenit:[0,0,0,0,0,0,0],
-  skrin:"ob1",katIdx:1,babIdx:3
+  suis:{ingat:true},hariMenit:[0,0,0,0,0,0,0],
+  skrin:"home",katIdx:0,babIdx:0
 };
 
 let S = loadS();
 function loadS(){
   try{
-    const raw = localStorage.getItem("hangul-master-oren-v2");
+    const raw = localStorage.getItem("hangul-master-navy-pink-v1");
     if(!raw) return JSON.parse(JSON.stringify(DEFAULT_S));
-    return {...JSON.parse(JSON.stringify(DEFAULT_S)), ...JSON.parse(raw)};
+    const parsed = JSON.parse(raw);
+    return {
+      ...JSON.parse(JSON.stringify(DEFAULT_S)),
+      ...parsed,
+      katIdx: Math.min(Math.max(Number(parsed.katIdx) || 0, 0), KURIKULUM.length - 1),
+      babIdx: Math.max(Number(parsed.babIdx) || 0, 0)
+    };
   }catch(e){return JSON.parse(JSON.stringify(DEFAULT_S));}
 }
 function saveS(){
-  try{localStorage.setItem("hangul-master-oren-v2",JSON.stringify(S));}catch(e){}
+  try{localStorage.setItem("hangul-master-navy-pink-v1",JSON.stringify(S));}catch(e){}
 }
 
 /* ================= JEJAK MASA BELAJAR SEBENAR ================= */
@@ -1164,9 +1157,7 @@ function rekodMasaAktif(){
   saatMulaSkrin = kini;
   if(deltaMinit > 0.01 && deltaMinit < 30){
     const hariIni = new Date().toISOString().slice(0,10);
-    if(!S.hariAktif.includes(hariIni)){
-      S.hariAktif.push(hariIni);
-    }
+    if(!S.hariAktif.includes(hariIni)) S.hariAktif.push(hariIni);
     S.beruntun = S.hariAktif.length;
     const idxHari = (new Date().getDay() + 6) % 7;
     S.hariMenit[idxHari] = Number(((S.hariMenit[idxHari] || 0) + deltaMinit).toFixed(1));
@@ -1174,73 +1165,68 @@ function rekodMasaAktif(){
     saveS();
   }
 }
-setInterval(() => { rekodMasaAktif(); if(S.skrin === "kemajuan") V.kemajuan(); }, 15000);
+setInterval(() => { rekodMasaAktif(); if(S.skrin === "profil") V.profil(); }, 15000);
 document.addEventListener("visibilitychange", () => {
   if(document.hidden) rekodMasaAktif();
   else saatMulaSkrin = Date.now();
 });
 
-/* ================= PEMBINA MASKOT GEOMETRI ================= */
+/* ================= PEMBINA MASKOT GEOMETRI (NAVY & DUSTY PINK) ================= */
 function maskot(w, i=0, opts={}){
   const k = w/64;
-  const bentuk = ["50%",`${26*k}px`,`50% 50% ${26*k}px 50%`,`${22*k}px ${22*k}px ${22*k}px ${6*k}px`,`50% 50% 50% ${14*k}px`,`${36*k}px ${36*k}px ${8*k}px ${36*k}px`,`${30*k}px ${30*k}px ${30*k}px ${8*k}px`];
-  const warna = ["#FFD23F","#FF8A3D","#7BD389","#7CC6FE","#FF9EB5","#C9A7FF"];
-  const bg = opts.bg || warna[i % 6];
-  const rad = bentuk[i % 7];
+  const bentuk = ["50%",`${24*k}px`,`50% 50% ${24*k}px 50%`,`${20*k}px ${20*k}px ${20*k}px ${6*k}px`];
+  const warna = ["#E6A4B4","#F8E5EA","#FFFFFF","#D17B93"];
+  const bg = opts.bg || warna[i % 4];
+  const rad = bentuk[i % 4];
   const mulut = opts.mulut === "sedih"
-    ? `width:${22*k}px;height:${10*k}px;border-bottom:none;border-top:${3*k}px solid var(--ck);border-radius:${20*k}px ${20*k}px 0 0;bottom:18%`
+    ? `width:${20*k}px;height:${9*k}px;border-bottom:none;border-top:${2.5*k}px solid #1B2A4A;border-radius:${18*k}px ${18*k}px 0 0;bottom:18%`
     : opts.mulut === "lebar"
-    ? `width:${24*k}px;height:${13*k}px;background:var(--ck);border-radius:0 0 ${24*k}px ${24*k}px`
-    : `width:${22*k}px;height:${11*k}px;border-radius:0 0 ${22*k}px ${22*k}px`;
+    ? `width:${22*k}px;height:${12*k}px;background:#1B2A4A;border-radius:0 0 ${22*k}px ${22*k}px`
+    : `width:${20*k}px;height:${10*k}px;border-radius:0 0 ${20*k}px ${20*k}px`;
   const mata = opts.mata === "garis"
-    ? `<div style="width:${12*k}px;height:${4*k}px;background:var(--ck);border-radius:9px"></div><div style="width:${12*k}px;height:${4*k}px;background:var(--ck);border-radius:9px"></div>`
-    : `<div class="msk-biji" style="width:${12*k}px;height:${14*k}px"></div><div class="msk-biji" style="width:${12*k}px;height:${14*k}px"></div>`;
+    ? `<div style="width:${11*k}px;height:${3.5*k}px;background:#1B2A4A;border-radius:9px"></div><div style="width:${11*k}px;height:${3.5*k}px;background:#1B2A4A;border-radius:9px"></div>`
+    : `<div class="msk-biji" style="width:${11*k}px;height:${13*k}px"></div><div class="msk-biji" style="width:${11*k}px;height:${13*k}px"></div>`;
   return `<div class="msk" style="width:${w}px;height:${w}px;background:${bg};border-radius:${rad}">
     <div class="msk-mata">${mata}</div>
-    <div class="msk-pipi" style="left:12%;width:${11*k}px;height:${11*k}px"></div>
-    <div class="msk-pipi" style="right:12%;width:${11*k}px;height:${11*k}px"></div>
+    <div class="msk-pipi" style="left:12%;width:${10*k}px;height:${10*k}px"></div>
+    <div class="msk-pipi" style="right:12%;width:${10*k}px;height:${10*k}px"></div>
     <div class="msk-mulut" style="${mulut}"></div>
     ${opts.lencana ? `<div class="msk-lencana">✓</div>` : ""}
   </div>`;
 }
 
-/* ================= PEMBOLEHUBAH SESI PELAJARAN & KUIZ 10 SOALAN ================= */
+/* ================= PEMBOLEHUBAH SESI & NAVIGASI 4 PAGE UTAMA ================= */
 let sesi = {
-  items:[], idx:0, qList:[], qIdx:0, nyawa:5, pilihOpsi:null,
-  solo:false, xpDapat:0, betulSesi:0, sumberKuiz:null
+  items:KURIKULUM[0].bab[0].items, idx:0, qList:[], qIdx:0, nyawa:5,
+  pilihOpsi:null, solo:false, xpDapat:0, betulSesi:0, sumberKuiz:ALL_WORDS
 };
-let tempohRank = 1, tempohMaju = 1, tabRuj = "nota", tulisIdx = 0;
+let tempohRank = 1, tabRuj = "kamus", tulisIdx = 0, homeTab = "vokal";
 
-/* ================= NAVIGASI & RENDER SKRIN ================= */
-const DOCK_SKRIN = ["home","laluan","kemajuan","profil","kedudukan"];
+const DOCK_SKRIN = ["home","laluan","kuiz-hub","profil"];
 function go(id){
   rekodMasaAktif();
+  const target = document.getElementById("s-"+id) || document.getElementById("s-home");
+  const skrinAktifId = target.id.replace(/^s-/, "");
   document.querySelectorAll(".skrin").forEach(el => el.classList.remove("active"));
-  const target = document.getElementById("s-"+id);
-  if(target) target.classList.add("active");
+  target.classList.add("active");
+
+  document.getElementById("top-xp").textContent = `${S.xp} XP`;
+
   const dock = document.getElementById("dock");
-  if(DOCK_SKRIN.includes(id)){
+  if(DOCK_SKRIN.includes(skrinAktifId)){
     dock.classList.add("show");
     document.querySelectorAll(".dk-btn").forEach(b => {
-      const g = b.dataset.go;
-      b.classList.toggle("aktif", g === id || (id === "kedudukan" && g === "profil"));
+      b.classList.toggle("aktif", b.dataset.go === skrinAktifId);
     });
-    S.skrin = id; saveS();
+    S.skrin = skrinAktifId; saveS();
   }else{
     dock.classList.remove("show");
-    if(["ob1","ob2","kelas"].includes(id)){S.skrin = id; saveS();}
   }
-  applyLang();
-  if(V[id]) V[id]();
-}
-
-function applyLang(){
-  const d = T[S.bahasa] || T.MS;
-  document.documentElement.lang = S.bahasa === "EN" ? "en" : "ms";
-  document.querySelectorAll("[data-t]").forEach(el => {
-    const k = el.dataset.t;
-    if(d[k]) el.textContent = d[k];
-  });
+  try{
+    if(V[skrinAktifId]) V[skrinAktifId]();
+  }catch(err){
+    if(skrinAktifId !== "home") go("home");
+  }
 }
 
 function toast(msg){
@@ -1254,8 +1240,8 @@ function toast(msg){
 function konfeti(){
   if(window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   const app = document.getElementById("app");
-  const cols = ["#FFD23F","#FF8A3D","#7BD389","#7CC6FE","#FF9EB5","#fff"];
-  for(let i=0;i<32;i++){
+  const cols = ["#1B2A4A","#E6A4B4","#D17B93","#F8E5EA","#FFFFFF"];
+  for(let i=0;i<30;i++){
     const c = document.createElement("div");
     c.className = "konfeti";
     c.style.left = (Math.random()*370 + 10) + "px";
@@ -1278,74 +1264,80 @@ function cakap(teks, pelan=false){
   }catch(e){toast("Audio tidak tersedia");}
 }
 
+/* ================= RENDER SETIAP SKRIN ================= */
 const V = {
-  ob1(){
-    document.getElementById("ob1-logo").innerHTML = maskot(136, 0, {bg:"#FFD23F"});
-  },
-  ob2(){
-    document.getElementById("ob2-msk").innerHTML = maskot(112, 2, {bg:"#7BD389"});
-  },
-  kelas(){
-    const data = [
-      {id:"A1",tajuk:"Pemula · Beginner",desc:"Abjad Hangul Ganada-sun, vokal asas & sapaan harian.",bg:"#7BD389"},
-      {id:"A2",tajuk:"Menengah · Elementary",desc:"21 Level Kosa Kata, kategori tematik & dialog situasi.",bg:"#7CC6FE"},
-      {id:"B1",tajuk:"Mahir · Intermediate",desc:"20 Bab Grammar Lab, peribahasa & persiapan TOPIK.",bg:"#FF8A3D"}
-    ];
-    document.getElementById("kelas-list").innerHTML = data.map(k => `
-      <div class="pil ${S.level===k.id?"aktif":""}" data-do="set-level:${k.id}" role="button" tabindex="0">
-        <div class="cb">✓</div>
-        <div style="width:54px;height:54px;border-radius:16px;background:${k.bg};border:3px solid var(--ck);font-family:'Lilita One';font-size:26px;display:flex;align-items:center;justify-content:center;flex-shrink:0">${k.id}</div>
-        <div>
-          <div class="jd2" style="font-size:18px">${k.tajuk}</div>
-          <div class="isi1" style="font-size:12px;color:var(--ck2)">${k.desc}</div>
-        </div>
-      </div>
-    `).join("");
-    document.getElementById("lang-ms").classList.toggle("aktif", S.bahasa==="MS");
-    document.getElementById("lang-en").classList.toggle("aktif", S.bahasa==="EN");
-  },
+  /* PAGE 1: HOME WELCOME & PENGENALAN HANGUL */
   home(){
-    document.getElementById("hud-xp").textContent = S.xp;
-    document.getElementById("hud-streak").textContent = S.beruntun;
-    const depan = S.nama.split(" ")[0] || "Juara";
+    const depan = S.nama.split(" ")[0] || "Pelajar";
     document.getElementById("home-sapa").textContent = `Annyeong, ${depan}!`;
-    const babAktif = KURIKULUM[S.katIdx].bab[S.babIdx];
-    document.getElementById("home-sub").textContent = babAktif.t;
-    document.getElementById("home-msk").innerHTML = maskot(96, 1, {bg:"#FF8A3D"});
+    document.getElementById("home-msk").innerHTML = maskot(86, 0, {bg:"#E6A4B4"});
+    document.getElementById("home-word-count").textContent = `${ALL_WORDS.length} perkataan & frasa`;
 
-    const moduls = [
-      {t:"Pengenalan & Huruf Hangul",sub:"Carta 14 Konsonan, 10 Vokal & Ssangjajeum",ikon:"menu_book",act:'data-do="buka-ruj:nota"',i:3},
-      {t:"Kurikulum Lengkap (88 Bab)",sub:"21 Level, 6 Kategori, 44 Dialog & 20 Grammar",ikon:"school",act:'data-go="laluan"',i:0},
-      {t:"Kamus Indeks & Mod Dengar",sub:`${ALL_WORDS.length} perkataan & frasa audio penutur asli`,ikon:"headphones",act:'data-do="buka-ruj:kamus"',i:5}
-    ];
-    document.getElementById("home-moduls").innerHTML = moduls.map(m => `
-      <div class="cd1">
-        <div style="display:flex;flex-direction:column;gap:3px">
-          <div class="jd2" style="font-size:17px">${m.t}</div>
-          <div class="mn" style="color:var(--ck2);display:flex;align-items:center;gap:4px">
-            <span class="ms" style="font-size:15px">${m.ikon}</span><span>${m.sub}</span>
-          </div>
-          <button class="tb sm" style="margin-top:6px;align-self:flex-start" ${m.act}><span>Buka</span></button>
+    ["vokal","konsonan","double"].forEach(t => {
+      document.getElementById("home-tab-"+t).classList.toggle("aktif", homeTab === t);
+    });
+
+    const box = document.getElementById("home-hangul-box");
+    if(homeTab === "vokal"){
+      box.innerHTML = `
+        <div class="row" style="margin-bottom:8px">
+          <span class="mn" style="color:var(--dp2)">CARTA 10 VOKAL ASAS (모음)</span>
+          <span class="pill dp" style="font-size:11px;padding:2px 8px">Tekan untuk dengar</span>
         </div>
-        ${maskot(54, m.i)}
-      </div>
-    `).join("");
+        <div class="grid5">${VOKAL_ASAS.map(v => `
+          <button class="ch1 kr-txt" style="min-width:auto;padding:8px 2px;display:flex;flex-direction:column;align-items:center;gap:2px" data-do="bunyi-teks:${encodeURIComponent(v[0])}">
+            <span style="font-size:20px">${v[0]}</span>
+            <span style="font-size:11px;color:var(--dp2)">${v[1]}</span>
+          </button>
+        `).join("")}</div>
+      `;
+    }else if(homeTab === "konsonan"){
+      box.innerHTML = `
+        <div class="row" style="margin-bottom:8px">
+          <span class="mn" style="color:var(--dp2)">CARTA 14 KONSONAN ASAS (자음)</span>
+          <span class="pill dp" style="font-size:11px;padding:2px 8px">Tekan untuk dengar</span>
+        </div>
+        <div class="grid5">${KONSONAN_ASAS.map(k => `
+          <button class="ch1 kr-txt" style="min-width:auto;padding:8px 2px;display:flex;flex-direction:column;align-items:center;gap:2px" data-do="bunyi-teks:${encodeURIComponent(k[0])}">
+            <span style="font-size:20px">${k[0]}</span>
+            <span style="font-size:10.5px;color:var(--dp2)">${k[2]}</span>
+          </button>
+        `).join("")}</div>
+      `;
+    }else{
+      box.innerHTML = `
+        <div class="row" style="margin-bottom:8px">
+          <span class="mn" style="color:var(--dp2)">5 KONSONAN KEMBAR (쌍자음)</span>
+          <span class="pill dp" style="font-size:11px;padding:2px 8px">Bunyi Tegang</span>
+        </div>
+        <div class="grid5">${DOUBLE_KONSONAN.map(d => `
+          <button class="ch1 kr-txt" style="min-width:auto;padding:10px 2px;display:flex;flex-direction:column;align-items:center;gap:3px" data-do="bunyi-teks:${encodeURIComponent(d[0])}">
+            <span style="font-size:22px">${d[0]}</span>
+            <span style="font-size:9.5px;color:var(--dp2)">${d[1].split(" ")[0]}</span>
+          </button>
+        `).join("")}</div>
+      `;
+    }
   },
+
+  /* PAGE 2: SEMUA FAIL (KURIKULUM) */
   laluan(){
     document.getElementById("kat-pills").innerHTML = KURIKULUM.map((k, idx) => `
-      <div class="pil ${S.katIdx===idx?"aktif":""}" style="padding:10px" data-do="set-kat:${idx}" role="button" tabindex="0">
+      <div class="pil ${S.katIdx===idx?"aktif":""}" style="padding:11px" data-do="set-kat:${idx}" role="button" tabindex="0">
         <div class="cb">✓</div>
-        ${maskot(44, idx, {bg:k.warna})}
+        <div style="width:40px;height:40px;border-radius:12px;background:${S.katIdx===idx?"var(--nv)":"var(--dp-bg)"};color:${S.katIdx===idx?"var(--dp)":"var(--nv)"};border:2px solid var(--nv);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <span class="ms" style="font-size:20px">${k.ikon}</span>
+        </div>
         <div style="min-width:0">
-          <div class="mn" style="color:var(--ck2)">MODUL ${idx+1}</div>
-          <div class="jd2" style="font-size:14px">${k.nama}</div>
+          <div class="mn" style="color:var(--dp2)">FOLDER ${idx+1}</div>
+          <div class="jd2" style="font-size:13.5px">${k.nama}</div>
         </div>
       </div>
     `).join("");
 
-    const kat = KURIKULUM[S.katIdx];
+    const kat = KURIKULUM[S.katIdx] || KURIKULUM[0];
     if(S.babIdx >= kat.bab.length) S.babIdx = 0;
-    document.getElementById("bab-kira").textContent = `${S.babIdx+1}/${kat.bab.length}`;
+    document.getElementById("bab-kira").textContent = `${S.babIdx+1}/${kat.bab.length} Fail`;
 
     const ganjilAkhir = kat.bab.length % 2 === 1;
     document.getElementById("bab-chips").innerHTML = kat.bab.map((b, i) => {
@@ -1353,203 +1345,78 @@ const V = {
       const labelPendek = b.t.split(":")[0];
       const subPendek = b.t.includes(":") ? b.t.split(":")[1].trim() : b.t;
       const kelasPenuh = (ganjilAkhir && i === kat.bab.length - 1) ? "penuh" : "";
+      const aktif = i === S.babIdx;
       return `
-        <button class="bab-btn ${kelasPenuh} ${i===S.babIdx?"aktif":""}" data-do="set-bab:${i}">
+        <button class="bab-btn ${kelasPenuh} ${aktif?"aktif":""}" data-do="set-bab:${i}">
           <div>
-            <div style="font-size:12px;font-weight:900;color:var(--ck)">${i===S.babIdx?"▶ ":""}${labelPendek}</div>
-            <div style="font-size:11px;font-weight:700;color:var(--ck2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${subPendek}</div>
+            <div style="font-size:13px;font-weight:800">${aktif?"▶ ":""}${labelPendek}</div>
+            <div class="sub-bab" style="font-size:11.5px;font-weight:600;color:var(--nv-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${subPendek}</div>
           </div>
-          <span style="font-size:13px;font-weight:900;color:${done?"var(--hj)":"var(--ck2)"}">${done?"✓":b.items.length}</span>
+          <span class="bab-badge">${done?"✓":b.items.length}</span>
         </button>
       `;
     }).join("");
 
-    const bab = kat.bab[S.babIdx];
+    const bab = kat.bab[S.babIdx] || kat.bab[0];
     document.getElementById("bab-tag").textContent = kat.nama.toUpperCase();
     document.getElementById("bab-tajuk").textContent = bab.t;
-    document.getElementById("bab-desc").textContent = `${bab.d} (Tekan mana-mana item untuk buka kadnya)`;
-    document.getElementById("bab-msk").innerHTML = maskot(54, S.babIdx, {bg:kat.warna});
+    document.getElementById("bab-desc").textContent = bab.d;
+    document.getElementById("bab-msk").innerHTML = maskot(48, S.babIdx);
 
     document.getElementById("bab-senarai").innerHTML = bab.items.map((it, i) => {
       const em = EMOJI[it.c] ? EMOJI[it.c] + " " : "";
       const haf = S.hafal[it.c];
       return `
-        <div class="cd1" style="padding:9px 12px;box-shadow:0 3px 0 var(--ck);cursor:pointer" data-do="buka-item:${i}">
+        <div class="cd1" style="padding:10px 12px;cursor:pointer" data-do="buka-item:${i}">
           <div class="row-c" style="min-width:0">
-            <div style="width:32px;height:32px;border-radius:50%;background:${haf?"var(--hj)":"var(--kn)"};color:${haf?"#fff":"var(--ck)"};border:2.5px solid var(--ck);font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0">${haf?"✓":i+1}</div>
+            <div style="width:30px;height:30px;border-radius:10px;background:${haf?"var(--nv)":"var(--dp-bg)"};color:${haf?"var(--dp)":"var(--nv)"};border:2px solid var(--nv);font-weight:800;font-size:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0">${haf?"✓":i+1}</div>
             <div style="min-width:0">
-              <div class="kr-txt jd2" style="font-size:17px">${em}${it.c} <span style="font-family:'Nunito';font-size:12px;color:var(--ck2)">(${it.r})</span></div>
+              <div class="kr-txt jd2" style="font-size:16px">${em}${it.c} <span style="font-family:'Plus Jakarta Sans';font-size:12px;color:var(--dp2)">(${it.r})</span></div>
               <div class="isi1" style="font-size:12px">${it.m}</div>
             </div>
           </div>
-          <button class="rb" style="width:36px;height:36px" data-do="bunyi-teks:${encodeURIComponent(it.c)}" aria-label="Dengar"><span class="ms" style="font-size:18px">volume_up</span></button>
+          <button class="rb" style="width:34px;height:34px" data-do="bunyi-teks:${encodeURIComponent(it.c)}" aria-label="Dengar"><span class="ms" style="font-size:17px">volume_up</span></button>
         </div>
       `;
     }).join("");
   },
-  kad(){
-    const it = sesi.items[sesi.idx];
-    document.getElementById("kad-kira").textContent = `${sesi.idx+1}/${sesi.items.length}`;
-    document.getElementById("kad-jenis").textContent = KURIKULUM[S.katIdx].nama;
-    const em = EMOJI[it.c] ? EMOJI[it.c] + " " : "";
-    const krEl = document.getElementById("kad-kr");
-    krEl.textContent = em + it.c;
-    krEl.style.fontSize = it.c.length > 12 ? "22px" : it.c.length > 7 ? "30px" : "42px";
-    document.getElementById("kad-rumi").textContent = it.r;
-    document.getElementById("kad-arti").textContent = it.m;
-    document.getElementById("kad-nota").textContent = it.n;
-  },
-  kuiz(){
-    const q = sesi.qList[sesi.qIdx];
-    const total = sesi.qList.length;
-    document.getElementById("kuiz-tajuk").textContent = `Soalan ${sesi.qIdx+1}/${total}`;
-    document.getElementById("kuiz-nyawa").textContent = sesi.nyawa;
-    document.getElementById("kuiz-stop").textContent = `${sesi.qIdx+1}/${total}`;
-    const sEl = document.getElementById("kuiz-soalan");
-    const em = EMOJI[q.item.c] ? EMOJI[q.item.c] + " " : "";
-    sEl.textContent = em + q.item.c;
-    sEl.style.fontSize = q.item.c.length > 14 ? "20px" : "26px";
-    document.getElementById("kuiz-arahan").textContent = `${q.mod || "Pilih jawapan yang tepat"} (${q.item.m.split("/")[0].trim()})`;
 
-    const huruf = ["A","B","C","D"];
-    document.getElementById("kuiz-opsi").innerHTML = q.opsi.map((op, i) => `
-      <button class="opt1 ${sesi.pilihOpsi===i?"aktif":""}" data-do="pilih-opsi:${i}">
-        <span class="hr">${huruf[i]}</span>
-        <span>${op}</span>
-      </button>
-    `).join("");
-    document.getElementById("btn-semak").disabled = (sesi.pilihOpsi === null);
-  },
-  betul(){
-    const q = sesi.qList[sesi.qIdx];
-    document.getElementById("betul-msk").innerHTML = maskot(104, 2, {bg:"#fff",mata:"garis",mulut:"lebar",lencana:true});
-    document.getElementById("betul-tag").textContent = q.item.c;
-    document.getElementById("betul-nota").textContent = `${q.item.c} (${q.item.r}) = ${q.item.m}. ${q.item.n.replace(/\n/g," · ")}`;
+  /* PAGE 3: HUB KUIZ SOALAN */
+  "kuiz-hub"](){
     const pct = S.jawab > 0 ? Math.round((S.benar/S.jawab)*100) : 0;
-    document.getElementById("betul-tepat").textContent = pct + "%";
-  },
-  salah(){
-    const q = sesi.qList[sesi.qIdx];
-    document.getElementById("salah-nyawa").textContent = sesi.nyawa;
-    document.getElementById("salah-msk").innerHTML = maskot(86, 4, {bg:"#fff",mulut:"sedih"});
-    document.getElementById("salah-jwp").textContent = q.opsi[sesi.pilihOpsi] || "-";
-    document.getElementById("salah-benar").textContent = `${q.opsi[q.kunci]} (${q.item.m})`;
-    document.getElementById("salah-nota").textContent = q.item.n.replace(/\n/g," · ");
-  },
-  "tamat-kuiz"](){
-    document.getElementById("tamat-msk").innerHTML = maskot(104, 1, {bg:"#FFD23F",mulut:"lebar",lencana:true});
-    document.getElementById("tamat-skor").textContent = `${sesi.betulSesi} / ${sesi.qList.length}`;
-    document.getElementById("tamat-xp").textContent = `+${sesi.xpDapat} XP`;
-  },
-  ucap(){
-    const it = sesi.solo ? ALL_WORDS[Math.floor(Math.random()*ALL_WORDS.length)] : (sesi.items[sesi.idx] || sesi.items[0]);
-    sesi.ucapItem = it;
-    document.getElementById("ucap-kr").textContent = it.c;
-    document.getElementById("ucap-arti").textContent = it.m;
-    const pola = [30,60,85,45,100,70,35,55,25,65,40,20];
-    document.getElementById("ucap-gel").innerHTML = pola.map(h => `<span style="height:${h*0.65}px"></span>`).join("");
-    document.getElementById("ucap-cip").innerHTML = `
-      <span class="pill kn kr-txt">${it.c} · ${it.r}</span>
-      <span class="pill hj">✓ Nada Sopan</span>
-    `;
-  },
-  writing(){
-    const w = WRITING_DATA[tulisIdx];
-    document.getElementById("tulis-rumi").textContent = `Rumi: ${w.rumi}`;
-    document.getElementById("tulis-tajuk").textContent = `${w.type}: ${w.char}`;
-    document.getElementById("tulis-kira").textContent = `${tulisIdx+1} / ${WRITING_DATA.length}`;
-    document.getElementById("tulis-panduan").textContent = w.char;
-    document.getElementById("tulis-langkah").textContent = w.stroke;
-    document.getElementById("tulis-grid").innerHTML = WRITING_DATA.map((it, i) => `
-      <button class="ch1 kr-txt ${i===tulisIdx?"aktif":""}" style="min-width:auto;padding:8px 0;font-size:18px" data-do="set-tulis:${i}">${it.char}</button>
-    `).join("");
-    padamKanvas();
-  },
-  rujukan(){
-    ["nota","kamus","dengar"].forEach(t => document.getElementById("tab-"+t).classList.toggle("aktif", tabRuj===t));
-    const box = document.getElementById("ruj-kandungan");
-    if(tabRuj === "nota"){
-      document.getElementById("ruj-tajuk").textContent = "Pengenalan Hangul";
-      box.innerHTML = `
-        <div class="kt">
-          <div class="jd2" style="font-size:18px;margin-bottom:8px">1. Carta 14 Konsonan Asas (자음)</div>
-          <table class="tbl-nota">
-            <thead><tr><th>Huruf</th><th>Nama</th><th>Rumi</th><th>Contoh</th></tr></thead>
-            <tbody>${KONSONAN_ASAS.map(r=>`<tr><td class="kr-txt" style="font-size:18px;color:var(--ck2)">${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td class="kr-txt">${r[3]}</td></tr>`).join("")}</tbody>
-          </table>
-        </div>
-        <div class="kt">
-          <div class="jd2" style="font-size:18px;margin-bottom:8px">2. Carta 10 Vokal Asas (모음)</div>
-          <table class="tbl-nota">
-            <thead><tr><th>Huruf</th><th>Rumi</th><th>Bunyi</th><th>Contoh</th></tr></thead>
-            <tbody>${VOKAL_ASAS.map(r=>`<tr><td class="kr-txt" style="font-size:18px;color:var(--bi)">${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td class="kr-txt">${r[3]}</td></tr>`).join("")}</tbody>
-          </table>
-        </div>
-        <div class="kt kr">
-          <div class="jd2" style="font-size:18px;margin-bottom:6px">3. Double Consonants (쌍자음)</div>
-          <p class="isi1" style="margin-bottom:8px">5 konsonan kembar berbunyi tegang & kuat:</p>
-          <div class="row-c" style="flex-wrap:wrap">${DOUBLE_KONSONAN.map(d=>`<span class="pill kn kr-txt">${d[0]} · ${d[1]}</span>`).join("")}</div>
-        </div>
-      `;
-    }else if(tabRuj === "kamus"){
-      document.getElementById("ruj-tajuk").textContent = "Kamus Indeks";
-      box.innerHTML = `
-        <input class="inp" id="cari-kata" placeholder="Cari Hangul, Rumi atau maksud..." oninput="renderKamus(this.value)">
-        <div id="senarai-kamus" style="display:flex;flex-direction:column;gap:8px"></div>
-      `;
-      renderKamus("");
-    }else{
-      document.getElementById("ruj-tajuk").textContent = "Listen Mode";
-      if(V._listenIdx === undefined) V._listenIdx = 0;
-      const it = ALL_WORDS[V._listenIdx];
-      box.innerHTML = `
-        <div class="kt" style="text-align:center;display:flex;flex-direction:column;gap:12px;padding:24px 16px">
-          <span class="pill kn" style="align-self:center">${it.bab}</span>
-          <div class="kr-txt big1" style="font-size:36px">${EMOJI[it.c]?EMOJI[it.c]+" ":""}${it.c}</div>
-          <div class="jd2" style="color:var(--bi);font-size:20px">${it.r}</div>
-          <p class="isi1">${it.m}</p>
-          <button class="tb hj" data-do="bunyi-teks:${encodeURIComponent(it.c)}"><span class="ms">volume_up</span><span>Dengar Sebutan</span></button>
-          <div class="row" style="margin-top:8px">
-            <button class="tb sm pt" data-do="listen-nav:-1"><span>Sebelum</span></button>
-            <span class="mn">${V._listenIdx+1} / ${ALL_WORDS.length}</span>
-            <button class="tb sm pt" data-do="listen-nav:1"><span>Seterusnya</span></button>
-          </div>
-        </div>
-      `;
-    }
-  },
-  kedudukan(){
-    document.getElementById("rank-sub").textContent = `Kelas Hangul · ${tempohRank===1?"Mingguan":"Bulanan"}`;
-    const list = [...PESERTA.map(p=>({nama:p.nama,xp:p.xp*tempohRank,anda:false})), {nama:S.nama,xp:S.xp*tempohRank,anda:true}]
-      .sort((a,b) => b.xp - a.xp);
-    const pingat = ["🥇","🥈","🥉"];
-    document.getElementById("rank-senarai").innerHTML = list.map((p, i) => {
-      const atas = i > 0 ? list[i-1].xp - p.xp : 0;
-      const sub = p.anda ? (i===0 ? "Tempat Pertama!" : `${atas} XP lagi untuk naik`) : "Sasaran Kelas";
+    document.getElementById("hub-tepat").textContent = `Ketepatan ${pct}%`;
+    document.getElementById("kuiz-hub-msk").innerHTML = maskot(82, 1, {bg:"#E6A4B4",mulut:"lebar"});
+
+    document.getElementById("kuiz-kat-list").innerHTML = KURIKULUM.map((k, idx) => {
+      const jumlahItem = k.bab.reduce((acc, b) => acc + b.items.length, 0);
       return `
-        <div class="rank1 ${p.anda?"anda":""}">
-          <div style="width:28px;text-align:center;font-family:'Lilita One';font-size:18px">${pingat[i] || (i+1)}</div>
-          ${maskot(40, i)}
-          <div style="flex:1">
-            <div class="jd2" style="font-size:16px">${p.nama} ${p.anda?"(Anda)":""}</div>
-            <div class="mn" style="color:var(--ck2);font-size:11px">${sub}</div>
+        <div class="cd1">
+          <div class="row-c" style="min-width:0">
+            <div style="width:44px;height:44px;border-radius:14px;background:var(--dp-bg);border:2px solid var(--nv);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+              <span class="ms" style="color:var(--nv)">${k.ikon}</span>
+            </div>
+            <div style="min-width:0">
+              <div class="jd2" style="font-size:16px">${k.nama}</div>
+              <div class="isi1" style="font-size:12px">${jumlahItem} item tersedia · 10 soalan rawak</div>
+            </div>
           </div>
-          <div class="pill">${p.xp} XP</div>
+          <button class="tb sm" data-do="kuiz-kat:${idx}"><span>Mula</span></button>
         </div>
       `;
     }).join("");
   },
-  kemajuan(){
+
+  /* PAGE 4: PROFIL & KEMAJUAN SEBENAR */
+  profil(){
     rekodMasaAktif();
-    [1,4,48].forEach(m => {
-      const id = m===1?"t-minggu":m===4?"t-bulan":"t-tahun";
-      document.getElementById(id).classList.toggle("aktif", tempohMaju===m);
-    });
-    const jumlahMinit = Math.floor(S.menit * tempohMaju);
-    document.getElementById("maju-minit").textContent = `${jumlahMinit} mnt`;
-    document.getElementById("maju-xp-badge").textContent = `${S.xp} XP`;
-    const jumlahHafal = Object.keys(S.hafal).length;
-    document.getElementById("maju-kata").textContent = jumlahHafal;
+    document.getElementById("prof-msk").innerHTML = maskot(76, 0, {bg:"#FFFFFF"});
+    document.getElementById("prof-nama").textContent = S.nama;
+    document.getElementById("prof-lvl").textContent = `Tahap ${S.level}`;
+    document.getElementById("prof-xp").textContent = `${S.xp} XP`;
+    document.getElementById("prof-streak").textContent = `${S.beruntun} Hari`;
+
+    document.getElementById("maju-minit").textContent = `${Math.floor(S.menit)}m`;
+    document.getElementById("maju-kata").textContent = Object.keys(S.hafal).length;
     const pct = S.jawab > 0 ? Math.round((S.benar/S.jawab)*100) : 0;
     document.getElementById("maju-tepat").textContent = pct + "%";
     document.getElementById("maju-hari").textContent = S.beruntun;
@@ -1558,8 +1425,8 @@ const V = {
     const maks = Math.max(...S.hariMenit, 1);
     document.getElementById("maju-carta").innerHTML = S.hariMenit.map((v, i) => `
       <div class="gf-col">
-        <div class="gf-bar ${i===6?"hari":""}" style="height:${v > 0 ? Math.max(14, (v/maks)*86) : 12}px"></div>
-        <span class="mn" style="font-size:11px">${hari[i]}</span>
+        <div class="gf-bar ${i===6?"hari":""}" style="height:${v > 0 ? Math.max(14, (v/maks)*78) : 10}px"></div>
+        <span class="mn" style="font-size:10.5px">${hari[i]}</span>
       </div>
     `).join("");
 
@@ -1581,16 +1448,169 @@ const V = {
     document.getElementById("b-ucap").style.width = ucapPct + "%";
     document.getElementById("p-tata").textContent = tataPct + "%";
     document.getElementById("b-tata").style.width = tataPct + "%";
-  },
-  profil(){
-    document.getElementById("prof-msk").innerHTML = maskot(94, 0, {bg:"#FFD23F"});
-    document.getElementById("prof-nama").textContent = S.nama;
-    document.getElementById("prof-lvl").textContent = `Tahap ${S.level}`;
-    document.getElementById("prof-xp").textContent = `${S.xp} XP`;
-    document.getElementById("plang-ms").classList.toggle("aktif", S.bahasa==="MS");
-    document.getElementById("plang-en").classList.toggle("aktif", S.bahasa==="EN");
+
+    ["A1","A2","B1"].forEach(l => document.getElementById("lvl-"+l).classList.toggle("aktif", S.level === l));
     document.getElementById("suis-ingat").classList.toggle("on", !!S.suis.ingat);
-    document.getElementById("suis-luring").classList.toggle("on", !!S.suis.luring);
+  },
+
+  kad(){
+    const it = sesi.items[sesi.idx] || sesi.items[0];
+    document.getElementById("kad-kira").textContent = `${sesi.idx+1}/${sesi.items.length}`;
+    document.getElementById("kad-jenis").textContent = (KURIKULUM[S.katIdx] || KURIKULUM[0]).nama;
+    const em = EMOJI[it.c] ? EMOJI[it.c] + " " : "";
+    const krEl = document.getElementById("kad-kr");
+    krEl.textContent = em + it.c;
+    krEl.style.fontSize = it.c.length > 14 ? "22px" : it.c.length > 8 ? "30px" : "42px";
+    document.getElementById("kad-rumi").textContent = it.r;
+    document.getElementById("kad-arti").textContent = it.m;
+    document.getElementById("kad-nota").textContent = it.n;
+  },
+
+  kuiz(){
+    if(!sesi.qList || !sesi.qList.length){
+      binaKuiz10(sesi.sumberKuiz);
+      return;
+    }
+    const q = sesi.qList[sesi.qIdx];
+    const total = sesi.qList.length;
+    document.getElementById("kuiz-tajuk").textContent = `Soalan ${sesi.qIdx+1}/${total}`;
+    document.getElementById("kuiz-nyawa").textContent = sesi.nyawa;
+    document.getElementById("kuiz-stop").textContent = `${sesi.qIdx+1}/${total}`;
+    const sEl = document.getElementById("kuiz-soalan");
+    const em = EMOJI[q.item.c] ? EMOJI[q.item.c] + " " : "";
+    sEl.textContent = em + q.item.c;
+    sEl.style.fontSize = q.item.c.length > 16 ? "20px" : "25px";
+    document.getElementById("kuiz-arahan").textContent = `${q.mod} (${q.item.m.split("/")[0].trim()})`;
+
+    const huruf = ["A","B","C","D"];
+    document.getElementById("kuiz-opsi").innerHTML = q.opsi.map((op, i) => `
+      <button class="opt1 ${sesi.pilihOpsi===i?"aktif":""}" data-do="pilih-opsi:${i}">
+        <span class="hr">${huruf[i]}</span>
+        <span>${op}</span>
+      </button>
+    `).join("");
+    document.getElementById("btn-semak").disabled = (sesi.pilihOpsi === null);
+  },
+
+  betul(){
+    const q = sesi.qList[sesi.qIdx];
+    document.getElementById("betul-msk").innerHTML = maskot(94, 0, {bg:"#E6A4B4",mata:"garis",mulut:"lebar",lencana:true});
+    document.getElementById("betul-tag").textContent = q ? q.item.c : "Hangul";
+    document.getElementById("betul-nota").textContent = q ? `${q.item.c} (${q.item.r}) = ${q.item.m}. ${q.item.n.replace(/\n/g," · ")}` : "";
+    const pct = S.jawab > 0 ? Math.round((S.benar/S.jawab)*100) : 0;
+    document.getElementById("betul-tepat").textContent = pct + "%";
+  },
+
+  salah(){
+    const q = sesi.qList[sesi.qIdx];
+    document.getElementById("salah-nyawa").textContent = sesi.nyawa;
+    document.getElementById("salah-msk").innerHTML = maskot(82, 1, {bg:"#F8E5EA",mulut:"sedih"});
+    document.getElementById("salah-jwp").textContent = (q && q.opsi[sesi.pilihOpsi]) || "-";
+    document.getElementById("salah-benar").textContent = q ? `${q.opsi[q.kunci]} (${q.item.m})` : "-";
+    document.getElementById("salah-nota").textContent = q ? q.item.n.replace(/\n/g," · ") : "";
+  },
+
+  "tamat-kuiz"](){
+    document.getElementById("tamat-msk").innerHTML = maskot(96, 0, {bg:"#FFFFFF",mulut:"lebar",lencana:true});
+    document.getElementById("tamat-skor").textContent = `${sesi.betulSesi} / ${sesi.qList.length || 10}`;
+    document.getElementById("tamat-xp").textContent = `+${sesi.xpDapat} XP`;
+  },
+
+  ucap(){
+    const it = sesi.solo ? ALL_WORDS[Math.floor(Math.random()*ALL_WORDS.length)] : (sesi.items[sesi.idx] || sesi.items[0]);
+    sesi.ucapItem = it;
+    document.getElementById("ucap-kr").textContent = it.c;
+    document.getElementById("ucap-arti").textContent = it.m;
+    const pola = [30,60,85,45,100,70,35,55,25,65,40,20];
+    document.getElementById("ucap-gel").innerHTML = pola.map(h => `<span style="height:${h*0.58}px"></span>`).join("");
+    document.getElementById("ucap-cip").innerHTML = `
+      <span class="pill dp kr-txt">${it.c} · ${it.r}</span>
+      <span class="pill">✓ Nada Sopan</span>
+    `;
+  },
+
+  writing(){
+    const w = WRITING_DATA[tulisIdx] || WRITING_DATA[0];
+    document.getElementById("tulis-rumi").textContent = `Rumi: ${w.rumi}`;
+    document.getElementById("tulis-tajuk").textContent = `${w.type}: ${w.char}`;
+    document.getElementById("tulis-kira").textContent = `${tulisIdx+1} / ${WRITING_DATA.length}`;
+    document.getElementById("tulis-panduan").textContent = w.char;
+    document.getElementById("tulis-langkah").textContent = w.stroke;
+    document.getElementById("tulis-grid").innerHTML = WRITING_DATA.map((it, i) => `
+      <button class="ch1 kr-txt ${i===tulisIdx?"aktif":""}" style="min-width:auto;padding:8px 0;font-size:18px" data-do="set-tulis:${i}">${it.char}</button>
+    `).join("");
+    padamKanvas();
+  },
+
+  rujukan(){
+    ["nota","kamus","dengar"].forEach(t => document.getElementById("tab-"+t).classList.toggle("aktif", tabRuj===t));
+    const box = document.getElementById("ruj-kandungan");
+    if(tabRuj === "nota"){
+      document.getElementById("ruj-tajuk").textContent = "Carta Ganada-sun";
+      box.innerHTML = `
+        <div class="kt">
+          <div class="jd2" style="font-size:17px;margin-bottom:8px">1. Carta 14 Konsonan Asas (자음)</div>
+          <table class="tbl-nota">
+            <thead><tr><th>Huruf</th><th>Nama</th><th>Rumi</th><th>Contoh</th></tr></thead>
+            <tbody>${KONSONAN_ASAS.map(r=>`<tr><td class="kr-txt" style="font-size:18px;color:var(--dp2)">${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td class="kr-txt">${r[3]}</td></tr>`).join("")}</tbody>
+          </table>
+        </div>
+        <div class="kt">
+          <div class="jd2" style="font-size:17px;margin-bottom:8px">2. Carta 10 Vokal Asas (모음)</div>
+          <table class="tbl-nota">
+            <thead><tr><th>Huruf</th><th>Rumi</th><th>Bunyi</th><th>Contoh</th></tr></thead>
+            <tbody>${VOKAL_ASAS.map(r=>`<tr><td class="kr-txt" style="font-size:18px;color:var(--nv)">${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td class="kr-txt">${r[3]}</td></tr>`).join("")}</tbody>
+          </table>
+        </div>
+      `;
+    }else if(tabRuj === "kamus"){
+      document.getElementById("ruj-tajuk").textContent = "Kamus Indeks";
+      box.innerHTML = `
+        <input class="inp" id="cari-kata" placeholder="Cari Hangul, Rumi atau maksud..." oninput="renderKamus(this.value)">
+        <div id="senarai-kamus" style="display:flex;flex-direction:column;gap:8px"></div>
+      `;
+      renderKamus("");
+    }else{
+      document.getElementById("ruj-tajuk").textContent = "Listen Mode";
+      if(V._listenIdx === undefined) V._listenIdx = 0;
+      const it = ALL_WORDS[V._listenIdx];
+      box.innerHTML = `
+        <div class="kt" style="text-align:center;display:flex;flex-direction:column;gap:12px;padding:24px 16px">
+          <span class="pill dp" style="align-self:center">${it.bab}</span>
+          <div class="kr-txt big1" style="font-size:34px">${EMOJI[it.c]?EMOJI[it.c]+" ":""}${it.c}</div>
+          <div class="jd2" style="color:var(--dp2);font-size:19px">${it.r}</div>
+          <p class="isi1">${it.m}</p>
+          <button class="tb" data-do="bunyi-teks:${encodeURIComponent(it.c)}"><span class="ms">volume_up</span><span>Dengar Sebutan</span></button>
+          <div class="row" style="margin-top:8px">
+            <button class="tb sm pt" data-do="listen-nav:-1"><span>Sebelum</span></button>
+            <span class="mn">${V._listenIdx+1} / ${ALL_WORDS.length}</span>
+            <button class="tb sm pt" data-do="listen-nav:1"><span>Seterusnya</span></button>
+          </div>
+        </div>
+      `;
+    }
+  },
+
+  kedudukan(){
+    document.getElementById("rank-sub").textContent = `Kelas Hangul · ${tempohRank===1?"Mingguan":"Bulanan"}`;
+    const list = [...PESERTA.map(p=>({nama:p.nama,xp:p.xp*tempohRank,anda:false})), {nama:S.nama,xp:S.xp*tempohRank,anda:true}]
+      .sort((a,b) => b.xp - a.xp);
+    const pingat = ["🥇","🥈","🥉"];
+    document.getElementById("rank-senarai").innerHTML = list.map((p, i) => {
+      const atas = i > 0 ? list[i-1].xp - p.xp : 0;
+      const sub = p.anda ? (i===0 ? "Tempat Pertama!" : `${atas} XP lagi untuk naik`) : "Ahli Kelas";
+      return `
+        <div class="rank1 ${p.anda?"anda":""}">
+          <div style="width:28px;text-align:center;font-weight:800;font-size:17px">${pingat[i] || (i+1)}</div>
+          ${maskot(38, i)}
+          <div style="flex:1;min-width:0">
+            <div class="jd2" style="font-size:15px">${p.nama} ${p.anda?"(Anda)":""}</div>
+            <div class="mn" style="color:var(--dp2);font-size:11px">${sub}</div>
+          </div>
+          <div class="pill nv">${p.xp} XP</div>
+        </div>
+      `;
+    }).join("");
   }
 };
 
@@ -1599,18 +1619,19 @@ function renderKamus(q){
   const hasil = ALL_WORDS.filter(w => !s || w.c.includes(s) || w.r.toLowerCase().includes(s) || w.m.toLowerCase().includes(s)).slice(0, 80);
   document.getElementById("senarai-kamus").innerHTML = hasil.map(w => `
     <div class="cd1" style="padding:10px 12px">
-      <div>
-        <div class="kr-txt jd2" style="font-size:18px">${EMOJI[w.c]?EMOJI[w.c]+" ":""}${w.c} <span style="font-family:'Nunito';font-size:12px;color:var(--bi)">(${w.r})</span></div>
+      <div style="min-width:0">
+        <div class="kr-txt jd2" style="font-size:17px">${EMOJI[w.c]?EMOJI[w.c]+" ":""}${w.c} <span style="font-family:'Plus Jakarta Sans';font-size:12px;color:var(--dp2)">(${w.r})</span></div>
         <div class="isi1" style="font-size:13px">${w.m}</div>
       </div>
-      <button class="rb" style="width:38px;height:38px" data-do="bunyi-teks:${encodeURIComponent(w.c)}" aria-label="Dengar"><span class="ms" style="font-size:19px">volume_up</span></button>
+      <button class="rb" style="width:36px;height:36px" data-do="bunyi-teks:${encodeURIComponent(w.c)}" aria-label="Dengar"><span class="ms" style="font-size:18px">volume_up</span></button>
     </div>
   `).join("");
 }
 
 /* ================= LOGIK PELAJARAN & KUIZ 10 SOALAN RAWAK ================= */
 function mulaPelajaran(mulaDari = 0){
-  const bab = KURIKULUM[S.katIdx].bab[S.babIdx];
+  const kat = KURIKULUM[S.katIdx] || KURIKULUM[0];
+  const bab = kat.bab[S.babIdx] || kat.bab[0];
   sesi = {
     items:bab.items, idx:mulaDari, qList:[], qIdx:0, nyawa:5,
     pilihOpsi:null, solo:false, xpDapat:0, betulSesi:0, sumberKuiz:bab.items
@@ -1620,7 +1641,7 @@ function mulaPelajaran(mulaDari = 0){
 
 function binaKuiz10(sumberPool){
   const pool = (sumberPool && sumberPool.length >= 4) ? sumberPool : ALL_WORDS;
-  const globalPool = ALL_WORDS;
+  sesi.sumberKuiz = pool;
   const dipilih = [];
   const salinan = [...pool].sort(() => Math.random() - 0.5);
 
@@ -1634,7 +1655,7 @@ function binaKuiz10(sumberPool){
   sesi.qList = dipilih.map((it, idx) => {
     const tanyaMaksud = (idx % 2 === 1);
     const jawapanBetul = tanyaMaksud ? it.m : it.r;
-    const calonSalah = [...pool, ...globalPool]
+    const calonSalah = [...pool, ...ALL_WORDS]
       .filter(w => (tanyaMaksud ? w.m !== jawapanBetul : w.r !== jawapanBetul))
       .sort(() => Math.random() - 0.5);
 
@@ -1664,25 +1685,13 @@ function binaKuiz10(sumberPool){
   go("kuiz");
 }
 
-function tamatPelajaran(){
-  const bab = KURIKULUM[S.katIdx].bab[S.babIdx];
-  S.selesai[bab.id] = true;
-  const jumlahXP = 10 + sesi.xpDapat;
-  S.xp += jumlahXP;
-  S.xpMinggu += jumlahXP;
-  saveS();
-  konfeti();
-  toast(`Pelajaran selesai! +${jumlahXP} XP`);
-  setTimeout(() => go("laluan"), 850);
-}
-
 /* ================= KANVAS MENULIS ================= */
 let lukis = false, kCtx = null;
 function initKanvas(){
   const c = document.getElementById("kanvas-tulis");
   if(!c) return;
   kCtx = c.getContext("2d");
-  kCtx.strokeStyle = "#6A2E0B";
+  kCtx.strokeStyle = "#1B2A4A";
   kCtx.lineWidth = 7;
   kCtx.lineCap = "round";
   kCtx.lineJoin = "round";
@@ -1702,7 +1711,7 @@ function padamKanvas(){
   if(c && kCtx) kCtx.clearRect(0,0,c.width,c.height);
 }
 
-/* ================= RAKAMAN MIKROFON (TEKAN-TAHAN) ================= */
+/* ================= RAKAMAN MIKROFON ================= */
 let rakamMula = 0, gelTimer = null;
 function mulaRakam(){
   if(rakamMula) return;
@@ -1711,7 +1720,7 @@ function mulaRakam(){
   const gel = document.getElementById("ucap-gel");
   mik.classList.add("rakam"); gel.classList.add("rakam");
   gelTimer = setInterval(() => {
-    gel.querySelectorAll("span").forEach(sp => sp.style.height = (14 + Math.random()*54) + "px");
+    gel.querySelectorAll("span").forEach(sp => sp.style.height = (14 + Math.random()*46) + "px");
     if(Date.now() - rakamMula >= 5000) hentiRakam();
   }, 120);
 }
@@ -1723,13 +1732,11 @@ function hentiRakam(){
   document.getElementById("btn-mik").classList.remove("rakam");
   document.getElementById("ucap-gel").classList.remove("rakam");
   if(tempoh < 400){toast("Tahan sedikit lebih lama ya");return;}
-  const skor = 82 + Math.floor(Math.random()*17);
-  sesi.xpDapat += 10;
+  const skor = 84 + Math.floor(Math.random()*15);
   S.xp += 10; saveS();
+  document.getElementById("top-xp").textContent = `${S.xp} XP`;
   toast(`Bagus! Sebutan ${skor}% (+10 XP)`);
-  setTimeout(() => {
-    if(sesi.solo) go("home"); else tamatPelajaran();
-  }, 850);
+  setTimeout(() => V.ucap(), 900);
 }
 
 /* ================= PENGENDALI KLIK & AKSI ================= */
@@ -1739,17 +1746,16 @@ document.addEventListener("click", e => {
     const [aksi, val] = doBtn.dataset.do.split(":");
     if(aksi === "bunyi-teks"){e.stopPropagation(); cakap(decodeURIComponent(val)); return;}
     if(aksi === "buka-item"){mulaPelajaran(Number(val)); return;}
-    if(aksi === "lang"){S.bahasa = val; saveS(); applyLang(); if(V[S.skrin]) V[S.skrin]();}
-    else if(aksi === "set-level"){S.level = val; saveS(); V.kelas();}
-    else if(aksi === "sambung-aktif"){go("laluan");}
-    else if(aksi === "kuiz-bebas"){
-      const bab = KURIKULUM[S.katIdx].bab[S.babIdx];
-      sesi.sumberKuiz = bab.items;
-      binaKuiz10(bab.items);
+    if(aksi === "home-tab"){homeTab = val; V.home();}
+    else if(aksi === "set-level"){S.level = val; saveS(); V.profil();}
+    else if(aksi === "kuiz-semua"){binaKuiz10(ALL_WORDS);}
+    else if(aksi === "kuiz-kat"){
+      const kat = KURIKULUM[Number(val)] || KURIKULUM[0];
+      binaKuiz10(kat.bab.flatMap(b => b.items));
     }
     else if(aksi === "mula-kuiz-bab"){
-      const bab = KURIKULUM[S.katIdx].bab[S.babIdx];
-      sesi.sumberKuiz = bab.items;
+      const kat = KURIKULUM[S.katIdx] || KURIKULUM[0];
+      const bab = kat.bab[S.babIdx] || kat.bab[0];
       binaKuiz10(bab.items);
     }
     else if(aksi === "solo-ucap"){sesi.solo = true; go("ucap");}
@@ -1759,25 +1765,22 @@ document.addEventListener("click", e => {
       V._listenIdx = (V._listenIdx + Number(val) + ALL_WORDS.length) % ALL_WORDS.length;
       V.rujukan();
     }
-    else if(aksi === "tukar-kat"){S.katIdx = (S.katIdx + 1) % KURIKULUM.length; S.babIdx = 0; saveS(); V.laluan();}
     else if(aksi === "set-kat"){S.katIdx = Number(val); S.babIdx = 0; saveS(); V.laluan();}
     else if(aksi === "set-bab"){S.babIdx = Number(val); saveS(); V.laluan();}
     else if(aksi === "mula-bab"){mulaPelajaran(0);}
     else if(aksi === "bunyi-kad"){cakap(sesi.items[sesi.idx].c);}
     else if(aksi === "kad-prev"){if(sesi.idx > 0){sesi.idx--; V.kad();}}
-    else if(aksi === "terus-kuiz"){
-      sesi.sumberKuiz = sesi.items;
-      binaKuiz10(sesi.items);
-    }
+    else if(aksi === "terus-kuiz"){binaKuiz10(sesi.items);}
     else if(aksi === "kad-belum" || aksi === "kad-hafal"){
       const it = sesi.items[sesi.idx];
       if(aksi === "kad-hafal"){
         S.hafal[it.c] = true;
         S.xp += 5;
         saveS();
+        document.getElementById("top-xp").textContent = `${S.xp} XP`;
       }
       if(sesi.idx < sesi.items.length - 1){sesi.idx++; V.kad();}
-      else {sesi.sumberKuiz = sesi.items; binaKuiz10(sesi.items);}
+      else {binaKuiz10(sesi.items);}
     }
     else if(aksi === "pilih-opsi"){sesi.pilihOpsi = Number(val); V.kuiz();}
     else if(aksi === "bunyi-kuiz"){cakap(sesi.qList[sesi.qIdx].item.c);}
@@ -1801,9 +1804,7 @@ document.addEventListener("click", e => {
       if(sesi.qIdx < sesi.qList.length - 1){sesi.qIdx++; sesi.pilihOpsi = null; go("kuiz");}
       else{konfeti(); go("tamat-kuiz");}
     }
-    else if(aksi === "ulang-kuiz"){
-      binaKuiz10(sesi.sumberKuiz);
-    }
+    else if(aksi === "ulang-kuiz"){binaKuiz10(sesi.sumberKuiz);}
     else if(aksi === "cuba-lagi"){
       if(sesi.nyawa <= 0){binaKuiz10(sesi.sumberKuiz); return;}
       sesi.pilihOpsi = null; go("kuiz");
@@ -1814,11 +1815,11 @@ document.addEventListener("click", e => {
       saveS(); toast("Disimpan ke ulangan");
       if(aksi === "simpan-cuba"){sesi.pilihOpsi = null; go("kuiz");}
     }
-    else if(aksi === "keluar-ucap"){go(sesi.solo ? "home" : "laluan");}
+    else if(aksi === "keluar-ucap"){go("home");}
     else if(aksi === "bantu-ucap"){toast("Tekan dan tahan butang mikrofon");}
     else if(aksi === "bunyi-ucap"){cakap(sesi.ucapItem.c, false);}
     else if(aksi === "ucap-pelan"){cakap(sesi.ucapItem.c, true);}
-    else if(aksi === "ucap-lewati"){if(sesi.solo) go("home"); else tamatPelajaran();}
+    else if(aksi === "ucap-lewati"){V.ucap();}
     else if(aksi === "set-tulis"){tulisIdx = Number(val); V.writing();}
     else if(aksi === "tulis-prev"){tulisIdx = (tulisIdx - 1 + WRITING_DATA.length) % WRITING_DATA.length; V.writing();}
     else if(aksi === "tulis-next"){tulisIdx = (tulisIdx + 1) % WRITING_DATA.length; V.writing();}
@@ -1829,7 +1830,6 @@ document.addEventListener("click", e => {
       try{navigator.clipboard.writeText("HGL-26");}catch(err){}
       toast("Kod kelas HGL-26 disalin!");
     }
-    else if(aksi === "tempoh-maju"){tempohMaju = Number(val); V.kemajuan();}
     else if(aksi === "tukar-nama"){
       const n = prompt("Masukkan nama kamu (maks 24 aksara):", S.nama);
       if(n && n.trim()){S.nama = n.trim().slice(0,24); saveS(); V.profil();}
@@ -1838,7 +1838,7 @@ document.addEventListener("click", e => {
     else if(aksi === "reset-all"){
       if(confirm("Set semula semua kemajuan belajar ke 0?")){
         S = JSON.parse(JSON.stringify(DEFAULT_S));
-        saveS(); go("ob1"); toast("Kemajuan diset semula ke 0");
+        saveS(); go("home"); toast("Kemajuan diset semula ke 0");
       }
     }
     return;
@@ -1872,7 +1872,7 @@ function kemaskiniJam(){
 kemaskiniJam();
 setInterval(kemaskiniJam, 20000);
 initKanvas();
-go(S.skrin || "ob1");
+go(S.skrin || "home");
 </script>
 </body>
 </html>
