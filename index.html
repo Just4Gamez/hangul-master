@@ -1,443 +1,2377 @@
 <!DOCTYPE html>
-<html lang="ms" class="scroll-smooth">
+<html lang="ms">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mastery AddMath: Bab 1 Fungsi</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            50: '#f5f3ff',
-                            100: '#ede9fe',
-                            500: '#8b5cf6',
-                            600: '#7c3aed',
-                            700: '#6d28d9',
-                            900: '#4c1d95',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .tab-content { display: none; }
-        .tab-content.active { display: block; animation: fadeIn 0.4s ease-in-out; }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(6px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(12px);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#10203D">
+<title>Hangul Master · Navy & Dusty Pink</title>
+<meta name="description" content="Hangul Master — Belajar Bahasa Korea Lengkap: 21 Level, Kategori Khas, 44 Perbualan, 20 Grammar Lab & Writing Lab.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2310203D'/%3E%3Ccircle cx='50' cy='52' r='28' fill='%23DF92A3'/%3E%3Ccircle cx='40' cy='47' r='4' fill='%2310203D'/%3E%3Ccircle cx='60' cy='47' r='4' fill='%2310203D'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Noto+Sans+KR:wght@700;900&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,600,1,0" rel="stylesheet">
+<style>
+:root{
+  --nv:#10203D;
+  --nv2:#1E3663;
+  --dp:#DF92A3;
+  --dp2:#F2C4CE;
+  --dp3:#FDF2F5;
+  --pt:#FFFFFF;
+  --ink:#0D192E;
+  --hj:#2E9A55;
+  --mr:#D4474A;
+  --kn:#FFD23F;
+  --dis:#C4CCD9;
+  --dis-s:#7D889C;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{margin:0;padding:0;width:100%;height:100%;font-family:'Nunito',sans-serif;color:var(--ink);background:var(--nv);overflow:hidden;}
+.hangul{font-family:'Noto Sans KR',sans-serif;}
+.ms{font-family:'Material Symbols Rounded';font-weight:normal;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-smoothing:antialiased;user-select:none;}
+
+/* Panggung & Bingkai Telefon */
+.panggung{
+  width:100%;height:100dvh;display:flex;align-items:center;justify-content:center;
+  background:repeating-conic-gradient(from 0deg at 50% 40%,#0D1B34 0 9deg,#15294D 9deg 18deg);
+  padding:24px;
+}
+.phone{
+  width:390px;height:844px;max-width:100%;max-height:100%;
+  background:var(--nv);border:10px solid var(--pt);border-radius:50px;
+  box-shadow:0 0 0 4px var(--ink),0 26px 60px rgba(5,10,25,.55);
+  display:flex;flex-direction:column;position:relative;overflow:hidden;
+}
+@media(max-width:600px),(max-height:900px){
+  .panggung{padding:0;background:var(--nv);}
+  .phone{width:100vw;height:100dvh;border:none;border-radius:0;box-shadow:none;}
+}
+
+/* Latar Skrin */
+.bg-navy-sun{background:repeating-conic-gradient(from 0deg at 50% 26%,#10203D 0 9deg,#172D54 9deg 18deg);}
+.bg-navy-dots{background-color:#132647;background-image:radial-gradient(rgba(255,255,255,.1) 3px,transparent 3px);background-size:30px 30px;}
+.bg-pink-dots{background-color:#DF92A3;background-image:radial-gradient(rgba(255,255,255,.22) 3px,transparent 3px);background-size:30px 30px;}
+.bg-cream-dots{background-color:#FDF2F5;background-image:radial-gradient(rgba(16,32,61,.07) 3px,transparent 3px);background-size:30px 30px;}
+.bg-win{background:repeating-conic-gradient(from 0deg at 50% 30%,#F2C4CE 0 9deg,#FCE4EA 9deg 18deg);}
+
+/* Bar Status */
+.status-bar{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:max(14px,env(safe-area-inset-top)) 26px 6px;
+  font-weight:800;font-size:14px;z-index:20;flex-shrink:0;
+}
+.status-light{color:var(--pt);}
+.status-dark{color:var(--nv);}
+.status-icons{display:flex;align-items:center;gap:4px;}
+.status-icons .ms{font-size:16px;}
+
+/* Skrin */
+.screen{
+  display:none;flex:1;overflow-y:auto;overflow-x:hidden;
+  padding:8px 20px 24px;flex-direction:column;gap:14px;
+  scrollbar-width:none;-ms-overflow-style:none;
+}
+.screen::-webkit-scrollbar{display:none;}
+.screen.active{display:flex;animation:masuk .28s cubic-bezier(.22,.9,.3,1);}
+@keyframes masuk{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+@keyframes apung{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+.apung{animation:apung 4.5s ease-in-out infinite;}
+
+/* Tipografi */
+.logo1{font-family:'Lilita One',cursive;font-size:52px;line-height:1;color:var(--dp);-webkit-text-stroke:10px var(--ink);paint-order:stroke fill;text-shadow:0 6px 0 var(--ink);margin:0;text-align:center;}
+.jd1{font-family:'Lilita One',cursive;font-size:26px;line-height:1.15;color:var(--pt);-webkit-text-stroke:5px var(--ink);paint-order:stroke fill;margin:0;}
+.jd2{font-family:'Lilita One',cursive;font-size:23px;line-height:1.2;color:var(--nv);margin:0;}
+.jam1{font-family:'Lilita One',cursive;font-size:32px;line-height:1;color:var(--dp2);-webkit-text-stroke:6px var(--ink);paint-order:stroke fill;margin:0;}
+.big1{font-family:'Lilita One',cursive;font-size:36px;line-height:1.1;color:var(--nv);margin:0;}
+.isi1{font-size:14px;font-weight:700;line-height:1.45;margin:0;}
+.mn{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;}
+
+/* Butang 3D */
+.tb{
+  font-family:'Lilita One',cursive;font-size:20px;color:var(--pt);
+  -webkit-text-stroke:4px var(--ink);paint-order:stroke fill;
+  background:var(--dp);border:3px solid var(--ink);border-radius:999px;
+  padding:12px 22px;min-height:52px;box-shadow:0 6px 0 var(--ink);
+  cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  transition:transform .12s,box-shadow .12s;text-decoration:none;user-select:none;margin-bottom:4px;
+}
+.tb:active:not(:disabled){transform:translateY(4px);box-shadow:0 2px 0 var(--ink);}
+.tb.nv{background:var(--nv2);}
+.tb.hj{background:var(--hj);}
+.tb.pt{background:var(--pt);color:var(--nv);-webkit-text-stroke:0;}
+.tb.sm{font-size:16px;padding:8px 16px;min-height:42px;-webkit-text-stroke:3px var(--ink);}
+.tb.pt.sm{-webkit-text-stroke:0;}
+.tb.lebar{width:100%;}
+.tb:disabled{background:var(--dis);box-shadow:0 6px 0 var(--dis-s);cursor:not-allowed;opacity:.85;}
+
+/* Butang Bulat */
+.rb{
+  width:46px;height:46px;border-radius:50%;background:var(--dp);
+  border:3px solid var(--ink);color:var(--pt);box-shadow:0 4px 0 var(--ink);
+  display:inline-flex;align-items:center;justify-content:center;cursor:pointer;
+  flex-shrink:0;transition:transform .12s,box-shadow .12s;
+}
+.rb.nv{background:var(--nv2);}
+.rb.pt{background:var(--pt);color:var(--nv);}
+.rb:active{transform:translateY(3px);box-shadow:0 1px 0 var(--ink);}
+.rb.ghost{visibility:hidden;pointer-events:none;}
+
+/* Kad & Komponen */
+.kt{background:var(--pt);border:3px solid var(--ink);border-radius:28px;padding:16px;box-shadow:0 6px 0 var(--ink);position:relative;}
+.kt.dp{background:var(--dp2);}
+.kt.kr{background:var(--dp3);}
+.kt.nv{background:var(--nv2);color:var(--pt);}
+
+.cd1{
+  background:var(--pt);border:3px solid var(--ink);border-radius:24px;
+  padding:14px 16px;box-shadow:0 5px 0 var(--ink);display:flex;
+  align-items:center;justify-content:space-between;gap:12px;cursor:pointer;
+  transition:transform .12s,box-shadow .12s;
+}
+.cd1:active{transform:translateY(3px);box-shadow:0 2px 0 var(--ink);}
+
+.opt1{
+  background:var(--pt);border:3px solid var(--ink);border-radius:22px;
+  padding:11px 14px;min-height:54px;font-weight:800;font-size:15px;color:var(--nv);
+  box-shadow:0 5px 0 var(--ink);display:flex;align-items:center;gap:12px;
+  cursor:pointer;text-align:left;width:100%;transition:transform .1s;
+}
+.opt1:active{transform:translateY(3px);box-shadow:0 2px 0 var(--ink);}
+.opt1.pilih{background:var(--dp2);}
+.opt1.betul{background:#B8F0B8;}
+.opt1.salah{background:#FFC2C2;}
+.hr{
+  width:34px;height:34px;border-radius:50%;background:var(--dp3);
+  border:3px solid var(--ink);font-family:'Lilita One',cursive;font-size:17px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--nv);
+}
+.opt1.pilih .hr{background:var(--nv);color:var(--dp2);}
+
+.pil-hud{
+  background:var(--pt);border:3px solid var(--ink);border-radius:999px;
+  padding:5px 12px;font-weight:800;font-size:14px;color:var(--nv);
+  display:inline-flex;align-items:center;gap:4px;box-shadow:0 3px 0 var(--ink);
+}
+.bar1{height:16px;background:var(--pt);border:3px solid var(--ink);border-radius:999px;overflow:hidden;width:100%;}
+.bar1-isi{height:100%;background:var(--dp);border-right:3px solid var(--ink);transition:width .4s cubic-bezier(.3,1.2,.5,1);}
+
+/* Dok Bawah */
+.dock{
+  background:var(--dp3);padding:10px 14px max(12px,env(safe-area-inset-bottom));
+  border-top:3px solid var(--ink);display:none;justify-content:space-around;align-items:center;
+  flex-shrink:0;z-index:20;
+}
+.dock.show{display:flex;}
+.dock-btn{
+  width:56px;height:48px;border-radius:18px;border:3px solid transparent;
+  background:transparent;color:var(--nv);opacity:.55;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;cursor:pointer;transition:all .15s;
+}
+.dock-btn.active{
+  background:var(--dp);border-color:var(--ink);color:var(--pt);
+  box-shadow:0 3px 0 var(--ink);opacity:1;
+}
+.dock-btn .ms{font-size:24px;}
+
+/* Kotak Gurisan & Kanvas */
+.stroke-box{
+  background-color:var(--dp3);
+  background-image:linear-gradient(to right,rgba(16,32,61,.12) 1px,transparent 1px),
+                   linear-gradient(to bottom,rgba(16,32,61,.12) 1px,transparent 1px);
+  background-size:24px 24px;
+  border:3px solid var(--ink);border-radius:24px;
+}
+
+/* Jadual Nota */
+.tbl-wrap{overflow-x:auto;border:3px solid var(--ink);border-radius:18px;background:var(--pt);}
+table.nt-tbl{width:100%;border-collapse:collapse;font-size:13px;text-align:left;}
+table.nt-tbl th{background:var(--nv);color:var(--pt);padding:10px 12px;font-weight:800;}
+table.nt-tbl td{padding:9px 12px;border-top:2px solid #E8DCE0;font-weight:700;color:var(--nv);}
+table.nt-tbl tr:nth-child(even) td{background:var(--dp3);}
+
+/* Toast & Konfeti */
+.toast{
+  position:absolute;top:58px;left:50%;transform:translateX(-50%) translateY(-20px);
+  background:var(--nv);color:var(--pt);border:3px solid var(--pt);
+  padding:8px 18px;border-radius:999px;font-weight:800;font-size:13px;
+  box-shadow:0 6px 16px rgba(0,0,0,.35);opacity:0;pointer-events:none;
+  transition:all .25s;z-index:100;white-space:nowrap;max-width:90%;overflow:hidden;text-overflow:ellipsis;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+.confetti{position:absolute;width:9px;height:14px;border-radius:2px;top:-20px;z-index:90;pointer-events:none;animation:jatuh 1.5s ease-in forwards;}
+@keyframes jatuh{to{transform:translateY(900px) rotate(720deg);opacity:0;}}
+
+/* Suis */
+.suis{width:52px;height:30px;border-radius:999px;background:#CBD5E1;border:3px solid var(--ink);position:relative;cursor:pointer;transition:.2s;flex-shrink:0;}
+.suis.on{background:var(--dp);}
+.suis::after{content:'';position:absolute;width:20px;height:20px;border-radius:50%;background:var(--pt);border:2px solid var(--ink);top:2px;left:2px;transition:.2s;}
+.suis.on::after{left:24px;}
+
+/* Fokus Aksesibiliti */
+button:focus-visible,[role="button"]:focus-visible,input:focus-visible{outline:3px solid var(--kn);outline-offset:2px;}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;}
+  .confetti{display:none!important;}
+}
+</style>
 </head>
-<body class="bg-slate-900 text-slate-100 font-sans min-h-screen flex flex-col selection:bg-purple-500 selection:text-white">
+<body>
+<div class="panggung">
+  <div class="phone" id="app-phone">
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-    <!-- Header / Navigasi Moden -->
-    <header class="bg-slate-900/80 border-b border-slate-800 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
-            <div class="flex items-center space-x-3">
-                <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-purple-600 to-indigo-500 flex items-center justify-center shadow-lg shadow-purple-500/30">
-                    <i class="fa-solid fa-cube text-white text-xl"></i>
-                </div>
-                <div>
-                    <h1 class="text-lg font-extrabold tracking-tight bg-gradient-to-r from-white via-purple-200 to-purple-400 bg-clip-text text-transparent">AddMath Mastery</h1>
-                    <p class="text-xs text-purple-400 font-medium">Tingkatan 4 • Bab 1: Fungsi (KSSM)</p>
-                </div>
-            </div>
+    <!-- Bar Status -->
+    <div id="status-bar" class="status-bar status-light">
+      <span id="jam-hud">9:41</span>
+      <div class="status-icons" aria-hidden="true">
+        <span class="ms">signal_cellular_alt</span>
+        <span class="ms">battery_full</span>
+      </div>
+    </div>
 
-            <!-- Navigasi Tab -->
-            <nav class="flex flex-wrap gap-1.5 bg-slate-800/80 p-1.5 rounded-2xl border border-slate-700/60 shadow-inner">
-                <button onclick="switchTab('dashboard')" id="btn-dashboard" class="tab-btn px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl transition-all bg-purple-600 text-white shadow-md shadow-purple-600/30">Dashboard</button>
-                <button onclick="switchTab('visual')" id="btn-visual" class="tab-btn px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl transition-all text-slate-300 hover:text-white hover:bg-slate-700/50">Visual Hubungan</button>
-                <button onclick="switchTab('gubahan')" id="btn-gubahan" class="tab-btn px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl transition-all text-slate-300 hover:text-white hover:bg-slate-700/50">Gubahan & Songsang</button>
-                <button onclick="switchTab('kuiz')" id="btn-kuiz" class="tab-btn px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl transition-all text-slate-300 hover:text-white hover:bg-slate-700/50"><i class="fa-solid fa-brain mr-1 text-purple-400"></i> Kuiz Interaktif</button>
-            </nav>
+    <!-- 1. ONBOARDING / SELAMAT DATANG -->
+    <section id="scr-onboard" class="screen bg-navy-sun active" style="justify-content:space-between;padding-bottom:0;">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:14px;">
+        <div style="width:176px;height:176px;border-radius:50%;background:rgba(255,255,255,.14);border:3px solid rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center;">
+          <div id="mascot-hero" class="apung"></div>
         </div>
-    </header>
+        <h1 class="logo1">HANGUL<br>MASTER</h1>
+        <p style="color:var(--dp2);font-weight:800;font-size:15px;text-align:center;max-width:270px;margin:0;">
+          Kuasai Bahasa Korea Sepenuhnya: Abjad, 21 Level, Perbualan &amp; Menulis
+        </p>
+      </div>
 
-    <!-- Kandungan Utama -->
-    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 py-8">
+      <div style="margin:0 -20px;background:var(--dp3);border-top:4px solid var(--ink);border-radius:36px 36px 0 0;padding:24px 24px 30px;display:flex;flex-direction:column;gap:14px;box-shadow:0 -8px 0 rgba(0,0,0,.2);">
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <h2 class="jd2">Sedia Belajar Korea?</h2>
+          <span class="pil-hud" style="background:var(--dp2);">한글 2026</span>
+        </div>
+        <p class="isi1" style="color:var(--nv);">
+          Lengkap dengan Pengenalan Hangul, 21 Level Asas, Kategori Khas, 44 Situasi Perbualan, 20 Grammar Lab &amp; Kanvas Menulis.
+        </p>
+        <button class="tb lebar" onclick="masukApp()">Mula Belajar Sekarang</button>
+      </div>
+    </section>
 
-        <!-- TAB 1: DASHBOARD -->
-        <section id="tab-dashboard" class="tab-content active space-y-8">
-            <!-- Hero Banner -->
-            <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-purple-900 via-indigo-900 to-slate-900 border border-purple-500/20 p-8 sm:p-12 shadow-2xl">
-                <div class="absolute -right-10 -bottom-10 w-80 h-80 bg-purple-600/20 rounded-full blur-3xl pointer-events-none"></div>
-                <div class="relative z-10 max-w-2xl space-y-4">
-                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-purple-500/20 text-purple-300 border border-purple-500/30">
-                        <i class="fa-solid fa-sparkles"></i> Modul Pembelajaran Interaktif
-                    </span>
-                    <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">Kuasai Konsep <span class="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Fungsi</span> Tanpa Stress</h2>
-                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-                        Penerokaan lengkap nota Bab 1 Matematik Tambahan Tingkatan 4. Dari pemetaan set hingga fungsi gubahan dan fungsi songsang dengan visual serta kuiz pintar.
-                    </p>
-                    <div class="flex flex-wrap gap-3 pt-2">
-                        <button onclick="switchTab('visual')" class="px-6 py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-semibold text-sm transition-all shadow-lg shadow-purple-600/30 flex items-center gap-2">
-                            Mula Meneroka <i class="fa-solid fa-arrow-right text-xs"></i>
-                        </button>
-                        <button onclick="switchTab('kuiz')" class="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-purple-300 border border-slate-700 font-semibold text-sm transition-all flex items-center gap-2">
-                            Uji Kemahiran <i class="fa-solid fa-pen-nib text-xs"></i>
-                        </button>
-                    </div>
-                </div>
+    <!-- 2. LAMAN UTAMA (HOME) -->
+    <section id="scr-home" class="screen bg-navy-dots">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <div class="pil-hud"><span class="ms" style="color:#E06D88;font-size:18px;">star</span><span id="hud-xp">0 XP</span></div>
+        <h1 class="jd1">Hangul Master</h1>
+        <div class="pil-hud"><span class="ms" style="color:#E06D88;font-size:18px;">local_fire_department</span><span id="hud-streak">1 Hari</span></div>
+      </div>
+
+      <!-- Kad Hero Utama -->
+      <div class="kt dp" style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
+        <div style="display:flex;flex-direction:column;gap:8px;flex:1;">
+          <span class="mn" style="color:var(--nv);background:var(--pt);padding:3px 10px;border-radius:99px;border:2px solid var(--ink);width:fit-content;">KURIKULUM LENGKAP</span>
+          <h2 class="jd2" id="home-greet">Hai, Pelajar!</h2>
+          <p class="isi1" style="font-size:13px;">Teruskan perjalanan menguasai Bahasa Korea hari ini.</p>
+          <button class="tb nv sm" style="width:fit-content;" onclick="bukaSkim('scr-levels')">Sambung Level</button>
+        </div>
+        <div id="mascot-home" class="apung" style="flex-shrink:0;"></div>
+      </div>
+
+      <!-- Grid Modul Utama -->
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div class="cd1" onclick="bukaSkim('scr-intro')">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:48px;height:48px;border-radius:16px;background:var(--nv);color:var(--dp2);border:3px solid var(--ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <span class="ms">menu_book</span>
             </div>
-
-            <!-- Grid Subtopik -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-slate-800/60 border border-slate-700/80 rounded-3xl p-6 hover:border-purple-500/50 transition-all group">
-                    <div class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-lg mb-4 group-hover:scale-110 transition-transform">01</div>
-                    <h3 class="text-lg font-bold text-white mb-2">Hubungan & Fungsi</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Kenali 4 jenis hubungan dan syarat mutlak sesuatu hubungan dikategorikan sebagai fungsi (satu kepada satu & banyak kepada satu).</p>
-                    <button onclick="switchTab('visual')" class="text-purple-400 font-semibold text-xs flex items-center gap-1 hover:text-purple-300">Buka Simulasi <i class="fa-solid fa-chevron-right text-[10px]"></i></button>
-                </div>
-
-                <div class="bg-slate-800/60 border border-slate-700/80 rounded-3xl p-6 hover:border-purple-500/50 transition-all group">
-                    <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold text-lg mb-4 group-hover:scale-110 transition-transform">02</div>
-                    <h3 class="text-lg font-bold text-white mb-2">Fungsi Gubahan</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Memahami gabungan dua fungsi berturutan $fg(x)$ di mana output fungsi pertama menjadi input kepada fungsi kedua.</p>
-                    <button onclick="switchTab('gubahan')" class="text-indigo-400 font-semibold text-xs flex items-center gap-1 hover:text-indigo-300">Lihat Contoh <i class="fa-solid fa-chevron-right text-[10px]"></i></button>
-                </div>
-
-                <div class="bg-slate-800/60 border border-slate-700/80 rounded-3xl p-6 hover:border-purple-500/50 transition-all group">
-                    <div class="w-12 h-12 rounded-2xl bg-pink-500/10 border border-pink-500/20 text-pink-400 flex items-center justify-center font-bold text-lg mb-4 group-hover:scale-110 transition-transform">03</div>
-                    <h3 class="text-lg font-bold text-white mb-2">Fungsi Songsang</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Mengkaji sifat pembalikan fungsi $f^{-1}(x)$ serta simetri graf terhadap garis lurus $y = x$ bagi fungsi satu kepada satu.</p>
-                    <button onclick="switchTab('gubahan')" class="text-pink-400 font-semibold text-xs flex items-center gap-1 hover:text-pink-300">Ketahui Lanjut <i class="fa-solid fa-chevron-right text-[10px]"></i></button>
-                </div>
+            <div>
+              <div style="font-weight:800;font-size:16px;color:var(--nv);">Pengenalan &amp; Huruf Hangul</div>
+              <div style="font-size:12px;font-weight:700;color:#475569;">Nota penuh 14 konsonan, 10 vokal &amp; kembar</div>
             </div>
-        </section>
+          </div>
+          <span class="ms" style="color:var(--nv);">chevron_right</span>
+        </div>
 
-        <!-- TAB 2: VISUAL HUBUNGAN -->
-        <section id="tab-visual" class="tab-content space-y-6">
-            <div class="bg-slate-800/60 border border-slate-700/80 rounded-3xl p-6 sm:p-8 space-y-6">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-slate-700 pb-6">
-                    <div>
-                        <span class="text-xs font-semibold text-purple-400 uppercase tracking-wider">Simulasi Interaktif</span>
-                        <h2 class="text-2xl font-bold text-white mt-1">Eksplorasi Jenis Hubungan & Pemetaan</h2>
-                        <p class="text-slate-400 text-sm mt-1">Pilih jenis hubungan di bawah untuk melihat simulasi pemetaan antara Domain dan Kodomain.</p>
-                    </div>
-                    <!-- Butang Kawalan Jenis Hubungan -->
-                    <div class="flex flex-wrap gap-2">
-                        <button onclick="updateRelation('satuSatu')" id="rel-btn-1" class="px-4 py-2 rounded-xl text-xs font-semibold bg-purple-600 text-white transition-all shadow-md">Satu kepada Satu</button>
-                        <button onclick="updateRelation('banyakSatu')" id="rel-btn-2" class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-700 text-slate-300 hover:bg-slate-600 transition-all">Banyak kepada Satu</button>
-                        <button onclick="updateRelation('satuBanyak')" id="rel-btn-3" class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-700 text-slate-300 hover:bg-slate-600 transition-all">Satu kepada Banyak</button>
-                    </div>
-                </div>
-
-                <!-- Paparan Visual Pemetaan Set -->
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
-                    <!-- Set A (Domain) -->
-                    <div class="bg-slate-800/80 border border-slate-700 rounded-2xl p-5 text-center space-y-3">
-                        <h4 class="font-bold text-purple-300 text-sm">Set A (Domain / Objek)</h4>
-                        <div id="domain-set" class="flex justify-center gap-3">
-                            <span class="w-10 h-10 rounded-xl bg-purple-600/20 border border-purple-500/40 text-purple-200 font-bold flex items-center justify-center">2</span>
-                            <span class="w-10 h-10 rounded-xl bg-purple-600/20 border border-purple-500/40 text-purple-200 font-bold flex items-center justify-center">3</span>
-                            <span class="w-10 h-10 rounded-xl bg-purple-600/20 border border-purple-500/40 text-purple-200 font-bold flex items-center justify-center">4</span>
-                        </div>
-                    </div>
-
-                    <!-- Keterangan Hubungan -->
-                    <div class="text-center space-y-2">
-                        <div id="relation-badge" class="inline-block px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">Adalah Suatu Fungsi ✅</div>
-                        <h3 id="relation-title" class="text-lg font-bold text-white">Hubungan Satu kepada Satu</h3>
-                        <p id="relation-desc" class="text-xs text-slate-400 px-4">Setiap unsur dalam Domain dipetakan kepada tepat satu unsur yang unik dalam Kodomain.</p>
-                    </div>
-
-                    <!-- Set B (Kodomain) -->
-                    <div class="bg-slate-800/80 border border-slate-700 rounded-2xl p-5 text-center space-y-3">
-                        <h4 class="font-bold text-indigo-300 text-sm">Set B (Kodomain / Imej)</h4>
-                        <div id="codomain-set" class="flex justify-center gap-3">
-                            <span class="w-10 h-10 rounded-xl bg-indigo-600/20 border border-indigo-500/40 text-indigo-200 font-bold flex items-center justify-center">4</span>
-                            <span class="w-10 h-10 rounded-xl bg-indigo-600/20 border border-indigo-500/40 text-indigo-200 font-bold flex items-center justify-center">6</span>
-                            <span class="w-10 h-10 rounded-xl bg-indigo-600/20 border border-indigo-500/40 text-indigo-200 font-bold flex items-center justify-center">8</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Nota Ringkas Istilah Penting -->
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <div class="bg-slate-900/40 border border-slate-800 p-4 rounded-2xl">
-                        <span class="text-purple-400 font-bold text-sm block mb-1">Objek ($x$)</span>
-                        <p class="text-slate-400 text-xs">Nilai input yang dimasukkan ke dalam fungsi.</p>
-                    </div>
-                    <div class="bg-slate-900/40 border border-slate-800 p-4 rounded-2xl">
-                        <span class="text-indigo-400 font-bold text-sm block mb-1">Imej $f(x)$</span>
-                        <p class="text-slate-400 text-xs">Nilai output terhasil selepas objek melalui fungsi.</p>
-                    </div>
-                    <div class="bg-slate-900/40 border border-slate-800 p-4 rounded-2xl">
-                        <span class="text-pink-400 font-bold text-sm block mb-1">Julat (*Range*)</span>
-                        <p class="text-slate-400 text-xs">Set semua imej yang mempunyai pasangan dari domain.</p>
-                    </div>
-                </div>
+        <div class="cd1" onclick="bukaSkim('scr-levels')">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:48px;height:48px;border-radius:16px;background:var(--dp);color:var(--pt);border:3px solid var(--ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <span class="ms">school</span>
             </div>
-        </section>
-
-        <!-- TAB 3: GUBAHAN & SONGSANG -->
-        <section id="tab-gubahan" class="tab-content space-y-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <!-- Kad Fungsi Gubahan -->
-                <div class="bg-slate-800/60 border border-slate-700/80 rounded-3xl p-6 sm:p-8 space-y-4">
-                    <div class="w-10 h-10 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-bold">
-                        <i class="fa-solid fa-link"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white">Fungsi Gubahan $fg(x)$</h3>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                        Penggabungan dua fungsi secara siri. Notasi <strong class="text-indigo-300">$fg(x)$</strong> bermaksud <strong class="text-indigo-300">$f[g(x)]$</strong>. Sentiasa selesaikan fungsi di dalam kurungan terlebih dahulu!
-                    </p>
-                    <div class="bg-slate-900/80 border border-slate-800 p-4 rounded-2xl space-y-2 text-sm">
-                        <p class="text-purple-300 font-semibold">Contoh Pantas:</p>
-                        <p class="text-slate-300">Diberi $f(x) = 2x$ dan $g(x) = x + 3$. Cari $fg(2)$:</p>
-                        <div class="text-slate-400 space-y-1 text-xs pl-2 border-l-2 border-purple-500">
-                            <p>1. Cari $g(2) = 2 + 3 = 5$</p>
-                            <p>2. Cari $f(5) = 2(5) = \mathbf{10}$</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Kad Fungsi Songsang -->
-                <div class="bg-slate-800/60 border border-slate-700/80 rounded-3xl p-6 sm:p-8 space-y-4">
-                    <div class="w-10 h-10 rounded-xl bg-pink-500/20 text-pink-400 flex items-center justify-center font-bold">
-                        <i class="fa-solid fa-rotate-left"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white">Fungsi Songsang $f^{-1}(x)$</h3>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                        Membalikkan kesan fungsi asal. Hanya wujud jika fungsi tersebut adalah hubungan <strong class="text-pink-300">satu kepada satu</strong>. Graf $f(x)$ dan $f^{-1}(x)$ bersimetri pada garis <strong class="text-pink-300">$y = x$</strong>.
-                    </p>
-                    <div class="bg-slate-900/80 border border-slate-800 p-4 rounded-2xl space-y-2 text-sm">
-                        <p class="text-pink-300 font-semibold">Langkah Mencari Songsang:</p>
-                        <div class="text-slate-400 space-y-1 text-xs pl-2 border-l-2 border-pink-500">
-                            <p>1. Letakkan $y = f(x)$</p>
-                            <p>2. Ungkapkan $x$ dalam sebutan $y$</p>
-                            <p>3. Ganti $y$ dengan $x$ untuk dapatkan $f^{-1}(x)$</p>
-                        </div>
-                    </div>
-                </div>
+            <div>
+              <div style="font-weight:800;font-size:16px;color:var(--nv);">Study &amp; Practice (Level 1–21)</div>
+              <div style="font-size:12px;font-weight:700;color:#475569;"><span id="home-cnt-lvl">Kosa kata, frasa</span> &amp; kuiz visual interaktif</div>
             </div>
-        </section>
+          </div>
+          <span class="ms" style="color:var(--nv);">chevron_right</span>
+        </div>
 
-        <!-- TAB 4: KUIZ INTERAKTIF -->
-        <section id="tab-kuiz" class="tab-content space-y-6">
-            <div class="bg-gradient-to-r from-purple-900 via-slate-900 to-indigo-900 border border-purple-500/30 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row justify-between items-center gap-4 shadow-xl">
-                <div>
-                    <span class="text-xs font-semibold text-purple-300 uppercase tracking-wider">Uji Minda Pintar</span>
-                    <h2 class="text-2xl font-bold text-white mt-1">Cabaran Kuiz Bab 1</h2>
-                    <p class="text-slate-300 text-sm">Jawab soalan-soalan pilihan pelbagai berformat peperiksaan SPM.</p>
-                </div>
-                <button onclick="resetQuiz()" class="px-5 py-2.5 rounded-xl bg-white text-purple-900 hover:bg-purple-100 font-bold text-sm transition-all shadow-md flex items-center gap-2">
-                    <i class="fa-solid fa-rotate-right"></i> Mula Semula
-                </button>
+        <div class="cd1" onclick="bukaSkim('scr-special')">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:48px;height:48px;border-radius:16px;background:var(--dp2);color:var(--nv);border:3px solid var(--ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <span class="ms">category</span>
             </div>
-
-            <!-- Kontena Soalan -->
-            <div id="quiz-container" class="space-y-6">
-                <!-- Dijana secara dinamik melalui JS -->
+            <div>
+              <div style="font-weight:800;font-size:16px;color:var(--nv);">Kategori Khas (6 Tematik)</div>
+              <div style="font-size:12px;font-weight:700;color:#475569;">Rumah, Keluarga, Sekolah, Pejabat, Warna, Masa</div>
             </div>
+          </div>
+          <span class="ms" style="color:var(--nv);">chevron_right</span>
+        </div>
 
-            <!-- Kad Keputusan Akhir -->
-            <div id="quiz-result" class="hidden bg-slate-800 border border-purple-500/40 rounded-3xl p-8 text-center space-y-4 shadow-2xl">
-                <div class="w-16 h-16 bg-purple-500/20 text-purple-400 border border-purple-500/40 rounded-2xl flex items-center justify-center text-3xl mx-auto">
-                    <i class="fa-solid fa-trophy"></i>
-                </div>
-                <h3 class="text-2xl font-bold text-white">Tahniah, Kuiz Selesai!</h3>
-                <p id="score-text" class="text-lg text-slate-300">Markah anda: <span class="font-bold text-purple-400">0 / 4</span></p>
-                <button onclick="resetQuiz()" class="px-6 py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-semibold text-sm transition-all shadow-lg shadow-purple-600/30">Cuba Kuiz Sekali Lagi</button>
+        <div class="cd1" onclick="bukaSkim('scr-conv')">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:48px;height:48px;border-radius:16px;background:var(--nv2);color:var(--pt);border:3px solid var(--ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <span class="ms">forum</span>
             </div>
-        </section>
+            <div>
+              <div style="font-weight:800;font-size:16px;color:var(--nv);">Conversation Lab (44 Situasi)</div>
+              <div style="font-size:12px;font-weight:700;color:#475569;"><span id="home-cnt-conv">Dialog</span> harian sebenar di Korea</div>
+            </div>
+          </div>
+          <span class="ms" style="color:var(--nv);">chevron_right</span>
+        </div>
 
-    </main>
+        <div class="cd1" onclick="bukaSkim('scr-grammar')">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:48px;height:48px;border-radius:16px;background:var(--dp);color:var(--pt);border:3px solid var(--ink);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <span class="ms">auto_stories</span>
+            </div>
+            <div>
+              <div style="font-weight:800;font-size:16px;color:var(--nv);">Hangul Grammar Lab (20 Topik)</div>
+              <div style="font-size:12px;font-weight:700;color:#475569;">Partikel, Tenses, Ayat Aktif/Pasif &amp; Formula</div>
+            </div>
+          </div>
+          <span class="ms" style="color:var(--nv);">chevron_right</span>
+        </div>
 
-    <!-- Footer -->
-    <footer class="bg-slate-900 border-t border-slate-800 py-6 text-center text-xs text-slate-500">
-        <p>Aplikasi Pembelajaran Interaktif Matematik Tambahan Tingkatan 4 • KSSM</p>
-    </footer>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+          <button class="tb pt sm" style="border-radius:22px;height:56px;" onclick="bukaWriting()">
+            <span class="ms" style="color:var(--dp);">draw</span> Writing Lab
+          </button>
+          <button class="tb pt sm" style="border-radius:22px;height:56px;" onclick="bukaListen()">
+            <span class="ms" style="color:var(--nv);">headphones</span> Listen Mode
+          </button>
+        </div>
+      </div>
+    </section>
 
-    <!-- JavaScript Interaktif -->
-    <script>
-        // Logik Penukaran Tab
-        function switchTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.className = "tab-btn px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl transition-all text-slate-300 hover:text-white hover:bg-slate-700/50";
-            });
+    <!-- 3. PENGENALAN HANGUL -->
+    <section id="scr-intro" class="screen bg-cream-dots">
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <button class="rb" onclick="bukaSkim('scr-home')" aria-label="Kembali"><span class="ms">arrow_back</span></button>
+        <h2 class="jd2">Pengenalan Hangul</h2>
+        <div class="rb ghost"></div>
+      </div>
 
-            document.getElementById('tab-' + tabId).classList.add('active');
-            const activeBtn = document.getElementById('btn-' + tabId);
-            activeBtn.className = "tab-btn px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl transition-all bg-purple-600 text-white shadow-md shadow-purple-600/30";
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+      <div class="kt">
+        <h3 class="jd2" style="font-size:18px;margin-bottom:8px;">1. Carta 14 Konsonan Asas (자음)</h3>
+        <div class="tbl-wrap">
+          <table class="nt-tbl">
+            <thead><tr><th>Huruf</th><th>Nama</th><th>Bunyi</th><th>Contoh</th></tr></thead>
+            <tbody id="tbl-konsonan"></tbody>
+          </table>
+        </div>
+      </div>
 
-        // Interaktif Simulasi Hubungan
-        function updateRelation(type) {
-            const btn1 = document.getElementById('rel-btn-1');
-            const btn2 = document.getElementById('rel-btn-2');
-            const btn3 = document.getElementById('rel-btn-3');
-            const badge = document.getElementById('relation-badge');
-            const title = document.getElementById('relation-title');
-            const desc = document.getElementById('relation-desc');
-            const codomainSet = document.getElementById('codomain-set');
+      <div class="kt">
+        <h3 class="jd2" style="font-size:18px;margin-bottom:8px;">2. Carta 10 Vokal Asas (모음)</h3>
+        <div class="tbl-wrap">
+          <table class="nt-tbl">
+            <thead><tr><th>Huruf</th><th>Rumi</th><th>Bunyi</th><th>Contoh</th></tr></thead>
+            <tbody id="tbl-vokal"></tbody>
+          </table>
+        </div>
+      </div>
 
-            [btn1, btn2, btn3].forEach(b => b.className = "px-4 py-2 rounded-xl text-xs font-semibold bg-slate-700 text-slate-300 hover:bg-slate-600 transition-all");
+      <div class="kt dp">
+        <h3 class="jd2" style="font-size:18px;margin-bottom:6px;">3. Konsonan Kembar (쌍자음)</h3>
+        <p class="isi1" style="font-size:13px;margin-bottom:10px;">5 konsonan tegang &amp; kuat dengan awalan <b>쌍 (ssang)</b>:</p>
+        <div class="tbl-wrap">
+          <table class="nt-tbl">
+            <thead><tr><th>Huruf</th><th>Nama (Romanization)</th></tr></thead>
+            <tbody>
+              <tr><td class="hangul" style="font-size:18px;">ㄲ</td><td>쌍기역 (ssanggiyeok)</td></tr>
+              <tr><td class="hangul" style="font-size:18px;">ㄸ</td><td>쌍디귿 (ssangdigeut)</td></tr>
+              <tr><td class="hangul" style="font-size:18px;">ㅃ</td><td>쌍비읍 (ssangbieup)</td></tr>
+              <tr><td class="hangul" style="font-size:18px;">ㅆ</td><td>쌍시옷 (ssangsiot)</td></tr>
+              <tr><td class="hangul" style="font-size:18px;">ㅉ</td><td>쌍지읒 (ssangjieut)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-            if (type === 'satuSatu') {
-                btn1.className = "px-4 py-2 rounded-xl text-xs font-semibold bg-purple-600 text-white transition-all shadow-md";
-                badge.className = "inline-block px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30";
-                badge.innerHTML = "Adalah Suatu Fungsi ✅";
-                title.innerHTML = "Hubungan Satu kepada Satu";
-                desc.innerHTML = "Setiap unsur dalam Domain dipetakan kepada tepat satu unsur yang unik dalam Kodomain.";
-                codomainSet.innerHTML = `
-                    <span class="w-10 h-10 rounded-xl bg-indigo-600/20 border border-indigo-500/40 text-indigo-200 font-bold flex items-center justify-center">4</span>
-                    <span class="w-10 h-10 rounded-xl bg-indigo-600/20 border border-indigo-500/40 text-indigo-200 font-bold flex items-center justify-center">6</span>
-                    <span class="w-10 h-10 rounded-xl bg-indigo-600/20 border border-indigo-500/40 text-indigo-200 font-bold flex items-center justify-center">8</span>
-                `;
-            } else if (type === 'banyakSatu') {
-                btn2.className = "px-4 py-2 rounded-xl text-xs font-semibold bg-purple-600 text-white transition-all shadow-md";
-                badge.className = "inline-block px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30";
-                badge.innerHTML = "Adalah Suatu Fungsi ✅";
-                title.innerHTML = "Hubungan Banyak kepada Satu";
-                desc.innerHTML = "Dua atau lebih objek mempunyai imej yang sama dalam Kodomain (Contoh: f(x) = x² di mana f(-2) = 4 dan f(2) = 4).";
-                codomainSet.innerHTML = `
-                    <span class="w-10 h-10 rounded-xl bg-indigo-600/20 border border-indigo-500/40 text-indigo-200 font-bold flex items-center justify-center">4</span>
-                    <span class="w-10 h-10 rounded-xl bg-indigo-600/20 border border-indigo-500/40 text-indigo-200 font-bold flex items-center justify-center">9</span>
-                `;
-            } else if (type === 'satuBanyak') {
-                btn3.className = "px-4 py-2 rounded-xl text-xs font-semibold bg-purple-600 text-white transition-all shadow-md";
-                badge.className = "inline-block px-3 py-1 rounded-full text-xs font-bold bg-rose-500/20 text-rose-300 border border-rose-500/30";
-                badge.innerHTML = "Bukan Suatu Fungsi ❌";
-                title.innerHTML = "Hubungan Satu kepada Banyak";
-                desc.innerHTML = "Satu objek dipetakan kepada dua atau lebih imej bersekali. Ini melanggar syarat mutlak fungsi.";
-                codomainSet.innerHTML = `
-                    <span class="w-10 h-10 rounded-xl bg-rose-600/20 border border-rose-500/40 text-rose-200 font-bold flex items-center justify-center">+3</span>
-                    <span class="w-10 h-10 rounded-xl bg-rose-600/20 border border-rose-500/40 text-rose-200 font-bold flex items-center justify-center">-3</span>
-                `;
-            }
-        }
+      <div class="kt nv">
+        <h3 class="jd2" style="color:var(--dp2);font-size:17px;margin-bottom:6px;">Tips Penting Pemula</h3>
+        <p class="isi1" style="font-size:13px;">Huruf vokal tidak boleh berdiri sendiri di awal suku kata. Wajib letakkan konsonan senyap <b>ㅇ</b> di hadapan atau atasnya (Contoh: <b>아이</b>, bukan ㅏ이).</p>
+      </div>
+    </section>
 
-        // Data Kuiz Latihan
-        const quizData = [
-            {
-                question: "1. Antara berikut, yang manakah merupakan definisi sah bagi satu fungsi?",
-                options: [
-                    "Hubungan satu kepada banyak",
-                    "Hubungan di mana satu objek mempunyai dua imej",
-                    "Hubungan satu kepada satu atau banyak kepada satu",
-                    "Hubungan banyak kepada banyak"
-                ],
-                answer: 2,
-                explanation: "Fungsi hanya merangkumi hubungan jenis satu kepada satu atau banyak kepada satu sahaja."
-            },
-            {
-                question: "2. Diberi fungsi f(x) = 3x - 4, cari nilai bagi f(5).",
-                options: ["11", "15", "19", "7"],
-                answer: 0,
-                explanation: "f(5) = 3(5) - 4 = 15 - 4 = 11."
-            },
-            {
-                question: "3. Diberi f(x) = x + 2 dan g(x) = 3x. Cari fungsi gubahan fg(x).",
-                options: ["3x + 2", "3x + 6", "3x^2 + 6x", "3(x + 2)"],
-                answer: 0,
-                explanation: "fg(x) = f(3x) = 3x + 2."
-            },
-            {
-                question: "4. Cari fungsi songsang f⁻¹(x) bagi f(x) = 2x - 6.",
-                options: ["(x + 6)/2", "(x - 6)/2", "2x + 6", "1/(2x - 6)"],
-                answer: 0,
-                explanation: "Katakan y = 2x - 6, maka 2x = y + 6, jadi x = (y + 6)/2. Maka f⁻¹(x) = (x + 6)/2."
-            }
-        ];
+    <!-- 4. SENARAI 21 LEVEL -->
+    <section id="scr-levels" class="screen bg-pink-dots">
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <button class="rb nv" onclick="bukaSkim('scr-home')" aria-label="Kembali"><span class="ms">arrow_back</span></button>
+        <h2 class="jd1">21 Level Asas</h2>
+        <div class="rb ghost"></div>
+      </div>
+      <div id="list-levels" style="display:flex;flex-direction:column;gap:12px;"></div>
+    </section>
 
-        let userAnswers = {};
+    <!-- 5. KATEGORI KHAS -->
+    <section id="scr-special" class="screen bg-navy-dots">
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <button class="rb" onclick="bukaSkim('scr-home')" aria-label="Kembali"><span class="ms">arrow_back</span></button>
+        <h2 class="jd1">Kategori Khas</h2>
+        <div class="rb ghost"></div>
+      </div>
+      <div id="list-special" style="display:flex;flex-direction:column;gap:12px;"></div>
+    </section>
 
-        function loadQuiz() {
-            const container = document.getElementById('quiz-container');
-            container.innerHTML = '';
-            document.getElementById('quiz-result').classList.add('hidden');
-            userAnswers = {};
+    <!-- 6. CONVERSATION LAB (44 SITUASI) -->
+    <section id="scr-conv" class="screen bg-pink-dots">
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <button class="rb nv" onclick="bukaSkim('scr-home')" aria-label="Kembali"><span class="ms">arrow_back</span></button>
+        <h2 class="jd1">44 Situasi Dialog</h2>
+        <div class="rb ghost"></div>
+      </div>
+      <input type="text" id="cari-conv" oninput="tapisConv()" placeholder="Cari situasi (cth: Restoran, Hotel, Kafe)..." style="width:100%;padding:12px 16px;border-radius:18px;border:3px solid var(--ink);font-family:'Nunito',sans-serif;font-weight:700;font-size:14px;">
+      <div id="list-conv" style="display:flex;flex-direction:column;gap:12px;"></div>
+    </section>
 
-            quizData.forEach((q, index) => {
-                let optionsHtml = '';
-                q.options.forEach((opt, optIndex) => {
-                    optionsHtml += `
-                        <button onclick="selectOption(${index}, ${optIndex})" id="q${index}-opt${optIndex}" class="w-full text-left p-4 rounded-xl border border-slate-700 bg-slate-900/60 text-sm font-medium hover:bg-slate-700/50 transition-all flex items-center justify-between">
-                            <span>${opt}</span>
-                            <span class="w-5 h-5 rounded-full border border-slate-600 flex items-center justify-center text-xs"></span>
-                        </button>
-                    `;
-                });
+    <!-- 7. GRAMMAR LAB (20 TOPIK) -->
+    <section id="scr-grammar" class="screen bg-navy-dots">
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <button class="rb" onclick="bukaSkim('scr-home')" aria-label="Kembali"><span class="ms">arrow_back</span></button>
+        <h2 class="jd1">Grammar Lab</h2>
+        <div class="rb ghost"></div>
+      </div>
+      <div id="list-grammar" style="display:flex;flex-direction:column;gap:12px;"></div>
+    </section>
 
-                container.innerHTML += `
-                    <div class="bg-slate-800/60 border border-slate-700/80 rounded-3xl p-6 sm:p-8 space-y-4">
-                        <h3 class="font-bold text-white text-base">${q.question}</h3>
-                        <div class="space-y-2.5">${optionsHtml}</div>
-                        <div id="feedback-${index}" class="hidden p-4 rounded-xl text-sm font-medium"></div>
-                    </div>
-                `;
-            });
-        }
+    <!-- 8. WRITING LAB (KANVAS INTERAKTIF) -->
+    <section id="scr-writing" class="screen bg-cream-dots">
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <button class="rb" onclick="bukaSkim('scr-home')" aria-label="Kembali"><span class="ms">arrow_back</span></button>
+        <h2 class="jd2">Writing Lab</h2>
+        <button class="rb nv" onclick="bunyiWriting()" aria-label="Dengar Audio"><span class="ms">volume_up</span></button>
+      </div>
 
-        function selectOption(qIndex, optIndex) {
-            if (userAnswers[qIndex] !== undefined) return;
-            userAnswers[qIndex] = optIndex;
+      <div style="display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;flex-shrink:0;" id="writing-pills"></div>
 
-            const q = quizData[qIndex];
-            const feedbackEl = document.getElementById(`feedback-${qIndex}`);
-            
-            for (let i = 0; i < q.options.length; i++) {
-                const btn = document.getElementById(`q${qIndex}-opt${i}`);
-                btn.disabled = true;
-                if (i === q.answer) {
-                    btn.className = "w-full text-left p-4 rounded-xl border border-emerald-500 bg-emerald-500/10 text-emerald-200 text-sm font-medium flex items-center justify-between";
-                } else if (i === optIndex) {
-                    btn.className = "w-full text-left p-4 rounded-xl border border-rose-500 bg-rose-500/10 text-rose-200 text-sm font-medium flex items-center justify-between";
-                }
-            }
+      <div class="kt" style="display:flex;flex-direction:column;gap:14px;align-items:center;">
+        <div style="width:100%;display:flex;justify-content:space-between;align-items:center;">
+          <span class="pil-hud" style="background:var(--dp2);" id="wr-rumi">Rumi: a</span>
+          <span style="font-weight:800;font-size:14px;color:var(--nv);" id="wr-title">Vokal: 아</span>
+        </div>
 
-            feedbackEl.classList.remove('hidden');
-            if (optIndex === q.answer) {
-                feedbackEl.className = "p-4 rounded-xl text-sm font-medium bg-emerald-500/10 text-emerald-300 border border-emerald-500/20";
-                feedbackEl.innerHTML = `<i class="fa-solid fa-circle-check mr-2 text-emerald-400"></i> Syabas! Betul. ${q.explanation}`;
-            } else {
-                feedbackEl.className = "p-4 rounded-xl text-sm font-medium bg-rose-500/10 text-rose-300 border border-rose-500/20";
-                feedbackEl.innerHTML = `<i class="fa-solid fa-circle-xmark mr-2 text-rose-400"></i> Kurang tepat. ${q.explanation}`;
-            }
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+            <span class="mn" style="font-size:11px;color:var(--nv);">Panduan Gurisan</span>
+            <div class="stroke-box" style="width:140px;height:140px;display:flex;align-items:center;justify-content:center;">
+              <span id="wr-guide" class="hangul" style="font-size:68px;font-weight:900;color:var(--dp);">아</span>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+            <span class="mn" style="font-size:11px;color:var(--nv);">Kanvas Latihan</span>
+            <div class="stroke-box" style="width:140px;height:140px;overflow:hidden;touch-action:none;">
+              <canvas id="draw-canvas" width="140" height="140" style="width:140px;height:140px;cursor:crosshair;"></canvas>
+            </div>
+          </div>
+        </div>
 
-            if (Object.keys(userAnswers).length === quizData.length) {
-                setTimeout(showResult, 600);
-            }
-        }
+        <div class="kt kr" style="width:100%;padding:12px;">
+          <p id="wr-stroke" class="isi1" style="font-size:13px;white-space:pre-line;"></p>
+        </div>
 
-        function showResult() {
-            let score = 0;
-            quizData.forEach((q, index) => {
-                if (userAnswers[index] === q.answer) score++;
-            });
+        <div style="display:flex;gap:10px;width:100%;">
+          <button class="tb pt sm" style="flex:1;" onclick="padamKanvas()"><span class="ms">refresh</span> Padam</button>
+          <button class="tb nv sm" style="flex:1;" onclick="gerakWriting(1)">Seterusnya <span class="ms">arrow_forward</span></button>
+        </div>
+      </div>
+    </section>
 
-            document.getElementById('score-text').innerHTML = `Markah anda: <span class="font-bold text-purple-400">${score} / ${quizData.length}</span>`;
-            const resultBox = document.getElementById('quiz-result');
-            resultBox.classList.remove('hidden');
-            resultBox.scrollIntoView({ behavior: 'smooth' });
-        }
+    <!-- 9. STUDY / KAD BELAJAR -->
+    <section id="scr-study" class="screen bg-navy-dots">
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <button class="rb" onclick="kembaliDariStudy()" aria-label="Tutup"><span class="ms">close</span></button>
+        <span class="jam1" id="st-count">1 / 30</span>
+        <button class="rb pt" onclick="bunyiStudy()" aria-label="Dengar Sebutan"><span class="ms">volume_up</span></button>
+      </div>
 
-        function resetQuiz() {
-            loadQuiz();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+      <div class="kt" style="display:flex;flex-direction:column;gap:14px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <span id="st-badge" class="pil-hud" style="background:var(--dp2);font-size:12px;">LEVEL 1</span>
+          <div id="mascot-study"></div>
+        </div>
 
-        window.onload = function() {
-            loadQuiz();
-        };
-    </script>
+        <div class="stroke-box" style="padding:22px 14px;text-align:center;min-height:130px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;">
+          <div id="st-char" class="hangul" style="font-size:36px;font-weight:900;color:var(--nv);line-height:1.25;word-break:keep-all;">아</div>
+          <div id="st-rumi" style="font-weight:800;font-size:16px;color:#B84A62;">a</div>
+        </div>
+
+        <div style="border-top:2px dashed #CBD5E1;padding-top:10px;">
+          <span class="mn" style="font-size:11px;color:#64748B;">Maksud / Terjemahan</span>
+          <div id="st-desc" style="font-family:'Lilita One',cursive;font-size:24px;color:var(--nv);margin-top:2px;">Bunyi 'a'</div>
+        </div>
+
+        <div class="kt kr" style="padding:12px;">
+          <span class="mn" style="font-size:11px;color:var(--nv);">Nota &amp; Formula</span>
+          <p id="st-stroke" class="isi1" style="font-size:13px;margin-top:4px;white-space:pre-line;"></p>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <button id="btn-st-prev" class="tb pt sm" onclick="gerakStudy(-1)"><span class="ms">arrow_back</span> Sebelum</button>
+        <button id="btn-st-next" class="tb sm" onclick="gerakStudy(1)">Seterusnya <span class="ms">arrow_forward</span></button>
+      </div>
+
+      <button class="tb hj lebar" onclick="mulaKuiz()">
+        <span class="ms">quiz</span> Mula Kuiz (10 Soalan Rawak)
+      </button>
+      <button class="tb nv lebar" onclick="mulaKuizDengar()">
+        <span class="ms">headphones</span> Kuiz Mendengar (10 Soalan)
+      </button>
+    </section>
+
+    <!-- 10. KUIZ INTERAKTIF -->
+    <section id="scr-quiz" class="screen bg-navy-dots">
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <button class="rb" onclick="bukaSkim('scr-study')" aria-label="Tutup Kuiz"><span class="ms">close</span></button>
+        <h2 class="jd1" id="qz-header">Soalan 1/10</h2>
+        <div class="pil-hud" style="background:var(--mr);color:var(--pt);"><span class="ms" style="font-size:18px;">favorite</span><span id="qz-nyawa">3</span></div>
+      </div>
+
+      <div class="bar1"><div id="qz-bar" class="bar1-isi" style="width:10%;"></div></div>
+
+      <div class="kt" style="text-align:center;display:flex;flex-direction:column;gap:12px;align-items:center;">
+        <span id="qz-arahan" class="mn" style="color:#64748B;">Pilih maksud atau sebutan yang tepat</span>
+        <div id="qz-soalan" class="hangul" style="font-size:32px;font-weight:900;color:var(--nv);line-height:1.3;">사과</div>
+        <button class="rb nv" onclick="bunyiKuiz()" aria-label="Dengar Audio Soalan"><span class="ms">volume_up</span></button>
+      </div>
+
+      <div id="qz-opsi" style="display:flex;flex-direction:column;gap:10px;"></div>
+
+      <button id="btn-semak" class="tb lebar" disabled onclick="semakJawapan()">Semak Jawapan</button>
+    </section>
+
+    <!-- 11. KAMUS (WORDS) -->
+    <section id="scr-words" class="screen bg-cream-dots">
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <h2 class="jd2">Kamus Indeks</h2>
+        <span class="pil-hud" style="background:var(--dp2);" id="words-total">0 Kata</span>
+      </div>
+      <input type="text" id="cari-kata" oninput="tapisKata()" placeholder="Cari Hangul, rumi atau maksud Melayu..." style="width:100%;padding:12px 16px;border-radius:18px;border:3px solid var(--ink);font-family:'Nunito',sans-serif;font-weight:700;font-size:14px;">
+      <div id="kamus-info" class="mn" style="text-align:center;color:#475569;"></div>
+      <div id="list-words" style="display:flex;flex-direction:column;gap:10px;"></div>
+      <button id="btn-kamus-lagi" class="tb nv lebar" style="display:none;" onclick="muatKamus()">Papar lagi</button>
+    </section>
+
+    <!-- 12. LISTEN MODE -->
+    <section id="scr-listen" class="screen bg-pink-dots">
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <button class="rb nv" onclick="bukaSkim('scr-home')" aria-label="Kembali"><span class="ms">arrow_back</span></button>
+        <h2 class="jd1">Listen Mode</h2>
+        <span class="pil-hud" id="ls-count">1 / 100</span>
+      </div>
+
+      <div class="kt" style="text-align:center;display:flex;flex-direction:column;gap:14px;align-items:center;padding:24px 16px;">
+        <span class="pil-hud" style="background:var(--dp2);">LATIHAN PENDENGARAN</span>
+        <div id="ls-char" class="hangul" style="font-size:34px;font-weight:900;color:var(--nv);line-height:1.3;">안녕하세요</div>
+        <div id="ls-rumi" style="font-weight:800;font-size:17px;color:#B84A62;">annyeonghaseyo</div>
+        <p id="ls-desc" class="isi1" style="color:#475569;">Selamat Sejahtera (Formal)</p>
+
+        <button class="tb nv lebar" onclick="bunyiListen()">
+          <span class="ms">volume_up</span> Dengar Sebutan Korea
+        </button>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <button class="tb pt sm" onclick="gerakListen(-1)"><span class="ms">arrow_back</span> Sebelum</button>
+        <button class="tb nv sm" onclick="gerakListen(1)">Seterusnya <span class="ms">arrow_forward</span></button>
+      </div>
+    </section>
+
+    <!-- 13. PROFIL & KEMAJUAN -->
+    <section id="scr-profil" class="screen bg-navy-sun">
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <div class="rb ghost"></div>
+        <h2 class="jd1">Profilku</h2>
+        <button class="rb" onclick="tukarNama()" aria-label="Sunting Nama"><span class="ms">edit</span></button>
+      </div>
+
+      <div class="kt kr" style="display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;">
+        <div id="mascot-profil"></div>
+        <h3 class="jd2" id="pf-nama">Pelajar Korea</h3>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center;">
+          <span class="pil-hud" style="background:var(--dp2);" id="pf-xp">0 XP</span>
+          <span class="pil-hud" style="background:var(--nv);color:var(--pt);" id="pf-minit">0 Minit Belajar</span>
+        </div>
+      </div>
+
+      <div class="kt" style="display:flex;flex-direction:column;gap:14px;">
+        <h4 class="jd2" style="font-size:18px;">Statistik &amp; Tetapan</h4>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+          <div class="kt kr" style="padding:12px;text-align:center;">
+            <div class="mn" style="font-size:11px;color:#64748B;">Modul Selesai</div>
+            <div class="big1" id="pf-selesai">0</div>
+          </div>
+          <div class="kt kr" style="padding:12px;text-align:center;">
+            <div class="mn" style="font-size:11px;color:#64748B;">Ketepatan Kuiz</div>
+            <div class="big1" id="pf-tepat">0%</div>
+          </div>
+        </div>
+
+        <div style="display:flex;justify-content:space-between;align-items:center;padding-top:6px;border-top:2px solid #F1F5F9;">
+          <div>
+            <div style="font-weight:800;font-size:15px;">Audio Sebutan Korea</div>
+            <div style="font-size:12px;color:#64748B;font-weight:700;">Suara sintesis ko-KR</div>
+          </div>
+          <div id="suis-audio" class="suis on" role="switch" aria-checked="true" aria-label="Audio Sebutan Korea" tabindex="0" onclick="togolAudio()" onkeydown="if(event.key===' '||event.key==='Enter'){event.preventDefault();togolAudio();}"></div>
+        </div>
+      </div>
+
+      <button class="tb lebar" style="background:var(--mr);" onclick="resetKemajuan()">Set Semula Kemajuan</button>
+    </section>
+
+    <!-- DOK NAVIGASI BAWAH -->
+    <nav id="dock" class="dock" aria-label="Navigasi Utama">
+      <button class="dock-btn active" data-tab="scr-home" onclick="bukaSkim('scr-home')" aria-label="Laman Utama">
+        <span class="ms">home</span>
+      </button>
+      <button class="dock-btn" data-tab="scr-levels" onclick="bukaSkim('scr-levels')" aria-label="21 Level">
+        <span class="ms">format_list_numbered</span>
+      </button>
+      <button class="dock-btn" data-tab="scr-words" onclick="bukaKamus()" aria-label="Kamus">
+        <span class="ms">search</span>
+      </button>
+      <button class="dock-btn" data-tab="scr-profil" onclick="bukaProfil()" aria-label="Profil">
+        <span class="ms">person</span>
+      </button>
+    </nav>
+  </div>
+</div>
+
+<script>
+/* ================= DATA LENGKAP HANGUL MASTER ================= */
+const visualEmojiMap = {
+  "사과":"🍎","고양이":"🐱","물":"💧","커피":"☕","집":"🏠","책":"📚",
+  "개":"🐶","새":"🐦","돈":"💵","달":"🌙","별":"⭐","꽃":"🌸",
+  "산":"⛰️","강":"🌊","바다":"🏖️","친구":"🧑‍🤝‍🧑","우유":"🥛",
+  "의사":"👨‍⚕️","바나나":"🍌","토마토":"🍅","카메라":"📷","버스":"🚌",
+  "택시":"🚕","기차":"🚂","구두":"👞","비누":"🧼","나비":"🦋","모기":"🦟",
+  "휴지":"🧻","거울":"🪞","주스":"🧃","사자":"🦁","호랑이":"🐅","코끼리":"🐘",
+  "원숭이":"🐵","곰":"🐻","토끼":"🐰","말":"🐎","소":"🐂","돼지":"🐖",
+  "닭":"🐓","오리":"🦆","물고기":"🐟","상어":"🦈","고래":"🐋","나무":"🌳",
+  "안경":"👓","우산":"🌂","열쇠":"🔑","시계":"⏰"
+};
+
+const konsonanAsas = [
+  ["ㄱ","기역 (giyeok)","g / k","게임 (Game)"],
+  ["ㄴ","니은 (nieun)","n","노트 (Note)"],
+  ["ㄷ","디귿 (digeut)","d / t","디지털 (Digital)"],
+  ["ㄹ","리을 (rieul)","r / l","라디오 (Radio)"],
+  ["ㅁ","미음 (mieum)","m","마이크 (Mic)"],
+  ["ㅂ","비읍 (bieup)","b / p","바나나 (Banana)"],
+  ["ㅅ","시옷 (siot)","s / t","스타 (Star)"],
+  ["ㅇ","이응 (ieung)","ng / Senyap","아이 (Kanak-kanak)"],
+  ["ㅈ","지읒 (jieut)","j / t","자동차 (Kereta)"],
+  ["ㅊ","치읓 (chieut)","ch / t","친구 (Kawan)"],
+  ["ㅋ","키읔 (kieuk)","k","카메라 (Kamera)"],
+  ["ㅌ","티읕 (tieut)","t","토마토 (Tomato)"],
+  ["ㅍ","피읖 (pieup)","p","피아노 (Piano)"],
+  ["ㅎ","히읗 (hieut)","h","한국 (Korea)"]
+];
+
+const vokalAsas = [
+  ["ㅏ","a","Bunyi 'ah'","아이 (Kanak-kanak)"],
+  ["ㅑ","ya","Bunyi 'yah'","야구 (Besbol)"],
+  ["ㅓ","eo","Bunyi 'o' serak","어머니 (Ibu)"],
+  ["ㅕ","yeo","Bunyi 'yoh' serak","여자 (Wanita)"],
+  ["ㅗ","o","Bunyi 'oh' bulat","오이 (Timun)"],
+  ["ㅛ","yo","Bunyi 'yoh'","요리 (Masakan)"],
+  ["ㅜ","u","Bunyi 'u'","우유 (Susu)"],
+  ["ㅠ","yu","Bunyi 'yu'","유리 (Kaca)"],
+  ["ㅡ","eu","Bunyi 'e' (enam)","쓰다 (Tulis)"],
+  ["ㅣ","i","Bunyi 'i' (ikan)","이 (Gigi)"]
+];
+
+const writingData = [
+  {char:"아",rumi:"a",type:"Vokal Asas",stroke:"1. Garis tegak ke bawah\n2. Melintang ke kanan"},
+  {char:"야",rumi:"ya",type:"Vokal Asas",stroke:"1. Tegak ke bawah\n2. Dua melintang ke kanan"},
+  {char:"어",rumi:"eo",type:"Vokal Asas",stroke:"1. Melintang ke kiri\n2. Tegak ke bawah"},
+  {char:"여",rumi:"yeo",type:"Vokal Asas",stroke:"1. Dua melintang ke kiri\n2. Tegak ke bawah"},
+  {char:"오",rumi:"o",type:"Vokal Asas",stroke:"1. Tegak pendek ke atas\n2. Melintang di bawah"},
+  {char:"요",rumi:"yo",type:"Vokal Asas",stroke:"1. Dua tegak pendek\n2. Melintang di bawah"},
+  {char:"우",rumi:"u",type:"Vokal Asas",stroke:"1. Melintang di atas\n2. Tegak ke bawah"},
+  {char:"유",rumi:"yu",type:"Vokal Asas",stroke:"1. Melintang di atas\n2. Dua tegak ke bawah"},
+  {char:"ㅡ",rumi:"eu",type:"Vokal Asas",stroke:"1. Garis melintang lurus"},
+  {char:"ㅣ",rumi:"i",type:"Vokal Asas",stroke:"1. Garis tegak lurus ke bawah"},
+  {char:"ㄱ",rumi:"g/k",type:"Konsonan Asas",stroke:"1. Melintang ke kanan lalu turun ke bawah"},
+  {char:"ㄴ",rumi:"n",type:"Konsonan Asas",stroke:"1. Turun ke bawah\n2. Melintang ke kanan"},
+  {char:"ㅁ",rumi:"m",type:"Konsonan Asas",stroke:"1. Turun ke bawah\n2. Melintang & turun\n3. Tutup bawah"},
+  {char:"ㅅ",rumi:"s",type:"Konsonan Asas",stroke:"1. Garis serong kiri\n2. Garis serong kanan"}
+];
+
+const levelsData = [
+  {id:1,title:"Level 1: Vokal Asas & Majmuk",desc:"Vokal asas dan vokal majmuk (ㅏ hingga ㅢ).",items:[
+    {char:"ㅏ",rumi:"a",desc:"Bunyi 'a' seperti Ayam.",stroke:"1. Garis tegak ke bawah\n2. Melintang ke kanan"},
+    {char:"ㅑ",rumi:"ya",desc:"Bunyi 'ya'.",stroke:"1. Tegak ke bawah\n2. Dua melintang ke kanan"},
+    {char:"ㅓ",rumi:"eo",desc:"Bunyi 'o' serak.",stroke:"1. Melintang kiri\n2. Tegak ke bawah"},
+    {char:"ㅕ",rumi:"yeo",desc:"Bunyi 'yo' serak.",stroke:"1. Dua melintang\n2. Tegak ke bawah"},
+    {char:"ㅗ",rumi:"o",desc:"Bunyi 'o' bulat.",stroke:"1. Tegak pendek\n2. Melintang bawah"},
+    {char:"ㅛ",rumi:"yo",desc:"Bunyi 'yo'.",stroke:"1. Dua tegak pendek\n2. Melintang bawah"},
+    {char:"ㅜ",rumi:"u",desc:"Bunyi 'u'.",stroke:"1. Melintang panjang\n2. Tegak ke bawah"},
+    {char:"ㅠ",rumi:"yu",desc:"Bunyi 'yu'.",stroke:"1. Melintang panjang\n2. Dua tegak ke bawah"},
+    {char:"ㅡ",rumi:"eu",desc:"Bunyi 'e' enam.",stroke:"1. Melintang lurus"},
+    {char:"ㅣ",rumi:"i",desc:"Bunyi 'i' ikan.",stroke:"1. Tegak lurus"},
+    {char:"ㅐ",rumi:"ae",desc:"Bunyi 'e' taling",stroke:"Gabungan ㅏ dan ㅣ"},
+    {char:"ㅒ",rumi:"yae",desc:"Bunyi 'yae'",stroke:"Gabungan ㅑ dan ㅣ"},
+    {char:"ㅔ",rumi:"e",desc:"Bunyi 'e' ekor",stroke:"Gabungan ㅓ dan ㅣ"},
+    {char:"ㅖ",rumi:"ye",desc:"Bunyi 'ye'",stroke:"Gabungan ㅕ dan ㅣ"},
+    {char:"ㅘ",rumi:"wa",desc:"Bunyi 'wa'",stroke:"Gabungan ㅗ dan ㅏ"},
+    {char:"ㅙ",rumi:"wae",desc:"Bunyi 'wae'",stroke:"Gabungan ㅗ, ㅏ, ㅣ"},
+    {char:"ㅚ",rumi:"oe",desc:"Bunyi 'oe'",stroke:"Gabungan ㅗ dan ㅣ"},
+    {char:"ㅝ",rumi:"wo",desc:"Bunyi 'wo'",stroke:"Gabungan ㅜ dan ㅓ"},
+    {char:"ㅞ",rumi:"we",desc:"Bunyi 'we'",stroke:"Gabungan ㅜ, ㅓ, ㅣ"},
+    {char:"ㅟ",rumi:"wi",desc:"Bunyi 'wi'",stroke:"Gabungan ㅜ dan ㅣ"},
+    {char:"ㅢ",rumi:"ui",desc:"Bunyi 'ui'",stroke:"Gabungan ㅡ dan ㅣ"}
+  ]},
+  {id:2,title:"Level 2: Konsonan Asas & Keras",desc:"Konsonan asas, konsonan kembar dan suku kata.",items:[
+    {char:"ㄱ",rumi:"g/k",desc:"Bunyi G / K",stroke:"Kanan ke bawah"},
+    {char:"ㄴ",rumi:"n",desc:"Bunyi N",stroke:"Ke bawah ke kanan"},
+    {char:"ㄷ",rumi:"d/t",desc:"Bunyi D / T",stroke:"Melintang & bawah"},
+    {char:"ㄹ",rumi:"r/l",desc:"Bunyi R / L",stroke:"Bentuk Z"},
+    {char:"ㅁ",rumi:"m",desc:"Bunyi M",stroke:"Petak empat segi"},
+    {char:"ㅂ",rumi:"b/p",desc:"Bunyi B / P",stroke:"Dua tegak melintang"},
+    {char:"ㅅ",rumi:"s",desc:"Bunyi S",stroke:"Bentuk A senget"},
+    {char:"ㅇ",rumi:"ng",desc:"Senyap / NG",stroke:"Bulatan jam"},
+    {char:"ㅈ",rumi:"j",desc:"Bunyi J",stroke:"Garis & kaki"},
+    {char:"ㅊ",rumi:"ch",desc:"Bunyi Ch",stroke:"Tambah atas ㅈ"},
+    {char:"ㅋ",rumi:"k",desc:"K tebal",stroke:"Ubah suai ㄱ"},
+    {char:"ㅌ",rumi:"t",desc:"T tebal",stroke:"Ubah suai ㄷ"},
+    {char:"ㅍ",rumi:"p",desc:"P tebal",stroke:"Ubah suai ㅂ"},
+    {char:"ㅎ",rumi:"h",desc:"Bunyi H",stroke:"Topi & bulatan"},
+    {char:"ㄲ",rumi:"kk",desc:"Double ㄱ",stroke:"Konsonan keras"},
+    {char:"ㄸ",rumi:"tt",desc:"Double ㄷ",stroke:"Konsonan keras"},
+    {char:"ㅃ",rumi:"pp",desc:"Double ㅂ",stroke:"Konsonan keras"},
+    {char:"ㅆ",rumi:"ss",desc:"Double ㅅ",stroke:"Konsonan keras"},
+    {char:"ㅉ",rumi:"jj",desc:"Double ㅈ",stroke:"Konsonan keras"},
+    {char:"가",rumi:"ga",desc:"Suku kata 'ga'",stroke:"ㄱ + ㅏ"},
+    {char:"나",rumi:"na",desc:"Saya",stroke:"ㄴ + ㅏ"},
+    {char:"다",rumi:"da",desc:"Semua",stroke:"ㄷ + ㅏ"},
+    {char:"마",rumi:"ma",desc:"Suku kata 'ma'",stroke:"ㅁ + ㅏ"},
+    {char:"바",rumi:"ba",desc:"Suku kata 'ba'",stroke:"ㅂ + ㅏ"},
+    {char:"사",rumi:"sa",desc:"Empat",stroke:"ㅅ + ㅏ"},
+    {char:"아",rumi:"a",desc:"Ah!",stroke:"ㅇ + ㅏ"},
+    {char:"자",rumi:"ja",desc:"Pembaris",stroke:"ㅈ + ㅏ"},
+    {char:"차",rumi:"cha",desc:"Teh",stroke:"ㅊ + ㅏ"},
+    {char:"카",rumi:"ka",desc:"Suku kata 'ka'",stroke:"ㅋ + ㅏ"},
+    {char:"하",rumi:"ha",desc:"Suku kata 'ha'",stroke:"ㅎ + ㅏ"}
+  ]},
+  {id:3,title:"Level 3: Gabungan Suku Kata",desc:"Percantuman konsonan + vokal dalam perkataan.",items:[
+    {char:"고기",rumi:"gogi",desc:"Daging",stroke:"고 + 기"},
+    {char:"나무",rumi:"namu",desc:"Pokok",stroke:"나 + 무"},
+    {char:"모래",rumi:"morae",desc:"Pasir",stroke:"모 + 래"},
+    {char:"바다",rumi:"bada",desc:"Laut",stroke:"바 + 다"},
+    {char:"사과",rumi:"sagwa",desc:"Epal",stroke:"사 + 과"},
+    {char:"오이",rumi:"oi",desc:"Timun",stroke:"오 + 이"},
+    {char:"요리",rumi:"yori",desc:"Masakan",stroke:"요 + 리"},
+    {char:"지구",rumi:"jigu",desc:"Bumi",stroke:"지 + 구"},
+    {char:"포도",rumi:"podo",desc:"Anggur",stroke:"포 + 도"},
+    {char:"구름",rumi:"gureum",desc:"Awan",stroke:"구 + 름"},
+    {char:"소리",rumi:"sori",desc:"Suara",stroke:"소 + 리"},
+    {char:"모자",rumi:"moja",desc:"Topi",stroke:"모 + 자"},
+    {char:"지도",rumi:"jido",desc:"Peta",stroke:"지 + 도"},
+    {char:"라디오",rumi:"radio",desc:"Radio",stroke:"라 + 디 + 오"},
+    {char:"피아노",rumi:"piano",desc:"Piano",stroke:"피 + 아 + 노"},
+    {char:"바나나",rumi:"banana",desc:"Pisang",stroke:"바 + 나 + 나"},
+    {char:"토마토",rumi:"tomato",desc:"Tomato",stroke:"토 + 마 + 토"},
+    {char:"카메라",rumi:"kamera",desc:"Kamera",stroke:"카 + 메 + 라"},
+    {char:"모터",rumi:"moteo",desc:"Motor",stroke:"모 + 터"},
+    {char:"버스",rumi:"beoseu",desc:"Bas",stroke:"버 + 스"},
+    {char:"택시",rumi:"taeksi",desc:"Teksi",stroke:"택 + 시"},
+    {char:"기차",rumi:"gicha",desc:"Keretapi",stroke:"기 + 차"},
+    {char:"구두",rumi:"gudu",desc:"Kasut Kulit",stroke:"구 + 두"},
+    {char:"비누",rumi:"binu",desc:"Sabun",stroke:"비 + 누"},
+    {char:"나비",rumi:"nabi",desc:"Rama-rama",stroke:"나 + 비"},
+    {char:"모기",rumi:"mogi",desc:"Nyamuk",stroke:"모 + 기"},
+    {char:"휴지",rumi:"hyuji",desc:"Tisu",stroke:"휴 + 지"},
+    {char:"서랍",rumi:"seorap",desc:"Laci",stroke:"서 + 랍"},
+    {char:"거울",rumi:"geoul",desc:"Cermin",stroke:"거 + 울"},
+    {char:"주스",rumi:"juseu",desc:"Jus",stroke:"주 + 스"},
+    {char:"아이",rumi:"ai",desc:"Kanak-kanak",stroke:"아 + 이"},
+    {char:"외우다",rumi:"oeuda",desc:"Menghafal",stroke:"외 + 우 + 다"},
+    {char:"우유",rumi:"uyu",desc:"Susu",stroke:"우 + 유"},
+    {char:"의사",rumi:"uisa",desc:"Doktor",stroke:"의 + 사"},
+    {char:"이",rumi:"i",desc:"Gigi / Nombor 2",stroke:"Vokal ㅣ"},
+    {char:"아기",rumi:"agi",desc:"Bayi",stroke:"아 + 기"},
+    {char:"여우",rumi:"yeou",desc:"Musang",stroke:"여 + 우"},
+    {char:"위",rumi:"wi",desc:"Atas",stroke:"ㅜ + ㅣ"},
+    {char:"와",rumi:"wa",desc:"Dan / Mari",stroke:"ㅗ + ㅏ"}
+  ]},
+  {id:4,title:"Level 4: Kosa Kata Harian",desc:"Perbendaharaan kata harian yang popular.",items:[
+    {char:"물",rumi:"mul",desc:"Air Kosong",stroke:"ㅁ + ㅜ + ㄹ"},
+    {char:"밥",rumi:"bap",desc:"Nasi",stroke:"ㅂ + ㅏ + ㅂ"},
+    {char:"불",rumi:"bul",desc:"Api / Lampu",stroke:"ㅂ + ㅜ + ㄹ"},
+    {char:"집",rumi:"jip",desc:"Rumah",stroke:"ㅈ + ㅣ + ㅂ"},
+    {char:"책",rumi:"chaek",desc:"Buku",stroke:"ㅊ + ㅐ + ㄱ"},
+    {char:"문",rumi:"mun",desc:"Pintu",stroke:"ㅁ + ㅜ + ㄴ"},
+    {char:"방",rumi:"bang",desc:"Bilik",stroke:"ㅂ + ㅏ + ㅇ"},
+    {char:"손",rumi:"son",desc:"Tangan",stroke:"ㅅ + ㅗ + ㄴ"},
+    {char:"발",rumi:"bal",desc:"Kaki",stroke:"ㅂ + ㅏ + ㄹ"},
+    {char:"눈",rumi:"nun",desc:"Mata / Salji",stroke:"ㄴ + ㅜ + ㄴ"},
+    {char:"귀",rumi:"gwi",desc:"Telinga",stroke:"ㄱ + ㅜ + ㅣ"},
+    {char:"코",rumi:"ko",desc:"Hidung",stroke:"ㅋ + ㅗ"},
+    {char:"입",rumi:"ip",desc:"Mulut",stroke:"ㅇ + ㅣ + ㅂ"},
+    {char:"개",rumi:"gae",desc:"Anjing",stroke:"ㄱ + ㅐ"},
+    {char:"고양이",rumi:"goyangi",desc:"Kucing",stroke:"고 + 양 + 이"},
+    {char:"새",rumi:"sae",desc:"Burung",stroke:"ㅅ + ㅐ"},
+    {char:"돈",rumi:"don",desc:"Duit",stroke:"ㄷ + ㅗ + ㄴ"},
+    {char:"길",rumi:"gil",desc:"Jalan",stroke:"ㄱ + ㅣ + ㄹ"},
+    {char:"달",rumi:"dal",desc:"Bulan",stroke:"ㄷ + ㅏ + ㄹ"},
+    {char:"별",rumi:"byeol",desc:"Bintang",stroke:"ㅂ + ㅕ + ㄹ"},
+    {char:"하늘",rumi:"haneul",desc:"Langit",stroke:"하 + 늘"},
+    {char:"바람",rumi:"baram",desc:"Angin",stroke:"바 + 람"},
+    {char:"꽃",rumi:"kkot",desc:"Bunga",stroke:"ㄲ + ㅗ + ㅊ"},
+    {char:"풀",rumi:"pul",desc:"Rumput",stroke:"ㅍ + ㅜ + ㄹ"},
+    {char:"산",rumi:"san",desc:"Gunung",stroke:"ㅅ + ㅏ + ㄴ"},
+    {char:"강",rumi:"gang",desc:"Sungai",stroke:"ㄱ + ㅏ + ㅇ"},
+    {char:"바다",rumi:"bada",desc:"Laut",stroke:"바 + 다"},
+    {char:"도시",rumi:"dosi",desc:"Bandar",stroke:"도 + 시"},
+    {char:"친구",rumi:"chingu",desc:"Kawan",stroke:"친 + 구"},
+    {char:"사람",rumi:"saram",desc:"Orang",stroke:"사 + 람"}
+  ]},
+  {id:5,title:"Level 5: Batchim Lanjutan",desc:"Konsonan akhir (batchim) dalam perkataan.",items:[
+    {char:"학",rumi:"hak",desc:"Batchim ㄱ",stroke:"ㅎ + ㅏ + ㄱ"},
+    {char:"국",rumi:"guk",desc:"Sup",stroke:"ㄱ + ㅜ + ㄱ"},
+    {char:"밖",rumi:"bak",desc:"Di Luar",stroke:"ㅂ + ㅏ + ㄲ"},
+    {char:"산",rumi:"san",desc:"Batchim ㄴ",stroke:"ㅅ + ㅏ + ㄴ"},
+    {char:"눈",rumi:"nun",desc:"Mata",stroke:"ㄴ + ㅜ + ㄴ"},
+    {char:"신",rumi:"sin",desc:"Kasut",stroke:"ㅅ + ㅣ + ㄴ"},
+    {char:"닫다",rumi:"datda",desc:"Batchim ㄷ",stroke:"닫 + 다"},
+    {char:"옷",rumi:"ot",desc:"Baju",stroke:"ㅇ + ㅗ + ㅅ"},
+    {char:"있어요",rumi:"isseoyo",desc:"Ada",stroke:"있 + 어 + 요"},
+    {char:"달",rumi:"dal",desc:"Batchim ㄹ",stroke:"ㄷ + ㅏ + ㄹ"},
+    {char:"물",rumi:"mul",desc:"Air",stroke:"ㅁ + ㅜ + ㄹ"},
+    {char:"말",rumi:"mal",desc:"Kata",stroke:"ㅁ + ㅏ + ㄹ"},
+    {char:"밤",rumi:"bam",desc:"Batchim ㅁ",stroke:"ㅂ + ㅏ + ㅁ"},
+    {char:"김",rumi:"gim",desc:"Seaweed",stroke:"ㄱ + ㅣ + ㅁ"},
+    {char:"음식",rumi:"eumsik",desc:"Makanan",stroke:"음 + 식"},
+    {char:"밥",rumi:"bap",desc:"Batchim ㅂ",stroke:"ㅂ + ㅏ + ㅂ"},
+    {char:"입",rumi:"ip",desc:"Mulut",stroke:"ㅇ + ㅣ + ㅂ"},
+    {char:"숲",rumi:"sup",desc:"Hutan",stroke:"ㅅ + ㅜ + ㅍ"},
+    {char:"공",rumi:"gong",desc:"Batchim ㅇ",stroke:"ㄱ + ㅗ + ㅇ"},
+    {char:"방",rumi:"bang",desc:"Bilik",stroke:"ㅂ + ㅏ + ㅇ"},
+    {char:"강",rumi:"gang",desc:"Sungai",stroke:"ㄱ + ㅏ + ㅇ"},
+    {char:"값",rumi:"gap",desc:"Harga",stroke:"값"},
+    {char:"몫",rumi:"mok",desc:"Bahagian",stroke:"몫"},
+    {char:"읽다",rumi:"ikda",desc:"Membaca",stroke:"읽 + 다"},
+    {char:"없어요",rumi:"eopseoyo",desc:"Tiada",stroke:"없 + 어 + 요"},
+    {char:"넓다",rumi:"neolda",desc:"Luas",stroke:"넓 + 다"},
+    {char:"닭",rumi:"dak",desc:"Ayam",stroke:"닭"},
+    {char:"삶",rumi:"sam",desc:"Kehidupan",stroke:"삶"},
+    {char:"젊다",rumi:"jeomda",desc:"Muda",stroke:"젊 + 다"},
+    {char:"않다",rumi:"anta",desc:"Tidak",stroke:"않 + 다"}
+  ]},
+  {id:6,title:"Level 6: Ungkapan Asas Harian",desc:"Ucapan dan frasa harian.",items:[
+    {char:"안녕하세요",rumi:"annyeonghaseyo",desc:"Selamat Sejahtera",stroke:"안녕 + 하세요"},
+    {char:"감사합니다",rumi:"gamsahamnida",desc:"Terima Kasih",stroke:"감사합니다"},
+    {char:"반갑습니다",rumi:"bangapseumnida",desc:"Gembira Bertemu",stroke:"반갑습니다"},
+    {char:"죄송합니다",rumi:"joesonghamnida",desc:"Minta Maaf",stroke:"죄송합니다"},
+    {char:"안녕히 가세요",rumi:"annyeonghi gaseyo",desc:"Selamat tinggal (kepada yang pergi)",stroke:"가세요"},
+    {char:"안녕히 계세요",rumi:"annyeonghi gyeseyo",desc:"Selamat tinggal (kepada yang tinggal)",stroke:"계세요"},
+    {char:"좋은 아침입니다",rumi:"joeun achimimnida",desc:"Selamat Pagi",stroke:"좋은 아침"},
+    {char:"잘 먹겠습니다",rumi:"jal meokgessumnida",desc:"Sebelum makan",stroke:"잘 먹겠습니다"},
+    {char:"잘 먹었습니다",rumi:"jal meogeotseumnida",desc:"Selepas makan",stroke:"잘 먹었습니다"},
+    {char:"보고 싶어요",rumi:"bogo sipeoyo",desc:"Rindu awak",stroke:"보고 싶어요"},
+    {char:"사랑해요",rumi:"saranghaeyo",desc:"Cinta awak",stroke:"사랑해요"},
+    {char:"괜찮아요",rumi:"gwaenchanayo",desc:"Tak apa",stroke:"괜찮아요"},
+    {char:"알겠습니다",rumi:"algesseumnida",desc:"Faham",stroke:"알겠습니다"},
+    {char:"몰랐어요",rumi:"mollasseoyo",desc:"Tak tahu",stroke:"몰랐어요"},
+    {char:"도와주세요",rumi:"dowajuseyo",desc:"Tolong saya",stroke:"도와주세요"},
+    {char:"잠시만요",rumi:"jamsimanyo",desc:"Sebentar ya",stroke:"잠시만요"},
+    {char:"얼마예요?",rumi:"eolmayeyo?",desc:"Berapa harga?",stroke:"얼마예요"},
+    {char:"이거 주세요",rumi:"igeo juseyo",desc:"Bagi ini",stroke:"이거 주세요"},
+    {char:"맛있어요",rumi:"masisseoyo",desc:"Sedap",stroke:"맛있어요"},
+    {char:"배고파요",rumi:"baegopayo",desc:"Lapar",stroke:"배고파요"},
+    {char:"목말라요",rumi:"mongmallayo",desc:"Haus",stroke:"목말라요"},
+    {char:"피곤해요",rumi:"pigonhaeyo",desc:"Penat",stroke:"피곤해요"},
+    {char:"재미있어요",rumi:"jaemiisseoyo",desc:"Seronok",stroke:"재미있어요"},
+    {char:"어디 가세요?",rumi:"eodi gaseyo?",desc:"Nak ke mana?",stroke:"어디 가세요"},
+    {char:"이름이 뭐예요?",rumi:"ireumi mwoyeyo?",desc:"Siapa nama?",stroke:"이름이 뭐예요"},
+    {char:"저는 말레이시아 사람이에요",rumi:"jeoneun malleisia saramieyo",desc:"Saya orang Malaysia",stroke:"말레이시아"},
+    {char:"한국어를 공부해요",rumi:"hangugeoreul gongbuhaeyo",desc:"Belajar Korea",stroke:"한국어 공부"},
+    {char:"내일 봐요",rumi:"naeil bwayo",desc:"Jumpa esok",stroke:"내일 봐요"},
+    {char:"화이팅!",rumi:"hwaiting!",desc:"Semangat!",stroke:"화이팅"},
+    {char:"행복하세요",rumi:"haengbokhaseyo",desc:"Bahagia",stroke:"행복하세요"}
+  ]},
+  {id:7,title:"Level 7: Restoran, Belanja & Pejabat",desc:"Frasa harian di restoran, kedai dan pejabat.",items:[
+    {char:"메뉴판 주세요",rumi:"menyupan juseyo",desc:"Minta menu",stroke:"Restoran"},
+    {char:"이거 하나 주세요",rumi:"igeo hana juseyo",desc:"Bagi satu ini",stroke:"Pesanan"},
+    {char:"물이랑 수저 주세요",rumi:"murirang sujeo juseyo",desc:"Minta air & sudu",stroke:"Restoran"},
+    {char:"덜 매운 걸로 주세요",rumi:"deol maeun geollo juseyo",desc:"Kurang pedas",stroke:"Restoran"},
+    {char:"계산해 주세요",rumi:"gyesanhae juseyo",desc:"Bayar bil",stroke:"Kaunter"},
+    {char:"카드 돼요?",rumi:"kadeu dwaeyo?",desc:"Boleh guna kad?",stroke:"Shopping"},
+    {char:"영수증 주세요",rumi:"yeongsujeung juseyo",desc:"Minta resit",stroke:"Shopping"},
+    {char:"좀 깎아 주세요",rumi:"jom kkakka juseyo",desc:"Minta diskaun",stroke:"Shopping"},
+    {char:"입어 봐도 돼요?",rumi:"ibeobwado dwaeyo?",desc:"Boleh cuba pakai?",stroke:"Bilik salin"},
+    {char:"다른 색상 있어요?",rumi:"dareun saeksang isseoyo?",desc:"Warna lain?",stroke:"Shopping"},
+    {char:"어디서 타요?",rumi:"eodiseo tayo?",desc:"Naik di mana?",stroke:"Pengangkutan"},
+    {char:"얼마나 걸려요?",rumi:"eolmana geollyeoyo?",desc:"Berapa lama?",stroke:"Masa"},
+    {char:"여기서 내려 주세요",rumi:"yeogiseo naeryeojuseyo",desc:"Turun di sini",stroke:"Teksi/Bas"},
+    {char:"화장실이 어디예요?",rumi:"hwajangsiri eodiyeyo?",desc:"Tandas di mana?",stroke:"Lokasi"},
+    {char:"길을 잃었어요",rumi:"gireul ireosseoyo",desc:"Sesat jalan",stroke:"Kecemasan"},
+    {char:"사진 좀 찍어 주시겠어요?",rumi:"sajin jom jjigeojusigesseoyo?",desc:"Tolong ambil gambar",stroke:"Pelancongan"},
+    {char:"와이파이 비밀번호가 뭐예요?",rumi:"waipai bimilbeonhoga mwoyeyo?",desc:"Password WiFi?",stroke:"Cafe"},
+    {char:"좋은 하루 보내세요",rumi:"joeun haru bonaeseyo",desc:"Selamat hari baik",stroke:"Ucapan"},
+    {char:"수고하셨습니다",rumi:"sugohasyeosseumnida",desc:"Terima kasih atas usaha anda",stroke:"Pejabat"},
+    {char:"회의 시작하겠습니다",rumi:"hoeui sijakhagesseumnida",desc:"Mula mesyuarat",stroke:"Pejabat"},
+    {char:"이메일 보냈습니다",rumi:"imeil bonaesseumnida",desc:"Dah hantar e-mel",stroke:"Pejabat"},
+    {char:"확인해 보겠습니다",rumi:"hwaginhae bogesseumnida",desc:"Saya akan semak",stroke:"Pejabat"},
+    {char:"잠시 통화 가능하신가요?",rumi:"jamsi tonghwa ganeunghasingayo?",desc:"Boleh telefon?",stroke:"Pejabat"},
+    {char:"보고서 작성 중입니다",rumi:"bogoseo jakseong jungimnida",desc:"Buat laporan",stroke:"Pejabat"},
+    {char:"다음주까지 제출해 주세요",rumi:"daeumjukkaji jechulhae juseyo",desc:"Hantar minggu depan",stroke:"Pejabat"},
+    {char:"명함 한 장 주시겠어요?",rumi:"myeongham han jang jusigesseoyo?",desc:"Minta kad bisnes",stroke:"Pejabat"},
+    {char:"오늘 야근해요",rumi:"oneul yageunhaeyo",desc:"Kerja OT",stroke:"Pejabat"},
+    {char:"퇴근했습니다",rumi:"toegeunhaesseumnida",desc:"Balik kerja",stroke:"Pejabat"},
+    {char:"연락드리겠습니다",rumi:"yeonlakdeurigesseumnida",desc:"Akan hubungi",stroke:"Pejabat"},
+    {char:"잘 부탁드립니다",rumi:"jal butakdeumnida",desc:"Mohon tunjuk ajar",stroke:"Pejabat"}
+  ]},
+  {id:8,title:"Level 8: Pelancongan & Airport",desc:"Frasa imigresen, hotel dan teksi.",items:[
+    {char:"입국 심사",rumi:"ipguk simsa",desc:"Pemeriksaan imigresen",stroke:"Lapangan Terbang"},
+    {char:"방문 목적이 무엇인가요?",rumi:"bangmun mokjeogi mueosingayo?",desc:"Apakah tujuan kunjungan anda?",stroke:"Imigresen"},
+    {char:"관광입니다",rumi:"gwangwangimnida",desc:"Untuk melancong",stroke:"Imigresen"},
+    {char:"며칠 동안 체류하시나요?",rumi:"myeochil dongan chaeryuhasinayo?",desc:"Berapa hari tinggal?",stroke:"Masa"},
+    {char:"일주일 동안 머물 예정입니다",rumi:"iljuil dongan meomul yejeongimnida",desc:"Tinggal seminggu",stroke:"Masa"},
+    {char:"수하물 찾는 곳이 어디예요?",rumi:"suhamul chan-neun gosi eodiyeyo?",desc:"Tempat ambil bagasi?",stroke:"Bagasi"},
+    {char:"짐을 잃어버렸어요",rumi:"jimeul ireobeoryeosseoyo",desc:"Bagasi saya hilang",stroke:"Bagasi"},
+    {char:"환전소 어디에 있어요?",rumi:"hwanjeonso eodie isseoyo?",desc:"Kedai tukar duit?",stroke:"Tukar Uang"},
+    {char:"링깃을 원화로 바꿔 주세요",rumi:"ringgiseul wonhwaro bakkwo juseyo",desc:"Tukar Ringgit ke Won",stroke:"Tukar Uang"},
+    {char:"유심 카드 구입할 수 있나요?",rumi:"yusim kadeu guiphal su innayo?",desc:"Boleh beli SIM card?",stroke:"Simcard"},
+    {char:"체크인하고 싶습니다",rumi:"chekeuinhago sipseumnida",desc:"Saya nak check-in",stroke:"Hotel"},
+    {char:"예약자 이름은 무엇인가요?",rumi:"yeyakja ireumeun mueosingayo?",desc:"Siapa nama tempahan?",stroke:"Hotel"},
+    {char:"조식 포함인가요?",rumi:"josik pohamingayo?",desc:"Sarapan pagi termasuk?",stroke:"Hotel"},
+    {char:"수건 좀 더 주세요",rumi:"sugeon jom deo juseyo",desc:"Minta tuala tambahan",stroke:"Hotel"},
+    {char:"방 키를 안에 두고 나왔어요",rumi:"bang kireul ane dugo nawasseoyo",desc:"Kunci tertinggal dalam",stroke:"Hotel"},
+    {char:"체크아웃 몇 시인가요?",rumi:"chekeuaut myeot siingayo?",desc:"Check-out pukul berapa?",stroke:"Hotel"},
+    {char:"짐을 잠시 맡길 수 있나요?",rumi:"jimeul jamsi matgil su innayo?",desc:"Simpan beg sekejap?",stroke:"Bagasi"},
+    {char:"서울역으로 가주세요",rumi:"seoul-yeogeuro gajuseyo",desc:"Pergi ke Stesen Seoul",stroke:"Teksi"},
+    {char:"빨리 가주세요",rumi:"ppalli gajuseyo",desc:"Pandu cepat sikit",stroke:"Teksi"},
+    {char:"트렁크 좀 열어주세요",rumi:"teureongkeu jom yeoreojuseyo",desc:"Buka bonet teksi",stroke:"Teksi"},
+    {char:"영수증 출력해 주세요",rumi:"yeongsujeung chulryeokhae juseyo",desc:"Tolong cetak resit",stroke:"Bayaran"},
+    {char:"지도에 위치를 찍어 주세요",rumi:"jido-e wichireul jjigeo juseyo",desc:"Tanda lokasi di peta",stroke:"Arah"},
+    {char:"근처에 맛집이 있나요?",rumi:"geuncheo-e matjibi innayo?",desc:"Ada kedai makan sedap?",stroke:"Rekomendasi"},
+    {char:"택시를 잡아 주시겠어요?",rumi:"taeksireul jaba jusigesseoyo?",desc:"Panggilkan teksi?",stroke:"Teksi"},
+    {char:"입장료가 얼마인가요?",rumi:"ipjangryoga eolmaingayo?",desc:"Berapa tiket masuk?",stroke:"Tiket"},
+    {char:"할인 혜택이 있나요?",rumi:"harin hyetaegi innayo?",desc:"Ada diskaun?",stroke:"Tiket"},
+    {char:"사진 찍어도 되나요?",rumi:"sajin jjigeodo doenayo?",desc:"Boleh ambil gambar?",stroke:"Izin"},
+    {char:"영어로 말해 주시겠어요?",rumi:"yeongeoro malhae jusigesseoyo?",desc:"Cakap Bahasa Inggeris?",stroke:"Komunikasi"},
+    {char:"다시 한번 말씀해 주세요",rumi:"dasi hanbeon malsseumhae juseyo",desc:"Ulangi sekali lagi",stroke:"Komunikasi"},
+    {char:"즐거운 여행 되세요!",rumi:"jeulgeoun yeohaeng doeseyo!",desc:"Selamat bercuti!",stroke:"Ucapan"}
+  ]},
+  {id:9,title:"Level 9: Kata Sifat & Bentuk Asas",desc:"Kata sifat dan keadaan asas.",items:[
+    {char:"크다",rumi:"keuda",desc:"Besar",stroke:"Saiz"},{char:"작다",rumi:"jakda",desc:"Kecil",stroke:"Saiz"},
+    {char:"길다",rumi:"gilda",desc:"Panjang",stroke:"Bentuk"},{char:"짧다",rumi:"jjalda",desc:"Pendek",stroke:"Bentuk"},
+    {char:"많다",rumi:"manta",desc:"Banyak",stroke:"Jumlah"},{char:"적다",rumi:"jeokda",desc:"Sedikit",stroke:"Jumlah"},
+    {char:"빠르다",rumi:"ppareuda",desc:"Cepat / Laju",stroke:"Kelajuan"},{char:"느리다",rumi:"neurida",desc:"Perlahan",stroke:"Kelajuan"},
+    {char:"높다",rumi:"nopda",desc:"Tinggi",stroke:"Kedudukan"},{char:"낮다",rumi:"natda",desc:"Rendah",stroke:"Kedudukan"},
+    {char:"무겁다",rumi:"mugeopda",desc:"Berat",stroke:"Fizikal"},{char:"가볍다",rumi:"gabyeopda",desc:"Ringan",stroke:"Fizikal"},
+    {char:"뜨겁다",rumi:"tteugeopda",desc:"Panas (Benda)",stroke:"Suhu"},{char:"차갑다",rumi:"chagapda",desc:"Sejuk (Benda)",stroke:"Suhu"},
+    {char:"따뜻하다",rumi:"ttatteuthada",desc:"Suam / Hangat",stroke:"Suhu"},{char:"시원하다",rumi:"siwonhada",desc:"Sejuk / Segar",stroke:"Suhu"},
+    {char:"좋다",rumi:"johda",desc:"Bagus / Baik",stroke:"Sifat"},{char:"나쁘다",rumi:"nappeuda",desc:"Buruk / Jahat",stroke:"Sifat"},
+    {char:"예쁘다",rumi:"yeppeuda",desc:"Cantik",stroke:"Sifat"},{char:"멋있다",rumi:"meositda",desc:"Kacak / Bergaya",stroke:"Sifat"},
+    {char:"재미있다",rumi:"jaemiitda",desc:"Menarik / Seronok",stroke:"Sifat"},{char:"재미없다",rumi:"jaemieopda",desc:"Bosan",stroke:"Sifat"},
+    {char:"어렵다",rumi:"eoryeopda",desc:"Susah / Sukar",stroke:"Sifat"},{char:"쉽다",rumi:"swipda",desc:"Senang / Mudah",stroke:"Sifat"},
+    {char:"바쁘다",rumi:"bappuda",desc:"Sibuk",stroke:"Keadaan"},{char:"한가하다",rumi:"hangahada",desc:"Lapang / Santai",stroke:"Keadaan"},
+    {char:"배고프다",rumi:"baegopeuda",desc:"Lapar",stroke:"Keadaan"},{char:"배부르다",rumi:"baebureuda",desc:"Kenyang",stroke:"Keadaan"},
+    {char:"피곤하다",rumi:"pigonhada",desc:"Penat / Letih",stroke:"Keadaan"},{char:"깨끗하다",rumi:"kkaekkeuthada",desc:"Bersih",stroke:"Keadaan"}
+  ]},
+  {id:10,title:"Level 10: Anggota Badan & Kesihatan",desc:"Bahagian tubuh dan ungkapan kesihatan.",items:[
+    {char:"머리",rumi:"meori",desc:"Kepala",stroke:"Badan"},{char:"얼굴",rumi:"eolgul",desc:"Muka",stroke:"Badan"},
+    {char:"눈",rumi:"nun",desc:"Mata",stroke:"Badan"},{char:"코",rumi:"ko",desc:"Hidung",stroke:"Badan"},
+    {char:"입",rumi:"ip",desc:"Mulut",stroke:"Badan"},{char:"귀",rumi:"gwi",desc:"Telinga",stroke:"Badan"},
+    {char:"목",rumi:"mok",desc:"Leher",stroke:"Badan"},{char:"어깨",rumi:"eokkae",desc:"Bahu",stroke:"Badan"},
+    {char:"가슴",rumi:"gaseum",desc:"Dada",stroke:"Badan"},{char:"배",rumi:"bae",desc:"Perut",stroke:"Badan"},
+    {char:"손",rumi:"son",desc:"Tangan",stroke:"Badan"},{char:"손가락",rumi:"songarak",desc:"Jari tangan",stroke:"Badan"},
+    {char:"팔",rumi:"pal",desc:"Lengan",stroke:"Badan"},{char:"다리",rumi:"dari",desc:"Kaki",stroke:"Badan"},
+    {char:"무릎",rumi:"mureup",desc:"Lutut",stroke:"Badan"},{char:"발",rumi:"bal",desc:"Tapak kaki",stroke:"Badan"},
+    {char:"심장",rumi:"simjang",desc:"Jantung",stroke:"Badan"},{char:"치아",rumi:"chia",desc:"Gigi",stroke:"Badan"},
+    {char:"머리카락",rumi:"meorikarak",desc:"Rambut",stroke:"Badan"},{char:"피부",rumi:"pibu",desc:"Kulit",stroke:"Badan"},
+    {char:"건강",rumi:"geongang",desc:"Kesihatan",stroke:"Kesihatan"},{char:"병원",rumi:"byeongwon",desc:"Hospital",stroke:"Kesihatan"},
+    {char:"약국",rumi:"yakguk",desc:"Farmasi",stroke:"Kesihatan"},{char:"의사",rumi:"uisa",desc:"Doktor",stroke:"Kesihatan"},
+    {char:"간호사",rumi:"ganhosa",desc:"Jururawat",stroke:"Kesihatan"},{char:"약",rumi:"yak",desc:"Ubat",stroke:"Kesihatan"},
+    {char:"두통",rumi:"dutong",desc:"Sakit kepala",stroke:"Simptom"},{char:"감기",rumi:"gamgi",desc:"Selsema",stroke:"Simptom"},
+    {char:"열이 나다",rumi:"yeori nada",desc:"Demam",stroke:"Simptom"},{char:"배가 아프다",rumi:"baega apeuda",desc:"Sakit perut",stroke:"Simptom"}
+  ]},
+  {id:11,title:"Level 11: Istilah Lanjutan",desc:"Istilah ekonomi, perubatan, cuaca dan pelancongan.",items:[
+    {char:"경제",rumi:"gyeongje",desc:"Ekonomi",stroke:"Ekonomi"},{char:"정부",rumi:"jeongbu",desc:"Kerajaan",stroke:"Kerajaan"},
+    {char:"환경",rumi:"hwangyeong",desc:"Alam Sekitar",stroke:"Alam"},{char:"기술",rumi:"gisul",desc:"Teknologi",stroke:"Tech"},
+    {char:"정보",rumi:"jeongbo",desc:"Maklumat",stroke:"Info"},{char:"문화",rumi:"munhwa",desc:"Budaya",stroke:"Culture"},
+    {char:"역사",rumi:"yeoksa",desc:"Sejarah",stroke:"History"},{char:"사회",rumi:"sahoe",desc:"Masyarakat",stroke:"Social"},
+    {char:"증상",rumi:"jeungsang",desc:"Simptom",stroke:"Medik"},{char:"날씨",rumi:"nalssi",desc:"Cuaca",stroke:"Weather"},
+    {char:"기온",rumi:"gion",desc:"Suhu",stroke:"Weather"},{char:"비가 오다",rumi:"biga oda",desc:"Hujan",stroke:"Weather"},
+    {char:"눈이 오다",rumi:"nuni oda",desc:"Salji",stroke:"Weather"},{char:"바람이 불다",rumi:"barami bulda",desc:"Angin",stroke:"Weather"},
+    {char:"공항",rumi:"gonghang",desc:"Airport",stroke:"Travel"},{char:"여권",rumi:"yeogwon",desc:"Pasport",stroke:"Travel"},
+    {char:"비자",rumi:"bija",desc:"Visa",stroke:"Travel"},{char:"호텔",rumi:"hotel",desc:"Hotel",stroke:"Travel"},
+    {char:"예약",rumi:"yeyak",desc:"Tempahan",stroke:"Travel"},{char:"여행",rumi:"yeohaeng",desc:"Pelancongan",stroke:"Travel"},
+    {char:"기념품",rumi:"ginyeompum",desc:"Cenderahati",stroke:"Travel"},{char:"경치",rumi:"gyeongchi",desc:"Pemandangan",stroke:"Travel"},
+    {char:"안전",rumi:"anjeon",desc:"Keselamatan",stroke:"Safety"},{char:"교육",rumi:"gyoyuk",desc:"Pendidikan",stroke:"Edu"},
+    {char:"과학",rumi:"gwahak",desc:"Sains",stroke:"Sains"},{char:"예술",rumi:"yesul",desc:"Seni",stroke:"Seni"},
+    {char:"음악",rumi:"eumak",desc:"Muzik",stroke:"Seni"},{char:"영화",rumi:"yeonghwa",desc:"Filem",stroke:"Seni"},
+    {char:"신문",rumi:"sinmun",desc:"Surat khabar",stroke:"Media"},{char:"인터넷",rumi:"inteonet",desc:"Internet",stroke:"Media"}
+  ]},
+  {id:12,title:"Level 12: Peribahasa & Slang",desc:"Peribahasa, simpulan bahasa dan slang popular.",items:[
+    {char:"시작이 반이다",rumi:"sijagi banida",desc:"Mula itu separuh kejayaan",stroke:"Peribahasa"},
+    {char:"금강산도 식후경",rumi:"geumgangsando sikhugyeong",desc:"Makan dulu baru tengok view",stroke:"Peribahasa"},
+    {char:"누워서 떡 먹기",rumi:"nuwoseo tteok meokgi",desc:"Sangat mudah",stroke:"Peribahasa"},
+    {char:"원숭이도 나무에서 떨어진다",rumi:"wonsungido namueseo tteoreojinda",desc:"Pakar pun boleh buat silap",stroke:"Peribahasa"},
+    {char:"고생 끝에 낙이 온다",rumi:"gosaeng kkeute nagi onda",desc:"Lepas penat, ada senang",stroke:"Peribahasa"},
+    {char:"티끌 모아 태산",rumi:"tikkeul moa taesan",desc:"Sedikit-sedikit jadi bukit",stroke:"Peribahasa"},
+    {char:"세월이 약이다",rumi:"sewori yagida",desc:"Masa penawar duka",stroke:"Peribahasa"},
+    {char:"천리 길도 한 걸음부터",rumi:"cheonri gildo han georeumbuteo",desc:"Langkah pertama bermula",stroke:"Peribahasa"},
+    {char:"귀가 얇다",rumi:"gwiga yalda",desc:"Cepat percaya cakap orang",stroke:"Simpulan"},
+    {char:"입이 무겁다",rumi:"ibi mugeopda",desc:"Pandai simpan rahsia",stroke:"Simpulan"},
+    {char:"손이 크다",rumi:"soni keuda",desc:"Murah hati",stroke:"Simpulan"},
+    {char:"발이 넓다",rumi:"bari neolda",desc:"Ramai kenalan",stroke:"Simpulan"},
+    {char:"눈이 높다",rumi:"nuni nopda",desc:"Citarasa tinggi",stroke:"Simpulan"},
+    {char:"진짜 대박!",rumi:"jinjja daebak!",desc:"Wah, hebat gila!",stroke:"Slang"},
+    {char:"화이팅!",rumi:"hwaiting!",desc:"Teruskan berjuang!",stroke:"Slang"}
+  ]},
+  {id:13,title:"Level 13: Budaya & K-Drama",desc:"Istilah makanan, drama & k-pop popular.",items:[
+    {char:"먹방",rumi:"mukbang",desc:"Siaran makan besar",stroke:"Budaya"},{char:"치맥",rumi:"chimaek",desc:"Ayam Goreng & Bir",stroke:"Budaya"},
+    {char:"오빠",rumi:"oppa",desc:"Abang (panggilan wanita)",stroke:"Panggilan"},{char:"형",rumi:"hyeong",desc:"Abang (panggilan lelaki)",stroke:"Panggilan"},
+    {char:"누나",rumi:"nuna",desc:"Kakak (panggilan lelaki)",stroke:"Panggilan"},{char:"언니",rumi:"eonni",desc:"Kakak (panggilan wanita)",stroke:"Panggilan"},
+    {char:"선배",rumi:"seonbae",desc:"Senior",stroke:"Panggilan"},{char:"후배",rumi:"hubae",desc:"Junior",stroke:"Panggilan"},
+    {char:"떡볶이",rumi:"tteokbokki",desc:"Kek beras pedas",stroke:"Makanan"},{char:"김밥",rumi:"gimbap",desc:"Nasi gulung",stroke:"Makanan"},
+    {char:"비빔밥",rumi:"bibimbap",desc:"Nasi campur Korea",stroke:"Makanan"},{char:"불고기",rumi:"bulgogi",desc:"Daging lembu manis",stroke:"Makanan"},
+    {char:"한복",rumi:"hanbok",desc:"Pakaian tradisional",stroke:"Budaya"},{char:"본방사수",rumi:"bonbangsasu",desc:"Tonton drama live",stroke:"K-Drama"},
+    {char:"심쿵",rumi:"simkung",desc:"Jantung berdegup / Tersentuh",stroke:"Slang"},{char:"최애",rumi:"choeae",desc:"Bias / Paling disukai",stroke:"K-Pop"}
+  ]},
+  {id:14,title:"Level 14: Chatting & Slang Internet",desc:"Ungkapan mesej internet & panggilan fon.",items:[
+    {char:"ㅋㅋㅋ",rumi:"kkk",desc:"Hahaha (Ketawa teks)",stroke:"Chat"},{char:"ㅎㅎ",rumi:"hh",desc:"Hehehe",stroke:"Chat"},
+    {char:"ㅠㅠ",rumi:"yuyu",desc:"Sedih / Menangis",stroke:"Chat"},{char:"ㅇㅇ",rumi:"eo-eo",desc:"Ya / Okay",stroke:"Chat"},
+    {char:"ㄱㅅ",rumi:"g-s",desc:"Terima kasih (감사)",stroke:"Chat"},{char:"ㅊㅋ",rumi:"ch-k",desc:"Tahniah (축하)",stroke:"Chat"},
+    {char:"ㅇㅋ",rumi:"ok",desc:"Okay!",stroke:"Chat"},{char:"여보세요?",rumi:"yeoboseyo?",desc:"Helo? (Telefon)",stroke:"Fon"},
+    {char:"지금 바빠요?",rumi:"jigeum bappayo?",desc:"Sibuk sekarang?",stroke:"Chat"},{char:"언제 시간 돼요?",rumi:"eonje sigan dwaeyo?",desc:"Bila ada masa?",stroke:"Chat"},
+    {char:"읽씹",rumi:"ikssip",desc:"Blue tick (Baca tak balas)",stroke:"Slang"},{char:"프사",rumi:"peusa",desc:"Gambar profil",stroke:"Slang"},
+    {char:"셀카",rumi:"selka",desc:"Selfie",stroke:"Slang"},{char:"열공",rumi:"yeolgong",desc:"Belajar bersungguh!",stroke:"Chat"}
+  ]},
+  {id:15,title:"Level 15: Hobi & Sukan",desc:"Perbendaharaan kata aktiviti masa lapang.",items:[
+    {char:"취미",rumi:"chwimi",desc:"Hobi",stroke:"Hobi"},{char:"운동",rumi:"undong",desc:"Senaman / Sukan",stroke:"Sukan"},
+    {char:"축구",rumi:"chukgu",desc:"Bola sepak",stroke:"Sukan"},{char:"농구",rumi:"nonggu",desc:"Bola keranjang",stroke:"Sukan"},
+    {char:"야구",rumi:"yagu",desc:"Besbol",stroke:"Sukan"},{char:"수영",rumi:"suyeong",desc:"Berenang",stroke:"Sukan"},
+    {char:"등산",rumi:"deungsan",desc:"Mendaki gunung",stroke:"Sukan"},{char:"자전거",rumi:"jajeongeo",desc:"Basikal",stroke:"Sukan"},
+    {char:"독서",rumi:"dokseo",desc:"Membaca buku",stroke:"Hobi"},{char:"요리",rumi:"yori",desc:"Memasak",stroke:"Hobi"},
+    {char:"노래방",rumi:"noraebang",desc:"Pusat karaoke",stroke:"Hobi"},{char:"산책",rumi:"sanchaek",desc:"Berjalan-jalan",stroke:"Hobi"},
+    {char:"캠핑",rumi:"kaemping",desc:"Berkhemah",stroke:"Hobi"},{char:"휴식",rumi:"hyusik",desc:"Berehat",stroke:"Aktiviti"}
+  ]},
+  {id:16,title:"Level 16: Alam Semulajadi & Haiwan",desc:"Perbendaharaan kata haiwan, tumbuhan & alam.",items:[
+    {char:"동물",rumi:"dongmul",desc:"Haiwan",stroke:"Alam"},{char:"식물",rumi:"sikmul",desc:"Tumbuhan",stroke:"Alam"},
+    {char:"사자",rumi:"saja",desc:"Singa",stroke:"Haiwan"},{char:"호랑이",rumi:"horangi",desc:"Harimau",stroke:"Haiwan"},
+    {char:"코끼리",rumi:"kokkiri",desc:"Gajah",stroke:"Haiwan"},{char:"원숭이",rumi:"wonsungi",desc:"Monyet",stroke:"Haiwan"},
+    {char:"곰",rumi:"gom",desc:"Beruang",stroke:"Haiwan"},{char:"토끼",rumi:"tokki",desc:"Arnab",stroke:"Haiwan"},
+    {char:"말",rumi:"mal",desc:"Kuda",stroke:"Haiwan"},{char:"소",rumi:"so",desc:"Lembu",stroke:"Haiwan"},
+    {char:"닭",rumi:"dak",desc:"Ayam",stroke:"Haiwan"},{char:"오리",rumi:"ori",desc:"Itik",stroke:"Haiwan"},
+    {char:"물고기",rumi:"mulgogi",desc:"Ikan",stroke:"Haiwan"},{char:"고래",rumi:"gorae",desc:"Paus",stroke:"Haiwan"},
+    {char:"태양",rumi:"taeyang",desc:"Matahari",stroke:"Alam"},{char:"지구",rumi:"jigu",desc:"Bumi",stroke:"Alam"}
+  ]},
+  {id:17,title:"Level 17: Perasaan & Emosi",desc:"Perbendaharaan kata luahan hati & emosi.",items:[
+    {char:"기쁘다",rumi:"gippeuda",desc:"Gembira / Sukacita",stroke:"Emosi"},{char:"슬프다",rumi:"seulpeuda",desc:"Sedih",stroke:"Emosi"},
+    {char:"화나다",rumi:"hwanada",desc:"Marah",stroke:"Emosi"},{char:"무섭다",rumi:"museopda",desc:"Takut",stroke:"Emosi"},
+    {char:"놀라다",rumi:"nollada",desc:"Terkejut",stroke:"Emosi"},{char:"외롭다",rumi:"oeropda",desc:"Kesunyian",stroke:"Emosi"},
+    {char:"심심하다",rumi:"simsimhada",desc:"Bosan",stroke:"Emosi"},{char:"졸리다",rumi:"jollida",desc:"Mengantuk",stroke:"Emosi"},
+    {char:"행복하다",rumi:"haengbokhada",desc:"Bahagia",stroke:"Emosi"},{char:"걱정하다",rumi:"geokjeonghada",desc:"Bimbang / Risau",stroke:"Emosi"},
+    {char:"긴장하다",rumi:"ginjanghada",desc:"Gementar",stroke:"Emosi"},{char:"부끄럽다",rumi:"bukkeureopda",desc:"Malu",stroke:"Emosi"},
+    {char:"그립다",rumi:"geuripda",desc:"Rindu",stroke:"Emosi"},{char:"설레다",rumi:"seolleda",desc:"Berdebar teruja",stroke:"Emosi"}
+  ]},
+  {id:18,title:"Level 18: Tempat Awam",desc:"Tempat bandar & lokasi awam.",items:[
+    {char:"역",rumi:"yeok",desc:"Stesen keretapi",stroke:"Tempat"},{char:"은행",rumi:"eunhaeng",desc:"Bank",stroke:"Tempat"},
+    {char:"우체국",rumi:"ucheguk",desc:"Pejabat pos",stroke:"Tempat"},{char:"경찰서",rumi:"gyeongchalseo",desc:"Balai polis",stroke:"Tempat"},
+    {char:"도서관",rumi:"doseogwan",desc:"Perpustakaan",stroke:"Tempat"},{char:"박물관",rumi:"bakmulgwan",desc:"Muzium",stroke:"Tempat"},
+    {char:"영화관",rumi:"yeonghwagwan",desc:"Pawagam",stroke:"Tempat"},{char:"백화점",rumi:"baekhwajeom",desc:"Pusat beli-belah",stroke:"Tempat"},
+    {char:"시장",rumi:"sijang",desc:"Pasar",stroke:"Tempat"},{char:"식당",rumi:"sikdang",desc:"Restoran",stroke:"Tempat"},
+    {char:"카페",rumi:"kape",desc:"Kafe",stroke:"Tempat"},{char:"공원",rumi:"gongwon",desc:"Taman awam",stroke:"Tempat"},
+    {char:"화장실",rumi:"hwajangsil",desc:"Tandas",stroke:"Tempat"},{char:"주차장",rumi:"juchajang",desc:"Tempat letak kereta",stroke:"Tempat"}
+  ]},
+  {id:19,title:"Level 19: Pengangkutan & Kenderaan",desc:"Jenis kenderaan & pergerakan jalan raya.",items:[
+    {char:"자동차",rumi:"jadongcha",desc:"Kereta",stroke:"Kenderaan"},{char:"버스",rumi:"beoseu",desc:"Bas",stroke:"Kenderaan"},
+    {char:"택시",rumi:"taeksi",desc:"Teksi",stroke:"Kenderaan"},{char:"지하철",rumi:"jihacheol",desc:"Keretapi bawah tanah",stroke:"Kenderaan"},
+    {char:"기차",rumi:"gicha",desc:"Keretapi",stroke:"Kenderaan"},{char:"비행기",rumi:"bihaenggi",desc:"Kapal terbang",stroke:"Kenderaan"},
+    {char:"배",rumi:"bae",desc:"Kapal laut / Bot",stroke:"Kenderaan"},{char:"신호등",rumi:"sinhodeung",desc:"Lampu isyarat",stroke:"Jalan"},
+    {char:"횡단보도",rumi:"hoengdanbodo",desc:"Lintasan belang",stroke:"Jalan"},{char:"운전하다",rumi:"unjeonhada",desc:"Memandu",stroke:"Aksi"},
+    {char:"타다",rumi:"tada",desc:"Naik kenderaan",stroke:"Aksi"},{char:"내리다",rumi:"naerida",desc:"Turun kenderaan",stroke:"Aksi"},
+    {char:"갈아타다",rumi:"garatada",desc:"Tukar transit",stroke:"Aksi"},{char:"가깝다",rumi:"gakkapda",desc:"Dekat",stroke:"Sifat"}
+  ]},
+  {id:20,title:"Level 20: Makanan Tradisional Korea",desc:"Perbendaharaan kata kulinari & masakan Korea.",items:[
+    {char:"김치",rumi:"gimchi",desc:"Kimchi",stroke:"Makanan"},{char:"김치찌개",rumi:"gimchi-jjigae",desc:"Sup kimchi",stroke:"Makanan"},
+    {char:"된장찌개",rumi:"doenjang-jjigae",desc:"Sup pes kacang soya",stroke:"Makanan"},{char:"순두부찌개",rumi:"sundubu-jjigae",desc:"Sup tauhu lembut",stroke:"Makanan"},
+    {char:"삼계탕",rumi:"samgyetang",desc:"Sup ayam ginseng",stroke:"Makanan"},{char:"냉면",rumi:"naengmyeon",desc:"Mee sejuk",stroke:"Makanan"},
+    {char:"짜장면",rumi:"jjajangmyeon",desc:"Mee sos kacang hitam",stroke:"Makanan"},{char:"만두",rumi:"mandu",desc:"Dumpling",stroke:"Makanan"},
+    {char:"라면",rumi:"ramyeon",desc:"Mee segera",stroke:"Makanan"},{char:"반찬",rumi:"banchan",desc:"Lauk sampingan",stroke:"Asas"},
+    {char:"치킨",rumi:"chikin",desc:"Ayam goreng Korea",stroke:"Makanan"},{char:"식혜",rumi:"sikhye",desc:"Minuman manis beras",stroke:"Minuman"}
+  ]},
+  {id:21,title:"Level 21: Ujian Kemuncak Master",desc:"Latihan ujian komprehensif akhir.",items:[
+    {char:"한국어 마스터",rumi:"hangugeo maseuteo",desc:"Master Bahasa Korea",stroke:"Kemuncak"},
+    {char:"끊임없는 노력",rumi:"kkeunimeomneun noryeok",desc:"Usaha tanpa henti",stroke:"Kemuncak"},
+    {char:"포기하지 마세요",rumi:"pogihaji maseyo",desc:"Jangan putus asa",stroke:"Kemuncak"},
+    {char:"꿈을 이루다",rumi:"kkumeul iruda",desc:"Mencapai impian",stroke:"Kemuncak"},
+    {char:"자신감을 가지세요",rumi:"jasingameul gajiseyo",desc:"Bina keyakinan diri",stroke:"Kemuncak"},
+    {char:"완벽한 발음",rumi:"wanbyeokhan bareum",desc:"Sebutan sempurna",stroke:"Kemuncak"},
+    {char:"유창한 대화",rumi:"yuchanghan daehwa",desc:"Perbualan lancar",stroke:"Kemuncak"},
+    {char:"목표 달성",rumi:"mokpyo dalseong",desc:"Mencapai sasaran",stroke:"Kemuncak"},
+    {char:"TOPIK 합격",rumi:"topik hapgyeok",desc:"Lulus Ujian TOPIK",stroke:"Kemuncak"},
+    {char:"축하합니다!",rumi:"chukhahamnida!",desc:"Tahniah! Anda berjaya!",stroke:"Kemuncak"}
+  ]}
+];
+
+const specialCategoriesData = [
+  {id:'sc-house',title:"1. Barang Dalam Rumah (집 안의 물건)",desc:"Perabot, alatan dapur, bilik tidur & barangan harian.",items:[
+    {char:"냉장고",rumi:"naengjanggo",desc:"Peti sejuk",stroke:"Dapur"},{char:"세탁기",rumi:"setakgi",desc:"Mesin basuh",stroke:"Dobi"},
+    {char:"텔레비전",rumi:"tellebijeon",desc:"Televisyen",stroke:"Ruang tamu"},{char:"에어컨",rumi:"eeokon",desc:"Penghawa dingin",stroke:"Rumah"},
+    {char:"청소기",rumi:"cheongsogi",desc:"Penyedut hampagas",stroke:"Alatan"},{char:"침대",rumi:"chimdae",desc:"Katil",stroke:"Bilik tidur"},
+    {char:"옷장",rumi:"otjang",desc:"Almari baju",stroke:"Bilik tidur"},{char:"책상",rumi:"chaeksang",desc:"Meja tulis",stroke:"Perabot"},
+    {char:"의자",rumi:"uija",desc:"Kerusi",stroke:"Perabot"},{char:"소파",rumi:"sopa",desc:"Sofa",stroke:"Ruang tamu"},
+    {char:"거울",rumi:"geoul",desc:"Cermin",stroke:"Bilik"},{char:"밥솥",rumi:"bapsot",desc:"Periuk nasi",stroke:"Dapur"},
+    {char:"전자레인지",rumi:"jeonjareinji",desc:"Ketuhar gelombang mikro",stroke:"Dapur"},{char:"가위",rumi:"gawi",desc:"Gunting",stroke:"Alatan"},
+    {char:"칼",rumi:"kal",desc:"Pisau",stroke:"Dapur"},{char:"접시",rumi:"jeopsi",desc:"Pinggan",stroke:"Dapur"},
+    {char:"컵",rumi:"keop",desc:"Cawan",stroke:"Dapur"},{char:"숟가락",rumi:"sutgarak",desc:"Sudu",stroke:"Alat makan"},
+    {char:"젓가락",rumi:"jeotgarak",desc:"Penyepit (Chopsticks)",stroke:"Alat makan"},{char:"수건",rumi:"sugeon",desc:"Tuala",stroke:"Bilik air"},
+    {char:"비누",rumi:"binu",desc:"Sabun",stroke:"Bilik air"},{char:"치약",rumi:"chiyak",desc:"Ubat gigi",stroke:"Bilik air"},
+    {char:"칫솔",rumi:"chitsol",desc:"Berus gigi",stroke:"Bilik air"},{char:"열쇠",rumi:"yeolsoe",desc:"Kunci",stroke:"Pintu"},
+    {char:"우산",rumi:"usan",desc:"Payung",stroke:"Simpanan"}
+  ]},
+  {id:'sc-family',title:"2. Ahli Keluarga (가족)",desc:"Panggilan ahli keluarga & gelaran hormat.",items:[
+    {char:"가족",rumi:"gajok",desc:"Keluarga",stroke:"Asas"},{char:"부모님",rumi:"bumonim",desc:"Ibu bapa",stroke:"Keluarga"},
+    {char:"아버지",rumi:"abeoji",desc:"Ayah",stroke:"Keluarga"},{char:"어머니",rumi:"eomeoni",desc:"Ibu",stroke:"Keluarga"},
+    {char:"할아버지",rumi:"harabeoji",desc:"Datuk",stroke:"Keluarga"},{char:"할머니",rumi:"halmeoni",desc:"Nenek",stroke:"Keluarga"},
+    {char:"형",rumi:"hyeong",desc:"Abang (lelaki)",stroke:"Keluarga"},{char:"오빠",rumi:"oppa",desc:"Abang (wanita)",stroke:"Keluarga"},
+    {char:"누나",rumi:"nuna",desc:"Kakak (lelaki)",stroke:"Keluarga"},{char:"언니",rumi:"eonni",desc:"Kakak (wanita)",stroke:"Keluarga"},
+    {char:"동생",rumi:"dongsaeng",desc:"Adik",stroke:"Keluarga"},{char:"남동생",rumi:"namdongsaeng",desc:"Adik lelaki",stroke:"Keluarga"},
+    {char:"여동생",rumi:"yeodongsaeng",desc:"Adik perempuan",stroke:"Keluarga"},{char:"남편",rumi:"nampyeon",desc:"Suami",stroke:"Keluarga"},
+    {char:"아내",rumi:"anae",desc:"Isteri",stroke:"Keluarga"},{char:"아들",rumi:"adeul",desc:"Anak lelaki",stroke:"Keluarga"},
+    {char:"딸",rumi:"ttal",desc:"Anak perempuan",stroke:"Keluarga"},{char:"삼촌",rumi:"samchon",desc:"Pakcik",stroke:"Keluarga"},
+    {char:"이모",rumi:"imo",desc:"Makcik",stroke:"Keluarga"},{char:"생일",rumi:"saengil",desc:"Hari lahir",stroke:"Peribadi"}
+  ]},
+  {id:'sc-school',title:"3. Sekolah & Pembelajaran (학교)",desc:"Subjek, bilik darjah & alatan belajar.",items:[
+    {char:"학교",rumi:"hakgyo",desc:"Sekolah",stroke:"Pendidikan"},{char:"교실",rumi:"gyosil",desc:"Bilik darjah",stroke:"Pendidikan"},
+    {char:"학생",rumi:"haksaeng",desc:"Pelajar",stroke:"Pendidikan"},{char:"선생님",rumi:"seonsaengnim",desc:"Cikgu / Guru",stroke:"Pendidikan"},
+    {char:"칠판",rumi:"chilpan",desc:"Papan tulis",stroke:"Kelas"},{char:"공책",rumi:"gongchaek",desc:"Buku nota",stroke:"Alat tulis"},
+    {char:"교과서",rumi:"gyogwaseo",desc:"Buku teks",stroke:"Alat tulis"},{char:"연필",rumi:"yeonpil",desc:"Pensel",stroke:"Alat tulis"},
+    {char:"볼펜",rumi:"bolpen",desc:"Pen",stroke:"Alat tulis"},{char:"지우개",rumi:"jiugae",desc:"Pemadam",stroke:"Alat tulis"},
+    {char:"필통",rumi:"piltong",desc:"Kotak pensel",stroke:"Alat tulis"},{char:"가방",rumi:"gabang",desc:"Beg sekolah",stroke:"Alat tulis"},
+    {char:"시험",rumi:"siheom",desc:"Peperiksaan",stroke:"Akademik"},{char:"숙제",rumi:"sukje",desc:"Kerja rumah",stroke:"Akademik"},
+    {char:"공부하다",rumi:"gongbuhada",desc:"Belajar",stroke:"Aktiviti"},{char:"대학교",rumi:"daehakgyo",desc:"Universiti",stroke:"Pendidikan"}
+  ]},
+  {id:'sc-office',title:"4. Pejabat & Kerjaya (회사)",desc:"Jawatan, dokumen & urusan kerja.",items:[
+    {char:"회사",rumi:"hoesa",desc:"Syarikat / Pejabat",stroke:"Kerjaya"},{char:"회사원",rumi:"hoesawon",desc:"Pekerja pejabat",stroke:"Kerjaya"},
+    {char:"사장님",rumi:"sajangnim",desc:"Pengarah / Bos",stroke:"Jawatan"},{char:"부장님",rumi:"bujangnim",desc:"Pengurus Besar",stroke:"Jawatan"},
+    {char:"동료",rumi:"dongryo",desc:"Rakan sekerja",stroke:"Pejabat"},{char:"회의",rumi:"hoeui",desc:"Mesyuarat",stroke:"Pejabat"},
+    {char:"보고서",rumi:"bogoseo",desc:"Laporan",stroke:"Pejabat"},{char:"이메일",rumi:"imeil",desc:"E-mel",stroke:"Pejabat"},
+    {char:"서류",rumi:"seoryu",desc:"Dokumen",stroke:"Pejabat"},{char:"명함",rumi:"myeongham",desc:"Kad bisnes",stroke:"Pejabat"},
+    {char:"출근",rumi:"chulgeun",desc:"Masuk kerja",stroke:"Waktu"},{char:"퇴근",rumi:"toegeun",desc:"Balik kerja",stroke:"Waktu"},
+    {char:"야근",rumi:"yageun",desc:"Kerja lebih masa (OT)",stroke:"Waktu"},{char:"휴가",rumi:"hyuga",desc:"Cuti rehat",stroke:"Waktu"},
+    {char:"월급",rumi:"wolgeup",desc:"Gaji bulanan",stroke:"Kewangan"},{char:"면접",rumi:"myeonjeop",desc:"Temuduga",stroke:"Kerjaya"}
+  ]},
+  {id:'sc-colors',title:"5. Warna & Bentuk (색상과 모양)",desc:"Senarai warna asas & bentuk geometri.",items:[
+    {char:"빨간색",rumi:"ppalgansaek",desc:"Merah",stroke:"Warna"},{char:"파란색",rumi:"paransaek",desc:"Biru",stroke:"Warna"},
+    {char:"노란색",rumi:"noransaek",desc:"Kuning",stroke:"Warna"},{char:"초록색",rumi:"choroksaek",desc:"Hijau",stroke:"Warna"},
+    {char:"검은색",rumi:"geomeunsaek",desc:"Hitam",stroke:"Warna"},{char:"하얀색",rumi:"hayansaek",desc:"Putih",stroke:"Warna"},
+    {char:"보라색",rumi:"borasaek",desc:"Ungu",stroke:"Warna"},{char:"분홍색",rumi:"bunhongsaek",desc:"Merah jambu (Pink)",stroke:"Warna"},
+    {char:"주황색",rumi:"juhwangsaek",desc:"Oren",stroke:"Warna"},{char:"갈색",rumi:"galsaek",desc:"Coklat",stroke:"Warna"},
+    {char:"회색",rumi:"hoesaek",desc:"Kelabu",stroke:"Warna"},{char:"동그라미",rumi:"donggeurami",desc:"Bulat",stroke:"Bentuk"},
+    {char:"네모",rumi:"nemo",desc:"Segi empat",stroke:"Bentuk"},{char:"세모",rumi:"semo",desc:"Segi tiga",stroke:"Bentuk"}
+  ]},
+  {id:'sc-time',title:"6. Nombor, Hari & Masa (시간과 숫자)",desc:"Nombor Sino/Asli, hari & waktu.",items:[
+    {char:"일, 이, 삼, 사, 오",rumi:"il, i, sam, sa, o",desc:"1 hingga 5 (Nombor Sino)",stroke:"Nombor"},
+    {char:"육, 칠, 팔, 구, 십",rumi:"yuk, chil, pal, gu, sip",desc:"6 hingga 10 (Nombor Sino)",stroke:"Nombor"},
+    {char:"하나, 둘, 셋, 넷, 다섯",rumi:"hana, dul, set, net, daseot",desc:"1 hingga 5 (Nombor Asli)",stroke:"Nombor"},
+    {char:"월요일",rumi:"woryoil",desc:"Hari Isnin",stroke:"Hari"},{char:"화요일",rumi:"hwayoil",desc:"Hari Selasa",stroke:"Hari"},
+    {char:"수요일",rumi:"suyoil",desc:"Hari Rabu",stroke:"Hari"},{char:"목요일",rumi:"mogyoil",desc:"Hari Khamis",stroke:"Hari"},
+    {char:"금요일",rumi:"geumyoil",desc:"Hari Jumaat",stroke:"Hari"},{char:"토요일",rumi:"toyoil",desc:"Hari Sabtu",stroke:"Hari"},
+    {char:"일요일",rumi:"iryoil",desc:"Hari Ahad",stroke:"Hari"},{char:"오늘 / 어제 / 내일",rumi:"oneul / eoje / naeil",desc:"Hari ini / Semalam / Esok",stroke:"Masa"},
+    {char:"주말",rumi:"jumal",desc:"Hujung minggu",stroke:"Masa"}
+  ]}
+];
+
+const conversationLabData = [
+  {id:'cv-1',title:"Situasi 1: Restoran (식당)",desc:"Membuat pesanan makanan di restoran.",items:[
+    {char:"어서 오세요.",rumi:"eoseo oseyo.",desc:"Selamat datang.",stroke:"Sapaan"},
+    {char:"몇 분이서 오셨어요?",rumi:"myeot buniseo osyeosseoyo?",desc:"Berapa orang datang?",stroke:"Jumlah"},
+    {char:"두 명이요.",rumi:"du myeong-iyo.",desc:"Dua orang.",stroke:"Pelanggan"},
+    {char:"메뉴판 주세요.",rumi:"menyupan juseyo.",desc:"Tolong beri menu.",stroke:"Menu"},
+    {char:"김치찌개 하나 주세요.",rumi:"gimchi-jjigae hana juseyo.",desc:"Satu sup kimchi.",stroke:"Pesanan"},
+    {char:"맵지 않게 해 주세요.",rumi:"maepji anke hae juseyo.",desc:"Tolong buat tidak pedas.",stroke:"Rasa"},
+    {char:"여기 물 좀 더 주세요.",rumi:"yeogi mul jom deo juseyo.",desc:"Tolong tambah air di sini.",stroke:"Air"},
+    {char:"정말 맛있어요.",rumi:"jeongmal masisseoyo.",desc:"Makanan ini sangat sedap.",stroke:"Pujian"},
+    {char:"계산해 주세요.",rumi:"gyesanhae juseyo.",desc:"Tolong kira (bayar bil).",stroke:"Bayaran"}
+  ]},
+  {id:'cv-2',title:"Situasi 2: Kafe (카페)",desc:"Memesan kopi dan minuman di kafe.",items:[
+    {char:"아메리카노 한 잔 주세요.",rumi:"amerikano han jan juseyo.",desc:"Satu cawan americano.",stroke:"Kopi"},
+    {char:"아이스로 주세요.",rumi:"aiseuro juseyo.",desc:"Minta yang sejuk berais.",stroke:"Pilihan"},
+    {char:"큰 사이즈로 주세요.",rumi:"keun saijeuro juseyo.",desc:"Minta saiz besar.",stroke:"Saiz"},
+    {char:"포장해 주세요.",rumi:"pojanghae juseyo.",desc:"Tolong bungkus (takeaway).",stroke:"Bungkus"},
+    {char:"음료가 준비되었습니다.",rumi:"eumryoga junbidoeeotseumnida.",desc:"Minuman sudah siap.",stroke:"Siap"}
+  ]},
+  {id:'cv-3',title:"Situasi 3: Hotel (호텔)",desc:"Mendaftar masuk dan berurusan di hotel.",items:[
+    {char:"예약했습니다.",rumi:"yeyakhaetseumnida.",desc:"Saya sudah buat tempahan.",stroke:"Tempahan"},
+    {char:"체크인 부탁합니다.",rumi:"chekeu-in butakhamnida.",desc:"Minta daftar masuk.",stroke:"Check-in"},
+    {char:"조식은 몇 시부터예요?",rumi:"josigeun myeot sibuteoyeyo?",desc:"Sarapan mula pukul berapa?",stroke:"Sarapan"},
+    {char:"와이파이 비밀번호가 뭐예요?",rumi:"waipai bimilbeonhoga mwoyeyo?",desc:"Apa kata laluan WiFi?",stroke:"WiFi"},
+    {char:"수건이 더 필요합니다.",rumi:"sugeoni deo piryohamnida.",desc:"Saya perlukan tuala tambahan.",stroke:"Tuala"}
+  ]},
+  {id:'cv-4',title:"Situasi 4: Hospital (병원)",desc:"Mendapatkan rawatan di klinik atau hospital.",items:[
+    {char:"어디가 아프십니까?",rumi:"eodiga apeusimnikka?",desc:"Di bahagian mana yang sakit?",stroke:"Sakit"},
+    {char:"머리가 아프고 열이 나요.",rumi:"meoriga apeugo yeori nayo.",desc:"Kepala sakit dan demam.",stroke:"Gejala"},
+    {char:"약국에 가서 처방전을 내세요.",rumi:"yakgug-e gaseo cheobangjeoneul naeseyo.",desc:"Pergi ke farmasi dan serahkan preskripsi.",stroke:"Farmasi"},
+    {char:"약은 식후 30분에 드세요.",rumi:"yageun sikhu samsipbun-e deuseyo.",desc:"Makan ubat 30 minit selepas makan.",stroke:"Ubat"},
+    {char:"병원에 가야 할 것 같아요.",rumi:"byeongwone gaya hal geot gatayo.",desc:"Rasanya saya perlu pergi ke hospital.",stroke:"Cadangan"}
+  ]},
+  {id:'cv-5',title:"Situasi 5: Bank (은행)",desc:"Urusan kewangan dan tukaran wang di bank.",items:[
+    {char:"통장을 만들고 싶어요.",rumi:"tongjangeul mandeulgo sipeoyo.",desc:"Saya nak buka buku akaun bank.",stroke:"Akaun"},
+    {char:"환전을 하고 싶어요.",rumi:"hwanjeoneul hago sipeoyo.",desc:"Saya nak tukar mata wang asing.",stroke:"Tukar"},
+    {char:"오늘 환율이 어떻게 돼요?",rumi:"oneul hwanyuri eotteoke dwaeyo?",desc:"Berapa kadar tukaran wang hari ini?",stroke:"Kadar"},
+    {char:"계좌 잔액을 확인하고 싶어요.",rumi:"gyejwa janaegeul hwaginhago sipeoyo.",desc:"Saya nak semak baki akaun.",stroke:"Baki"},
+    {char:"현금을 인출하고 싶습니다.",rumi:"hyeongeumeul inchulhago sipseumnida.",desc:"Saya nak keluarkan wang tunai.",stroke:"Tunai"}
+  ]},
+  {id:'cv-6',title:"Situasi 6: Beli-belah (쇼핑)",desc:"Membeli pakaian dan barangan di kedai.",items:[
+    {char:"얼마예요?",rumi:"eolmayeyo?",desc:"Berapa harga barang ini?",stroke:"Harga"},
+    {char:"조금만 깎아주세요.",rumi:"jogeumman kkakkajuseyo.",desc:"Tolong kurangkan sedikit harga.",stroke:"Diskaun"},
+    {char:"입어봐도 돼요?",rumi:"ibeobwado dwaeyo?",desc:"Boleh saya cuba pakai?",stroke:"Cuba"},
+    {char:"카드로 계산할게요.",rumi:"kadeuro gyesanhalgeyo.",desc:"Saya bayar menggunakan kad.",stroke:"Kad"},
+    {char:"다른 색깔도 있어요?",rumi:"dareun saekkkaldo isseoyo?",desc:"Ada warna lain?",stroke:"Warna"}
+  ]},
+  {id:'cv-7',title:"Situasi 7: Arah & Jalan (길 찾기)",desc:"Bertanya arah jalan di bandar.",items:[
+    {char:"실례합니다, 길 좀 묻겠습니다.",rumi:"sillyehamnida, gil jom mutgesseumnida.",desc:"Maaf, saya ingin bertanya jalan.",stroke:"Tanya"},
+    {char:"쭉 앞으로 가세요.",rumi:"jjuk apeuro gaseyo.",desc:"Terus sahaja berjalan ke hadapan.",stroke:"Lurus"},
+    {char:"오른쪽으로 도세요.",rumi:"oreunjjogeuro doseyo.",desc:"Belok ke kanan.",stroke:"Kanan"},
+    {char:"왼쪽으로 도세요.",rumi:"oenjjogeuro doseyo.",desc:"Belok ke kiri.",stroke:"Kiri"},
+    {char:"지하철역이 어디예요?",rumi:"jihacheollyeogi eodiyeyo?",desc:"Di mana stesen subway?",stroke:"Stesen"}
+  ]},
+  {id:'cv-8',title:"Situasi 8: Teksi (택시)",desc:"Menaiki teksi ke destinasi.",items:[
+    {char:"서울역으로 가주세요.",rumi:"seoul-yeogeuro gajuseyo.",desc:"Tolong bawa saya ke Stesen Seoul.",stroke:"Destinasi"},
+    {char:"여기서 잠시 멈춰주세요.",rumi:"yeogiseo jamsi meomchwojuseyo.",desc:"Tolong berhenti seketika di sini.",stroke:"Berhenti"},
+    {char:"영수증 주세요.",rumi:"yeongsujeung juseyo.",desc:"Tolong beri resit.",stroke:"Resit"},
+    {char:"공항까지 얼마나 걸려요?",rumi:"gonghangkkaji eolmana geollyeoyo?",desc:"Berapa lama ke lapangan terbang?",stroke:"Masa"},
+    {char:"카드로 결제할게요.",rumi:"kadeuro gyeoljehalgeyo.",desc:"Saya bayar dengan kad.",stroke:"Bayaran"}
+  ]},
+  {id:'cv-9',title:"Situasi 9: Kawan & Kenalan (친구)",desc:"Berkenalan dengan kawan baharu.",items:[
+    {char:"만나서 반가워요.",rumi:"mannaseo bangawoyo.",desc:"Gembira dapat berkenalan.",stroke:"Sapaan"},
+    {char:"저는 말레이시아에서 왔어요.",rumi:"jeoneun malleisia-eseo wasseoyo.",desc:"Saya datang dari Malaysia.",stroke:"Asal"},
+    {char:"취미가 무엇입니까?",rumi:"chwimiga mueosimnikka?",desc:"Apakah hobi anda?",stroke:"Hobi"},
+    {char:"이름이 뭐예요?",rumi:"ireumi mwoyeyo?",desc:"Siapa nama awak?",stroke:"Nama"},
+    {char:"한국어를 공부한 지 3개월 됐어요.",rumi:"hangugeoreul gongbuhan ji samgaewol dwaesseoyo.",desc:"Dah 3 bulan saya belajar bahasa Korea.",stroke:"Belajar"}
+  ]},
+  {id:'cv-10',title:"Situasi 10: Kecemasan (비상)",desc:"Menghadapi situasi kecemasan.",items:[
+    {char:"도와주세요!",rumi:"dowajuseyo!",desc:"Tolong saya!",stroke:"Bantu"},
+    {char:"경찰을 빨리 불러주세요.",rumi:"gyeongchareul ppalli bulleojuseyo.",desc:"Tolong panggil polis segera.",stroke:"Polis"},
+    {char:"지갑과 여권을 잃어버렸어요.",rumi:"jigapgwa yeogwoneul ireobeoryeosseoyo.",desc:"Saya kehilangan dompet dan pasport.",stroke:"Hilang"},
+    {char:"구급차를 불러 주세요.",rumi:"gugeupchareul bulleo juseyo.",desc:"Tolong panggil ambulans.",stroke:"Ambulans"},
+    {char:"길을 잃어버렸어요.",rumi:"gireul ireobeoryeosseoyo.",desc:"Saya sesat jalan.",stroke:"Sesat"}
+  ]},
+  {id:'cv-11',title:"Situasi 11: Sekolah & Kelas (학교)",desc:"Pembelajaran di dalam bilik darjah.",items:[
+    {char:"선생님, 질문 있습니다.",rumi:"seonsaengnim, jilmun isseumnida.",desc:"Cikgu, saya ada soalan.",stroke:"Soalan"},
+    {char:"다시 한번 설명해 주세요.",rumi:"dasi hanbeon seolmyeonghae juseyo.",desc:"Tolong terangkan sekali lagi.",stroke:"Terang"},
+    {char:"숙제를 아직 못 했어요.",rumi:"sukjereul ajik mot haesseoyo.",desc:"Saya belum sempat buat kerja rumah.",stroke:"Kerja rumah"},
+    {char:"내일 시험이 있어서 열심히 공부해요.",rumi:"naeil siheomi isseoseo yeolsimhi gongbuhaeyo.",desc:"Ada ujian esok, jadi saya belajar bersungguh-sungguh.",stroke:"Ujian"},
+    {char:"질문이 있으면 손을 들어 주세요.",rumi:"jilmuni isseumyeon soneul deureo juseyo.",desc:"Angkat tangan jika ada soalan.",stroke:"Arahan"}
+  ]},
+  {id:'cv-12',title:"Situasi 12: Pejabat (회사)",desc:"Urusan kerja di pejabat.",items:[
+    {char:"오늘 오전 10시에 회의가 있어요.",rumi:"oneul ojeon yeolsie hoeuiga isseoyo.",desc:"Ada mesyuarat pukul 10 pagi ini.",stroke:"Mesyuarat"},
+    {char:"이메일을 확인해 주세요.",rumi:"imeireul hwaginhae juseyo.",desc:"Sila semak e-mel masuk.",stroke:"Emel"},
+    {char:"보고서를 내일까지 제출하겠습니다.",rumi:"bogoseoreul naeilkkaji jechulhagesseumnida.",desc:"Saya akan hantar laporan sebelum esok.",stroke:"Laporan"},
+    {char:"잠시 회의실에서 만날 수 있을까요?",rumi:"jamsi hoeuisireseo mannal su isseulkkayo?",desc:"Boleh kita jumpa di bilik mesyuarat sekejap?",stroke:"Jumpa"},
+    {char:"오늘은 일찍 퇴근하겠습니다.",rumi:"oneureun iljjik toegeunhagesseumnida.",desc:"Hari ini saya akan balik awal.",stroke:"Pulang"}
+  ]},
+  {id:'cv-13',title:"Situasi 13: Cuaca & Musim (날씨)",desc:"Perbualan mengenai cuaca dan empat musim.",items:[
+    {char:"오늘 날씨가 정말 화창해요.",rumi:"oneul nalssiga jeongmal hwachanghaeyo.",desc:"Cuaca hari ini sangat cerah.",stroke:"Cerah"},
+    {char:"우산을 안 가져왔어요.",rumi:"usaneul an gajyeowasseoyo.",desc:"Saya tidak membawa payung.",stroke:"Payung"},
+    {char:"오늘은 날씨가 흐려요.",rumi:"oneureun nalssiga heuryeoyo.",desc:"Hari ini cuaca mendung.",stroke:"Mendung"},
+    {char:"바람이 많이 불어서 추워요.",rumi:"barami mani bureoseo chuwoyo.",desc:"Angin kuat jadi terasa sejuk.",stroke:"Angin"},
+    {char:"내일은 비가 올 것 같아요.",rumi:"naeireun biga ol geot gatayo.",desc:"Rasanya esok hujan.",stroke:"Ramalan"}
+  ]},
+  {id:'cv-14',title:"Situasi 14: Hobi & Sukan (취미)",desc:"Aktiviti sukan dan masa lapang.",items:[
+    {char:"저는 축구하는 것을 좋아해요.",rumi:"jeoneun chukguhaneun goseul johahaeyo.",desc:"Saya suka bermain bola sepak.",stroke:"Bola"},
+    {char:"주말마다 등산을 갑니다.",rumi:"jumalmada deungsaneul gamnida.",desc:"Mendaki gunung setiap hujung minggu.",stroke:"Gunung"},
+    {char:"취미로 사진 찍는 것을 좋아해요.",rumi:"chwimiro sajin jjingneun geoseul johahaeyo.",desc:"Saya suka mengambil gambar sebagai hobi.",stroke:"Foto"},
+    {char:"저는 수영을 배우고 있어요.",rumi:"jeoneun suyeongeul baeugo isseoyo.",desc:"Saya sedang belajar berenang.",stroke:"Renang"},
+    {char:"같이 운동할래요?",rumi:"gachi undonghallaeyo?",desc:"Nak bersenam sama-sama?",stroke:"Ajakan"}
+  ]},
+  {id:'cv-15',title:"Situasi 15: Makanan Korea (한식)",desc:"Keunikan hidangan tradisional Korea.",items:[
+    {char:"비빔밥은 영양 만점이에요.",rumi:"bibimbabeun yeongyang manjeomieyo.",desc:"Bibimbap mempunyai nutrisi lengkap.",stroke:"Bibimbap"},
+    {char:"정말 잘 먹었습니다.",rumi:"jeongmal jal meogeotseumnida.",desc:"Terima kasih atas hidangan yang sedap.",stroke:"Kenyang"},
+    {char:"김치는 조금 맵지만 맛있어요.",rumi:"gimchineun jogeum maepjiman masisseoyo.",desc:"Kimchi agak pedas tetapi sedap.",stroke:"Kimchi"},
+    {char:"불고기를 먹어 본 적이 있어요?",rumi:"bulgogireul meogeo bon jeogi isseoyo?",desc:"Pernah makan bulgogi?",stroke:"Pengalaman"},
+    {char:"밥 한 공기 더 주세요.",rumi:"bap han gonggi deo juseyo.",desc:"Tolong tambah semangkuk nasi.",stroke:"Nasi"}
+  ]},
+  {id:'cv-16',title:"Situasi 16: Rumah & Bilik (집과 방)",desc:"Mengemas rumah dan keadaan bilik.",items:[
+    {char:"방 안을 깨끗이 청소합니다.",rumi:"bang aneul kkaekkeusi cheongsohamnida.",desc:"Mengemas bilik dengan bersih.",stroke:"Kemas"},
+    {char:"창문을 열어 환기를 시킵니다.",rumi:"changmuneul yeoreo hwangireul sikimnida.",desc:"Buka tingkap untuk udara segar.",stroke:"Tingkap"},
+    {char:"설거지를 하고 빨래를 해요.",rumi:"seolgeojireul hago ppallaereul haeyo.",desc:"Basuh pinggan dan basuh baju.",stroke:"Kerja rumah"},
+    {char:"쓰레기를 분리해서 버려요.",rumi:"sseuregireul bullihaeseo beoryeoyo.",desc:"Asingkan sampah sebelum membuang.",stroke:"Sampah"},
+    {char:"방이 좀 어두워요. 불을 켜 주세요.",rumi:"bangi jom eoduwoyo. bureul kyeo juseyo.",desc:"Bilik agak gelap, tolong pasang lampu.",stroke:"Lampu"}
+  ]},
+  {id:'cv-17',title:"Situasi 17: Telefon (전화)",desc:"Komunikasi menerusi telefon.",items:[
+    {char:"여보세요, 누구십니까?",rumi:"yeoboseyo, nugusimnikka?",desc:"Helo, siapa di sana?",stroke:"Helo"},
+    {char:"나중에 다시 연락드리겠습니다.",rumi:"najunge dasi yeollakdeurigesseumnida.",desc:"Saya akan hubungi semula nanti.",stroke:"Semula"},
+    {char:"잘 안 들려요. 다시 말씀해 주세요.",rumi:"jal an deullyeoyo. dasi malsseumhae juseyo.",desc:"Tak dengar jelas, tolong ulang.",stroke:"Ulang"},
+    {char:"잠시만 기다려 주세요.",rumi:"jamsiman gidaryeo juseyo.",desc:"Tunggu sebentar.",stroke:"Tunggu"},
+    {char:"문자 메시지를 보내 드릴게요.",rumi:"munja mesijireul bonae deurilgeyo.",desc:"Saya akan hantar mesej teks.",stroke:"Mesej"}
+  ]},
+  {id:'cv-18',title:"Situasi 18: Perayaan & Parti (파티)",desc:"Menyambut hari perayaan dan majlis.",items:[
+    {char:"생일 진심으로 축하해요!",rumi:"saengil jinsimeuro chukhahaeyo!",desc:"Selamat hari lahir!",stroke:"Hari Lahir"},
+    {char:"새해 복 많이 받으세요.",rumi:"saehae bok mani badeuseyo.",desc:"Selamat Tahun Baharu.",stroke:"Tahun Baru"},
+    {char:"초대해 주셔서 감사합니다.",rumi:"chodaehae jusyeoseo gamsahamnida.",desc:"Terima kasih kerana menjemput saya.",stroke:"Jemputan"},
+    {char:"건배! 모두 행복하세요.",rumi:"geonbae! modu haengbokhaseyo.",desc:"Bersulang! Semoga semua bahagia.",stroke:"Bersulang"},
+    {char:"작은 선물을 준비했어요.",rumi:"jageun seonmureul junbihaesseoyo.",desc:"Saya sediakan hadiah kecil.",stroke:"Hadiah"}
+  ]},
+  {id:'cv-19',title:"Situasi 19: Percutian (여행)",desc:"Merancang percutian dan pelancongan.",items:[
+    {char:"제주도로 떠날 계획입니다.",rumi:"jejudoro tteonal gyehoegimnida.",desc:"Merancang melawat Pulau Jeju.",stroke:"Jeju"},
+    {char:"비행기 표를 미리 예매했어요.",rumi:"bihaenggi pyoreul miri yemaehaesseoyo.",desc:"Tiket kapal terbang sudah dibeli awal.",stroke:"Tiket"},
+    {char:"숙소는 어디에 예약했어요?",rumi:"suksoneun eodie yeyakhaesseoyo?",desc:"Di mana awak tempah penginapan?",stroke:"Penginapan"},
+    {char:"여행 가방을 미리 챙겼어요.",rumi:"yeohaeng gabangeul miri chaenggyeosseoyo.",desc:"Saya sudah siapkan beg perjalanan awal-awal.",stroke:"Beg"},
+    {char:"렌터카를 빌릴 거예요.",rumi:"renteokareul billil geoyeyo.",desc:"Saya akan sewa kereta.",stroke:"Kereta"}
+  ]},
+  {id:'cv-20',title:"Situasi 20: Lapangan Terbang (공항)",desc:"Daftar masuk di lapangan terbang.",items:[
+    {char:"여권과 항공권을 보여주세요.",rumi:"yeogwongwa hanggonggwoneul boyeojuseyo.",desc:"Tunjukkan pasport dan tiket penerbangan.",stroke:"Kaunter"},
+    {char:"창가 쪽 좌석으로 부탁합니다.",rumi:"changga jjok jwaseogeuro butakhamnida.",desc:"Minta tempat duduk sebelah tingkap.",stroke:"Tempat"},
+    {char:"짐은 몇 개 부치실 거예요?",rumi:"jimeun myeot gae buchisil geoyeyo?",desc:"Berapa beg awak nak daftarkan?",stroke:"Bagasi"},
+    {char:"탑승구는 어디예요?",rumi:"tapseungguneun eodiyeyo?",desc:"Di mana pintu masuk penerbangan?",stroke:"Pintu"},
+    {char:"비행기가 한 시간 연착됐어요.",rumi:"bihaenggiga han sigan yeonchakdwaesseoyo.",desc:"Penerbangan lewat sejam.",stroke:"Lewat"}
+  ]},
+  {id:'cv-21',title:"Situasi 21: Kampung Halaman (고향)",desc:"Bercerita tentang kampung halaman.",items:[
+    {char:"고향이 어디입니까?",rumi:"gohyangi eodiimnikka?",desc:"Di manakah kampung halaman anda?",stroke:"Asal"},
+    {char:"공기가 맑고 자연이 아름다워요.",rumi:"gonggiga malkgo jayeoni areumdawoyo.",desc:"Udaranya bersih dan alamnya indah.",stroke:"Alam"},
+    {char:"저는 시골에서 자랐어요.",rumi:"jeoneun sigoreseo jarasseoyo.",desc:"Saya membesar di kampung.",stroke:"Kampung"},
+    {char:"명절에는 고향에 내려가요.",rumi:"myeongjeoreneun gohyange naeryeogayo.",desc:"Waktu perayaan saya balik kampung.",stroke:"Perayaan"},
+    {char:"고향 음식이 가장 그리워요.",rumi:"gohyang eumsigi gajang geuriwoyo.",desc:"Saya paling rindu makanan kampung.",stroke:"Rindu"}
+  ]},
+  {id:'cv-22',title:"Situasi 22: Ramalan Cuaca (일기예보)",desc:"Ramalan dan keadaan cuaca harian.",items:[
+    {char:"오후부터 비가 내릴 거래요.",rumi:"ohubuteo biga naeril georaeyo.",desc:"Hujan dijangka turun bermula petang.",stroke:"Hujan"},
+    {char:"무지개가 선명하게 떴어요.",rumi:"mujigaega seonmyeonghage tteosseoyo.",desc:"Pelangi muncul dengan sangat jelas.",stroke:"Pelangi"},
+    {char:"내일 아침에는 안개가 낄 거예요.",rumi:"naeil achimeneun angaega kkil geoyeyo.",desc:"Esok pagi akan berkabus.",stroke:"Kabus"},
+    {char:"주말에는 맑고 따뜻하겠습니다.",rumi:"jumareneun malkgo ttatteuthagesseumnida.",desc:"Hujung minggu cerah dan hangat.",stroke:"Cerah"},
+    {char:"태풍 때문에 외출을 삼가세요.",rumi:"taepung ttaemune oechureul samgaseyo.",desc:"Elakkan keluar kerana taufan.",stroke:"Taufan"}
+  ]},
+  {id:'cv-23',title:"Situasi 23: Rumah Baharu (새 집)",desc:"Berpindah ke kediaman baharu.",items:[
+    {char:"드디어 새 집으로 이사했습니다.",rumi:"deudieo sae jibeuro isahaetseumnida.",desc:"Akhirnya saya berpindah ke rumah baharu.",stroke:"Pindah"},
+    {char:"집들이에 꼭 초대하고 싶어요.",rumi:"jipdeurie kkok chodaehago sipeoyo.",desc:"Saya ingin jemput anda ke majlis rumah terbuka.",stroke:"Jemput"},
+    {char:"이삿짐을 정리하느라 바빠요.",rumi:"isatjimeul jeongnihaneura bappayo.",desc:"Sibuk mengemas barang pindah.",stroke:"Mengemas"},
+    {char:"집이 넓고 채광이 좋아요.",rumi:"jibi neolgo chaegwangi johayo.",desc:"Rumah luas dan cahayanya baik.",stroke:"Rumah"},
+    {char:"이웃에게 인사하러 갈 거예요.",rumi:"iuseige insahareo gal geoyeyo.",desc:"Saya nak pergi menyapa jiran.",stroke:"Jiran"}
+  ]},
+  {id:'cv-24',title:"Situasi 24: Kawan Baharu (새 친구)",desc:"Membina persahabatan baharu.",items:[
+    {char:"우리는 공통 관심사가 많아요.",rumi:"urineun gongtong gwansimsaga manayo.",desc:"Kami berkongsi banyak minat yang serupa.",stroke:"Minat"},
+    {char:"우리 앞으로 친하게 지내요.",rumi:"uri apeuro chinhage jinaeyo.",desc:"Mari kita berkawan baik selepas ini.",stroke:"Kawan"},
+    {char:"연락처를 교환할까요?",rumi:"yeollakcheoreul gyohwanhalkkayo?",desc:"Jom tukar nombor telefon?",stroke:"Nombor"},
+    {char:"다음에 같이 밥 먹어요.",rumi:"daeume gachi bap meogeoyo.",desc:"Lain kali makan sama-sama.",stroke:"Ajakan"},
+    {char:"얘기해 보니 정말 재미있어요.",rumi:"yaegihae boni jeongmal jaemiisseoyo.",desc:"Bila berbual, awak memang menarik.",stroke:"Pujian"}
+  ]},
+  {id:'cv-25',title:"Situasi 25: Bandar Baharu (새 도시)",desc:"Menyesuaikan diri di bandar baharu.",items:[
+    {char:"대중교통 시스템이 잘 되어 있어요.",rumi:"daejunggyotong siseutemi jal doeeo isseoyo.",desc:"Sistem pengangkutan awam sangat cekap.",stroke:"Transit"},
+    {char:"야경이 참 아름답습니다.",rumi:"yagyeongi cham areumdapseumnida.",desc:"Pemandangan malam sangat indah.",stroke:"Malam"},
+    {char:"아직 길이 낯설어요.",rumi:"ajik giri natseoreoyo.",desc:"Saya masih belum biasa dengan jalan.",stroke:"Asing"},
+    {char:"근처에 마트가 어디에 있어요?",rumi:"geuncheoe mateuga eodie isseoyo?",desc:"Di mana pasar raya berdekatan?",stroke:"Tanya"},
+    {char:"이 도시는 물가가 비싼 편이에요.",rumi:"i dosineun mulgaga bissan pyeonieyo.",desc:"Kos sara hidup bandar ini agak mahal.",stroke:"Kos"}
+  ]},
+  {id:'cv-26',title:"Situasi 26: Rumahku Syurgaku (내 집)",desc:"Keselesaan di kediaman sendiri.",items:[
+    {char:"집에 오는 것이 제일 행복해요.",rumi:"jibe oneun geosi jeil haengbokhaeyo.",desc:"Pulang ke rumah paling membahagiakan.",stroke:"Bahagia"},
+    {char:"따뜻한 차 한 잔을 마십니다.",rumi:"ttatteuthan cha han janeul masimnida.",desc:"Minum secawan teh suam yang menenangkan.",stroke:"Teh"},
+    {char:"저녁에는 가족과 함께 식사해요.",rumi:"jeonyeogeneun gajokgwa hamkke siksahaeyo.",desc:"Makan malam bersama keluarga.",stroke:"Keluarga"},
+    {char:"소파에 앉아서 책을 읽어요.",rumi:"sopae anjaseo chaegeul ilgeoyo.",desc:"Duduk di sofa sambil membaca buku.",stroke:"Rehat"},
+    {char:"푹 자고 일어나면 개운해요.",rumi:"puk jago ireonamyeon gaeunhaeyo.",desc:"Lepas tidur lena, badan terasa segar.",stroke:"Tidur"}
+  ]},
+  {id:'cv-27',title:"Situasi 27: Konsert (콘서트)",desc:"Menonton konsert idola kegemaran.",items:[
+    {char:"응원봉을 들고 공연장으로 갑니다.",rumi:"eungwonbongeul deulgo gongyeonjangeuro gamnida.",desc:"Bawa lightstick ke stadium konsert.",stroke:"Konsert"},
+    {char:"라이브 노래 실력이 최고예요.",rumi:"raibu norae sillyeogi choegoyeyo.",desc:"Nyanyian secara langsung sangat hebat.",stroke:"Live"},
+    {char:"티켓팅에 성공했어요!",rumi:"tikettinge seonggonghaesseoyo!",desc:"Saya berjaya dapat tiket!",stroke:"Tiket"},
+    {char:"앙코르를 외치고 있어요.",rumi:"angkoreureul oechigo isseoyo.",desc:"Menjerit minta encore.",stroke:"Encore"},
+    {char:"공연이 끝나서 아쉬워요.",rumi:"gongyeoni kkeutnaseo aswiwoyo.",desc:"Sedih konsert dah tamat.",stroke:"Tamat"}
+  ]},
+  {id:'cv-28',title:"Situasi 28: Pawagam (영화관)",desc:"Menonton filem di panggung wayang.",items:[
+    {char:"주말에 영화 보러 갈까요?",rumi:"jumare yeonghwa boreo galkkayo?",desc:"Jom pergi tengok filem hujung minggu?",stroke:"Ajakan"},
+    {char:"달콤한 팝콘으로 주세요.",rumi:"dalkomhan papkoneuro juseyo.",desc:"Tolong beri popcorn manis.",stroke:"Popcorn"},
+    {char:"표 두 장 예매해 주세요.",rumi:"pyo du jang yemaehae juseyo.",desc:"Tolong tempah dua tiket.",stroke:"Tiket"},
+    {char:"자리는 가운데로 부탁해요.",rumi:"jarineun gaundero butakhaeyo.",desc:"Minta tempat duduk di tengah.",stroke:"Tempat"},
+    {char:"영화가 정말 감동적이었어요.",rumi:"yeonghwaga jeongmal gamdongjeogieosseoyo.",desc:"Filem itu sangat menyentuh hati.",stroke:"Ulasan"}
+  ]},
+  {id:'cv-29',title:"Situasi 29: Perpustakaan (도서관)",desc:"Mengulang kaji di perpustakaan.",items:[
+    {char:"한국어 책을 빌릴 거예요.",rumi:"hangugeo chaegeul billil geoyeyo.",desc:"Saya mahu pinjam buku bahasa Korea.",stroke:"Pinjam"},
+    {char:"반납일을 꼭 지켜야 합니다.",rumi:"bannabireul kkok jikyeoya hamnida.",desc:"Wajib patuhi tarikh pemulangan buku.",stroke:"Tarikh"},
+    {char:"대출 기간은 일주일입니다.",rumi:"daechul giganeun iljuirimnida.",desc:"Tempoh pinjaman ialah seminggu.",stroke:"Tempoh"},
+    {char:"여기서는 조용히 해 주세요.",rumi:"yeogiseoneun joyonghi hae juseyo.",desc:"Sila senyap di sini.",stroke:"Senyap"},
+    {char:"열람실에서 공부해도 돼요?",rumi:"yeollamsireseo gongbuhaedo dwaeyo?",desc:"Boleh belajar di bilik bacaan?",stroke:"Izin"}
+  ]},
+  {id:'cv-30',title:"Situasi 30: Pengangkutan Awam (대중교통)",desc:"Menaiki tren dan bas tempatan.",items:[
+    {char:"지하철 2호선으로 갈아타세요.",rumi:"jihacheol ihoseoneuro garataseyo.",desc:"Sila tukar ke Laluan Tren No. 2.",stroke:"Transit"},
+    {char:"교통카드를 태그합니다.",rumi:"gyotongkadeureul taegeuhamnida.",desc:"Sentuh kad pengangkutan pada pengimbas.",stroke:"Kad"},
+    {char:"다음 정거장에서 내려요.",rumi:"daeum jeonggeojangeseo naeryeoyo.",desc:"Turun di perhentian seterusnya.",stroke:"Turun"},
+    {char:"교통카드를 충전해야 해요.",rumi:"gyotongkadeureul chungjeonhaeya haeyo.",desc:"Perlu tambah nilai kad.",stroke:"Kad"},
+    {char:"버스가 곧 도착할 거예요.",rumi:"beoseuga got dochakhal geoyeyo.",desc:"Bas akan sampai sebentar lagi.",stroke:"Bas"}
+  ]},
+  {id:'cv-31',title:"Situasi 31: Pasar Raya (슈퍼마켓)",desc:"Membeli barangan keperluan dapur.",items:[
+    {char:"유통기한을 꼼꼼히 확인합니다.",rumi:"yutonggihaneul kkomkkomhi hwaginhamnida.",desc:"Teliti tarikh luput makanan.",stroke:"Tarikh"},
+    {char:"포인트 적립하시겠습니까?",rumi:"pointeu jeongniphasigesseumnikka?",desc:"Mahu kumpul mata ganjaran?",stroke:"Mata"},
+    {char:"카트를 가져올게요.",rumi:"kateureul gajyeoolgeyo.",desc:"Saya ambilkan troli.",stroke:"Troli"},
+    {char:"이 제품은 세일 중이에요.",rumi:"i jepumeun seil jungieyo.",desc:"Produk ini sedang jualan murah.",stroke:"Jualan"},
+    {char:"봉투가 필요하세요?",rumi:"bongtuga piryohaseyo?",desc:"Perlukan beg plastik?",stroke:"Beg"}
+  ]},
+  {id:'cv-32',title:"Situasi 32: Kesihatan (건강 관리)",desc:"Penjagaan kesihatan dan gaya hidup sihat.",items:[
+    {char:"매일 아침 꾸준히 조깅을 합니다.",rumi:"maeil achim kkujunhi jogingeul hamnida.",desc:"Saya konsisten berjoging setiap pagi.",stroke:"Joging"},
+    {char:"물을 많이 마시는 것이 좋아요.",rumi:"mureul mani masineun geosi johayo.",desc:"Banyakkan minum air kosong.",stroke:"Air"},
+    {char:"저는 하루에 세 번 약을 먹어요.",rumi:"jeoneun harue se beon yageul meogeoyo.",desc:"Saya makan ubat tiga kali sehari.",stroke:"Ubat"},
+    {char:"충분히 자는 것이 중요해요.",rumi:"chungbunhi janeun geosi jungyohaeyo.",desc:"Tidur yang cukup itu penting.",stroke:"Tidur"},
+    {char:"건강검진을 받으러 갈 거예요.",rumi:"geongangeomjineul badeureo gal geoyeyo.",desc:"Saya akan pergi buat pemeriksaan kesihatan.",stroke:"Pemeriksaan"}
+  ]},
+  {id:'cv-33',title:"Situasi 33: Kehidupan Kampus (캠퍼스)",desc:"Kehidupan harian di universiti.",items:[
+    {char:"캠퍼스에 벚꽃이 활짝 피었습니다.",rumi:"kaempeoseue beotkkochi hwaljjak pieotseumnida.",desc:"Bunga sakura kembang mekar di kampus.",stroke:"Sakura"},
+    {char:"도서관에서 팀 과제 회의를 해요.",rumi:"doseogwaneseo tim gwaje hoeuireul haeyo.",desc:"Mesyuarat tugasan kumpulan di perpustakaan.",stroke:"Tugasan"},
+    {char:"수강 신청을 해야 해요.",rumi:"sugang sincheongeul haeya haeyo.",desc:"Perlu daftar subjek.",stroke:"Daftar"},
+    {char:"기숙사에서 룸메이트와 살아요.",rumi:"gisuksaeseo rummeiteuwa sarayo.",desc:"Saya tinggal bersama rakan sebilik di asrama.",stroke:"Asrama"},
+    {char:"장학금을 신청할 거예요.",rumi:"janghakgeumeul sincheonghal geoyeyo.",desc:"Saya akan mohon biasiswa.",stroke:"Biasiswa"}
+  ]},
+  {id:'cv-34',title:"Situasi 34: Fesyen & Kasut (패션 쇼핑)",desc:"Memilih pakaian dan kasut.",items:[
+    {char:"신어봐도 괜찮을까요?",rumi:"sineobwado gwaenchaneulkayo?",desc:"Boleh saya cuba sarung kasut ini?",stroke:"Kasut"},
+    {char:"교환이나 환불 규정은 어떻게 돼요?",rumi:"gyohwanina hwanbul gyujeongeun eotteoke dwaeyo?",desc:"Bagaimana polisi pertukaran atau pemulangan?",stroke:"Polisi"},
+    {char:"이 옷은 사이즈가 너무 커요.",rumi:"i oseun saijeuga neomu keoyo.",desc:"Baju ini terlalu besar.",stroke:"Saiz"},
+    {char:"한 치수 작은 것으로 주세요.",rumi:"han chisu jageun geoseuro juseyo.",desc:"Beri saiz lebih kecil satu saiz.",stroke:"Saiz"},
+    {char:"이 신발은 발이 편해요.",rumi:"i sinbareun bari pyeonhaeyo.",desc:"Kasut ini selesa di kaki.",stroke:"Kasut"}
+  ]},
+  {id:'cv-35',title:"Situasi 35: Berenang (수영)",desc:"Aktiviti renang di kolam rekreasi.",items:[
+    {char:"입수 전에 준비운동을 해요.",rumi:"ipsu jeone junbiundongeul haeyo.",desc:"Lakukan regangan sebelum masuk air.",stroke:"Regangan"},
+    {char:"자유형으로 50미터 완주했습니다.",rumi:"jayuhyeongeuro osim-miteo wanjuhaetseumnida.",desc:"Berjaya berenang gaya bebas 50 meter.",stroke:"Renang"},
+    {char:"수영모와 수경을 써야 해요.",rumi:"suyeongmowa sugyeongeul sseoya haeyo.",desc:"Perlu pakai topi dan cermin mata renang.",stroke:"Peralatan"},
+    {char:"물이 너무 차가워요.",rumi:"muri neomu chagawoyo.",desc:"Air terlalu sejuk.",stroke:"Air"},
+    {char:"배영도 배워 보고 싶어요.",rumi:"baeyeongdo baewo bogo sipeoyo.",desc:"Saya nak cuba belajar gaya belakang juga.",stroke:"Gaya"}
+  ]},
+  {id:'cv-36',title:"Situasi 36: Kerja Baharu (새 직장)",desc:"Memulakan kerjaya di syarikat baharu.",items:[
+    {char:"오늘부터 새로운 직장에 출근합니다.",rumi:"oneulbuteo saeroun jikjange chulgeunhamnida.",desc:"Hari pertama bekerja di pejabat baharu.",stroke:"Mula"},
+    {char:"모르는 것은 적극적으로 질문해요.",rumi:"moreuneun geoseun jeokgeukjeogeuro jilmunhaeyo.",desc:"Aktif bertanya jika tidak faham.",stroke:"Tanya"},
+    {char:"잘 부탁드립니다.",rumi:"jal butakdeurimnida.",desc:"Mohon bimbingan.",stroke:"Sapaan"},
+    {char:"점심은 동료들과 같이 먹어요.",rumi:"jeomsimeun dongnyodeulgwa gachi meogeoyo.",desc:"Makan tengah hari dengan rakan sekerja.",stroke:"Makan"},
+    {char:"업무에 빨리 적응하고 싶어요.",rumi:"eommue ppalli jeogeunghago sipeoyo.",desc:"Saya nak cepat sesuaikan diri dengan kerja.",stroke:"Kerja"}
+  ]},
+  {id:'cv-37',title:"Situasi 37: Perayaan Chuseok (추석)",desc:"Menyambut perayaan Chuseok di Korea.",items:[
+    {char:"온 가족이 모여 송편을 빚어요.",rumi:"on gajogi moyeo songpyeoneul bijeoyo.",desc:"Seluruh keluarga berkumpul membuat kuih songpyeon.",stroke:"Songpyeon"},
+    {char:"보름달을 보며 소원을 빌어요.",rumi:"boreumdareul bomyeo sowoneul bireoyo.",desc:"Melihat bulan purnama dan berdoa.",stroke:"Bulan"},
+    {char:"추석에는 차례를 지내요.",rumi:"chuseogeneun charyereul jinaeyo.",desc:"Pada Chuseok kami buat upacara penghormatan nenek moyang.",stroke:"Upacara"},
+    {char:"고향 가는 길이 많이 막혀요.",rumi:"gohyang ganeun giri mani makyeoyo.",desc:"Jalan balik kampung sangat sesak.",stroke:"Jalan"},
+    {char:"한복을 입고 가족사진을 찍어요.",rumi:"hanbogeul ipgo gajoksajineul jjigeoyo.",desc:"Pakai hanbok dan ambil gambar keluarga.",stroke:"Hanbok"}
+  ]},
+  {id:'cv-38',title:"Situasi 38: Kerja Amal (자원봉사)",desc:"Aktiviti sukarelawan masyarakat.",items:[
+    {char:"주말에 봉사활동을 갑니다.",rumi:"jumare bongsahwaldongeul gamnida.",desc:"Menyertai aktiviti sukarelawan hujung minggu.",stroke:"Amal"},
+    {char:"나눔을 실천할 수 있어 행복합니다.",rumi:"nanumeul silcheonhal su isseo haengbokhamnida.",desc:"Bahagia dapat menyumbang bakti.",stroke:"Bakti"},
+    {char:"양로원에서 봉사활동을 했어요.",rumi:"yangnowoneseo bongsahwaldongeul haesseoyo.",desc:"Saya buat khidmat sukarela di rumah orang tua.",stroke:"Sukarela"},
+    {char:"기부는 작은 것부터 시작해요.",rumi:"gibuneun jageun geotbuteo sijakhaeyo.",desc:"Menderma bermula dengan yang kecil.",stroke:"Derma"},
+    {char:"도움이 필요한 사람들을 도와요.",rumi:"doumi piryohan saramdeureul dowayo.",desc:"Bantu orang yang memerlukan.",stroke:"Bantu"}
+  ]},
+  {id:'cv-39',title:"Situasi 39: Menyatakan Pilihan (선호)",desc:"Menyatakan citarasa dan pilihan peribadi.",items:[
+    {char:"커피와 녹차 중 무엇을 더 좋아해요?",rumi:"keopiwa nokcha jung mueoseul deo johahaeyo?",desc:"Antara kopi dan teh hijau, mana lebih suka?",stroke:"Pilihan"},
+    {char:"조용한 카페가 더 편해요.",rumi:"joyonghan kapega deo pyeonhaeyo.",desc:"Kafe yang tenang lebih selesa.",stroke:"Tenang"},
+    {char:"저는 단 음식보다 짠 음식이 좋아요.",rumi:"jeoneun dan eumsikboda jjan eumsigi johayo.",desc:"Saya lebih suka makanan masin daripada manis.",stroke:"Rasa"},
+    {char:"둘 다 괜찮아요.",rumi:"dul da gwaenchanayo.",desc:"Dua-dua okay.",stroke:"Pilihan"},
+    {char:"저는 바다보다 산이 더 좋아요.",rumi:"jeoneun badaboda sani deo johayo.",desc:"Saya lebih suka gunung daripada laut.",stroke:"Alam"}
+  ]},
+  {id:'cv-40',title:"Situasi 40: Pesan BBQ Korea (음식 주문)",desc:"Memesan hidangan panggang Korea.",items:[
+    {char:"삼겹살 2인분 주세요.",rumi:"samgyeopsal iinbun juseyo.",desc:"Bagi 2 set daging panggang.",stroke:"Pesanan"},
+    {char:"반찬 리필은 셀프 코너를 이용하세요.",rumi:"banchan ripireun selpeu koneoreul iyonghaseyo.",desc:"Ambil ulangan lauk di sudut layan diri.",stroke:"Layan Diri"},
+    {char:"고기를 구워 주시겠어요?",rumi:"gogireul gugwo jusigesseoyo?",desc:"Boleh tolong bakarkan daging?",stroke:"Panggang"},
+    {char:"쌈 채소도 더 주세요.",rumi:"ssam chaesodo deo juseyo.",desc:"Tolong tambah sayur bungkus.",stroke:"Sayur"},
+    {char:"된장찌개도 하나 시킬게요.",rumi:"doenjangjjigaedo hana sikilgeyo.",desc:"Saya nak pesan sup doenjang juga.",stroke:"Pesanan"}
+  ]},
+  {id:'cv-41',title:"Situasi 41: Permainan Video (게임)",desc:"Bermain permainan video dalam talian.",items:[
+    {char:"오늘 밤에 게임 한판 어때요?",rumi:"oneul bame geim hanpan eottaeyo?",desc:"Jom main game malam ini?",stroke:"Ajakan"},
+    {char:"보스 몬스터를 드디어 잡았습니다!",rumi:"boseu monseuteoreul deudieo jabasseumnida!",desc:"Akhirnya berjaya menumpaskan bos!",stroke:"Menang"},
+    {char:"같이 팀을 만들어서 해요.",rumi:"gachi timeul mandeureoseo haeyo.",desc:"Jom buat pasukan sama-sama.",stroke:"Pasukan"},
+    {char:"레벨이 올라서 기뻐요.",rumi:"rebeli ollaseo gippeoyo.",desc:"Gembira kerana level naik.",stroke:"Level"},
+    {char:"이번 판은 제가 질 것 같아요.",rumi:"ibeon paneun jega jil geot gatayo.",desc:"Rasanya saya akan kalah perlawanan ini.",stroke:"Kalah"}
+  ]},
+  {id:'cv-42',title:"Situasi 42: Sukan Olimpik (올림픽)",desc:"Menyokong temasya sukan dunia.",items:[
+    {char:"국가대표 선수들을 응원해요.",rumi:"gukgadaepyo seonsudeureul eungwonhaeyo.",desc:"Menyokong atlet kebangsaan kita.",stroke:"Sokong"},
+    {char:"금메달을 획득했습니다!",rumi:"geummedareul hoekdeukhaetseumnida!",desc:"Berjaya memenangi pingat emas!",stroke:"Emas"},
+    {char:"결승전을 같이 봐요.",rumi:"gyeolsangjeoneul gachi bwayo.",desc:"Jom tengok perlawanan akhir sama-sama.",stroke:"Akhir"},
+    {char:"우리나라가 이겼어요!",rumi:"urinaraga igyeosseoyo!",desc:"Negara kita menang!",stroke:"Menang"},
+    {char:"선수들이 정말 자랑스러워요.",rumi:"seonsudeuri jeongmal jarangseureowoyo.",desc:"Atlet kita sangat membanggakan.",stroke:"Bangga"}
+  ]},
+  {id:'cv-43',title:"Situasi 43: Tabiat Harian (습관)",desc:"Membina tabiat rutin positif harian.",items:[
+    {char:"매일 아침 6시에 기상해요.",rumi:"maeil achim yeoseotsie gisanghaeyo.",desc:"Bangun tidur pukul 6 pagi setiap hari.",stroke:"Rutin"},
+    {char:"독서하는 습관을 들이려고 해요.",rumi:"dokseohaneun seupgwaneul deuriryeogo haeyo.",desc:"Berusaha memupuk tabiat membaca buku.",stroke:"Baca"},
+    {char:"밤 11시에는 잠자리에 들어요.",rumi:"bam yeolhansieneun jamjarie deureoyo.",desc:"Saya tidur pukul 11 malam.",stroke:"Tidur"},
+    {char:"일기를 매일 쓰려고 노력해요.",rumi:"ilgireul maeil sseuryeogo noryeokaeyo.",desc:"Saya berusaha menulis diari setiap hari.",stroke:"Diari"},
+    {char:"아침마다 물 한 잔을 마셔요.",rumi:"achimmada mul han janeul masyeoyo.",desc:"Minum segelas air setiap pagi.",stroke:"Air"}
+  ]},
+  {id:'cv-44',title:"Situasi 44: Kedai Serbaneka (편의점)",desc:"Membeli keperluan di kedai 24 jam.",items:[
+    {char:"삼각김밥과 바나나 우유를 골랐어요.",rumi:"samgakgimbapgwa banana uyureul golrasseoyo.",desc:"Saya pilih gimbap segi tiga dan susu pisang.",stroke:"Snek"},
+    {char:"전자레인지에 데워주세요.",rumi:"jeonjareinjie dewojuseyo.",desc:"Tolong panaskan dalam ketuhar mikro.",stroke:"Panas"},
+    {char:"컵라면에 뜨거운 물을 부어요.",rumi:"keomnamyeone tteugeoun mureul bueoyo.",desc:"Tuang air panas ke dalam mi cawan.",stroke:"Mi"},
+    {char:"도시락은 유통기한이 짧아요.",rumi:"dosirageun yutonggihani jjalbayo.",desc:"Tarikh luput bekal makanan ini pendek.",stroke:"Tarikh"},
+    {char:"영수증은 괜찮습니다.",rumi:"yeongsujeungeun gwaenchanseumnida.",desc:"Tak perlu resit.",stroke:"Resit"}
+  ]}
+];
+
+const grammarLabData = [
+  {id:'g1',title:"1. Penanda Subjek & Topik",desc:"Formula 은/는 vs 이/가, 도 (Juga), 만 (Sahaja).",items:[
+    {char:"은 / 는",rumi:"eun / neun",desc:"Penanda Topik Umum",stroke:"Konsonan + 은, Vokal + 는.\nContoh: 저는 학생입니다 (Saya pelajar)."},
+    {char:"이 / 가",rumi:"i / ga",desc:"Penanda Subjek Utama",stroke:"Konsonan + 이, Vokal + 가.\nContoh: 날씨가 좋습니다 (Cuaca bagus)."},
+    {char:"도 (Juga)",rumi:"do",desc:"Maksud: 'Juga' atau 'Pun'",stroke:"Contoh: 저도 한국 사람입니다 (Saya juga orang Korea)."},
+    {char:"만 (Sahaja)",rumi:"man",desc:"Maksud: 'Hanya / Sahaja'",stroke:"Contoh: 이것만 주세요 (Bagi ini sahaja)."},
+    {char:"의 (Kepunyaan)",rumi:"ui",desc:"Maksud: Punya ('s)",stroke:"Contoh: 나의 가방 (Beg saya)."}
+  ]},
+  {id:'g2',title:"2. Penanda Objek & Lokasi",desc:"Formula 을/를, 에, 에서, ~까지.",items:[
+    {char:"을 / 를",rumi:"eul / reul",desc:"Penanda Objek Penderita",stroke:"Konsonan + 을, Vokal + 를.\nContoh: 사과를 먹어요 (Makan epal)."},
+    {char:"에서",rumi:"eseo",desc:"Tempat aktiviti berlaku",stroke:"Contoh: 식당에서 먹어요 (Makan di restoran)."},
+    {char:"에",rumi:"e",desc:"Destinasi arah tuju",stroke:"Contoh: 한국에 가요 (Pergi ke Korea)."},
+    {char:"에서 ~ 까지",rumi:"eseo ~ kkaji",desc:"Dari... Hingga...",stroke:"Contoh: 집에서 회사까지 (Dari rumah ke pejabat)."}
+  ]},
+  {id:'g3',title:"3. Tahap Kesopanan",desc:"Formula 입니다, 아요/어요, (으)세요.",items:[
+    {char:"입니다 / 습니다",rumi:"imnida / seumnida",desc:"Penamat ayat formal rasmi",stroke:"Contoh: 저는 의사입니다 (Saya doktor)."},
+    {char:"아요 / 어요",rumi:"ayo / eoyo",desc:"Penamat harian sopan",stroke:"Contoh: 밥을 먹어요 (Makan nasi)."},
+    {char:"(으)세요",rumi:"euseyo",desc:"Arahan / jemputan sopan",stroke:"Contoh: 여기에 앉으세요 (Sila duduk sini)."}
+  ]},
+  {id:'g4',title:"4. Bentuk Masa (Tenses)",desc:"Masa Kini, Masa Lepas & Akan Datang.",items:[
+    {char:"현재 (Present)",rumi:"ayo / eoyo",desc:"Masa Kini / Rutin",stroke:"Contoh: 매일 운동해요 (Bersenam tiap hari)."},
+    {char:"과거 (Past)",rumi:"asseoyo / eosseoyo",desc:"Masa Lepas",stroke:"Contoh: 어제 영화를 봤어요 (Semalam tengok filem)."},
+    {char:"미래 (Future)",rumi:"eul geoyeyo",desc:"Masa Akan Datang",stroke:"Contoh: 내일 한국에 갈 거예요 (Esok akan ke Korea)."},
+    {char:"고 있어요",rumi:"go isseoyo",desc:"Sedang berlaku (~ing)",stroke:"Contoh: 지금 밥을 먹고 있어요 (Sedang makan nasi)."}
+  ]},
+  {id:'g5',title:"5. Kata Hubung & Sebab",desc:"Formula 아/어서, 지만, (으)면, 고.",items:[
+    {char:"아/어서",rumi:"a/eoseo",desc:"Kerana / Oleh sebab",stroke:"Contoh: 피곤해서 일찍 잡니다 (Kerana penat, tidur awal)."},
+    {char:"지만",rumi:"jiman",desc:"Tetapi",stroke:"Contoh: 어렵지만 재미있어요 (Susah tetapi seronok)."},
+    {char:"(으)면",rumi:"eumyeon",desc:"Jika / Kalau",stroke:"Contoh: 시간이 있으면 봐요 (Kalau ada masa, tengoklah)."},
+    {char:"고",rumi:"go",desc:"Dan / Serta",stroke:"Contoh: 아침을 먹고 학교에 가요 (Makan pagi dan pergi sekolah)."}
+  ]},
+  {id:'g6',title:"6. Keupayaan & Larangan",desc:"Boleh (~ㄹ 수 있다), Jangan (~지 마세요).",items:[
+    {char:"(으)ㄹ 수 있다",rumi:"eul su itda",desc:"Boleh / Mampu",stroke:"Contoh: 한국어를 할 수 있어요 (Boleh cakap Korea)."},
+    {char:"(으)ㄹ 수 없다",rumi:"eul su eopda",desc:"Tidak boleh",stroke:"Contoh: 매운 음식을 먹을 수 없어요 (Tak boleh makan pedas)."},
+    {char:"지 마세요",rumi:"ji maseyo",desc:"Jangan",stroke:"Contoh: 사진을 찍지 마세요 (Jangan ambil gambar)."}
+  ]},
+  {id:'g7',title:"7. Keinginan & Niat",desc:"Mahu (~고 싶다), Nak tak (~을래요).",items:[
+    {char:"고 싶다",rumi:"go sipta",desc:"Mahu / Ingin",stroke:"Contoh: 한국에 가고 싶어요 (Mahu pergi ke Korea)."},
+    {char:"(으)ㄹ래요",rumi:"eullaeyo",desc:"Mahu / Mengajak",stroke:"Contoh: 같이 영화 보러 갈래요? (Nak pergi tengok filem?)."},
+    {char:"기로 하다",rumi:"giro hada",desc:"Membuat keputusan",stroke:"Contoh: 내일부터 운동하기로 했어요 (Keputusan bersenam esok)."}
+  ]},
+  {id:'g8',title:"8. Perbandingan & Darjah",desc:"Lebih dari (~보다), Paling (가장 / 제일).",items:[
+    {char:"보다",rumi:"boda",desc:"Lebih... daripada",stroke:"Contoh: 사과보다 수박이 더 커요 (Tembikai lebih besar dari epal)."},
+    {char:"가장 / 제일",rumi:"gajang / jeil",desc:"Paling",stroke:"Contoh: 듣기가 가장 어려워요 (Mendengar paling susah)."},
+    {char:"처럼 / 같이",rumi:"cheoreom / gachi",desc:"Seperti / Bagaikan",stroke:"Contoh: 눈처럼 하얗습니다 (Putih seperti salji)."}
+  ]},
+  {id:'g9',title:"9. Andaian & Spekulasi",desc:"Rasanya (~ㄹ 것 같다), Kan? (~지요).",items:[
+    {char:"(으)ㄹ 것 같다",rumi:"eul geot gatda",desc:"Rasanya / Dijangka",stroke:"Contoh: 내일 비가 올 것 같아요 (Rasanya esok hujan)."},
+    {char:"지요 / 죠",rumi:"jiyo / jyo",desc:"Kan? / Betul tak?",stroke:"Contoh: 오늘 날씨가 좋지요? (Cuaca hari ini bagus, kan?)."}
+  ]},
+  {id:'g10',title:"10. Pasif & Tolong Buatkan",desc:"Bentuk Pasif & 아/어 주다.",items:[
+    {char:"아/어 주다",rumi:"a/eo juda",desc:"Tolong buatkan untuk",stroke:"Contoh: 이 가방 좀 들어 주세요 (Tolong angkatkan beg ini)."},
+    {char:"보이다",rumi:"boida",desc:"Kelihatan / Nampak",stroke:"Contoh: 멀리서도 잘 보여요 (Jelas nampak dari jauh)."}
+  ]},
+  {id:'g11',title:"11. Keizinan & Peraturan",desc:"Boleh (~어도 되다), Dilarang (~으면 안 되다).",items:[
+    {char:"아/어도 되다",rumi:"a/eodo doeda",desc:"Boleh / Dibenarkan",stroke:"Contoh: 사진을 찍어도 돼요? (Boleh ambil gambar?)."},
+    {char:"(으)면 안 되다",rumi:"eumyeon an doeda",desc:"Dilarang keras",stroke:"Contoh: 떠들면 안 돼요 (Dilarang bising)."}
+  ]},
+  {id:'g12',title:"12. Pengalaman & Percubaan",desc:"Cuba buat (~아/어 보다), Pernah (~ㄴ 적이 있다).",items:[
+    {char:"아/어 보다",rumi:"a/eo boda",desc:"Cuba lakukan",stroke:"Contoh: 김치를 만들어 봤어요 (Pernah cuba buat kimchi)."},
+    {char:"(으)ㄴ 적이 있다",rumi:"eun jeogi itda",desc:"Pernah mengalami",stroke:"Contoh: 한국에 간 적이 있어요 (Pernah pergi ke Korea)."}
+  ]},
+  {id:'g13',title:"13. Cadangan & Ajakan",desc:"Jom (~을까요?), Mari kita (~읍시다).",items:[
+    {char:"(으)ㄹ까요?",rumi:"eulkkayo?",desc:"Cadangan / Bertanya",stroke:"Contoh: 같이 영화 볼까요? (Jom tengok filem sama?)."},
+    {char:"(으)ㅂ시다",rumi:"eupsida",desc:"Mari kita (Rasmi)",stroke:"Contoh: 같이 점심을 먹읍시다 (Mari makan tengah hari)."}
+  ]},
+  {id:'g14',title:"14. Niat & Tujuan Perjalanan",desc:"Pergi untuk (~으러 가다), Demi (~기 위해).",items:[
+    {char:"(으)러 가다",rumi:"eureo gada",desc:"Pergi untuk tujuan",stroke:"Contoh: 책을 사러 서점에 갑니다 (Ke kedai buku untuk beli buku)."},
+    {char:"기 위해서",rumi:"gi wihaeseo",desc:"Demi matlamat",stroke:"Contoh: 가족을 위해 열심히 일합니다 (Bekerja keras demi keluarga)."}
+  ]},
+  {id:'g15',title:"15. Perubahan Keadaan",desc:"Menjadi (~아/어지다), Akhirnya (~게 되다).",items:[
+    {char:"아/어지다",rumi:"a/eojida",desc:"Beransur menjadi",stroke:"Contoh: 날씨가 따뜻해져요 (Cuaca menjadi hangat)."},
+    {char:"게 되다",rumi:"ge doeda",desc:"Akhirnya terjadi",stroke:"Contoh: 한국에서 살게 되었어요 (Akhirnya menetap di Korea)."}
+  ]},
+  {id:'g16',title:"16. Alasan & Latar Belakang",desc:"Kerana (~으니까), Maklumlah (~거든요).",items:[
+    {char:"(으)니까",rumi:"eunikka",desc:"Kerana (diikuti suruhan)",stroke:"Contoh: 추우니까 코트를 입으세요 (Kerana sejuk, pakailah kot)."},
+    {char:"거든요",rumi:"geodeunyo",desc:"Sebabnya / Maklumlah",stroke:"Contoh: 집에서 쉬어요. 피곤하거든요 (Rehat di rumah sebab penat)."}
+  ]},
+  {id:'g17',title:"17. Cakap Ajuk (Tak Langsung)",desc:"Katanya (~ㄴ/은대요), Suruh (~래요).",items:[
+    {char:"ㄴ/은대요",rumi:"eundaeyo",desc:"Katanya / Khabarnya",stroke:"Contoh: 내일 한국에 간대요 (Katanya dia nak ke Korea esok)."},
+    {char:"(으)래요",rumi:"euraeyo",desc:"Katanya suruh...",stroke:"Contoh: 선생님이 조용히 하래요 (Cikgu suruh senyap)."}
+  ]},
+  {id:'g18',title:"18. Pengubah Kata Sifat",desc:"Menerangkan kata nama (~ㄴ/은, ~는).",items:[
+    {char:"(으)ㄴ + Benda",rumi:"eun",desc:"Kata sifat + Benda",stroke:"Contoh: 예쁜 여자 (Wanita yang cantik)."},
+    {char:"는 + Benda",rumi:"neun",desc:"Kata kerja + Benda",stroke:"Contoh: 제가 읽는 책 (Buku yang saya baca)."}
+  ]},
+  {id:'g19',title:"19. Terpaksa & Tiada Pilihan",desc:"Terpaksa (~ㄹ 수밖에 없다).",items:[
+    {char:"(으)ㄹ 수밖에 없다",rumi:"eul subakke eopda",desc:"Tiada pilihan lain",stroke:"Contoh: 비가 오니까 택시를 탈 수밖에 없어요 (Terpaksa naik teksi)."},
+    {char:"는 길이다",rumi:"neun girida",desc:"Dalam perjalanan ke",stroke:"Contoh: 지금 집에 가는 길입니다 (Sedang dalam perjalanan pulang)."}
+  ]},
+  {id:'g20',title:"20. Penghubung Kompleks",desc:"Semasa (~는 동안), Walaupun (~더라도).",items:[
+    {char:"는 동안",rumi:"neun dongan",desc:"Semasa / Sepanjang",stroke:"Contoh: 공부하는 동안 음악을 들어요 (Dengar muzik semasa belajar)."},
+    {char:"더라도",rumi:"deorado",desc:"Walaupun / Biarpun",stroke:"Contoh: 비가 오더라도 갈 거예요 (Walaupun hujan, tetap pergi)."}
+  ]}
+];
+
+/* ================= STATE & LOGIK APLIKASI ================= */
+const KEY = 'hangul-master-navy-v1';
+const defaultState = {
+  nama: 'Pelajar Korea',
+  xp: 0,
+  streak: 1,
+  minit: 0,
+  benar: 0,
+  jawab: 0,
+  selesai: {},
+  selesaiDengar: {},
+  audio: true,
+  lastDay: '',
+  lastScreen: 'scr-onboard'
+};
+
+let S = loadState();
+let allWords = [];
+let curModul = null;
+let curStudyIdx = 0;
+let curQuiz = [];
+let curQuizIdx = 0;
+let quizNyawa = 3;
+let quizBetul = 0;
+let modKuiz = 'biasa';
+let timerKuiz = null;
+let pilihOpsi = null;
+let curWrIdx = 0;
+let curLsIdx = 0;
+let audioBusy = false;
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(KEY);
+    return raw ? Object.assign({}, defaultState, JSON.parse(raw)) : Object.assign({}, defaultState);
+  } catch (e) {
+    return Object.assign({}, defaultState);
+  }
+}
+
+function hariIni() {
+  const d = new Date();
+  return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+}
+
+function kemasKiniStreak() {
+  const today = hariIni();
+  if (S.lastDay === today) return;
+  if (S.lastDay) {
+    const prev = new Date(S.lastDay + 'T00:00:00');
+    const now = new Date(today + 'T00:00:00');
+    const beza = Math.round((now - prev) / 86400000);
+    S.streak = beza === 1 ? S.streak + 1 : 1;
+  } else {
+    S.streak = 1;
+  }
+  S.lastDay = today;
+  saveState();
+}
+
+function saveState() {
+  try {
+    localStorage.setItem(KEY, JSON.stringify(S));
+  } catch (e) {}
+}
+
+/* Maskot Geometri CSS (Navy + Dusty Pink + Putih) */
+function buatMaskot(w, bentukIdx = 0, warna = '#DF92A3', ekspresi = 'senyum') {
+  const k = w / 64;
+  const bentuk = [
+    '50%',
+    `${24*k}px`,
+    `50% 50% ${24*k}px 50%`,
+    `${20*k}px ${20*k}px ${20*k}px ${6*k}px`,
+    `50% 50% 50% ${14*k}px`
+  ][bentukIdx % 5];
+
+  const mata = ekspresi === 'sedih'
+    ? `<div style="width:${10*k}px;height:${3*k}px;background:#0D192E;border-radius:4px;"></div>
+       <div style="width:${10*k}px;height:${3*k}px;background:#0D192E;border-radius:4px;"></div>`
+    : `<div style="width:${12*k}px;height:${14*k}px;background:#fff;border:${2*k}px solid #0D192E;border-radius:50%;display:flex;align-items:flex-end;justify-content:center;padding-bottom:${1.5*k}px;">
+         <div style="width:${6*k}px;height:${6*k}px;background:#0D192E;border-radius:50%;"></div>
+       </div>
+       <div style="width:${12*k}px;height:${14*k}px;background:#fff;border:${2*k}px solid #0D192E;border-radius:50%;display:flex;align-items:flex-end;justify-content:center;padding-bottom:${1.5*k}px;">
+         <div style="width:${6*k}px;height:${6*k}px;background:#0D192E;border-radius:50%;"></div>
+       </div>`;
+
+  const mulut = ekspresi === 'sedih'
+    ? `<div style="width:${18*k}px;height:${8*k}px;border:${2.5*k}px solid #0D192E;border-bottom:none;border-radius:${16*k}px ${16*k}px 0 0;margin-top:${4*k}px;"></div>`
+    : `<div style="width:${20*k}px;height:${10*k}px;border:${2.5*k}px solid #0D192E;border-top:none;border-radius:0 0 ${20*k}px ${20*k}px;margin-top:${3*k}px;"></div>`;
+
+  return `<div style="width:${w}px;height:${w}px;background:${warna};border:3px solid #0D192E;border-radius:${bentuk};box-shadow:0 ${4*k}px 0 #0D192E;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;" aria-hidden="true">
+    <div style="display:flex;gap:${8*k}px;z-index:2;">${mata}</div>
+    ${mulut}
+    <div style="position:absolute;left:12%;top:54%;width:${11*k}px;height:${7*k}px;background:#E86F8A;border-radius:50%;opacity:.75;"></div>
+    <div style="position:absolute;right:12%;top:54%;width:${11*k}px;height:${7*k}px;background:#E86F8A;border-radius:50%;opacity:.75;"></div>
+  </div>`;
+}
+
+function toast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(el._t);
+  el._t = setTimeout(() => el.classList.remove('show'), 2000);
+}
+
+function konfeti() {
+  const phone = document.getElementById('app-phone');
+  const cols = ['#DF92A3', '#F2C4CE', '#FFFFFF', '#1E3663', '#FFD23F'];
+  for (let i = 0; i < 32; i++) {
+    const c = document.createElement('div');
+    c.className = 'confetti';
+    c.style.left = Math.random() * 100 + '%';
+    c.style.background = cols[i % cols.length];
+    c.style.animationDelay = (Math.random() * 0.35) + 's';
+    phone.appendChild(c);
+    setTimeout(() => c.remove(), 1900);
+  }
+}
+
+/* Audio Sebutan Korea */
+const NAMA_JAMO = {
+  'ㄱ':'기역','ㄴ':'니은','ㄷ':'디귿','ㄹ':'리을','ㅁ':'미음','ㅂ':'비읍','ㅅ':'시옷','ㅇ':'이응',
+  'ㅈ':'지읒','ㅊ':'치읓','ㅋ':'키읔','ㅌ':'티읕','ㅍ':'피읖','ㅎ':'히읗',
+  'ㄲ':'쌍기역','ㄸ':'쌍디귿','ㅃ':'쌍비읍','ㅆ':'쌍시옷','ㅉ':'쌍지읒',
+  'ㅏ':'아','ㅑ':'야','ㅓ':'어','ㅕ':'여','ㅗ':'오','ㅛ':'요','ㅜ':'우','ㅠ':'유','ㅡ':'으','ㅣ':'이',
+  'ㅐ':'애','ㅒ':'얘','ㅔ':'에','ㅖ':'예','ㅘ':'와','ㅙ':'왜','ㅚ':'외','ㅝ':'워','ㅞ':'웨','ㅟ':'위','ㅢ':'의'
+};
+const SLANG_SEBUTAN = {'ㅋㅋㅋ':'크크크','ㅎㅎ':'흐흐','ㅠㅠ':'유유','ㅇㅇ':'응응','ㄱㅅ':'감사','ㅊㅋ':'축하','ㅇㅋ':'오케이'};
+
+/* Ubah teks sahaja (huruf tunggal & teks grammar) supaya enjin suara menyebutnya dengan jelas */
+function sediakanTeksSebutan(txt) {
+  let t = String(txt).trim();
+  if (SLANG_SEBUTAN[t]) return SLANG_SEBUTAN[t];
+  if (/^[ㄱ-ㅣ]+$/.test(t)) {
+    return t.split('').map(c => NAMA_JAMO[c] || c).join(', ');
+  }
+  t = t.replace(/\(으\)ㄹ/g, '을').replace(/\(으\)ㄴ/g, '은').replace(/\(으\)ㅂ/g, '읍')
+       .replace(/\(으\)/g, '으').replace(/ㄴ\/은/g, '은');
+  t = t.replace(/\([A-Za-z][^)]*\)/g, ' ');
+  t = t.replace(/[~+]/g, ' ').replace(/\s*\/\s*/g, ', ');
+  t = t.replace(/\s+/g, ' ').trim();
+  return t || String(txt);
+}
+
+function speakKo(txt) {
+  if (!S.audio) return;
+  try {
+    if (!('speechSynthesis' in window)) {
+      toast('Audio tidak tersedia pada pelayar ini');
+      return;
+    }
+    window.speechSynthesis.cancel();
+    let teks = txt;
+    try { teks = sediakanTeksSebutan(txt); } catch (e) { teks = txt; }
+    const u = new SpeechSynthesisUtterance(teks);
+    u.lang = 'ko-KR';
+    u.rate = 0.9;
+    window.speechSynthesis.speak(u);
+  } catch (e) {
+    toast('Gagal memainkan audio');
+  }
+}
+
+/* Navigasi Skrin */
+const dockScreens = ['scr-home', 'scr-levels', 'scr-words', 'scr-profil'];
+
+function bukaSkim(id) {
+  if (id !== 'scr-quiz') clearTimeout(timerKuiz);
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  const target = document.getElementById(id);
+  if (target) { target.classList.add('active'); target.scrollTop = 0; }
+
+  const sb = document.getElementById('status-bar');
+  const darkTextScreens = ['scr-intro', 'scr-writing', 'scr-words', 'scr-levels', 'scr-conv', 'scr-listen'];
+  sb.className = darkTextScreens.includes(id) ? 'status-bar status-dark' : 'status-bar status-light';
+
+  const dock = document.getElementById('dock');
+  if (dockScreens.includes(id)) {
+    dock.classList.add('show');
+    document.querySelectorAll('.dock-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.tab === id);
+    });
+  } else {
+    dock.classList.remove('show');
+  }
+
+  S.lastScreen = id;
+  saveState();
+  kemasKiniHUD();
+}
+
+function masukApp() {
+  bukaSkim('scr-home');
+  toast('Selamat datang ke Hangul Master!');
+}
+
+function kemasKiniHUD() {
+  document.getElementById('hud-xp').textContent = S.xp + ' XP';
+  document.getElementById('hud-streak').textContent = S.streak + ' Hari';
+  document.getElementById('home-greet').textContent = 'Hai, ' + S.nama.split(' ')[0] + '!';
+}
+
+/* Render Senarai */
+function initRender() {
+  document.getElementById('mascot-hero').innerHTML = buatMaskot(132, 0, '#DF92A3', 'senyum');
+  document.getElementById('mascot-home').innerHTML = buatMaskot(86, 2, '#FFFFFF', 'senyum');
+  document.getElementById('mascot-study').innerHTML = buatMaskot(44, 3, '#F2C4CE', 'senyum');
+  document.getElementById('mascot-profil').innerHTML = buatMaskot(92, 1, '#DF92A3', 'senyum');
+
+  // Jadual Pengenalan
+  document.getElementById('tbl-konsonan').innerHTML = konsonanAsas.map(r =>
+    `<tr><td class="hangul" style="font-size:18px;color:#B84A62;">${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td></tr>`
+  ).join('');
+  document.getElementById('tbl-vokal').innerHTML = vokalAsas.map(r =>
+    `<tr><td class="hangul" style="font-size:18px;color:#B84A62;">${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td></tr>`
+  ).join('');
+
+  // 21 Level
+  renderLevels();
+
+  // Kategori Khas
+  document.getElementById('list-special').innerHTML = specialCategoriesData.map((sc, i) => `
+    <div class="cd1" onclick="bukaModul('special', '${sc.id}')">
+      <div style="display:flex;align-items:center;gap:12px;">
+        ${buatMaskot(48, i, i % 2 === 0 ? '#DF92A3' : '#F2C4CE')}
+        <div>
+          <div style="font-weight:800;font-size:15px;color:var(--nv);">${sc.title}</div>
+          <div style="font-size:12px;font-weight:700;color:#475569;">${sc.items.length} kosa kata · ${sc.desc}</div>
+        </div>
+      </div>
+      <span class="ms">play_circle</span>
+    </div>
+  `).join('');
+
+  // 44 Situasi Perbualan
+  renderConvList(conversationLabData);
+
+  // 20 Grammar Lab
+  document.getElementById('list-grammar').innerHTML = grammarLabData.map((g, i) => `
+    <div class="cd1" onclick="bukaModul('grammar', '${g.id}')">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div style="width:42px;height:42px;border-radius:14px;background:var(--nv);color:var(--dp2);border:3px solid var(--ink);display:flex;align-items:center;justify-content:center;font-family:'Lilita One';font-size:18px;flex-shrink:0;">
+          G${i + 1}
+        </div>
+        <div>
+          <div style="font-weight:800;font-size:15px;color:var(--nv);">${g.title}</div>
+          <div style="font-size:12px;font-weight:700;color:#475569;">${g.desc}</div>
+        </div>
+      </div>
+      <span class="ms">chevron_right</span>
+    </div>
+  `).join('');
+
+  // Bina Gabungan Kamus
+  allWords = [];
+  levelsData.forEach(l => l.items.forEach(it => allWords.push({ ...it, kat: 'Level ' + l.id })));
+  specialCategoriesData.forEach(s => s.items.forEach(it => allWords.push({ ...it, kat: 'Tematik' })));
+  conversationLabData.forEach(c => c.items.forEach(it => allWords.push({ ...it, kat: 'Dialog' })));
+  grammarLabData.forEach(g => g.items.forEach(it => allWords.push({ ...it, kat: 'Grammar' })));
+  const nLvl = levelsData.reduce((a, l) => a + l.items.length, 0);
+  const nConv = conversationLabData.reduce((a, c) => a + c.items.length, 0);
+  document.getElementById('home-cnt-lvl').textContent = nLvl + ' kosa kata';
+  document.getElementById('home-cnt-conv').textContent = nConv + ' ayat';
+}
+
+function renderLevels() {
+  document.getElementById('list-levels').innerHTML = levelsData.map(lvl => {
+    const siap = !!S.selesai['level-' + lvl.id];
+    const siapDengar = !!(S.selesaiDengar && S.selesaiDengar['level-' + lvl.id]);
+    return `
+      <div class="cd1" onclick="bukaModul('level', ${lvl.id})">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div style="width:44px;height:44px;border-radius:50%;background:${siap ? 'var(--hj)' : 'var(--nv)'};color:var(--pt);border:3px solid var(--ink);display:flex;align-items:center;justify-content:center;font-family:'Lilita One';font-size:18px;flex-shrink:0;">
+            ${siap ? '✓' : lvl.id}
+          </div>
+          <div>
+            <div style="font-weight:800;font-size:15px;color:var(--nv);">${lvl.title}</div>
+            <div style="font-size:12px;font-weight:700;color:#475569;">${lvl.items.length} kad · ${lvl.desc}${siapDengar ? ' · 🎧' : ''}</div>
+          </div>
+        </div>
+        <span class="ms" style="color:var(--nv);">chevron_right</span>
+      </div>
+    `;
+  }).join('');
+}
+
+function renderConvList(list) {
+  document.getElementById('list-conv').innerHTML = list.map((cv, i) => `
+    <div class="cd1" onclick="bukaModul('conv', '${cv.id}')">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div style="width:42px;height:42px;border-radius:14px;background:var(--dp2);color:var(--nv);border:3px solid var(--ink);display:flex;align-items:center;justify-content:center;font-family:'Lilita One';font-size:16px;flex-shrink:0;">
+          #${cv.id.replace('cv-', '')}
+        </div>
+        <div>
+          <div style="font-weight:800;font-size:15px;color:var(--nv);">${cv.title}</div>
+          <div style="font-size:12px;font-weight:700;color:#475569;">${cv.items.length} dialog · ${cv.desc}</div>
+        </div>
+      </div>
+      <span class="ms">chevron_right</span>
+    </div>
+  `).join('');
+}
+
+function tapisConv() {
+  const q = document.getElementById('cari-conv').value.toLowerCase();
+  const res = conversationLabData.filter(c => c.title.toLowerCase().includes(q) || c.desc.toLowerCase().includes(q));
+  renderConvList(res);
+}
+
+/* Study / Kad Belajar */
+function bukaModul(jenis, id) {
+  let obj = null;
+  let back = 'scr-home';
+  let badge = '';
+  if (jenis === 'level') {
+    obj = levelsData.find(l => l.id === id);
+    back = 'scr-levels';
+    badge = 'LEVEL ' + id;
+  } else if (jenis === 'special') {
+    obj = specialCategoriesData.find(s => s.id === id);
+    back = 'scr-special';
+    badge = 'KATEGORI KHAS';
+  } else if (jenis === 'conv') {
+    obj = conversationLabData.find(c => c.id === id);
+    back = 'scr-conv';
+    badge = 'PERBUALAN';
+  } else if (jenis === 'grammar') {
+    obj = grammarLabData.find(g => g.id === id);
+    back = 'scr-grammar';
+    badge = 'GRAMMAR LAB';
+  }
+  if (!obj) return;
+  curModul = { key: jenis + '-' + id, data: obj, back, badge };
+  curStudyIdx = 0;
+  paparKadStudy();
+  bukaSkim('scr-study');
+}
+
+function kembaliDariStudy() {
+  bukaSkim(curModul ? curModul.back : 'scr-home');
+}
+
+function paparKadStudy() {
+  const items = curModul.data.items;
+  const it = items[curStudyIdx];
+  document.getElementById('st-badge').textContent = curModul.badge;
+  document.getElementById('st-count').textContent = `${curStudyIdx + 1} / ${items.length}`;
+
+  const em = visualEmojiMap[it.char] ? `<span style="margin-right:8px;">${visualEmojiMap[it.char]}</span>` : '';
+  const chEl = document.getElementById('st-char');
+  chEl.innerHTML = em + it.char;
+  chEl.style.fontSize = it.char.length > 10 ? '24px' : '36px';
+
+  document.getElementById('st-rumi').textContent = it.rumi;
+  document.getElementById('st-desc').textContent = it.desc;
+  document.getElementById('st-stroke').textContent = it.stroke || curModul.data.title;
+
+  document.getElementById('btn-st-prev').disabled = curStudyIdx === 0;
+  document.getElementById('btn-st-next').disabled = curStudyIdx === items.length - 1;
+}
+
+function gerakStudy(dir) {
+  const max = curModul.data.items.length - 1;
+  curStudyIdx = Math.max(0, Math.min(max, curStudyIdx + dir));
+  paparKadStudy();
+}
+
+function bunyiStudy() {
+  speakKo(curModul.data.items[curStudyIdx].char);
+}
+
+/* Kuiz 10 Soalan Rawak */
+function mulaKuiz() {
+  modKuiz = 'biasa';
+  mulaKuizSebenar();
+}
+
+function mulaKuizDengar() {
+  modKuiz = 'dengar';
+  mulaKuizSebenar();
+  // dipanggil terus daripada sentuhan butang, jadi bunyi soalan pertama boleh dimainkan
+  bunyiKuiz();
+}
+
+function teksJawapan(it) {
+  return modKuiz === 'dengar' ? it.desc : `${it.desc} (${it.rumi})`;
+}
+
+function mulaKuizSebenar() {
+  clearTimeout(timerKuiz);
+  const pool = [...curModul.data.items];
+  pool.sort(() => Math.random() - 0.5);
+  curQuiz = pool.slice(0, Math.min(10, pool.length));
+  curQuizIdx = 0;
+  quizNyawa = 3;
+  quizBetul = 0;
+  paparSoalanKuiz();
+  bukaSkim('scr-quiz');
+}
+
+function paparSoalanKuiz() {
+  if (curQuizIdx >= curQuiz.length) {
+    tamatKuiz();
+    return;
+  }
+  pilihOpsi = null;
+  const item = curQuiz[curQuizIdx];
+  document.getElementById('qz-header').textContent = `Soalan ${curQuizIdx + 1}/${curQuiz.length}`;
+  document.getElementById('qz-nyawa').textContent = quizNyawa;
+  document.getElementById('qz-bar').style.width = `${((curQuizIdx + 1) / curQuiz.length) * 100}%`;
+
+  const em = visualEmojiMap[item.char] ? visualEmojiMap[item.char] + ' ' : '';
+  const sEl = document.getElementById('qz-soalan');
+  const arahanEl = document.getElementById('qz-arahan');
+  if (modKuiz === 'dengar') {
+    sEl.textContent = '🔊';
+    sEl.style.fontSize = '48px';
+    sEl.style.cursor = 'pointer';
+    sEl.onclick = bunyiKuiz;
+    arahanEl.textContent = 'Dengar sebutan, pilih maksud yang tepat';
+  } else {
+    sEl.textContent = em + item.char;
+    sEl.style.fontSize = item.char.length > 10 ? '22px' : '32px';
+    sEl.style.cursor = '';
+    sEl.onclick = null;
+    arahanEl.textContent = 'Pilih maksud atau sebutan yang tepat';
+  }
+
+  // Jana 4 pilihan jawapan
+  const jawapanBetul = teksJawapan(item);
+  let pilihan = [jawapanBetul];
+  const sumber = curModul.data.items.length >= 4 ? curModul.data.items : allWords;
+  let cuba = 0;
+  while (pilihan.length < 4 && cuba < 60) {
+    cuba++;
+    const r = sumber[Math.floor(Math.random() * sumber.length)];
+    const teks = teksJawapan(r);
+    if (r.desc === item.desc || r.char === item.char) continue;
+    if (!pilihan.includes(teks)) pilihan.push(teks);
+  }
+  pilihan.sort(() => Math.random() - 0.5);
+
+  const huruf = ['A', 'B', 'C', 'D'];
+  document.getElementById('qz-opsi').innerHTML = pilihan.map((p, idx) => `
+    <button class="opt1" data-val="${p.replace(/"/g, '&quot;')}" onclick="pilihJawapan(this)">
+      <span class="hr">${huruf[idx]}</span>
+      <span>${p}</span>
+    </button>
+  `).join('');
+
+  const btnSemak = document.getElementById('btn-semak');
+  btnSemak.disabled = true;
+  btnSemak.textContent = 'Semak Jawapan';
+}
+
+function pilihJawapan(el) {
+  document.querySelectorAll('#qz-opsi .opt1').forEach(b => b.classList.remove('pilih'));
+  el.classList.add('pilih');
+  pilihOpsi = el.dataset.val;
+  document.getElementById('btn-semak').disabled = false;
+}
+
+function semakJawapan() {
+  if (!pilihOpsi) return;
+  const item = curQuiz[curQuizIdx];
+  const betulTeks = teksJawapan(item);
+  const btns = document.querySelectorAll('#qz-opsi .opt1');
+  btns.forEach(b => b.disabled = true);
+  document.getElementById('btn-semak').disabled = true;
+
+  if (modKuiz === 'dengar') {
+    const sEl = document.getElementById('qz-soalan');
+    sEl.textContent = item.char;
+    sEl.style.fontSize = item.char.length > 10 ? '22px' : '32px';
+    document.getElementById('qz-arahan').textContent = item.rumi;
+  }
+
+  S.jawab++;
+  if (pilihOpsi === betulTeks) {
+    S.benar++;
+    quizBetul++;
+    S.xp += 15;
+    btns.forEach(b => { if (b.dataset.val === betulTeks) b.classList.add('betul'); });
+    toast('Betul! +15 XP 🎉');
+    konfeti();
+  } else {
+    quizNyawa--;
+    btns.forEach(b => {
+      if (b.dataset.val === pilihOpsi) b.classList.add('salah');
+      if (b.dataset.val === betulTeks) b.classList.add('betul');
+    });
+    toast('Kurang tepat! Jawapan ditanda hijau');
+  }
+
+  saveState();
+  kemasKiniHUD();
+
+  clearTimeout(timerKuiz);
+  timerKuiz = setTimeout(() => {
+    if (quizNyawa <= 0) {
+      tamatKuiz(true);
+    } else {
+      curQuizIdx++;
+      paparSoalanKuiz();
+    }
+  }, 1100);
+}
+
+function tamatKuiz(habisNyawa) {
+  const jumlah = curQuiz.length;
+  const lulus = !habisNyawa && quizBetul / jumlah >= 0.6;
+  S.minit += 2;
+  if (lulus) {
+    if (modKuiz === 'dengar') {
+      if (!S.selesaiDengar) S.selesaiDengar = {};
+      S.selesaiDengar[curModul.key] = true;
+    } else {
+      S.selesai[curModul.key] = true;
+    }
+    S.xp += 25;
+    S.minit += 3;
+    konfeti();
+    toast(`${modKuiz === 'dengar' ? 'Kuiz Mendengar Selesai!' : 'Modul Selesai!'} Skor ${quizBetul}/${jumlah} (+25 XP)`);
+  } else if (habisNyawa) {
+    toast(`Nyawa habis! Skor ${quizBetul}/${jumlah}. Cuba lagi!`);
+  } else {
+    toast(`Skor ${quizBetul}/${jumlah}. Perlu 60% untuk lulus, cuba lagi!`);
+  }
+  saveState();
+  renderLevels();
+  bukaSkim(lulus ? curModul.back : 'scr-study');
+}
+
+function bunyiKuiz() {
+  speakKo(curQuiz[curQuizIdx].char);
+}
+
+/* Writing Lab & Kanvas */
+let canvas, ctx, melukis = false;
+
+function bukaWriting() {
+  bukaSkim('scr-writing');
+  const pills = document.getElementById('writing-pills');
+  pills.innerHTML = writingData.map((w, i) => `
+    <button class="tb ${i === curWrIdx ? '' : 'pt'} sm hangul" style="min-width:46px;padding:6px 12px;" onclick="pilihWriting(${i})">${w.char}</button>
+  `).join('');
+  paparWriting();
+  setTimeout(initKanvas, 60);
+}
+
+function pilihWriting(i) {
+  curWrIdx = i;
+  bukaWriting();
+}
+
+function gerakWriting(d) {
+  curWrIdx = (curWrIdx + d + writingData.length) % writingData.length;
+  bukaWriting();
+}
+
+function paparWriting() {
+  const w = writingData[curWrIdx];
+  document.getElementById('wr-rumi').textContent = 'Rumi: ' + w.rumi;
+  document.getElementById('wr-title').textContent = `${w.type}: ${w.char}`;
+  document.getElementById('wr-guide').textContent = w.char;
+  document.getElementById('wr-stroke').textContent = w.stroke;
+  padamKanvas();
+}
+
+function bunyiWriting() {
+  speakKo(writingData[curWrIdx].char);
+}
+
+function initKanvas() {
+  canvas = document.getElementById('draw-canvas');
+  if (!canvas) return;
+  ctx = canvas.getContext('2d');
+  ctx.strokeStyle = '#10203D';
+  ctx.lineWidth = 6;
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+
+  const pos = (e) => {
+    const r = canvas.getBoundingClientRect();
+    const cx = e.touches ? e.touches[0].clientX : e.clientX;
+    const cy = e.touches ? e.touches[0].clientY : e.clientY;
+    return { x: (cx - r.left) * (canvas.width / r.width), y: (cy - r.top) * (canvas.height / r.height) };
+  };
+
+  canvas.onmousedown = (e) => { melukis = true; const p = pos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); };
+  canvas.onmousemove = (e) => { if (!melukis) return; const p = pos(e); ctx.lineTo(p.x, p.y); ctx.stroke(); };
+  canvas.onmouseup = canvas.onmouseleave = () => { melukis = false; };
+
+  canvas.ontouchstart = (e) => { e.preventDefault(); melukis = true; const p = pos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); };
+  canvas.ontouchmove = (e) => { e.preventDefault(); if (!melukis) return; const p = pos(e); ctx.lineTo(p.x, p.y); ctx.stroke(); };
+  canvas.ontouchend = () => { melukis = false; };
+}
+
+function padamKanvas() {
+  if (ctx && canvas) ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
+
+/* Kamus (Words) */
+const KAMUS_SAIZ = 50;
+let kamusUnik = [];
+let kamusSenarai = [];
+let kamusPaparan = 0;
+
+/* Kamus tanpa pendua: perkataan sama digabung, kategori dikumpulkan */
+function binaKamusUnik() {
+  const peta = new Map();
+  allWords.forEach(w => {
+    const kunci = w.char + '|' + w.rumi + '|' + w.desc;
+    if (peta.has(kunci)) {
+      const e = peta.get(kunci);
+      if (!e.kats.includes(w.kat)) e.kats.push(w.kat);
+    } else {
+      peta.set(kunci, { char: w.char, rumi: w.rumi, desc: w.desc, kats: [w.kat] });
+    }
+  });
+  kamusUnik = Array.from(peta.values());
+  document.getElementById('words-total').textContent = kamusUnik.length + ' Item';
+}
+
+function bukaKamus() {
+  bukaSkim('scr-words');
+  if (!kamusUnik.length) binaKamusUnik();
+  tapisKata();
+}
+
+function paparKamus(list) {
+  kamusSenarai = list;
+  kamusPaparan = 0;
+  document.getElementById('list-words').innerHTML = '';
+  muatKamus();
+}
+
+function muatKamus() {
+  const bahagian = kamusSenarai.slice(kamusPaparan, kamusPaparan + KAMUS_SAIZ);
+  const html = bahagian.map(w => {
+    const em = visualEmojiMap[w.char] ? visualEmojiMap[w.char] + ' ' : '';
+    return `
+      <div class="kt" style="padding:12px 14px;display:flex;justify-content:space-between;align-items:center;gap:10px;">
+        <div>
+          <div class="hangul" style="font-size:20px;font-weight:900;color:var(--nv);">${em}${w.char}</div>
+          <div style="font-size:13px;font-weight:800;color:#B84A62;">${w.rumi} · <span style="color:#334155;">${w.desc}</span></div>
+          <div class="mn" style="font-size:10px;color:#64748B;margin-top:2px;">${w.kats.join(' · ')}</div>
+        </div>
+        <button class="rb nv" style="width:40px;height:40px;" onclick="speakKo('${w.char.replace(/'/g, "\\'")}')" aria-label="Dengar"><span class="ms" style="font-size:20px;">volume_up</span></button>
+      </div>
+    `;
+  }).join('');
+  document.getElementById('list-words').insertAdjacentHTML('beforeend', html);
+  kamusPaparan += bahagian.length;
+
+  const info = document.getElementById('kamus-info');
+  const btn = document.getElementById('btn-kamus-lagi');
+  if (!kamusSenarai.length) {
+    info.textContent = 'Tiada hasil dijumpai';
+  } else {
+    info.textContent = `Menunjukkan ${kamusPaparan} daripada ${kamusSenarai.length}`;
+  }
+  const baki = kamusSenarai.length - kamusPaparan;
+  btn.style.display = baki > 0 ? 'inline-flex' : 'none';
+  btn.textContent = baki > 0 ? `Papar lagi (${Math.min(KAMUS_SAIZ, baki)} daripada ${baki} baki)` : '';
+}
+
+function tapisKata() {
+  if (!kamusUnik.length) binaKamusUnik();
+  const q = document.getElementById('cari-kata').value.trim().toLowerCase();
+  if (!q) {
+    paparKamus(kamusUnik);
+    return;
+  }
+  paparKamus(kamusUnik.filter(w =>
+    w.char.toLowerCase().includes(q) ||
+    w.rumi.toLowerCase().includes(q) ||
+    w.desc.toLowerCase().includes(q) ||
+    w.kats.some(k => k.toLowerCase().includes(q))
+  ));
+}
+
+/* Listen Mode */
+function bukaListen() {
+  curLsIdx = 0;
+  bukaSkim('scr-listen');
+  paparListen();
+}
+
+function paparListen() {
+  const it = allWords[curLsIdx];
+  document.getElementById('ls-count').textContent = `${curLsIdx + 1} / ${allWords.length}`;
+  document.getElementById('ls-char').textContent = it.char;
+  document.getElementById('ls-rumi').textContent = it.rumi;
+  document.getElementById('ls-desc').textContent = it.desc;
+}
+
+function gerakListen(d) {
+  curLsIdx = (curLsIdx + d + allWords.length) % allWords.length;
+  paparListen();
+}
+
+function bunyiListen() {
+  speakKo(allWords[curLsIdx].char);
+}
+
+/* Profil & Tetapan */
+function bukaProfil() {
+  bukaSkim('scr-profil');
+  document.getElementById('pf-nama').textContent = S.nama;
+  document.getElementById('pf-xp').textContent = S.xp + ' XP';
+  document.getElementById('pf-minit').textContent = S.minit + ' Minit Belajar';
+  document.getElementById('pf-selesai').textContent = Object.keys(S.selesai).length;
+  const tepat = S.jawab > 0 ? Math.round((S.benar / S.jawab) * 100) : 0;
+  document.getElementById('pf-tepat').textContent = tepat + '%';
+
+  const sw = document.getElementById('suis-audio');
+  sw.classList.toggle('on', S.audio);
+  sw.setAttribute('aria-checked', S.audio);
+}
+
+function tukarNama() {
+  const baru = prompt('Masukkan nama anda:', S.nama);
+  if (baru && baru.trim()) {
+    S.nama = baru.trim().slice(0, 24);
+    saveState();
+    bukaProfil();
+    kemasKiniHUD();
+    toast('Nama dikemas kini');
+  }
+}
+
+function togolAudio() {
+  S.audio = !S.audio;
+  saveState();
+  bukaProfil();
+  toast(S.audio ? 'Audio diaktifkan' : 'Audio dimatikan');
+}
+
+function resetKemajuan() {
+  if (confirm('Padam semua kemajuan dan kembali ke skrin permulaan?')) {
+    S = Object.assign({}, defaultState);
+    kemasKiniStreak();
+    saveState();
+    renderLevels();
+    bukaSkim('scr-onboard');
+    toast('Kemajuan telah diset semula');
+  }
+}
+
+/* Jam Status Bar */
+function kemasKiniJam() {
+  const d = new Date();
+  const h = d.getHours();
+  const m = String(d.getMinutes()).padStart(2, '0');
+  document.getElementById('jam-hud').textContent = `${h}:${m}`;
+}
+
+const skrinSelamat = ['scr-onboard', 'scr-home', 'scr-intro', 'scr-levels', 'scr-special', 'scr-conv', 'scr-grammar', 'scr-words', 'scr-profil'];
+
+window.addEventListener('DOMContentLoaded', () => {
+  initRender();
+  kemasKiniJam();
+  setInterval(kemasKiniJam, 20000);
+  kemasKiniStreak();
+  let mula = S.lastScreen || 'scr-onboard';
+  if (!skrinSelamat.includes(mula)) mula = 'scr-home';
+  if (mula === 'scr-words') { bukaKamus(); }
+  else if (mula === 'scr-profil') { bukaProfil(); }
+  else { bukaSkim(mula); }
+});
+</script>
 </body>
 </html>
